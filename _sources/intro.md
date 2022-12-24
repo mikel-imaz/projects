@@ -5,7 +5,7 @@ Thanks for checking them out!
 
 
 
-::::{grid} 2 3 3 3
+::::{grid} 2 2 3 3
 :gutter: 3
 
 :::{grid-item-card} The Ignatian Way
@@ -14,15 +14,13 @@ Thanks for checking them out!
 :img-bottom: img/P1580313_short.jpg
 :::
 
-:::{grid-item-card} Bread Price Comparison
-:link: bread-price-comparison
+:::{grid-item-card} Bread Prices
+:link: bread-prices
 :link-type: ref
 :img-bottom: img/udana.jpg
 :::
 
-:::{grid-item-card} Urban Tree Species
-:link: urban-tree-species
-:link-type: ref
+:::{grid-item-card}
 :::
 ::::
 

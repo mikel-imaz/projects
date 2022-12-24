@@ -386,8 +386,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spain-s-numbers-by-group-type">
-     Spain’s numbers by group type
+    <a class="reference internal nav-link" href="#spanish-numbers-by-group-type">
+     Spanish numbers by group type
     </a>
    </li>
   </ul>
@@ -398,8 +398,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-trend">
-     Build trend
+    <a class="reference internal nav-link" href="#build-monthly-trend-line">
+     Build monthly trend line
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -479,8 +479,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spain-s-numbers-by-group-type">
-     Spain’s numbers by group type
+    <a class="reference internal nav-link" href="#spanish-numbers-by-group-type">
+     Spanish numbers by group type
     </a>
    </li>
   </ul>
@@ -491,8 +491,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-trend">
-     Build trend
+    <a class="reference internal nav-link" href="#build-monthly-trend-line">
+     Build monthly trend line
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -544,7 +544,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="c1"># Import the data</span>
+<span class="c1"># Read the data</span>
 <span class="n">ignatian</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/ignatian.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ignatian</span><span class="p">)</span>
 </pre></div>
@@ -576,9 +576,8 @@ date
 <p>In <code class="docutils literal notranslate"><span class="pre">type</span></code> column, some records contain the value <code class="docutils literal notranslate"><span class="pre">info</span></code>, meaning the record was not about actual pilgrims but instead related to people asking for information about the Ignatian Way.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show &quot;info&quot; type entries</span>
-<span class="n">ignatian_info</span> <span class="o">=</span> <span class="n">ignatian</span><span class="p">[</span><span class="n">ignatian</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;info&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ignatian_info</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print &quot;info&quot; type entries</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ignatian</span><span class="p">[</span><span class="n">ignatian</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;info&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -616,10 +615,10 @@ date
 </div>
 </div>
 </div>
-<p>I therefore drop this <code class="docutils literal notranslate"><span class="pre">info</span></code> entries to proceed with the exploratory analysis.</p>
+<p>I therefore leave out these <code class="docutils literal notranslate"><span class="pre">info</span></code> entries to proceed with the exploratory analysis.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove &quot;info&quot; type entries</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get rid of &quot;info&quot; type records</span>
 <span class="n">ignatian</span> <span class="o">=</span> <span class="n">ignatian</span><span class="p">[</span><span class="n">ignatian</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;info&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -632,19 +631,19 @@ date
 <h3>Absolute numbers per year<a class="headerlink" href="#absolute-numbers-per-year" title="Permalink to this headline">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by years and add pax numbers</span>
-<span class="n">ignatian_years</span> <span class="o">=</span> <span class="n">ignatian</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ignatian</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by years and sum pax numbers</span>
+<span class="n">ignatian_yearly</span> <span class="o">=</span> <span class="n">ignatian</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ignatian</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">ignatian_years</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">ignatian_yearly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2"> Absolute pilgrim numbers per year&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Absolute pilgrim numbers&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
@@ -660,17 +659,14 @@ date
 </section>
 <section id="average-pilgrims-per-month">
 <h3>Average pilgrims per month<a class="headerlink" href="#average-pilgrims-per-month" title="Permalink to this headline">#</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To calculate mean values per month, 2020-pandemic year was skipped to avoid distorting average results. Neither were 2016, 2017 and 2018 considered, because data of these years came summarized and was not month-related.</p>
-</div>
+<p>In order to calculate average numbers per month, 2020-pandemic year was skipped to avoid distorting results. Neither were 2016, 2017 and 2018 considered, because data of these years came aggregated and was not month-related.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get values from 2019, 2021, 2022</span>
 <span class="n">ignatian_19_21_22</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ignatian</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2019&quot;</span><span class="p">],</span> <span class="n">ignatian</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2021&quot;</span><span class="p">],</span> <span class="n">ignatian</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2022&quot;</span><span class="p">]])</span>
 
-<span class="c1"># Group by months and add pax numbers, divide by the number of years considered: 3</span>
-<span class="n">ignatian_monthly_avg</span> <span class="o">=</span> <span class="n">ignatian_19_21_22</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ignatian_19_21_22</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="c1"># Group by months and sum pax numbers, divide by the number of years considered: 3</span>
+<span class="n">ignatian_monthly_avg</span> <span class="o">=</span> <span class="n">ignatian_19_21_22</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ignatian_19_21_22</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -681,7 +677,7 @@ date
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2">Monthly average pilgrims from 2019, 2021 and 2022&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Monthly average (2019, 2021, 2022)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
@@ -697,15 +693,19 @@ date
 </section>
 <section id="international-proportion">
 <h3>International proportion<a class="headerlink" href="#international-proportion" title="Permalink to this headline">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the rest of the study only records from 2019 onwards will be considered.</p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Consider 2019 onwards because this is the data to be considered for the rest of the study</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Consider only from 2019 onwards</span>
 <span class="n">ignatian_19_20_21_22</span> <span class="o">=</span> <span class="n">ignatian</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2019-01-31&quot;</span><span class="p">:]</span>
 
-<span class="c1"># Calculate how many Spaniards came</span>
+<span class="c1"># Calculate spanish pilgrims</span>
 <span class="n">spanish</span> <span class="o">=</span> <span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Spain&quot;</span><span class="p">][</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="c1"># Calculate how many foreigners came</span>
+<span class="c1"># Calculate foreign pilgrims</span>
 <span class="n">foreign</span> <span class="o">=</span> <span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Spain&quot;</span><span class="p">][</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
@@ -726,14 +726,14 @@ date
        <span class="n">textprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">},</span>
       <span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2">2019+2020+2021+2022&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;International proportion</span><span class="se">\n</span><span class="s2">(2019+2020+2021+2022)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_18_0.png" src="_images/ignatian_18_0.png" />
+<img alt="_images/ignatian_19_0.png" src="_images/ignatian_19_0.png" />
 </div>
 </div>
 </section>
@@ -751,7 +751,7 @@ date
 <span class="c1"># Create a new column with the group type assigned to the bin according to pax</span>
 <span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;pax&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">group_labels</span><span class="p">)</span>
 
-<span class="c1"># Group by &quot;group&quot; and add pax numbers</span>
+<span class="c1"># Group by &quot;group&quot; and sum pax numbers</span>
 <span class="n">groups</span> <span class="o">=</span> <span class="n">ignatian_19_20_21_22</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
@@ -765,7 +765,7 @@ date
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2">How they travellled in 2019+2020+2021+2022&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;How pilgrims travelled</span><span class="se">\n</span><span class="s2">(2019+2020+2021+2022)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
@@ -775,47 +775,37 @@ date
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_20_0.png" src="_images/ignatian_20_0.png" />
+<img alt="_images/ignatian_21_0.png" src="_images/ignatian_21_0.png" />
 </div>
 </div>
 <p>It appears that the Ignatian Way has a majority of pilgrims coming in large groups.</p>
 </section>
 <section id="international-numbers-by-group-type">
 <h3>International numbers by group type<a class="headerlink" href="#international-numbers-by-group-type" title="Permalink to this headline">#</a></h3>
-<p>Let’s see where the pilgrims came from. I have done the study from 2019 onwards, because in 2016-17-18 some of the data is summarized without specifying the country.</p>
-<p>First I will compute the origins excluding the Spanish pilgrims.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exclude Spain and group by origin and group-type, adding pax numbers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exclude Spain and group by origin and group-type, summing pax numbers</span>
 <span class="n">abroad_groups</span> <span class="o">=</span> <span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Spain&quot;</span><span class="p">]</span>\
-                <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;group&quot;</span><span class="p">])[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">abroad_groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">abroad_groups</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;group&quot;</span><span class="p">])[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 
-<span class="c1"># Unstack inner level of index to a wide format table</span>
+<span class="c1"># Unstack inner level of index, then sum column values to a new column &quot;total&quot;</span>
 <span class="n">abroad_groups_wide</span> <span class="o">=</span> <span class="n">abroad_groups</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-<span class="n">abroad_groups_wide</span>
-
-<span class="c1"># Create a new column &quot;total&quot; with the sum of the pax by group type</span>
 <span class="n">abroad_groups_wide</span><span class="p">[(</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">abroad_groups_wide</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">abroad_groups_wide</span>
 
-<span class="c1"># Sort values by the &quot;total&quot; column, then drop this column</span>
+<span class="c1"># Sort values by the &quot;total&quot; column</span>
 <span class="n">abroad_groups_wide_sorted</span> <span class="o">=</span> <span class="n">abroad_groups_wide</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">))</span>
-<span class="n">abroad_groups_wide_sorted_desc</span> <span class="o">=</span> <span class="n">abroad_groups_wide</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">abroad_groups_wide_sorted</span> <span class="o">=</span> <span class="n">abroad_groups_wide_sorted</span><span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">abroad_groups_wide_sorted_desc</span> <span class="o">=</span> <span class="n">abroad_groups_wide_sorted_desc</span><span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">11.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-<span class="n">abroad_groups_wide_sorted</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">)</span>
+<span class="n">abroad_groups_wide_sorted</span><span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2">2019+2020+2021+2022 (Spain not included)&quot;</span><span class="p">,</span>
-             <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola:</span><span class="se">\n</span><span class="s2">2019+2020+2021+2022 (Spain not included)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Solo&quot;</span><span class="p">,</span> <span class="s2">&quot;Couples&quot;</span><span class="p">,</span> <span class="s2">&quot;Small groups&quot;</span><span class="p">,</span> <span class="s2">&quot;Large groups&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
@@ -826,29 +816,35 @@ date
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_23_0.png" src="_images/ignatian_23_0.png" />
+<img alt="_images/ignatian_24_0.png" src="_images/ignatian_24_0.png" />
 </div>
 </div>
-<p>Not surpisingly, neighbouring French pilgrims come first in the list. What was more surprising was the relative amount of people from the Czech Republic, the Philippines or Singapore. We learn from this stacked bar chart that these came mainly in large groups, maybe organized by Jesuit communities.</p>
-<p>I select some significant countries on a point plot for a comparison between them.</p>
+<p>Not surpisingly, neighbouring French pilgrims come first in the list. What was more surprising was the relative amount of people from the Czech Republic, the Philippines or Singapore. We learn from this stacked bar chart that these nationals came mainly in large groups, maybe organized by Jesuit communities.</p>
+<p>I select some significant countries and put them on a point plot for a more clear comparison.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selection of the countries to compare</span>
 <span class="n">countries_selected</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+
+<span class="c1"># Sort in descending order for the sake of the plot</span>
+<span class="n">abroad_groups_wide_sorted_desc</span> <span class="o">=</span> <span class="n">abroad_groups_wide</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+                                <span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Stack, reset index and filter the countries considered</span>
 <span class="n">abroad_groups_</span> <span class="o">=</span> <span class="n">abroad_groups_wide_sorted_desc</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">abroad_groups__</span> <span class="o">=</span> <span class="n">abroad_groups_</span><span class="p">[</span><span class="n">abroad_groups_</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">countries_selected</span><span class="p">)]</span>
+<span class="n">abroad_groups_sel</span> <span class="o">=</span> <span class="n">abroad_groups_</span><span class="p">[</span><span class="n">abroad_groups_</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">countries_selected</span><span class="p">)]</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">abroad_groups__</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">abroad_groups_sel</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
               <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Country comparison&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -860,34 +856,31 @@ date
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_25_0.png" src="_images/ignatian_25_0.png" />
+<img alt="_images/ignatian_26_0.png" src="_images/ignatian_26_0.png" />
 </div>
 </div>
 </section>
-<section id="spain-s-numbers-by-group-type">
-<h3>Spain’s numbers by group type<a class="headerlink" href="#spain-s-numbers-by-group-type" title="Permalink to this headline">#</a></h3>
-<p>Spanish pilgrims amount to the majority and also have some more specific informartion about their origins in the column called <code class="docutils literal notranslate"><span class="pre">region</span></code>.</p>
+<section id="spanish-numbers-by-group-type">
+<h3>Spanish numbers by group type<a class="headerlink" href="#spanish-numbers-by-group-type" title="Permalink to this headline">#</a></h3>
+<p>Spanish pilgrims have some more specific informartion about their origins in the field called <code class="docutils literal notranslate"><span class="pre">region</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take Spain and group by its regions and group-type, adding pax numbers</span>
 <span class="n">spain_groups</span> <span class="o">=</span> <span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="n">ignatian_19_20_21_22</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Spain&quot;</span><span class="p">]</span>\
-                <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;group&quot;</span><span class="p">])[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">spain_groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">spain_groups</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;group&quot;</span><span class="p">])[</span><span class="s2">&quot;pax&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 
-<span class="c1"># Unstack inner level of index to a wide format table</span>
+<span class="c1"># Unstack inner level of index, then sum column values to a new column &quot;total&quot;</span>
 <span class="n">spain_groups_wide</span> <span class="o">=</span> <span class="n">spain_groups</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
-
-<span class="c1"># Create a new column &quot;total&quot; with the sum of the pax by group type</span>
 <span class="n">spain_groups_wide</span><span class="p">[(</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">spain_groups_wide</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Sort values by the &quot;total&quot; column, then drop this column</span>
-<span class="n">spain_groups_wide_sorted</span> <span class="o">=</span> <span class="n">spain_groups_wide</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">))</span>\
-                            <span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">spain_groups_wide_sorted</span> <span class="o">=</span> <span class="n">spain_groups_wide</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">))</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">11.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-<span class="n">spain_groups_wide_sorted</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">)</span>
+<span class="n">spain_groups_wide_sorted</span><span class="o">.</span><span class="n">drop</span><span class="p">((</span><span class="s2">&quot;pax&quot;</span><span class="p">,</span> <span class="s2">&quot;total&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_ign</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -905,21 +898,17 @@ date
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_27_0.png" src="_images/ignatian_27_0.png" />
+<img alt="_images/ignatian_28_0.png" src="_images/ignatian_28_0.png" />
 </div>
 </div>
-<p>Pilgrims from the Basque Country come first, followed by Catalans and the people from Madrid.</p>
+<p>Pilgrims from the Basque Country come first, followed by Catalans and the people from Madrid. However, we can see that there is some inconsistency in the way data was recorded, since region, province and town names all mix up in this <code class="docutils literal notranslate"><span class="pre">region</span></code> field.</p>
 </section>
 </section>
 <section id="forecast">
 <h2>Forecast<a class="headerlink" href="#forecast" title="Permalink to this headline">#</a></h2>
-<section id="build-trend">
-<h3>Build trend<a class="headerlink" href="#build-trend" title="Permalink to this headline">#</a></h3>
-<p>First, I prepare a data frame to show monthly figures (one entry per month with the sum of PAX numbers).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Because of the data format already mentioned, I must consider from 2019 onwards. But 2020 (the Covid-19 pandemic year) was not a normal one so I am not taking it into account for prediction purposes. However, to build the trend to forecast, as it is still a useful information, I have shifted the data from 2019 into a fictional 2020.</p>
-</div>
+<section id="build-monthly-trend-line">
+<h3>Build monthly trend line<a class="headerlink" href="#build-monthly-trend-line" title="Permalink to this headline">#</a></h3>
+<p>As 2020 (the Covid-19 pandemic year) was not a normal one, I am not taking it into account for prediction purposes. However, to build the trend line and later proceed with the forecast, as it is still a useful information, I have shifted the data from 2019 into a supposed 2020.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2019-----------------------------------</span>
@@ -977,14 +966,13 @@ date
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_31_0.png" src="_images/ignatian_31_0.png" />
+<img alt="_images/ignatian_32_0.png" src="_images/ignatian_32_0.png" />
 </div>
 </div>
 </section>
 <section id="forecasting">
 <h3>Forecasting<a class="headerlink" href="#forecasting" title="Permalink to this headline">#</a></h3>
-<p>I run the <em>Augmented Dicky-Fuller</em> test to see if the trend is stationary.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statsmodels and other packages</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
@@ -992,7 +980,7 @@ date
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
 <span class="kn">import</span> <span class="nn">pmdarima</span> <span class="k">as</span> <span class="nn">pm</span>
 
-<span class="c1"># Run augmented dicky-fuller test function</span>
+<span class="c1"># Run the Augmented Dicky-Fuller test</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ignatian_trend</span><span class="p">)</span>
 <span class="n">result</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test statistics: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1007,9 +995,8 @@ p-value: 0.00
 </div>
 </div>
 </div>
-<p>It looks like it is stationary, i.e. has no statistically significant trend: that means the number of pilgrims during the last years has not changed substancially and there is no apparent trend either upwards nor downwards.</p>
-<p>Let’s learn about its seasonality with the autocorrelation function.</p>
-<div class="cell tag_hide-input docutils container">
+<p>It looks like the time series is stationary (has no statistically significant trend): that means the number of pilgrims during the last years has not changed substancially and there is no apparent trend either upwards nor downwards.</p>
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the ACF (AutoCorrelation Function)</span>
 <span class="n">plot_acf</span><span class="p">(</span><span class="n">ignatian_trend</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1020,11 +1007,10 @@ p-value: 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_35_0.png" src="_images/ignatian_35_0.png" />
+<img alt="_images/ignatian_36_0.png" src="_images/ignatian_36_0.png" />
 </div>
 </div>
-<p>As expected, it shows a 12 month seasonality!</p>
-<p>A SARIMA (Seasonal ARIMA) model has to be selected and that for I automate the process of calculating the model parameters using the appropriate module and narrowing the search to seasonal 12 lags.</p>
+<p>As expected, we have a 12 month seasonality in the data.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Calculate SARIMA model parameters</span>
@@ -1040,8 +1026,7 @@ p-value: 0.00
 </div>
 </div>
 </div>
-<p>This resulted in a set of best model parameters, which I feed into the SARIMA model to forecast the numbers in 2023.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
 <span class="c1"># Create a SARIMA model</span>
@@ -1055,19 +1040,19 @@ p-value: 0.00
 </div>
 </div>
 </div>
-<p>Model diagnostics plots are shown below.</p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot common diagnostics</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot selected model diagnostics</span>
 <span class="n">results</span><span class="o">.</span><span class="n">plot_diagnostics</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ignatian_41_0.png" src="_images/ignatian_41_0.png" />
+<img alt="_images/ignatian_40_0.png" src="_images/ignatian_40_0.png" />
 </div>
 </div>
+<p>The selected model diagnostics shows that the model had very few data during training, but the errors it made look like the model is acceptable.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create forecast object</span>
@@ -1095,7 +1080,7 @@ p-value: 0.00
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Ignatian Way from Loyola: Forecast&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Forecast with confidence intervals&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PAX&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-12-31&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
@@ -1112,7 +1097,6 @@ p-value: 0.00
 <img alt="_images/ignatian_42_0.png" src="_images/ignatian_42_0.png" />
 </div>
 </div>
-<p>(Besides the forecast, note the confidence intervals shown with shading.)</p>
 <p>These are the predicted figures for each month in 2023:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
