@@ -8,8 +8,8 @@ Thanks for checking them out!
 ::::{grid} 2 2 3 3
 :gutter: 3
 
-:::{grid-item-card} The Ignatian Way
-:link: the-ignatian-way
+:::{grid-item-card} Ignatian Way
+:link: ignatian-way
 :link-type: ref
 :img-bottom: img/P1580313_short.jpg
 :::
