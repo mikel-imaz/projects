@@ -1,6 +1,6 @@
 # Welcome!
 
-Here you will find some of my data projects written in Python.  
+Here you will find some of my data projects.  
 Thanks for checking them out!
 
 

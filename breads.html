@@ -371,6 +371,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -426,6 +431,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
  </li>
 </ul>
 
@@ -522,7 +532,7 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Breads by origin&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Breads by type&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;# of breads&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -536,11 +546,11 @@ title="Print to PDF"
 <img alt="_images/breads_9_0.png" src="_images/breads_9_0.png" />
 </div>
 </div>
-<p>This is the distribution by type of the total number of breads considered in this study. The imbalance loosely reflects the difference in existing bread sizes for each type (store breads are normally small baguettes, while in the market breads span from large loaves to small buns).</p>
+<p>This is the number of breads considered. The slight imbalance by <code class="docutils literal notranslate"><span class="pre">type</span></code> is just arbitrary but it also loosely reflects a difference in the range of bread sizes available in each place (and therefore the need to buy more or less of them to cover the whole weight spectrum). Store breads are normally small baguettes, while in the market breads span from large loaves to small buns.</p>
 </section>
 <section id="best-price-chart">
 <h3>Best price chart<a class="headerlink" href="#best-price-chart" title="Permalink to this headline">#</a></h3>
-<p>The first thing I wanted to know right away was the cheapest bread of all per weight unit (kilogram).</p>
+<p>The first thing I wanted to discover right away was the cheapest bread of all per weight unit (per kilogram).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add column with bread price per kg</span>
@@ -568,7 +578,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>As we can see, the top-10 list is populated with store breads mainly (lightweights), but there are also weighty market breads.</p>
+<p>We can see that this top-10 list is populated with lightweight store breads mainly, but there are also weighty market breads.</p>
+<p>To compare breads, as some of them are recorded more than once, the next chart aggregates them calculating average values and confidence intervals.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
@@ -596,7 +607,7 @@ title="Print to PDF"
 <img alt="_images/breads_14_0.png" src="_images/breads_14_0.png" />
 </div>
 </div>
-<p>This bar plot shows all breads but without repeating them, i.e. calculating average values for same bread names. Different colours should be helpful to gain insight about the price distribution. However, we are mixing small bread units with large ones in this chart, surely not the best way to make a comparison.</p>
+<p>The problem with this chart is that all bread sizes are considered together.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
@@ -628,7 +639,7 @@ title="Print to PDF"
 </section>
 <section id="cluster-sizes">
 <h3>Cluster sizes<a class="headerlink" href="#cluster-sizes" title="Permalink to this headline">#</a></h3>
-<p>As with clothing, I decided to establish 5 size groups:</p>
+<p>I decided to establish 5 size groups:</p>
 <ul class="simple">
 <li><p>“XS” (eXtra Small)</p></li>
 <li><p>“S” (Small)</p></li>
@@ -637,7 +648,7 @@ title="Print to PDF"
 <li><p>“XL” (eXtra Large)</p></li>
 </ul>
 <p>And instead of defining the boundaries myself and placing each bread in its corresponding group,
-I had a k-means clustering model work for me to find these clusters in the data.</p>
+I had a <strong>k-means</strong> clustering model work for me to find these clusters in the data.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Scikit-learn package</span>
@@ -713,9 +724,10 @@ I had a k-means clustering model work for me to find these clusters in the data.
 </section>
 <section id="price-comparison">
 <h3>Price comparison<a class="headerlink" href="#price-comparison" title="Permalink to this headline">#</a></h3>
+<p>In the following visualizations we can compare properly bread prices within the corresponding size group.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy()???</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate for each size group</span>
 <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">breads</span><span class="p">[</span><span class="n">breads</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">size</span><span class="p">]</span>
 
@@ -769,6 +781,7 @@ I had a k-means clustering model work for me to find these clusters in the data.
 <img alt="_images/breads_22_4.png" src="_images/breads_22_4.png" />
 </div>
 </div>
+<p>Results can be condensed in the final plot below.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
@@ -792,12 +805,17 @@ I had a k-means clustering model work for me to find these clusters in the data.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/breads_23_0.png" src="_images/breads_23_0.png" />
+<img alt="_images/breads_24_0.png" src="_images/breads_24_0.png" />
 </div>
 </div>
-<p>The bar plots above show the mean prices per kilogram, per size and type. As there are multiple observations in each category, the Seaborn function uses bootstrapping to compute a confidence interval around the estimate, which is plotted using error bars. Therefore we can do a simple <em>visual statistical test</em> to asses whether prices are significantly different. If error bars do not overlap, there is a statistically significant difference in the prices, i.e. we know that the p-value is less than 0.05 just by looking at the picture.</p>
-<p>Error bars indicate 95% confidence intervals, so whenever there is an overlapping we cannot conclude a significant difference.</p>
+<p>The graph shows mean prices per kilogram, per size group and type. As there are multiple observations in each category, bootstrapping was used to compute a confidence interval around the estimate (using error bars). Therefore we can do a simple <em>visual statistical test</em> to asses whether prices are significantly different.</p>
+<p>If error bars (95% confidence intervals) do not overlap, there is a statistically significant difference in the prices, i.e. we know that the p-value is less than 0.05 just by looking at the picture. If there is an overlapping we can not conclude a clear difference in prices.</p>
 </section>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<p>In this little study some insights about bread prices were uncovered based on the data. We can see that bakery breads are generally more expensive, and that market prices are not comparatively high, quite the contrary. We could expect to have better weight unit prices as bread sizes increase, but that is not always the case, especially in store breads, where it seems they use very small baguettes probably to lure in customers. Bakery breads do follow this bigger-cheaper trend, and so do market breads, but more erratically in this case.</p>
+<p>Of course nothing was considered in this study about bread quality, daily availability and personal taste and preferences, which in the end may account more than just the prices I have been studying about.</p>
 </section>
 </section>
 
