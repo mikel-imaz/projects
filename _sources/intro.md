@@ -20,7 +20,10 @@ Thanks for checking them out!
 :img-bottom: img/udana.jpg
 :::
 
-:::{grid-item-card}
+:::{grid-item-card} Urban Trees
+:link: urban-trees
+:link-type: ref
+:img-bottom: img/urban_trees.jpg
 :::
 ::::
 
