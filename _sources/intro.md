@@ -25,7 +25,13 @@ Thanks for checking them out!
 :link-type: ref
 :img-bottom: img/urban_trees.jpg
 :::
+
+:::{grid-item-card} Traffic Fines
+:link: traffic-fines
+:link-type: ref
+:::
 ::::
 
 ---
-You can also visit my [datacamp](https://www.datacamp.com/profile/mikel-imaz) profile for more projects.
+Here is also my [datacamp](https://www.datacamp.com/profile/mikel-imaz) profile for more projects.
+And my [LinkedIn](https://www.linkedin.com/in/mikel-imaz/) profile.
