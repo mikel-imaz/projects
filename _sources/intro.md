@@ -1,7 +1,6 @@
-# Welcome!
+# Data Projects
 
-Here you will find some of my data projects.  
-Thanks for checking them out!
+**By [Mikel Imaz](https://www.linkedin.com/in/mikel-imaz/)**
 
 
 
@@ -29,9 +28,12 @@ Thanks for checking them out!
 :::{grid-item-card} Traffic Fines
 :link: traffic-fines
 :link-type: ref
+:img-bottom: img/traffic_fines.jpg
 :::
 ::::
 
 ---
-Here is also my [datacamp](https://www.datacamp.com/profile/mikel-imaz) profile for more projects.
-And my [LinkedIn](https://www.linkedin.com/in/mikel-imaz/) profile.
+
+
+[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![LinkedIn](img/logo_IN.png)](https://www.linkedin.com/in/mikel-imaz/)
