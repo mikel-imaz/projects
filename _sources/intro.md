@@ -33,7 +33,7 @@
 ::::
 
 ---
-
-
-[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;  
+[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz)  
+&nbsp;  
 [![LinkedIn](img/logo_IN.png)](https://www.linkedin.com/in/mikel-imaz/)
