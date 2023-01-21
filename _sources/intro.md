@@ -8,27 +8,27 @@
 :gutter: 3
 
 :::{grid-item-card} Ignatian Way
-:link: ignatian-way
-:link-type: ref
-:img-bottom: img/P1580313_short.jpg
+:link: notebooks/ignatian
+:link-type: doc
+:img-bottom: notebooks/img/P1580313_short.jpg
 :::
 
 :::{grid-item-card} Bread Prices
-:link: bread-prices
-:link-type: ref
-:img-bottom: img/udana.jpg
+:link: notebooks/breads
+:link-type: doc
+:img-bottom: notebooks/img/udana.jpg
 :::
 
 :::{grid-item-card} Urban Trees
-:link: urban-trees
-:link-type: ref
-:img-bottom: img/urban_trees.jpg
+:link: notebooks/urban_trees
+:link-type: doc
+:img-bottom: notebooks/img/urban_trees.jpg
 :::
 
 :::{grid-item-card} Traffic Fines
-:link: traffic-fines
-:link-type: ref
-:img-bottom: img/traffic_fines.jpg
+:link: notebooks/traffic_fines
+:link-type: doc
+:img-bottom: notebooks/img/traffic_fines.jpg
 :::
 ::::
 
