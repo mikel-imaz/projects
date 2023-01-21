@@ -1,3 +1,3 @@
-Jupyter Book with Data Projects  
-&nbsp;
+**Data Projects**
+---
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://jupyterbook.org/)
