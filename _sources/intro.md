@@ -34,6 +34,5 @@
 
 ---
 &nbsp;  
-[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz)  
-&nbsp;  
-[![LinkedIn](img/logo_IN.png)](https://www.linkedin.com/in/mikel-imaz/)
+[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz)
+[![LinkedIn](img/LI-In-Bug.png)](https://www.linkedin.com/in/mikel-imaz/)
