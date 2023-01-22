@@ -1,0 +1,1714 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Urban Trees &#8212; Data Projects</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traffic Fines" href="traffic_fines.html" />
+    <link rel="prev" title="Bread Prices" href="breads.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Projects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ignatian.html">
+   Ignatian Way
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="breads.html">
+   Bread Prices
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Urban Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="traffic_fines.html">
+   Traffic Fines
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/urban_trees.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/mikel-imaz/projects"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/urban_trees.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Urban Trees</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="urban-trees">
+<span id="id1"></span><h1>Urban Trees<a class="headerlink" href="#urban-trees" title="Permalink to this headline">#</a></h1>
+<p><img alt="urban_trees.jpg" src="../_images/urban_trees.jpg" /></p>
+<p>In December 2022 signs were placed beside some trees in my town. They were metal plaques with the name of the corresponding tree species engraved on them, the botanical denomination plus the Basque and Spanish common names.</p>
+<p>When I saw the first sign, I thought that they were not going to last long. They would be vandalised and taken away sooner rather than later. The thought of it saddened me because I have always been fond of urban trees, and now that I had the opportunity of learning about some unknown identities, I was sure this information would vanish soon.</p>
+<p>So I took action and decided to register them myself. I made a couple of forays, during which I scoured the town to find the plaques. It was fun, sort of like playing a <em>Where’s Wally</em> gymkhana. I wrote the names and the location in a file and made this mini-project. Now I do not worry anymore about the fate of these signs, because the data they contain is safe and sound in the cloud.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="c1"># Read the data</span>
+<span class="n">trees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/zuhaitzak.csv&quot;</span><span class="p">)</span>
+<span class="n">trees</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>name_eu</th>
+      <th>name_es</th>
+      <th>lat</th>
+      <th>lng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Liriodrendon tulipifera</td>
+      <td>Idio-bihotz arbola</td>
+      <td>Tulipífero de Virginia</td>
+      <td>43.086719</td>
+      <td>-2.321678</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Acer platanoides</td>
+      <td>Astigar zorrotza</td>
+      <td>Arce real</td>
+      <td>43.086785</td>
+      <td>-2.321637</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Betula pubescens</td>
+      <td>Urki iletsua</td>
+      <td>Abedul pubescente</td>
+      <td>43.088292</td>
+      <td>-2.321790</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Prunus cerasifera</td>
+      <td>Aranondo japoniarra</td>
+      <td>Ciruelo japonés</td>
+      <td>43.088463</td>
+      <td>-2.321800</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Magnolia liliiflora</td>
+      <td>Tulipa magnolia</td>
+      <td>Magnolia tulipán</td>
+      <td>43.088353</td>
+      <td>-2.321855</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Liquidambar styraciflua</td>
+      <td>Likidambarra</td>
+      <td>Liquidámbar</td>
+      <td>43.088711</td>
+      <td>-2.320388</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Magnolia grandiflora</td>
+      <td>Magnolia</td>
+      <td>Magnolia</td>
+      <td>43.089846</td>
+      <td>-2.318472</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Ficus carica</td>
+      <td>Pikondoa</td>
+      <td>Higuera</td>
+      <td>43.090004</td>
+      <td>-2.316878</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Cinnamomum camphora</td>
+      <td>Kanforrondoa</td>
+      <td>Alcanforero</td>
+      <td>43.090498</td>
+      <td>-2.316668</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Olea europaea</td>
+      <td>Olibondoa</td>
+      <td>Olivo</td>
+      <td>43.090782</td>
+      <td>-2.316658</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Quercus robur</td>
+      <td>Haritz Kanduduna</td>
+      <td>Roble pedunculado</td>
+      <td>43.091001</td>
+      <td>-2.316331</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Juglans regia</td>
+      <td>Intxaurrondoa</td>
+      <td>Nogal</td>
+      <td>43.092976</td>
+      <td>-2.314954</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Cercis siliquastrum</td>
+      <td>Amodio zuhaitza</td>
+      <td>Árbol del amor</td>
+      <td>43.093494</td>
+      <td>-2.314714</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Ulmus pumila</td>
+      <td>Siberiako zumarra</td>
+      <td>Olmo siberiano</td>
+      <td>43.093343</td>
+      <td>-2.314924</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Salix babylonica</td>
+      <td>Sahats negartia</td>
+      <td>Sauce llorón</td>
+      <td>43.093506</td>
+      <td>-2.314843</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Ginkgo biloba</td>
+      <td>Ginkgo</td>
+      <td>Gingko</td>
+      <td>43.093845</td>
+      <td>-2.314680</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Tilia tomentosa</td>
+      <td>Ezki zilarkara</td>
+      <td>Tilo plateado</td>
+      <td>43.095784</td>
+      <td>-2.314705</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Quercus ilex</td>
+      <td>Artea</td>
+      <td>Encina</td>
+      <td>43.094100</td>
+      <td>-2.313672</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Quercus robur</td>
+      <td>Haritz Kanduduna</td>
+      <td>Roble pedunculado</td>
+      <td>43.093385</td>
+      <td>-2.314011</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Platanus x hispanica</td>
+      <td>Platano arrunta</td>
+      <td>Plátano de sombra</td>
+      <td>43.093178</td>
+      <td>-2.313473</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Tilia tomentosa</td>
+      <td>Ezki zilarkara</td>
+      <td>Tilo plateado</td>
+      <td>43.094105</td>
+      <td>-2.312938</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Salix babylonica</td>
+      <td>Sahats negartia</td>
+      <td>Sauce llorón</td>
+      <td>43.094887</td>
+      <td>-2.312887</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Carpinus betulus</td>
+      <td>Xarma (Pago lizarra)</td>
+      <td>Carpe</td>
+      <td>43.092924</td>
+      <td>-2.313075</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Prunus serrulata</td>
+      <td>Gereziondo japoniarra</td>
+      <td>Cerezo japonés</td>
+      <td>43.092916</td>
+      <td>-2.313003</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Tilia platyphyllos</td>
+      <td>Ezki hostozabala</td>
+      <td>Tilo común</td>
+      <td>43.091745</td>
+      <td>-2.313578</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Koelreuteria paniculata</td>
+      <td>Txinako xaboi arbola</td>
+      <td>Árbol de farolillos</td>
+      <td>43.091666</td>
+      <td>-2.313531</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Ligustrum japonicum</td>
+      <td>Arbustu japoniarra</td>
+      <td>Aligustre de japón</td>
+      <td>43.090623</td>
+      <td>-2.315702</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Corylus avellana</td>
+      <td>Hurritza</td>
+      <td>Avellano</td>
+      <td>43.089814</td>
+      <td>-2.316211</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Sorbus aucuparia</td>
+      <td>Otsalizarra</td>
+      <td>Serbal de los cazadores</td>
+      <td>43.094393</td>
+      <td>-2.313842</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Ilex aquifolium</td>
+      <td>Korostia</td>
+      <td>Acebo</td>
+      <td>43.092496</td>
+      <td>-2.313682</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Laurus nobilis</td>
+      <td>Erramua</td>
+      <td>Laurel</td>
+      <td>43.092436</td>
+      <td>-2.313660</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Fagus sylvatica</td>
+      <td>Pago gorria</td>
+      <td>Haya roja</td>
+      <td>43.089301</td>
+      <td>-2.318974</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct a folium map</span>
+<span class="n">urretxu</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">43.090918759887956</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.315669883437965</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># Create locations and markers</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">trees</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">row_values</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="n">row_values</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> <span class="n">row_values</span><span class="p">[</span><span class="s2">&quot;lng&quot;</span><span class="p">]]</span>
+    <span class="n">popup</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;&quot;</span> <span class="o">+</span> <span class="n">row_values</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&lt;/b&gt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>\
+            <span class="o">+</span> <span class="s2">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">row_values</span><span class="p">[</span><span class="s2">&quot;name_eu&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>\
+            <span class="o">+</span> <span class="n">row_values</span><span class="p">[</span><span class="s2">&quot;name_es&quot;</span><span class="p">]</span>
+    <span class="n">marker</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span> <span class="n">popup</span><span class="o">=</span><span class="n">popup</span><span class="p">,</span> <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Click me!&quot;</span><span class="p">)</span>
+    <span class="n">marker</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">urretxu</span><span class="p">)</span>
+    
+<span class="c1"># Display the map</span>
+<span class="n">urretxu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_4d34ad1be2409c6b7818e4b1e5f3be93 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_4d34ad1be2409c6b7818e4b1e5f3be93&quot; &gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;script&gt;
+
+
+            var map_4d34ad1be2409c6b7818e4b1e5f3be93 = L.map(
+                &quot;map_4d34ad1be2409c6b7818e4b1e5f3be93&quot;,
+                {
+                    center: [43.090918759887956, -2.315669883437965],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_d50e3287246643970359bf9e0d9bedb8 = L.tileLayer(
+                &quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;Data by \u0026copy; \u003ca href=\&quot;http://openstreetmap.org\&quot;\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\&quot;http://www.openstreetmap.org/copyright\&quot;\u003eODbL\u003c/a\u003e.&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+            var marker_2601e862eeff31fb6b55760e31a3ae62 = L.marker(
+                [43.08671894121581, -2.321677951417283],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_19d22a46535b7d9b606c0cbd3e51d48f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_a8ae6078145cc0234e7d813aecdcab7d = $(`&lt;div id=&quot;html_a8ae6078145cc0234e7d813aecdcab7d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Liriodrendon tulipifera&lt;/b&gt; &lt;i&gt;Idio-bihotz arbola&lt;/i&gt; Tulipífero de Virginia&lt;/div&gt;`)[0];
+                popup_19d22a46535b7d9b606c0cbd3e51d48f.setContent(html_a8ae6078145cc0234e7d813aecdcab7d);
+
+
+
+        marker_2601e862eeff31fb6b55760e31a3ae62.bindPopup(popup_19d22a46535b7d9b606c0cbd3e51d48f)
+        ;
+
+
+
+
+            marker_2601e862eeff31fb6b55760e31a3ae62.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_bf4db8b2ffc9b3dadb7552a9b61aefb3 = L.marker(
+                [43.08678542751922, -2.321637174344012],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_01e3e1e799c901f2708f9118a6a74f28 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c348bd4d6c6e9cce09d5eb5b79484b0b = $(`&lt;div id=&quot;html_c348bd4d6c6e9cce09d5eb5b79484b0b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Acer platanoides&lt;/b&gt; &lt;i&gt;Astigar zorrotza&lt;/i&gt; Arce real&lt;/div&gt;`)[0];
+                popup_01e3e1e799c901f2708f9118a6a74f28.setContent(html_c348bd4d6c6e9cce09d5eb5b79484b0b);
+
+
+
+        marker_bf4db8b2ffc9b3dadb7552a9b61aefb3.bindPopup(popup_01e3e1e799c901f2708f9118a6a74f28)
+        ;
+
+
+
+
+            marker_bf4db8b2ffc9b3dadb7552a9b61aefb3.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_3ef696932ff9d9552890d9c7ddcb24cc = L.marker(
+                [43.08829173852352, -2.321789851305967],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_7412a4dc40c6fc27fe76a707d4f4ca21 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_a4c01869021484ce374e1c48c527dac5 = $(`&lt;div id=&quot;html_a4c01869021484ce374e1c48c527dac5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Betula pubescens&lt;/b&gt; &lt;i&gt;Urki iletsua&lt;/i&gt; Abedul pubescente&lt;/div&gt;`)[0];
+                popup_7412a4dc40c6fc27fe76a707d4f4ca21.setContent(html_a4c01869021484ce374e1c48c527dac5);
+
+
+
+        marker_3ef696932ff9d9552890d9c7ddcb24cc.bindPopup(popup_7412a4dc40c6fc27fe76a707d4f4ca21)
+        ;
+
+
+
+
+            marker_3ef696932ff9d9552890d9c7ddcb24cc.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_7ab81d79769a5f2b86fe0fd88265da77 = L.marker(
+                [43.08846279770542, -2.321800282646452],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_a63bbf54be0fda49859e458ed51e67b8 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_1792e65ff508adc813b7303d89b89d30 = $(`&lt;div id=&quot;html_1792e65ff508adc813b7303d89b89d30&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Prunus cerasifera&lt;/b&gt; &lt;i&gt;Aranondo japoniarra&lt;/i&gt; Ciruelo japonés&lt;/div&gt;`)[0];
+                popup_a63bbf54be0fda49859e458ed51e67b8.setContent(html_1792e65ff508adc813b7303d89b89d30);
+
+
+
+        marker_7ab81d79769a5f2b86fe0fd88265da77.bindPopup(popup_a63bbf54be0fda49859e458ed51e67b8)
+        ;
+
+
+
+
+            marker_7ab81d79769a5f2b86fe0fd88265da77.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_7cafce9e5c39976a1bab4339b7603519 = L.marker(
+                [43.08835268274098, -2.3218552842803524],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_59ba818d981bbf85f36747a0e9687d10 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_77e9435c567593341dbd66cbd7d2e730 = $(`&lt;div id=&quot;html_77e9435c567593341dbd66cbd7d2e730&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Magnolia liliiflora&lt;/b&gt; &lt;i&gt;Tulipa magnolia&lt;/i&gt; Magnolia tulipán&lt;/div&gt;`)[0];
+                popup_59ba818d981bbf85f36747a0e9687d10.setContent(html_77e9435c567593341dbd66cbd7d2e730);
+
+
+
+        marker_7cafce9e5c39976a1bab4339b7603519.bindPopup(popup_59ba818d981bbf85f36747a0e9687d10)
+        ;
+
+
+
+
+            marker_7cafce9e5c39976a1bab4339b7603519.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_04d62a93f66a7e1dd75f6f584ba32d4c = L.marker(
+                [43.08871072879104, -2.3203882578595425],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_01a44c4f63026d83779f8b28e6475951 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_9d4fee74bb36bffa6266b9accdde148e = $(`&lt;div id=&quot;html_9d4fee74bb36bffa6266b9accdde148e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Liquidambar styraciflua&lt;/b&gt; &lt;i&gt;Likidambarra&lt;/i&gt; Liquidámbar&lt;/div&gt;`)[0];
+                popup_01a44c4f63026d83779f8b28e6475951.setContent(html_9d4fee74bb36bffa6266b9accdde148e);
+
+
+
+        marker_04d62a93f66a7e1dd75f6f584ba32d4c.bindPopup(popup_01a44c4f63026d83779f8b28e6475951)
+        ;
+
+
+
+
+            marker_04d62a93f66a7e1dd75f6f584ba32d4c.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_218cd4c3a598cdb46a5fc1abb47789ba = L.marker(
+                [43.08984620643036, -2.3184718643903657],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_b276633ebe858dfab28b1d05b9b85b91 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_32254e226e5c8bcae77e430a1f5eb0c9 = $(`&lt;div id=&quot;html_32254e226e5c8bcae77e430a1f5eb0c9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Magnolia grandiflora&lt;/b&gt; &lt;i&gt;Magnolia&lt;/i&gt; Magnolia&lt;/div&gt;`)[0];
+                popup_b276633ebe858dfab28b1d05b9b85b91.setContent(html_32254e226e5c8bcae77e430a1f5eb0c9);
+
+
+
+        marker_218cd4c3a598cdb46a5fc1abb47789ba.bindPopup(popup_b276633ebe858dfab28b1d05b9b85b91)
+        ;
+
+
+
+
+            marker_218cd4c3a598cdb46a5fc1abb47789ba.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_ef5c076726dbbd691efced9df1a2b4b2 = L.marker(
+                [43.09000410322806, -2.316877765208849],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_9ff48ad4151db1c996c20cf20aaec26e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_49bd7044c48120912cb8682a660f0cd8 = $(`&lt;div id=&quot;html_49bd7044c48120912cb8682a660f0cd8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Ficus carica&lt;/b&gt; &lt;i&gt;Pikondoa&lt;/i&gt; Higuera&lt;/div&gt;`)[0];
+                popup_9ff48ad4151db1c996c20cf20aaec26e.setContent(html_49bd7044c48120912cb8682a660f0cd8);
+
+
+
+        marker_ef5c076726dbbd691efced9df1a2b4b2.bindPopup(popup_9ff48ad4151db1c996c20cf20aaec26e)
+        ;
+
+
+
+
+            marker_ef5c076726dbbd691efced9df1a2b4b2.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_c3282e3bac201ee5a828b18bc7cb9183 = L.marker(
+                [43.0904978743456, -2.3166681900063018],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_4185340fbdc0cf14276c6474ecfb88c2 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c43ad82c793221f0bdb38f4ac2d3cba1 = $(`&lt;div id=&quot;html_c43ad82c793221f0bdb38f4ac2d3cba1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Cinnamomum camphora&lt;/b&gt; &lt;i&gt;Kanforrondoa&lt;/i&gt; Alcanforero&lt;/div&gt;`)[0];
+                popup_4185340fbdc0cf14276c6474ecfb88c2.setContent(html_c43ad82c793221f0bdb38f4ac2d3cba1);
+
+
+
+        marker_c3282e3bac201ee5a828b18bc7cb9183.bindPopup(popup_4185340fbdc0cf14276c6474ecfb88c2)
+        ;
+
+
+
+
+            marker_c3282e3bac201ee5a828b18bc7cb9183.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_1bde1a7cbd59bfcf87298d964c39c2ec = L.marker(
+                [43.09078180825016, -2.3166577586577013],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_4d6cef95b06af37cb5fc3bfe80e2eead = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_dc0a350c0d4238a5e06656c2b8615266 = $(`&lt;div id=&quot;html_dc0a350c0d4238a5e06656c2b8615266&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Olea europaea&lt;/b&gt; &lt;i&gt;Olibondoa&lt;/i&gt; Olivo&lt;/div&gt;`)[0];
+                popup_4d6cef95b06af37cb5fc3bfe80e2eead.setContent(html_dc0a350c0d4238a5e06656c2b8615266);
+
+
+
+        marker_1bde1a7cbd59bfcf87298d964c39c2ec.bindPopup(popup_4d6cef95b06af37cb5fc3bfe80e2eead)
+        ;
+
+
+
+
+            marker_1bde1a7cbd59bfcf87298d964c39c2ec.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_a079334d0c7b5405d2bc22744774a6cd = L.marker(
+                [43.09100064421517, -2.31633059374967],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_6a54eb4ec5a59374bfe3fb0e4d40520b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_85f1788769c07fb84922ac652739aac0 = $(`&lt;div id=&quot;html_85f1788769c07fb84922ac652739aac0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Quercus robur&lt;/b&gt; &lt;i&gt;Haritz Kanduduna&lt;/i&gt; Roble pedunculado&lt;/div&gt;`)[0];
+                popup_6a54eb4ec5a59374bfe3fb0e4d40520b.setContent(html_85f1788769c07fb84922ac652739aac0);
+
+
+
+        marker_a079334d0c7b5405d2bc22744774a6cd.bindPopup(popup_6a54eb4ec5a59374bfe3fb0e4d40520b)
+        ;
+
+
+
+
+            marker_a079334d0c7b5405d2bc22744774a6cd.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_18c5ab2bbfa808f5d5195f062aa4995e = L.marker(
+                [43.09297567267587, -2.3149536562064013],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_acbb5b84c2e0b2db8f29bbabb7a8f256 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_ecd7195d79806cb5aa96b678b90f1adb = $(`&lt;div id=&quot;html_ecd7195d79806cb5aa96b678b90f1adb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Juglans regia&lt;/b&gt; &lt;i&gt;Intxaurrondoa&lt;/i&gt; Nogal&lt;/div&gt;`)[0];
+                popup_acbb5b84c2e0b2db8f29bbabb7a8f256.setContent(html_ecd7195d79806cb5aa96b678b90f1adb);
+
+
+
+        marker_18c5ab2bbfa808f5d5195f062aa4995e.bindPopup(popup_acbb5b84c2e0b2db8f29bbabb7a8f256)
+        ;
+
+
+
+
+            marker_18c5ab2bbfa808f5d5195f062aa4995e.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_b79fa28ce54dfe2323c5c727cc409a40 = L.marker(
+                [43.093494349462574, -2.3147137352769507],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_01aaf87d7c35f95c4aff602067f629ae = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_096226dbca923c8af842013316c538f7 = $(`&lt;div id=&quot;html_096226dbca923c8af842013316c538f7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Cercis siliquastrum&lt;/b&gt; &lt;i&gt;Amodio zuhaitza&lt;/i&gt; Árbol del amor&lt;/div&gt;`)[0];
+                popup_01aaf87d7c35f95c4aff602067f629ae.setContent(html_096226dbca923c8af842013316c538f7);
+
+
+
+        marker_b79fa28ce54dfe2323c5c727cc409a40.bindPopup(popup_01aaf87d7c35f95c4aff602067f629ae)
+        ;
+
+
+
+
+            marker_b79fa28ce54dfe2323c5c727cc409a40.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_73a3fa74968e575c725aa9163b0c4a3f = L.marker(
+                [43.09334338658048, -2.3149242587749783],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_409f2c75802130a96fa5ad8d61b70e2a = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_791c71ebef302cd1c61d26c44dd8d4d7 = $(`&lt;div id=&quot;html_791c71ebef302cd1c61d26c44dd8d4d7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Ulmus pumila&lt;/b&gt; &lt;i&gt;Siberiako zumarra&lt;/i&gt; Olmo siberiano&lt;/div&gt;`)[0];
+                popup_409f2c75802130a96fa5ad8d61b70e2a.setContent(html_791c71ebef302cd1c61d26c44dd8d4d7);
+
+
+
+        marker_73a3fa74968e575c725aa9163b0c4a3f.bindPopup(popup_409f2c75802130a96fa5ad8d61b70e2a)
+        ;
+
+
+
+
+            marker_73a3fa74968e575c725aa9163b0c4a3f.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_25365c58c7fc7dfed1909d4f73e97bbe = L.marker(
+                [43.093506121785, -2.3148427046226763],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_380e201031146c7de25dfcd2b4f915e7 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_9546a13f4828723562558c2db3277d7f = $(`&lt;div id=&quot;html_9546a13f4828723562558c2db3277d7f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Salix babylonica&lt;/b&gt; &lt;i&gt;Sahats negartia&lt;/i&gt; Sauce llorón&lt;/div&gt;`)[0];
+                popup_380e201031146c7de25dfcd2b4f915e7.setContent(html_9546a13f4828723562558c2db3277d7f);
+
+
+
+        marker_25365c58c7fc7dfed1909d4f73e97bbe.bindPopup(popup_380e201031146c7de25dfcd2b4f915e7)
+        ;
+
+
+
+
+            marker_25365c58c7fc7dfed1909d4f73e97bbe.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_0bf67f2309ee39e8f473e0031a82d516 = L.marker(
+                [43.093844748119054, -2.314679596315904],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_bfd61c8d93ad846d5158ca4a0c498c13 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_ab5f40f491516ffa9c92ab314627d320 = $(`&lt;div id=&quot;html_ab5f40f491516ffa9c92ab314627d320&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Ginkgo biloba&lt;/b&gt; &lt;i&gt;Ginkgo&lt;/i&gt; Gingko&lt;/div&gt;`)[0];
+                popup_bfd61c8d93ad846d5158ca4a0c498c13.setContent(html_ab5f40f491516ffa9c92ab314627d320);
+
+
+
+        marker_0bf67f2309ee39e8f473e0031a82d516.bindPopup(popup_bfd61c8d93ad846d5158ca4a0c498c13)
+        ;
+
+
+
+
+            marker_0bf67f2309ee39e8f473e0031a82d516.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_3890aca14f842e05e43ae00b75220b19 = L.marker(
+                [43.09578367676731, -2.314705200534367],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_e9304e6a7e4c5e8990d6fca07ce9e36e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_ef7333869413b50d8f5ff931a0c41f4f = $(`&lt;div id=&quot;html_ef7333869413b50d8f5ff931a0c41f4f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Tilia tomentosa&lt;/b&gt; &lt;i&gt;Ezki zilarkara&lt;/i&gt; Tilo plateado&lt;/div&gt;`)[0];
+                popup_e9304e6a7e4c5e8990d6fca07ce9e36e.setContent(html_ef7333869413b50d8f5ff931a0c41f4f);
+
+
+
+        marker_3890aca14f842e05e43ae00b75220b19.bindPopup(popup_e9304e6a7e4c5e8990d6fca07ce9e36e)
+        ;
+
+
+
+
+            marker_3890aca14f842e05e43ae00b75220b19.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_17235c3188cbf74f40a91aa513d65dc1 = L.marker(
+                [43.09409958224841, -2.313671549076989],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_9fa21f62e6eeed7704d9a38d19fcba98 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_24ad8c10d3c5f3556fd9807e1fb265f4 = $(`&lt;div id=&quot;html_24ad8c10d3c5f3556fd9807e1fb265f4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Quercus ilex&lt;/b&gt; &lt;i&gt;Artea&lt;/i&gt; Encina&lt;/div&gt;`)[0];
+                popup_9fa21f62e6eeed7704d9a38d19fcba98.setContent(html_24ad8c10d3c5f3556fd9807e1fb265f4);
+
+
+
+        marker_17235c3188cbf74f40a91aa513d65dc1.bindPopup(popup_9fa21f62e6eeed7704d9a38d19fcba98)
+        ;
+
+
+
+
+            marker_17235c3188cbf74f40a91aa513d65dc1.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_9360ecb7392aea24f980c3a90b93ad7d = L.marker(
+                [43.09338493603774, -2.3140110419307174],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_e2fbd0ea6dad150bb33bdc23323f7130 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_eade1b59e4e5cbb5274c7cee0f14a3bb = $(`&lt;div id=&quot;html_eade1b59e4e5cbb5274c7cee0f14a3bb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Quercus robur&lt;/b&gt; &lt;i&gt;Haritz Kanduduna&lt;/i&gt; Roble pedunculado&lt;/div&gt;`)[0];
+                popup_e2fbd0ea6dad150bb33bdc23323f7130.setContent(html_eade1b59e4e5cbb5274c7cee0f14a3bb);
+
+
+
+        marker_9360ecb7392aea24f980c3a90b93ad7d.bindPopup(popup_e2fbd0ea6dad150bb33bdc23323f7130)
+        ;
+
+
+
+
+            marker_9360ecb7392aea24f980c3a90b93ad7d.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_a83697a857fd4135408e67c544e424fa = L.marker(
+                [43.09317788097633, -2.313473353526822],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_0757ad30a54a8763794205db08c41c5c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_477546efd3fe49cb3abad4b08660bbad = $(`&lt;div id=&quot;html_477546efd3fe49cb3abad4b08660bbad&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Platanus x hispanica&lt;/b&gt; &lt;i&gt;Platano arrunta&lt;/i&gt; Plátano de sombra&lt;/div&gt;`)[0];
+                popup_0757ad30a54a8763794205db08c41c5c.setContent(html_477546efd3fe49cb3abad4b08660bbad);
+
+
+
+        marker_a83697a857fd4135408e67c544e424fa.bindPopup(popup_0757ad30a54a8763794205db08c41c5c)
+        ;
+
+
+
+
+            marker_a83697a857fd4135408e67c544e424fa.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_c530172730b34a8f1ca3509f060f7871 = L.marker(
+                [43.09410512211003, -2.3129375617192767],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_7b90dcc355020d3e4fae25ead76a105b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_b12b175cccec815778676131cf5340ce = $(`&lt;div id=&quot;html_b12b175cccec815778676131cf5340ce&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Tilia tomentosa&lt;/b&gt; &lt;i&gt;Ezki zilarkara&lt;/i&gt; Tilo plateado&lt;/div&gt;`)[0];
+                popup_7b90dcc355020d3e4fae25ead76a105b.setContent(html_b12b175cccec815778676131cf5340ce);
+
+
+
+        marker_c530172730b34a8f1ca3509f060f7871.bindPopup(popup_7b90dcc355020d3e4fae25ead76a105b)
+        ;
+
+
+
+
+            marker_c530172730b34a8f1ca3509f060f7871.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_f23fd7edcd7710c783b20ec33c412e1e = L.marker(
+                [43.09488713519679, -2.3128872457616945],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_2e7613824263a0b5906312cbfe64249d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_c79ed2299f9b4271a21f57de89055cee = $(`&lt;div id=&quot;html_c79ed2299f9b4271a21f57de89055cee&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Salix babylonica&lt;/b&gt; &lt;i&gt;Sahats negartia&lt;/i&gt; Sauce llorón&lt;/div&gt;`)[0];
+                popup_2e7613824263a0b5906312cbfe64249d.setContent(html_c79ed2299f9b4271a21f57de89055cee);
+
+
+
+        marker_f23fd7edcd7710c783b20ec33c412e1e.bindPopup(popup_2e7613824263a0b5906312cbfe64249d)
+        ;
+
+
+
+
+            marker_f23fd7edcd7710c783b20ec33c412e1e.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_d66f2696ca337d1dd3896784deb2b9c2 = L.marker(
+                [43.09292359581509, -2.3130750003794187],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_99924774f740ec43c3f4be975bacb173 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_066c53f16f04c7c1d6e0b055d6222d41 = $(`&lt;div id=&quot;html_066c53f16f04c7c1d6e0b055d6222d41&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Carpinus betulus&lt;/b&gt; &lt;i&gt;Xarma (Pago lizarra)&lt;/i&gt; Carpe&lt;/div&gt;`)[0];
+                popup_99924774f740ec43c3f4be975bacb173.setContent(html_066c53f16f04c7c1d6e0b055d6222d41);
+
+
+
+        marker_d66f2696ca337d1dd3896784deb2b9c2.bindPopup(popup_99924774f740ec43c3f4be975bacb173)
+        ;
+
+
+
+
+            marker_d66f2696ca337d1dd3896784deb2b9c2.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_a0eb11bdadb07790c578027b4a76aa1d = L.marker(
+                [43.09291576111805, -2.3130025807407475],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_9650936c8c07076230e5def79cef8775 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_bb179c1deb2c85ecdcaebbbbe9891097 = $(`&lt;div id=&quot;html_bb179c1deb2c85ecdcaebbbbe9891097&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Prunus serrulata&lt;/b&gt; &lt;i&gt;Gereziondo japoniarra&lt;/i&gt; Cerezo japonés&lt;/div&gt;`)[0];
+                popup_9650936c8c07076230e5def79cef8775.setContent(html_bb179c1deb2c85ecdcaebbbbe9891097);
+
+
+
+        marker_a0eb11bdadb07790c578027b4a76aa1d.bindPopup(popup_9650936c8c07076230e5def79cef8775)
+        ;
+
+
+
+
+            marker_a0eb11bdadb07790c578027b4a76aa1d.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_06cd1e2d575d50ea3de1f2e03012fd50 = L.marker(
+                [43.09174544196557, -2.3135779145727766],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_3b9d7dbd80b0ae4ba37304dfd87e4f35 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_fe7f1226d917906c54b6c7656327b548 = $(`&lt;div id=&quot;html_fe7f1226d917906c54b6c7656327b548&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Tilia platyphyllos&lt;/b&gt; &lt;i&gt;Ezki hostozabala&lt;/i&gt; Tilo común&lt;/div&gt;`)[0];
+                popup_3b9d7dbd80b0ae4ba37304dfd87e4f35.setContent(html_fe7f1226d917906c54b6c7656327b548);
+
+
+
+        marker_06cd1e2d575d50ea3de1f2e03012fd50.bindPopup(popup_3b9d7dbd80b0ae4ba37304dfd87e4f35)
+        ;
+
+
+
+
+            marker_06cd1e2d575d50ea3de1f2e03012fd50.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_717711dad6f95b5449053fe68f12793a = L.marker(
+                [43.09166648468838, -2.313530722171584],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_b6b1608e500c90eb2e3a5f95cde590b4 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_94f6f2fb62f193530fa7ac5d565d3c03 = $(`&lt;div id=&quot;html_94f6f2fb62f193530fa7ac5d565d3c03&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Koelreuteria paniculata&lt;/b&gt; &lt;i&gt;Txinako xaboi arbola&lt;/i&gt; Árbol de farolillos&lt;/div&gt;`)[0];
+                popup_b6b1608e500c90eb2e3a5f95cde590b4.setContent(html_94f6f2fb62f193530fa7ac5d565d3c03);
+
+
+
+        marker_717711dad6f95b5449053fe68f12793a.bindPopup(popup_b6b1608e500c90eb2e3a5f95cde590b4)
+        ;
+
+
+
+
+            marker_717711dad6f95b5449053fe68f12793a.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_c8a2d535d082c0600b21c9b89a49f429 = L.marker(
+                [43.09062319353954, -2.3157016161694965],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_247bdc746f16f0294a00d11cd27518cd = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_9950a28029f5f9eda5d70c18fa284acc = $(`&lt;div id=&quot;html_9950a28029f5f9eda5d70c18fa284acc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Ligustrum japonicum&lt;/b&gt; &lt;i&gt;Arbustu japoniarra&lt;/i&gt; Aligustre de japón&lt;/div&gt;`)[0];
+                popup_247bdc746f16f0294a00d11cd27518cd.setContent(html_9950a28029f5f9eda5d70c18fa284acc);
+
+
+
+        marker_c8a2d535d082c0600b21c9b89a49f429.bindPopup(popup_247bdc746f16f0294a00d11cd27518cd)
+        ;
+
+
+
+
+            marker_c8a2d535d082c0600b21c9b89a49f429.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_f83594217f711f5368e762cbae0ded3d = L.marker(
+                [43.08981363008077, -2.316210855469044],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_9df8a34d32bd781284148e3ed9142f11 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_b2a4e7d6687862a3c3c8d5249955b31c = $(`&lt;div id=&quot;html_b2a4e7d6687862a3c3c8d5249955b31c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Corylus avellana&lt;/b&gt; &lt;i&gt;Hurritza&lt;/i&gt; Avellano&lt;/div&gt;`)[0];
+                popup_9df8a34d32bd781284148e3ed9142f11.setContent(html_b2a4e7d6687862a3c3c8d5249955b31c);
+
+
+
+        marker_f83594217f711f5368e762cbae0ded3d.bindPopup(popup_9df8a34d32bd781284148e3ed9142f11)
+        ;
+
+
+
+
+            marker_f83594217f711f5368e762cbae0ded3d.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_23e23d285263571fb8a0cd599a439ea5 = L.marker(
+                [43.0943934882181, -2.3138417432236538],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_1ebe50087fc9991ff9cd75e16d78a3f1 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_94d44ffc356b28857a98e5a4e746e1c7 = $(`&lt;div id=&quot;html_94d44ffc356b28857a98e5a4e746e1c7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Sorbus aucuparia&lt;/b&gt; &lt;i&gt;Otsalizarra&lt;/i&gt; Serbal de los cazadores&lt;/div&gt;`)[0];
+                popup_1ebe50087fc9991ff9cd75e16d78a3f1.setContent(html_94d44ffc356b28857a98e5a4e746e1c7);
+
+
+
+        marker_23e23d285263571fb8a0cd599a439ea5.bindPopup(popup_1ebe50087fc9991ff9cd75e16d78a3f1)
+        ;
+
+
+
+
+            marker_23e23d285263571fb8a0cd599a439ea5.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_b1deec3ff7d192767dae5c33bc182638 = L.marker(
+                [43.09249649698306, -2.3136817818657303],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_1e1e88c88033ac4fc16c58c9b778caa7 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_08fde4b2fa6325d222f6e5ce260bba6f = $(`&lt;div id=&quot;html_08fde4b2fa6325d222f6e5ce260bba6f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Ilex aquifolium&lt;/b&gt; &lt;i&gt;Korostia&lt;/i&gt; Acebo&lt;/div&gt;`)[0];
+                popup_1e1e88c88033ac4fc16c58c9b778caa7.setContent(html_08fde4b2fa6325d222f6e5ce260bba6f);
+
+
+
+        marker_b1deec3ff7d192767dae5c33bc182638.bindPopup(popup_1e1e88c88033ac4fc16c58c9b778caa7)
+        ;
+
+
+
+
+            marker_b1deec3ff7d192767dae5c33bc182638.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_742699e1a7436d2d973178ac83e0c180 = L.marker(
+                [43.09243626730375, -2.313659653642803],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_1b884c00f1fb131b56d509c6f0ce9054 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_75d389c6ab8674cbb548cfa1b6561c49 = $(`&lt;div id=&quot;html_75d389c6ab8674cbb548cfa1b6561c49&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Laurus nobilis&lt;/b&gt; &lt;i&gt;Erramua&lt;/i&gt; Laurel&lt;/div&gt;`)[0];
+                popup_1b884c00f1fb131b56d509c6f0ce9054.setContent(html_75d389c6ab8674cbb548cfa1b6561c49);
+
+
+
+        marker_742699e1a7436d2d973178ac83e0c180.bindPopup(popup_1b884c00f1fb131b56d509c6f0ce9054)
+        ;
+
+
+
+
+            marker_742699e1a7436d2d973178ac83e0c180.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+
+            var marker_82ca23f8a216fac9a0a9f2f4637a48b6 = L.marker(
+                [43.0893013947879, -2.31897441099628],
+                {}
+            ).addTo(map_4d34ad1be2409c6b7818e4b1e5f3be93);
+
+
+        var popup_ef0e1c679d262c2627753e2f608c9065 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+
+
+                var html_001a0779ce4d2b608307bed0ee12c4c7 = $(`&lt;div id=&quot;html_001a0779ce4d2b608307bed0ee12c4c7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Fagus sylvatica&lt;/b&gt; &lt;i&gt;Pago gorria&lt;/i&gt; Haya roja&lt;/div&gt;`)[0];
+                popup_ef0e1c679d262c2627753e2f608c9065.setContent(html_001a0779ce4d2b608307bed0ee12c4c7);
+
+
+
+        marker_82ca23f8a216fac9a0a9f2f4637a48b6.bindPopup(popup_ef0e1c679d262c2627753e2f608c9065)
+        ;
+
+
+
+
+            marker_82ca23f8a216fac9a0a9f2f4637a48b6.bindTooltip(
+                `&lt;div&gt;
+                     Click me!
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="breads.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Bread Prices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="traffic_fines.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Traffic Fines</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mikel Imaz, 2023<br/>
+  
+    <div class="extra_footer">
+      <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
