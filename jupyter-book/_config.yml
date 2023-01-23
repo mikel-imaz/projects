@@ -31,6 +31,7 @@ repository:
 
 
 html:
+  favicon: "img/logo.png"
   use_repository_button: true
   extra_footer: |
     <p>
