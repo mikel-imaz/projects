@@ -360,6 +360,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#sentiment-analysis">
    Sentiment analysis
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rule-lexicon-based">
+     Rule/lexicon-based
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -399,6 +406,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#sentiment-analysis">
    Sentiment analysis
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rule-lexicon-based">
+     Rule/lexicon-based
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -998,9 +1012,169 @@ Length: 131, dtype: int64
 <img alt="../_images/olele-analysis_13_0.png" src="../_images/olele-analysis_13_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Longest review</span>
+<span class="n">longest_review_index</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">olele</span><span class="p">[</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">longest_review_index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>text</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-03-22</th>
+      <td>Friedrich</td>
+      <td>I was looking for the perfect fan for a man li...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longest_review_full_text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">longest_review_index</span><span class="p">][</span><span class="s2">&quot;text&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">longest_review_full_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;I was looking for the perfect fan for a man like me. Then I found Karmeles shop and this wonderfully beautiful accessory. And I was thrilled with him in a split of a second. Blue is my favorite color and the pattern immediately made me think of a night sky shining with thousands of stars. Bingo! Hit! It had to be! Karmele made the fan very clean and simply perfect. He is delivered in a very nice and fine dark blue leather pocket. So now I can keep him safely at all times. An absolutely perfect combination, in my opinion. I can&#39;t wait to use him on a sunny spring day. We had it yesterday, but with 5 degrees and cool wind... I am absolutely certain, that we will have warmer temperatures very soon. Now I wish Karmele continued success and that she and all her loved ones stay healthy. Kind regards, Friedrich&quot;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
+<section id="rule-lexicon-based">
+<h3>Rule/lexicon-based<a class="headerlink" href="#rule-lexicon-based" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install textblob
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting textblob
+  Downloading textblob-0.17.1-py2.py3-none-any.whl (636 kB)
+Requirement already satisfied: nltk&gt;=3.1 in c:\users\mikel\anaconda3\lib\site-packages (from textblob) (3.7)
+Requirement already satisfied: tqdm in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (4.64.0)
+Requirement already satisfied: regex&gt;=2021.8.3 in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (2022.3.15)
+Requirement already satisfied: click in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (7.1.2)
+Requirement already satisfied: joblib in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (1.1.0)
+Requirement already satisfied: colorama in c:\users\mikel\anaconda3\lib\site-packages (from tqdm-&gt;nltk&gt;=3.1-&gt;textblob) (0.4.4)
+Installing collected packages: textblob
+Successfully installed textblob-0.17.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the required packages</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">longest_review_full_text</span><span class="p">)</span>
+<span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sentiment(polarity=0.49115150226757365, subjectivity=0.6157823129251702)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for sentence in blob.sentences:</span>
+<span class="c1">#     print(sentence.sentiment.polarity)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install wordcloud
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wordcloud in c:\users\mikel\anaconda3\lib\site-packages (1.8.2.2)
+Requirement already satisfied: pillow in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (9.0.1)
+Requirement already satisfied: matplotlib in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (3.5.1)
+Requirement already satisfied: numpy&gt;=1.6.1 in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (1.21.5)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (4.25.0)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (21.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (2.8.2)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (3.0.4)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (0.11.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (1.3.2)
+Requirement already satisfied: six&gt;=1.5 in c:\users\mikel\anaconda3\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;wordcloud) (1.16.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">longest_review_full_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele-analysis_25_0.png" src="../_images/olele-analysis_25_0.png" />
+</div>
+</div>
+</section>
 </section>
 </section>
 

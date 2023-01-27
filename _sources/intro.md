@@ -33,5 +33,7 @@ By **Mikel Imaz**
 ::::
 
 ---
-\
-![Logos](img/logos.png)
+
+```{image} img/modules.png
+:align: center
+```
