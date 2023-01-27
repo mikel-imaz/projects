@@ -1,6 +1,6 @@
 # Data Projects
 
-**By [Mikel Imaz](https://www.linkedin.com/in/mikel-imaz/)**
+By **Mikel Imaz**
 
 
 
@@ -33,6 +33,5 @@
 ::::
 
 ---
-&nbsp;  
-[![Datacamp](img/logo_datacamp.png)](https://www.datacamp.com/profile/mikel-imaz)
-[![LinkedIn](img/LI-In-Bug.png)](https://www.linkedin.com/in/mikel-imaz/)
+\
+![Logos](img/logos.png)
