@@ -368,6 +368,21 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag-of-words-bow">
+   Bag-of-words (BOW)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-new-features">
+   Build new features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-the-language">
+   Identify the language
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -414,6 +429,21 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag-of-words-bow">
+   Bag-of-words (BOW)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-new-features">
+   Build new features
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identify-the-language">
+   Identify the language
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -433,6 +463,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
@@ -896,6 +927,34 @@ memory usage: 7.6+ KB
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Override missing values for BOW with CountVectorizer (below)</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olele</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 326 entries, 2022-11-01 to 2010-06-10
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   name    326 non-null    object
+ 1   text    326 non-null    object
+dtypes: object(2)
+memory usage: 7.6+ KB
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="data-analysis">
 <h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h2>
@@ -922,7 +981,7 @@ memory usage: 7.6+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_10_0.png" src="../_images/olele-analysis_10_0.png" />
+<img alt="../_images/olele-analysis_12_0.png" src="../_images/olele-analysis_12_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -956,7 +1015,7 @@ memory usage: 7.6+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_11_0.png" src="../_images/olele-analysis_11_0.png" />
+<img alt="../_images/olele-analysis_13_0.png" src="../_images/olele-analysis_13_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1009,7 +1068,7 @@ Length: 131, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_13_0.png" src="../_images/olele-analysis_13_0.png" />
+<img alt="../_images/olele-analysis_15_0.png" src="../_images/olele-analysis_15_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1078,21 +1137,7 @@ Length: 131, dtype: int64
 <h3>Rule/lexicon-based<a class="headerlink" href="#rule-lexicon-based" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install textblob
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting textblob
-  Downloading textblob-0.17.1-py2.py3-none-any.whl (636 kB)
-Requirement already satisfied: nltk&gt;=3.1 in c:\users\mikel\anaconda3\lib\site-packages (from textblob) (3.7)
-Requirement already satisfied: tqdm in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (4.64.0)
-Requirement already satisfied: regex&gt;=2021.8.3 in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (2022.3.15)
-Requirement already satisfied: click in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (7.1.2)
-Requirement already satisfied: joblib in c:\users\mikel\anaconda3\lib\site-packages (from nltk&gt;=3.1-&gt;textblob) (1.1.0)
-Requirement already satisfied: colorama in c:\users\mikel\anaconda3\lib\site-packages (from tqdm-&gt;nltk&gt;=3.1-&gt;textblob) (0.4.4)
-Installing collected packages: textblob
-Successfully installed textblob-0.17.1
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install textblob</span>
 </pre></div>
 </div>
 </div>
@@ -1128,22 +1173,7 @@ Successfully installed textblob-0.17.1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install wordcloud
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wordcloud in c:\users\mikel\anaconda3\lib\site-packages (1.8.2.2)
-Requirement already satisfied: pillow in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (9.0.1)
-Requirement already satisfied: matplotlib in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (3.5.1)
-Requirement already satisfied: numpy&gt;=1.6.1 in c:\users\mikel\anaconda3\lib\site-packages (from wordcloud) (1.21.5)
-Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (4.25.0)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (21.3)
-Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (2.8.2)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (3.0.4)
-Requirement already satisfied: cycler&gt;=0.10 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (0.11.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\mikel\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (1.3.2)
-Requirement already satisfied: six&gt;=1.5 in c:\users\mikel\anaconda3\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;wordcloud) (1.16.0)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install wordcloud</span>
 </pre></div>
 </div>
 </div>
@@ -1171,10 +1201,1473 @@ Requirement already satisfied: six&gt;=1.5 in c:\users\mikel\anaconda3\lib\site-
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_25_0.png" src="../_images/olele-analysis_25_0.png" />
+<img alt="../_images/olele-analysis_27_0.png" src="../_images/olele-analysis_27_0.png" />
 </div>
 </div>
 </section>
+</section>
+<section id="bag-of-words-bow">
+<h2>Bag-of-words (BOW)<a class="headerlink" href="#bag-of-words-bow" title="Permalink to this headline">#</a></h2>
+<p>Create a bag-of-words representation of the reviews.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the required function</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the vectorizer, specify max features </span>
+<span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Fit the vectorizer</span>
+<span class="n">vect</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Transform the review column</span>
+<span class="n">X_review</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Create the bow representation</span>
+<span class="n">X_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_review</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="n">X_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>absolutely</th>
+      <th>again</th>
+      <th>also</th>
+      <th>am</th>
+      <th>an</th>
+      <th>and</th>
+      <th>are</th>
+      <th>as</th>
+      <th>at</th>
+      <th>be</th>
+      <th>...</th>
+      <th>wait</th>
+      <th>was</th>
+      <th>well</th>
+      <th>when</th>
+      <th>will</th>
+      <th>with</th>
+      <th>wonderful</th>
+      <th>work</th>
+      <th>wow</th>
+      <th>you</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>326 rows × 100 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="build-new-features">
+<h2>Build new features<a class="headerlink" href="#build-new-features" title="Permalink to this headline">#</a></h2>
+<p>Enrich the existing dataset with features related to the text column (capturing the sentiment).</p>
+<ul class="simple">
+<li><p>How long is each review?</p></li>
+</ul>
+<p>A first standard step when working with text is to tokenize it, in other words, split a bigger string into individual strings, which are usually single words (tokens)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nltk import word_tokenize</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\Mikel\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping tokenizers\punkt.zip.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">longest_review_full_text</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;I&#39;, &#39;was&#39;, &#39;looking&#39;, &#39;for&#39;, &#39;the&#39;, &#39;perfect&#39;, &#39;fan&#39;, &#39;for&#39;, &#39;a&#39;, &#39;man&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize each item in the review column </span>
+<span class="n">word_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">review</span><span class="p">)</span> <span class="k">for</span> <span class="n">review</span> <span class="ow">in</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Create an empty list to store the length of reviews</span>
+<span class="n">len_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate over the word_tokens list and determine the length of each item</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_tokens</span><span class="p">)):</span>
+     <span class="n">len_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="c1"># Create a new feature for the lengh of each review</span>
+<span class="n">olele</span><span class="p">[</span><span class="s1">&#39;n_words&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">len_tokens</span>
+<span class="n">olele</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>text</th>
+      <th>n_words</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-11-01</th>
+      <td>Carolina</td>
+      <td>As usual the quality is sturdy yet elegant and...</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>2022-09-03</th>
+      <td>Amy Annette</td>
+      <td>I bought this fan to bring to tango and swing ...</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Mary</td>
+      <td>LOVELY!  I think this is my 4th fan? Complimen...</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Eni A</td>
+      <td>Very beautiful fan, great quality and the colo...</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2022-06-11</th>
+      <td>hredmonds</td>
+      <td>This is the second fan I've bought for myself ...</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="identify-the-language">
+<h2>Identify the language<a class="headerlink" href="#identify-the-language" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install langdetect</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the language detection function and package</span>
+<span class="kn">from</span> <span class="nn">langdetect</span> <span class="kn">import</span> <span class="n">detect_langs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[]</span> 
+
+<span class="c1"># Loop over the rows of the dataset and append  </span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">olele</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">languages</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">languages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">detect_langs</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">]))</span>
+
+<span class="n">languages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[en:0.9999959829395936],
+ [en:0.9999954794866721],
+ [en:0.9999959325602715],
+ [en:0.9999957301793001],
+ [en:0.9999970584419171],
+ [en:0.9999969884601817],
+ [en:0.9999972215058999],
+ [en:0.9999983843249209],
+ [en:0.9999965681717072],
+ [en:0.9999956534496945],
+ [en:0.9999972654730696],
+ [],
+ [en:0.99999771647255],
+ [en:0.9999971842534133],
+ [en:0.9999973787564607],
+ [en:0.9999942929168055],
+ [en:0.9999963531366207],
+ [en:0.9999975828703067],
+ [en:0.9999960791848979],
+ [en:0.9999946926272456],
+ [en:0.9999965657455402],
+ [en:0.9999961980536081],
+ [en:0.9999970827157182],
+ [en:0.9999962843823356],
+ [en:0.9999972598544205],
+ [],
+ [],
+ [],
+ [en:0.9999942839403433],
+ [en:0.9999961197630991],
+ [en:0.9999971037544235],
+ [en:0.9999972256802838],
+ [en:0.9999978248777012],
+ [en:0.8571396348841911, cs:0.14285880266848605],
+ [en:0.9999989281816387],
+ [en:0.9999971247514596],
+ [],
+ [],
+ [en:0.9999974317132196],
+ [en:0.8571398792420543, ro:0.1428583997004599],
+ [en:0.999998110105663],
+ [en:0.9999976402569208],
+ [en:0.9999969528052637],
+ [en:0.9999968032542602],
+ [en:0.9999971555725254],
+ [en:0.9999972226567929],
+ [en:0.9999965602955887],
+ [en:0.9999972908793086],
+ [],
+ [en:0.9999987251261465],
+ [en:0.9999976219357615],
+ [en:0.9999968280484353],
+ [en:0.8571402554211531, fr:0.14285766146223644],
+ [en:0.999995905962592],
+ [en:0.9999971068881103],
+ [en:0.9999964640665968],
+ [en:0.9999946648822431],
+ [en:0.9999964806708999],
+ [en:0.9999969330589944],
+ [en:0.9999957994358655],
+ [en:0.9999965439755074],
+ [en:0.9999979946317245],
+ [en:0.9999961236561983],
+ [en:0.9999974809053833],
+ [en:0.9999963368170117],
+ [en:0.9999948030347072],
+ [],
+ [en:0.9999975549687764],
+ [],
+ [en:0.8571388838638978, cy:0.14286039538956083],
+ [],
+ [en:0.9999969396706966],
+ [en:0.999997888393222],
+ [],
+ [en:0.9999981714761981],
+ [en:0.9999972806507966],
+ [en:0.999994245416892],
+ [],
+ [en:0.9999954259685252],
+ [en:0.9999976235537602],
+ [en:0.9999989976369966],
+ [en:0.9999972114849616],
+ [en:0.9999979510287331],
+ [en:0.7142838655575322, ro:0.28571388419868293],
+ [ro:0.9999953775920932],
+ [en:0.9999967851686087],
+ [],
+ [en:0.9999969028603573],
+ [en:0.9999968974615079],
+ [en:0.9999973672007227],
+ [en:0.9999974198474091],
+ [],
+ [hu:0.9999954767203292],
+ [en:0.9999961882046551],
+ [en:0.9999980308419855],
+ [en:0.9999962355773526],
+ [en:0.99999711498811],
+ [en:0.9999966127333698],
+ [pt:0.8423216994775088, id:0.14285589090510975],
+ [en:0.9999966413902613],
+ [en:0.9999966031279522],
+ [en:0.9999954969608401],
+ [en:0.9999981231818844],
+ [en:0.999996703312944],
+ [],
+ [en:0.9999951544198087],
+ [en:0.9999976255088183],
+ [en:0.9999946245569084],
+ [en:0.9999951397831053],
+ [en:0.9999979993004865],
+ [en:0.9999974951882863],
+ [],
+ [en:0.9999981323308481],
+ [en:0.9999956892922965],
+ [],
+ [fr:0.8571389684565303, en:0.1428588290193887],
+ [],
+ [en:0.8571387502195166, id:0.14285946396594532],
+ [en:0.9999971687155602],
+ [en:0.999997307866899],
+ [en:0.9999976870700261],
+ [],
+ [en:0.9999958106186818],
+ [en:0.9999977623722422],
+ [],
+ [],
+ [en:0.9999972824166614],
+ [en:0.9999985294799577],
+ [en:0.9999956723230592],
+ [en:0.999996870833803],
+ [en:0.9999963930544106],
+ [en:0.9999956704686257],
+ [en:0.9999971643640201],
+ [en:0.999995928462688],
+ [en:0.9999962195569578],
+ [en:0.9999961837148187],
+ [],
+ [],
+ [en:0.9999975684400284],
+ [en:0.9999976531120213],
+ [en:0.9999978198148554],
+ [en:0.9999979351522561],
+ [en:0.9999961437310976],
+ [],
+ [en:0.8571407682866766, ro:0.14285612714460744],
+ [en:0.9999940490466533],
+ [en:0.9999971471039353],
+ [en:0.999996414635204],
+ [en:0.9999966090272401],
+ [en:0.9999964866547786],
+ [en:0.9999973477475217],
+ [en:0.9999971484874182],
+ [],
+ [en:0.999995968451006],
+ [],
+ [en:0.9999972678566287],
+ [en:0.9999982026112291],
+ [en:0.9999970583224946],
+ [en:0.9999958866608579],
+ [en:0.9999967885622668],
+ [en:0.8571406870609837, so:0.1428589242996062],
+ [en:0.9999985195790142],
+ [en:0.9999979494746326],
+ [en:0.9999968692685818],
+ [en:0.9999975639026768],
+ [en:0.9999945900866241],
+ [en:0.9999967257696316],
+ [en:0.9999972073670226],
+ [en:0.9999959808783832],
+ [en:0.9999979555724108],
+ [en:0.9999980128282409],
+ [en:0.9999979652075563],
+ [en:0.9999968712540714],
+ [],
+ [],
+ [en:0.9999961634979547],
+ [en:0.9999980775233818],
+ [en:0.9999985986464157],
+ [en:0.99999709940777],
+ [en:0.9999956318025516],
+ [en:0.9999978016522484],
+ [en:0.9999972698278101],
+ [en:0.9999965472967985],
+ [en:0.9999976723374178],
+ [en:0.9999982491755188],
+ [en:0.9999977706388372],
+ [en:0.9999940084544834],
+ [en:0.9999971388618646],
+ [en:0.9999978542234117],
+ [en:0.8571413759892162, fr:0.14285754469192866],
+ [en:0.9999963280209236],
+ [en:0.9999955288539079],
+ [en:0.9999965708514913],
+ [en:0.999996542629365],
+ [en:0.9999946340626042],
+ [en:0.999995326093283],
+ [en:0.999997791931748],
+ [en:0.9999979291116095],
+ [en:0.9999977763928749],
+ [en:0.9999966744518145],
+ [en:0.9999987800360443],
+ [en:0.9999956896661387],
+ [en:0.9999955450972733],
+ [ro:0.9999940149059954],
+ [en:0.999997941106578],
+ [en:0.9999968635678929],
+ [en:0.9999973570561707],
+ [en:0.999996156600033],
+ [en:0.9999969376304083],
+ [en:0.9999950421414777],
+ [en:0.9999971627421038],
+ [en:0.9999966546829354],
+ [en:0.9999960029219546],
+ [en:0.9999978141789905],
+ [en:0.9999985045031385],
+ [en:0.9999986235421469],
+ [ro:0.5714275671820377, en:0.42857092593543705],
+ [en:0.9999974757442273],
+ [],
+ [en:0.9999966158982884],
+ [en:0.9999969431137404],
+ [en:0.9999973314232081],
+ [en:0.9999958718975483],
+ [en:0.9999951905167215],
+ [en:0.9999972938041122],
+ [en:0.9999968589022095],
+ [en:0.9999960241913222],
+ [en:0.9999970935371265],
+ [en:0.9999968353684452],
+ [en:0.9999963929785625],
+ [hu:0.5714285099002661, en:0.4285714854965297],
+ [en:0.9999965435016089],
+ [en:0.9999953285441662],
+ [],
+ [],
+ [en:0.9999955088295504],
+ [en:0.9999948613752899],
+ [en:0.9999981443197121],
+ [en:0.9999956566237521],
+ [en:0.9999976082481112],
+ [en:0.9999952006879256],
+ [en:0.9999972018829952],
+ [],
+ [en:0.999995694073286],
+ [ro:0.9999961717503718],
+ [en:0.9999979921733484],
+ [],
+ [en:0.9999960281328776],
+ [en:0.9999967192301775],
+ [en:0.9999966163404268],
+ [en:0.9999960953539332],
+ [],
+ [],
+ [en:0.9999980920775045],
+ [en:0.9999982899116244],
+ [en:0.9999969365256777],
+ [],
+ [ro:0.8571384367831516, fr:0.14286094141090036],
+ [en:0.9999953231688175],
+ [en:0.9999945391111585],
+ [en:0.9999968064546896],
+ [ro:0.9999971629363447],
+ [en:0.9999971461914923],
+ [en:0.9999958244918123],
+ [en:0.9999950691152022],
+ [en:0.9999986639817255],
+ [en:0.9999965833464426],
+ [en:0.9999973114968961],
+ [en:0.9999956643350661],
+ [en:0.9999982547572533],
+ [so:0.4285697881252918,
+  id:0.2857133132315769,
+  tr:0.1428604298213322,
+  en:0.1428562308429321],
+ [en:0.9999979558824215],
+ [so:0.42857079438177914, en:0.4285696290036253, tr:0.14285718114706786],
+ [en:0.9999961795359315],
+ [en:0.9999968654833382],
+ [en:0.9999993408620583],
+ [en:0.9999980626037205],
+ [en:0.9999986089868831],
+ [en:0.9999970701788321],
+ [en:0.9999956130212686],
+ [en:0.9999964363195072],
+ [en:0.9999962596720383],
+ [en:0.42856981930248716,
+  tr:0.285716342823167,
+  so:0.1428570809850587,
+  id:0.14285665945116566],
+ [en:0.9999949153121175],
+ [id:0.571424727626966, en:0.28571273131505254, so:0.14285713360432306],
+ [en:0.9999969116731926],
+ [en:0.9999955537935428],
+ [en:0.9999965960623358],
+ [en:0.9999990786568711],
+ [en:0.999994138127563],
+ [en:0.9999968569256011],
+ [en:0.999997392733543],
+ [en:0.9999968579045666],
+ [en:0.9999979916626357],
+ [so:0.4285691575635332, en:0.2857151248135973, tr:0.2857126095116467],
+ [en:0.9999965473857245],
+ [en:0.5714266938534075, id:0.28571415455040283, so:0.14285708879079417],
+ [en:0.9999950143041536],
+ [en:0.9999965587236673],
+ [en:0.9999973651754668],
+ [en:0.9999977410596581],
+ [en:0.9999983117438422],
+ [en:0.9999978598086757],
+ [en:0.999996052537732],
+ [en:0.9999976609148616],
+ [en:0.9999974091963052],
+ [id:0.40423114919109837,
+  tr:0.2947030032569445,
+  so:0.15820897425104097,
+  en:0.14285656422848228],
+ [en:0.9999980408993733],
+ [so:0.42857123873496394,
+  id:0.14285750905718328,
+  tr:0.14285748182911615,
+  en:0.1428571881438333,
+  sw:0.14285658218438224],
+ [en:0.9999967964258132],
+ [en:0.999996305469803],
+ [en:0.9999973294988361],
+ [en:0.9999966485457117],
+ [en:0.9999961693753151],
+ [en:0.9999958228911356],
+ [en:0.9999970395456692],
+ [en:0.9999973572656795],
+ [en:0.9999950414750074],
+ [en:0.4285690244004499, so:0.28571442860794916, tr:0.28571278467499384],
+ [en:0.9999976792223215],
+ [so:0.5714274027057376, tr:0.2857130008434071, en:0.14285709348111297],
+ [en:0.9999977304446531],
+ [en:0.999995135079645],
+ [en:0.9999980023549132],
+ [en:0.9999967578571461],
+ [en:0.9999966840592472]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean the list by splitting     </span>
+<span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">]</span>
+<span class="n">languages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;hu&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;pt&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;fr&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;hu&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;]&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;]&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;ro&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;id&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;id&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign the list to a new feature </span>
+<span class="n">olele</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">languages</span>
+<span class="n">olele</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>text</th>
+      <th>n_words</th>
+      <th>language</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-11-01</th>
+      <td>Carolina</td>
+      <td>As usual the quality is sturdy yet elegant and...</td>
+      <td>48</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2022-09-03</th>
+      <td>Amy Annette</td>
+      <td>I bought this fan to bring to tango and swing ...</td>
+      <td>51</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Mary</td>
+      <td>LOVELY!  I think this is my 4th fan? Complimen...</td>
+      <td>13</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Eni A</td>
+      <td>Very beautiful fan, great quality and the colo...</td>
+      <td>19</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2022-06-11</th>
+      <td>hredmonds</td>
+      <td>This is the second fan I've bought for myself ...</td>
+      <td>29</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2010-06-18</th>
+      <td>Anonymous</td>
+      <td>Gorgeous! Love it! Just in time for the summer...</td>
+      <td>13</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2010-06-15</th>
+      <td>Anonymous</td>
+      <td>Really nice communication with Karmele Luqui. ...</td>
+      <td>55</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2010-06-12</th>
+      <td>Anonymous</td>
+      <td>A huge WOW when I just got them! The fans are ...</td>
+      <td>43</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2010-06-12</th>
+      <td>Anonymous</td>
+      <td>A huge WOW when I just got them! The fans are ...</td>
+      <td>43</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <th>2010-06-10</th>
+      <td>Anonymous</td>
+      <td>Just received this yesterday, and I am in love...</td>
+      <td>41</td>
+      <td>en</td>
+    </tr>
+  </tbody>
+</table>
+<p>326 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_by_lng</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">n_by_lng</span> <span class="o">=</span> <span class="n">n_by_lng</span><span class="p">[</span><span class="n">n_by_lng</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="s2">&quot;]&quot;</span><span class="p">]</span>
+<span class="n">n_by_lng</span> <span class="o">=</span> <span class="n">n_by_lng</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">n_by_lng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>en</th>
+      <td>273</td>
+    </tr>
+    <tr>
+      <th>ro</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>so</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>hu</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>pt</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>fr</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">:</span> <span class="s2">&quot;Romanian&quot;</span><span class="p">,</span> <span class="s2">&quot;so&quot;</span><span class="p">:</span> <span class="s2">&quot;Somali&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;hu&quot;</span><span class="p">:</span> <span class="s2">&quot;Hungarian&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Indonesian&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Portuguese&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;French&quot;</span><span class="p">}</span>
+
+<span class="n">key</span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;English&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_by_lng</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;en&#39;, &#39;ro&#39;, &#39;so&#39;, &#39;hu&#39;, &#39;id&#39;, &#39;pt&#39;, &#39;fr&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_by_lng</span><span class="p">[</span><span class="s2">&quot;lang&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span> <span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">n_by_lng</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">n_by_lng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>en</th>
+      <td>English</td>
+      <td>273</td>
+    </tr>
+    <tr>
+      <th>ro</th>
+      <td>Romanian</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>so</th>
+      <td>Somali</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>hu</th>
+      <td>Hungarian</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td>Indonesian</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>pt</th>
+      <td>Portuguese</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>fr</th>
+      <td>French</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 </section>
 
