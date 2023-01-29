@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Olele - Review Analysis &#8212; Data Projects</title>
+    <title>Hand Fans - Review Analysis &#8212; Data Projects</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -383,6 +383,11 @@ title="Print to PDF"
    Identify the language
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stopwords">
+   Stopwords
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -392,7 +397,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Olele - Review Analysis</h1>
+                <h1>Hand Fans - Review Analysis</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -444,6 +449,11 @@ title="Print to PDF"
    Identify the language
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stopwords">
+   Stopwords
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -454,9 +464,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="olele-review-analysis">
-<h1>Olele - Review Analysis<a class="headerlink" href="#olele-review-analysis" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hand-fans-review-analysis">
+<h1>Hand Fans - Review Analysis<a class="headerlink" href="#hand-fans-review-analysis" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://www.etsy.com/shop/Olele">https://www.etsy.com/shop/Olele</a></p>
+<p><img alt="Olele" src="../_images/olele.jpg" /></p>
 <section id="import-the-data">
 <h2>Import the data<a class="headerlink" href="#import-the-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -960,12 +971,26 @@ memory usage: 7.6+ KB
 <h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define project palette</span>
+<span class="n">palette_olele</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#5e172d&quot;</span><span class="p">,</span> <span class="s2">&quot;#beb9a6&quot;</span><span class="p">,</span> <span class="s2">&quot;#b7295a&quot;</span><span class="p">,</span> <span class="s2">&quot;#f69240&quot;</span><span class="p">,</span> <span class="s2">&quot;#ced64b&quot;</span><span class="p">,</span> <span class="s2">&quot;#91d8ae&quot;</span><span class="p">]</span>
+
+<span class="c1"># Plot palette</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette_olele</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele-analysis_13_0.png" src="../_images/olele-analysis_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews_yearly</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">reviews_yearly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">reviews_yearly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_olele</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -981,7 +1006,7 @@ memory usage: 7.6+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_12_0.png" src="../_images/olele-analysis_12_0.png" />
+<img alt="../_images/olele-analysis_14_0.png" src="../_images/olele-analysis_14_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -996,7 +1021,7 @@ memory usage: 7.6+ KB
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">reviews_monthly_avg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">reviews_monthly_avg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_olele</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
 <span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span>
           <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;October&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>
@@ -1015,7 +1040,7 @@ memory usage: 7.6+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_13_0.png" src="../_images/olele-analysis_13_0.png" />
+<img alt="../_images/olele-analysis_15_0.png" src="../_images/olele-analysis_15_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1052,7 +1077,7 @@ Length: 131, dtype: int64
 <span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">reviewers_top</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">)</span>
+<span class="n">reviewers_top</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette_olele</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -1068,7 +1093,7 @@ Length: 131, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_15_0.png" src="../_images/olele-analysis_15_0.png" />
+<img alt="../_images/olele-analysis_17_0.png" src="../_images/olele-analysis_17_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1201,7 +1226,7 @@ Length: 131, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/olele-analysis_27_0.png" src="../_images/olele-analysis_27_0.png" />
+<img alt="../_images/olele-analysis_29_0.png" src="../_images/olele-analysis_29_0.png" />
 </div>
 </div>
 </section>
@@ -1556,7 +1581,7 @@ Length: 131, dtype: int64
 <p>A first standard step when working with text is to tokenize it, in other words, split a bigger string into individual strings, which are usually single words (tokens)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from nltk import word_tokenize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1565,7 +1590,7 @@ Length: 131, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to
 [nltk_data]     C:\Users\Mikel\AppData\Roaming\nltk_data...
-[nltk_data]   Unzipping tokenizers\punkt.zip.
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1702,345 +1727,338 @@ Length: 131, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[en:0.9999959829395936],
- [en:0.9999954794866721],
- [en:0.9999959325602715],
- [en:0.9999957301793001],
- [en:0.9999970584419171],
- [en:0.9999969884601817],
- [en:0.9999972215058999],
- [en:0.9999983843249209],
- [en:0.9999965681717072],
- [en:0.9999956534496945],
- [en:0.9999972654730696],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[en:0.9999978881653537],
+ [en:0.9999938609572108],
+ [en:0.9999959932059433],
+ [en:0.9999963523115993],
+ [en:0.9999966050784683],
+ [en:0.9999971495208053],
+ [en:0.9999969698500583],
+ [en:0.9999975851300964],
+ [en:0.9999980715483267],
+ [en:0.9999953438991978],
+ [en:0.9999968030041618],
  [],
- [en:0.99999771647255],
- [en:0.9999971842534133],
- [en:0.9999973787564607],
- [en:0.9999942929168055],
- [en:0.9999963531366207],
- [en:0.9999975828703067],
- [en:0.9999960791848979],
- [en:0.9999946926272456],
- [en:0.9999965657455402],
- [en:0.9999961980536081],
- [en:0.9999970827157182],
- [en:0.9999962843823356],
- [en:0.9999972598544205],
- [],
- [],
- [],
- [en:0.9999942839403433],
- [en:0.9999961197630991],
- [en:0.9999971037544235],
- [en:0.9999972256802838],
- [en:0.9999978248777012],
- [en:0.8571396348841911, cs:0.14285880266848605],
- [en:0.9999989281816387],
- [en:0.9999971247514596],
+ [en:0.9999975222018546],
+ [en:0.9999969267198526],
+ [en:0.9999958215294349],
+ [en:0.9999947158447406],
+ [en:0.99999785592472],
+ [en:0.9999968210302916],
+ [en:0.9999970691618562],
+ [en:0.9999964365327867],
+ [en:0.9999974829702671],
+ [en:0.9999974961550226],
+ [en:0.999997457494414],
+ [en:0.9999967252067148],
+ [en:0.9999949221083864],
  [],
  [],
- [en:0.9999974317132196],
- [en:0.8571398792420543, ro:0.1428583997004599],
- [en:0.999998110105663],
- [en:0.9999976402569208],
- [en:0.9999969528052637],
- [en:0.9999968032542602],
- [en:0.9999971555725254],
- [en:0.9999972226567929],
- [en:0.9999965602955887],
- [en:0.9999972908793086],
  [],
- [en:0.9999987251261465],
- [en:0.9999976219357615],
- [en:0.9999968280484353],
- [en:0.8571402554211531, fr:0.14285766146223644],
- [en:0.999995905962592],
- [en:0.9999971068881103],
- [en:0.9999964640665968],
- [en:0.9999946648822431],
- [en:0.9999964806708999],
- [en:0.9999969330589944],
- [en:0.9999957994358655],
- [en:0.9999965439755074],
- [en:0.9999979946317245],
- [en:0.9999961236561983],
- [en:0.9999974809053833],
- [en:0.9999963368170117],
- [en:0.9999948030347072],
- [],
- [en:0.9999975549687764],
- [],
- [en:0.8571388838638978, cy:0.14286039538956083],
- [],
- [en:0.9999969396706966],
- [en:0.999997888393222],
- [],
- [en:0.9999981714761981],
- [en:0.9999972806507966],
- [en:0.999994245416892],
- [],
- [en:0.9999954259685252],
- [en:0.9999976235537602],
- [en:0.9999989976369966],
- [en:0.9999972114849616],
- [en:0.9999979510287331],
- [en:0.7142838655575322, ro:0.28571388419868293],
- [ro:0.9999953775920932],
- [en:0.9999967851686087],
- [],
- [en:0.9999969028603573],
- [en:0.9999968974615079],
- [en:0.9999973672007227],
- [en:0.9999974198474091],
- [],
- [hu:0.9999954767203292],
- [en:0.9999961882046551],
- [en:0.9999980308419855],
- [en:0.9999962355773526],
- [en:0.99999711498811],
- [en:0.9999966127333698],
- [pt:0.8423216994775088, id:0.14285589090510975],
- [en:0.9999966413902613],
- [en:0.9999966031279522],
- [en:0.9999954969608401],
- [en:0.9999981231818844],
- [en:0.999996703312944],
- [],
- [en:0.9999951544198087],
- [en:0.9999976255088183],
- [en:0.9999946245569084],
- [en:0.9999951397831053],
- [en:0.9999979993004865],
- [en:0.9999974951882863],
- [],
- [en:0.9999981323308481],
- [en:0.9999956892922965],
- [],
- [fr:0.8571389684565303, en:0.1428588290193887],
- [],
- [en:0.8571387502195166, id:0.14285946396594532],
- [en:0.9999971687155602],
- [en:0.999997307866899],
- [en:0.9999976870700261],
- [],
- [en:0.9999958106186818],
- [en:0.9999977623722422],
+ [en:0.9999962138018159],
+ [en:0.9999961194907367],
+ [en:0.9999955308047171],
+ [en:0.9999967455900275],
+ [en:0.9999956560137241],
+ [en:0.9999964449169104],
+ [en:0.9999973730173555],
+ [en:0.9999940042260971],
  [],
  [],
- [en:0.9999972824166614],
- [en:0.9999985294799577],
- [en:0.9999956723230592],
- [en:0.999996870833803],
- [en:0.9999963930544106],
- [en:0.9999956704686257],
- [en:0.9999971643640201],
- [en:0.999995928462688],
- [en:0.9999962195569578],
- [en:0.9999961837148187],
+ [en:0.9999970744414609],
+ [en:0.9999946767795328],
+ [en:0.9999951391080123],
+ [en:0.9999977746259765],
+ [en:0.9999987444511139],
+ [en:0.9999967259045122],
+ [en:0.9999977183991475],
+ [en:0.9999953349242895],
+ [en:0.9999980625749794],
+ [en:0.9999967235429496],
+ [],
+ [en:0.99999699737434],
+ [en:0.9999966347684424],
+ [en:0.9999975678864919],
+ [en:0.5714275117149121, fr:0.4285719425359561],
+ [en:0.9999973607448326],
+ [en:0.8571396836751152, id:0.14285792669102215],
+ [en:0.9999973236126625],
+ [en:0.9999980121255134],
+ [en:0.9999962007441876],
+ [en:0.999997660609385],
+ [en:0.9999959414268204],
+ [en:0.9999957462825081],
+ [en:0.9999984348237027],
+ [en:0.9999953394931693],
+ [en:0.9999965221342608],
+ [en:0.9999973616827919],
+ [en:0.9999974245515382],
+ [],
+ [en:0.9999973531733345],
+ [],
+ [en:0.999997709229685],
+ [],
+ [en:0.9999969422541796],
+ [en:0.8571391509361148, cy:0.14285933464341175],
+ [],
+ [en:0.9999984365042925],
+ [en:0.9999977590551525],
+ [en:0.9999957240035158],
+ [],
+ [en:0.9999979959301326],
+ [en:0.9999988858807012],
+ [en:0.9999981044567783],
+ [en:0.9999957987058001],
+ [en:0.9999964301308325],
+ [en:0.5714288103187899, ro:0.42856994161326667],
+ [ro:0.9999960929818683],
+ [en:0.9999969120076284],
+ [],
+ [en:0.9999982601890969],
+ [en:0.9999976453495454],
+ [en:0.999997826940042],
+ [en:0.9999964824708667],
+ [],
+ [hu:0.9999968516954679],
+ [en:0.9999968649516044],
+ [en:0.9999973017436041],
+ [en:0.9999962870013746],
+ [en:0.9999960949138826],
+ [en:0.9999980433635817],
+ [pt:0.4285698531808825,
+  id:0.28571431235573896,
+  fr:0.1706920114414132,
+  en:0.11502350721054166],
+ [en:0.9999986199906736],
+ [en:0.9999981449094479],
+ [en:0.9999973052029794],
+ [en:0.9999949772323835],
+ [en:0.999996076454647],
+ [],
+ [en:0.9999958281746164],
+ [en:0.9999953243082654],
+ [en:0.9999969890365876],
+ [en:0.9999962663625559],
+ [en:0.999997200751249],
+ [en:0.999996203317538],
+ [],
+ [en:0.9999962934221545],
+ [en:0.9999950230743986],
+ [],
+ [fr:0.9999980502638298],
+ [],
+ [en:0.9999989549697924],
+ [en:0.9999972602432885],
+ [en:0.9999984747565409],
+ [en:0.9999980253913747],
+ [],
+ [en:0.9999973767141679],
+ [en:0.8571416955699206, tl:0.14285812239412668],
  [],
  [],
- [en:0.9999975684400284],
- [en:0.9999976531120213],
- [en:0.9999978198148554],
- [en:0.9999979351522561],
- [en:0.9999961437310976],
- [],
- [en:0.8571407682866766, ro:0.14285612714460744],
- [en:0.9999940490466533],
- [en:0.9999971471039353],
- [en:0.999996414635204],
- [en:0.9999966090272401],
- [en:0.9999964866547786],
- [en:0.9999973477475217],
- [en:0.9999971484874182],
- [],
- [en:0.999995968451006],
- [],
- [en:0.9999972678566287],
- [en:0.9999982026112291],
- [en:0.9999970583224946],
- [en:0.9999958866608579],
- [en:0.9999967885622668],
- [en:0.8571406870609837, so:0.1428589242996062],
- [en:0.9999985195790142],
- [en:0.9999979494746326],
- [en:0.9999968692685818],
- [en:0.9999975639026768],
- [en:0.9999945900866241],
- [en:0.9999967257696316],
- [en:0.9999972073670226],
- [en:0.9999959808783832],
- [en:0.9999979555724108],
- [en:0.9999980128282409],
- [en:0.9999979652075563],
- [en:0.9999968712540714],
+ [en:0.9999965909983413],
+ [en:0.9999966517511862],
+ [en:0.9999955558044651],
+ [en:0.9999960814624097],
+ [en:0.9999976440079068],
+ [en:0.9999960178586289],
+ [en:0.9999975979717853],
+ [en:0.9999981760614688],
+ [en:0.8571398611196569, so:0.14285742599050288],
+ [en:0.9999968439735811],
  [],
  [],
- [en:0.9999961634979547],
- [en:0.9999980775233818],
- [en:0.9999985986464157],
- [en:0.99999709940777],
- [en:0.9999956318025516],
- [en:0.9999978016522484],
- [en:0.9999972698278101],
- [en:0.9999965472967985],
- [en:0.9999976723374178],
- [en:0.9999982491755188],
- [en:0.9999977706388372],
- [en:0.9999940084544834],
- [en:0.9999971388618646],
- [en:0.9999978542234117],
- [en:0.8571413759892162, fr:0.14285754469192866],
- [en:0.9999963280209236],
- [en:0.9999955288539079],
- [en:0.9999965708514913],
- [en:0.999996542629365],
- [en:0.9999946340626042],
- [en:0.999995326093283],
- [en:0.999997791931748],
- [en:0.9999979291116095],
- [en:0.9999977763928749],
- [en:0.9999966744518145],
- [en:0.9999987800360443],
- [en:0.9999956896661387],
- [en:0.9999955450972733],
- [ro:0.9999940149059954],
- [en:0.999997941106578],
- [en:0.9999968635678929],
- [en:0.9999973570561707],
- [en:0.999996156600033],
- [en:0.9999969376304083],
- [en:0.9999950421414777],
- [en:0.9999971627421038],
- [en:0.9999966546829354],
- [en:0.9999960029219546],
- [en:0.9999978141789905],
- [en:0.9999985045031385],
- [en:0.9999986235421469],
- [ro:0.5714275671820377, en:0.42857092593543705],
- [en:0.9999974757442273],
+ [en:0.999997249361729],
+ [en:0.9999970611741158],
+ [en:0.9999965887682556],
+ [en:0.999995989661185],
+ [en:0.9999966228713764],
  [],
- [en:0.9999966158982884],
- [en:0.9999969431137404],
- [en:0.9999973314232081],
- [en:0.9999958718975483],
- [en:0.9999951905167215],
- [en:0.9999972938041122],
- [en:0.9999968589022095],
- [en:0.9999960241913222],
- [en:0.9999970935371265],
- [en:0.9999968353684452],
- [en:0.9999963929785625],
- [hu:0.5714285099002661, en:0.4285714854965297],
- [en:0.9999965435016089],
- [en:0.9999953285441662],
+ [en:0.9999976657300672],
+ [en:0.9999988765810026],
+ [en:0.9999954924732378],
+ [en:0.9999976067535317],
+ [en:0.9999972251014841],
+ [en:0.9999945399480547],
+ [en:0.9999965564544645],
+ [en:0.9999972001102122],
+ [],
+ [en:0.9999968332106811],
+ [],
+ [en:0.9999956630212323],
+ [en:0.9999961069783534],
+ [en:0.9999961497297686],
+ [en:0.9999961606909524],
+ [en:0.9999980791564447],
+ [en:0.9999961387250238],
+ [en:0.9999985522926351],
+ [en:0.9999976927902029],
+ [en:0.9999984132720885],
+ [en:0.9999982076224858],
+ [en:0.9999951873038146],
+ [en:0.9999979495976696],
+ [en:0.9999985548673052],
+ [en:0.9999985977891721],
+ [en:0.9999942255994722],
+ [en:0.9999983763439332],
+ [en:0.9999942383041197],
+ [en:0.9999966789823062],
  [],
  [],
- [en:0.9999955088295504],
- [en:0.9999948613752899],
- [en:0.9999981443197121],
- [en:0.9999956566237521],
- [en:0.9999976082481112],
- [en:0.9999952006879256],
- [en:0.9999972018829952],
+ [en:0.9999959540979357],
+ [en:0.9999967639904188],
+ [en:0.9999964993384612],
+ [en:0.9999959509829376],
+ [en:0.9999970843933992],
+ [en:0.9999966744918094],
+ [en:0.9999954637196452],
+ [en:0.9999965251086308],
+ [en:0.9999980791167071],
+ [en:0.9999963074612626],
+ [en:0.9999953276689657],
+ [en:0.9999959574206231],
+ [en:0.9999975832422289],
+ [en:0.9999983497383634],
+ [en:0.9999964951025972],
+ [en:0.9999975062560159],
+ [en:0.9999965830869393],
+ [en:0.9999954330232044],
+ [en:0.9999939582432554],
+ [en:0.9999978037547452],
+ [en:0.9999969989590585],
+ [en:0.9999962322861252],
+ [en:0.9999936334793578],
+ [en:0.9999984235799293],
+ [en:0.9999946801932232],
+ [en:0.9999980912693187],
+ [en:0.9999956468612561],
+ [en:0.9999957889210057],
+ [ro:0.9999954104363622],
+ [en:0.9999967562896196],
+ [en:0.9999972722100609],
+ [en:0.9999974014819731],
+ [en:0.9999952240994572],
+ [en:0.9999971920893187],
+ [en:0.9999961844004578],
+ [en:0.9999958845917896],
+ [en:0.9999961954126391],
+ [en:0.9999979067978558],
+ [en:0.9999975142080844],
+ [en:0.9999962184630588],
+ [en:0.999996635854432],
+ [ro:0.7142829088077204, en:0.2857151376586442],
+ [en:0.9999983004051256],
  [],
- [en:0.999995694073286],
- [ro:0.9999961717503718],
- [en:0.9999979921733484],
+ [en:0.9999977786064675],
+ [en:0.9999975978125082],
+ [en:0.9999949972777562],
+ [en:0.9999962081978693],
+ [en:0.9999984024284636],
+ [en:0.9999957409230014],
+ [en:0.9999962434706309],
+ [en:0.9999964455538288],
+ [en:0.9999966431516877],
+ [en:0.9999975455959347],
+ [en:0.9999982000544644],
+ [hu:0.8571379644599408, en:0.1428615493133291],
+ [en:0.9999949363071449],
+ [en:0.9999969059568875],
  [],
- [en:0.9999960281328776],
- [en:0.9999967192301775],
- [en:0.9999966163404268],
- [en:0.9999960953539332],
+ [],
+ [en:0.9999962708167578],
+ [en:0.9999960040852991],
+ [en:0.9999979144586233],
+ [en:0.9999973302550078],
+ [en:0.8571389864532949, ro:0.1428587305147687],
+ [en:0.9999981734074161],
+ [en:0.9999983679376789],
+ [],
+ [en:0.9999975553641224],
+ [ro:0.9999986867499508],
+ [en:0.9999979709867277],
+ [],
+ [en:0.9999961229978123],
+ [en:0.9999976107671231],
+ [en:0.9999959647417674],
+ [en:0.9999959200394726],
  [],
  [],
- [en:0.9999980920775045],
- [en:0.9999982899116244],
- [en:0.9999969365256777],
+ [en:0.9999971590123696],
+ [en:0.9999970566583667],
+ [en:0.9999958161366036],
  [],
- [ro:0.8571384367831516, fr:0.14286094141090036],
- [en:0.9999953231688175],
- [en:0.9999945391111585],
- [en:0.9999968064546896],
- [ro:0.9999971629363447],
- [en:0.9999971461914923],
- [en:0.9999958244918123],
- [en:0.9999950691152022],
- [en:0.9999986639817255],
- [en:0.9999965833464426],
- [en:0.9999973114968961],
- [en:0.9999956643350661],
- [en:0.9999982547572533],
- [so:0.4285697881252918,
-  id:0.2857133132315769,
-  tr:0.1428604298213322,
-  en:0.1428562308429321],
- [en:0.9999979558824215],
- [so:0.42857079438177914, en:0.4285696290036253, tr:0.14285718114706786],
- [en:0.9999961795359315],
- [en:0.9999968654833382],
- [en:0.9999993408620583],
- [en:0.9999980626037205],
- [en:0.9999986089868831],
- [en:0.9999970701788321],
- [en:0.9999956130212686],
- [en:0.9999964363195072],
- [en:0.9999962596720383],
- [en:0.42856981930248716,
-  tr:0.285716342823167,
-  so:0.1428570809850587,
-  id:0.14285665945116566],
- [en:0.9999949153121175],
- [id:0.571424727626966, en:0.28571273131505254, so:0.14285713360432306],
- [en:0.9999969116731926],
- [en:0.9999955537935428],
- [en:0.9999965960623358],
- [en:0.9999990786568711],
- [en:0.999994138127563],
- [en:0.9999968569256011],
- [en:0.999997392733543],
- [en:0.9999968579045666],
- [en:0.9999979916626357],
- [so:0.4285691575635332, en:0.2857151248135973, tr:0.2857126095116467],
- [en:0.9999965473857245],
- [en:0.5714266938534075, id:0.28571415455040283, so:0.14285708879079417],
- [en:0.9999950143041536],
- [en:0.9999965587236673],
- [en:0.9999973651754668],
- [en:0.9999977410596581],
- [en:0.9999983117438422],
- [en:0.9999978598086757],
- [en:0.999996052537732],
- [en:0.9999976609148616],
- [en:0.9999974091963052],
- [id:0.40423114919109837,
-  tr:0.2947030032569445,
-  so:0.15820897425104097,
-  en:0.14285656422848228],
- [en:0.9999980408993733],
- [so:0.42857123873496394,
-  id:0.14285750905718328,
-  tr:0.14285748182911615,
-  en:0.1428571881438333,
-  sw:0.14285658218438224],
- [en:0.9999967964258132],
- [en:0.999996305469803],
- [en:0.9999973294988361],
- [en:0.9999966485457117],
- [en:0.9999961693753151],
- [en:0.9999958228911356],
- [en:0.9999970395456692],
- [en:0.9999973572656795],
- [en:0.9999950414750074],
- [en:0.4285690244004499, so:0.28571442860794916, tr:0.28571278467499384],
- [en:0.9999976792223215],
- [so:0.5714274027057376, tr:0.2857130008434071, en:0.14285709348111297],
- [en:0.9999977304446531],
- [en:0.999995135079645],
- [en:0.9999980023549132],
- [en:0.9999967578571461],
- [en:0.9999966840592472]]
+ [ro:0.9999964692669054],
+ [en:0.9999935169088607],
+ [en:0.9999982095742869],
+ [en:0.9999954549904182],
+ [ro:0.9999962823689985],
+ [en:0.999994959183381],
+ [en:0.9999940949406876],
+ [en:0.9999966998746248],
+ [en:0.9999939478244091],
+ [en:0.9999970101658899],
+ [en:0.9999972964584912],
+ [en:0.9999961255836969],
+ [en:0.9999978784103823],
+ [so:0.5714262479223015, id:0.2857134260255131, tr:0.14285957382904038],
+ [en:0.9999978223021408],
+ [tr:0.42856971953447304, so:0.285713993553288, en:0.2857133810030059],
+ [en:0.9999966269284923],
+ [en:0.999994176525562],
+ [en:0.9999983887515468],
+ [en:0.9999971055370104],
+ [en:0.9999959759379535],
+ [en:0.9999965966572504],
+ [en:0.9999964272416502],
+ [en:0.9999960599216737],
+ [en:0.9999973880428041],
+ [en:0.4285709973265712, tr:0.4285679467878238, so:0.14285718284852625],
+ [en:0.9999962108905445],
+ [so:0.5714258672602403, en:0.42857062084880926],
+ [en:0.9999986643835133],
+ [en:0.9999987132117882],
+ [en:0.9999985427113527],
+ [en:0.9999957189275528],
+ [en:0.9999956993332311],
+ [en:0.9999964112710805],
+ [en:0.999995218097452],
+ [en:0.9999959124571928],
+ [en:0.999998676222821],
+ [so:0.5714246953151934, id:0.2857158768391485, tr:0.14285777421205964],
+ [en:0.9999961310354983],
+ [so:0.428570044207392, id:0.28571603350183666, tr:0.28571388928458863],
+ [en:0.9999971066606375],
+ [en:0.9999986982209507],
+ [en:0.9999989510682925],
+ [en:0.999997602088527],
+ [en:0.9999982297063501],
+ [en:0.9999971696173883],
+ [en:0.9999975922804932],
+ [en:0.9999975784651159],
+ [en:0.999997099260254],
+ [en:0.5714263380765633, so:0.4285688641816511],
+ [en:0.999993949907994],
+ [so:0.42857124455029716, id:0.2857143853934, en:0.2857133382066393],
+ [en:0.9999962005999952],
+ [en:0.9999972392813444],
+ [en:0.9999963040895166],
+ [en:0.9999980272796853],
+ [en:0.9999979227779994],
+ [en:0.9999966895569579],
+ [en:0.9999973251837944],
+ [en:0.9999964261172516],
+ [en:0.9999979790599725],
+ [en:0.4285702521131573,
+  tr:0.2857148264472423,
+  so:0.1428574774289952,
+  id:0.14285700336203883],
+ [en:0.9999968253741858],
+ [so:0.5714271795071602, tr:0.4285693639671977],
+ [en:0.9999953226612845],
+ [en:0.9999970949623992],
+ [en:0.9999977316812121],
+ [en:0.9999972100861356],
+ [en:0.9999964328440528]]
 </pre></div>
 </div>
 </div>
@@ -2326,6 +2344,30 @@ Length: 131, dtype: int64
  &#39;en&#39;,
  &#39;so&#39;,
  &#39;en&#39;,
+ &#39;tr&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;en&#39;,
+ &#39;so&#39;,
+ &#39;en&#39;,
  &#39;so&#39;,
  &#39;en&#39;,
  &#39;en&#39;,
@@ -2337,30 +2379,6 @@ Length: 131, dtype: int64
  &#39;en&#39;,
  &#39;en&#39;,
  &#39;en&#39;,
- &#39;en&#39;,
- &#39;id&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;so&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;en&#39;,
- &#39;id&#39;,
  &#39;en&#39;,
  &#39;so&#39;,
  &#39;en&#39;,
@@ -2549,14 +2567,10 @@ Length: 131, dtype: int64
     </tr>
     <tr>
       <th>so</th>
-      <td>5</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>hu</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>id</th>
       <td>2</td>
     </tr>
     <tr>
@@ -2567,6 +2581,10 @@ Length: 131, dtype: int64
       <th>fr</th>
       <td>1</td>
     </tr>
+    <tr>
+      <th>tr</th>
+      <td>1</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -2574,7 +2592,8 @@ Length: 131, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">:</span> <span class="s2">&quot;Romanian&quot;</span><span class="p">,</span> <span class="s2">&quot;so&quot;</span><span class="p">:</span> <span class="s2">&quot;Somali&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;hu&quot;</span><span class="p">:</span> <span class="s2">&quot;Hungarian&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Indonesian&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Portuguese&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;French&quot;</span><span class="p">}</span>
+       <span class="s2">&quot;hu&quot;</span><span class="p">:</span> <span class="s2">&quot;Hungarian&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Indonesian&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Portuguese&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;French&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;tr&quot;</span><span class="p">:</span> <span class="s2">&quot;Turkish&quot;</span><span class="p">}</span>
 
 <span class="n">key</span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">]</span>
 </pre></div>
@@ -2593,7 +2612,7 @@ Length: 131, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;en&#39;, &#39;ro&#39;, &#39;so&#39;, &#39;hu&#39;, &#39;id&#39;, &#39;pt&#39;, &#39;fr&#39;], dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;en&#39;, &#39;ro&#39;, &#39;so&#39;, &#39;hu&#39;, &#39;pt&#39;, &#39;fr&#39;, &#39;tr&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -2624,49 +2643,449 @@ Length: 131, dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>lang</th>
       <th>language</th>
+      <th>lang</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>en</th>
-      <td>English</td>
       <td>273</td>
+      <td>English</td>
     </tr>
     <tr>
       <th>ro</th>
-      <td>Romanian</td>
       <td>6</td>
+      <td>Romanian</td>
     </tr>
     <tr>
       <th>so</th>
+      <td>6</td>
       <td>Somali</td>
-      <td>5</td>
     </tr>
     <tr>
       <th>hu</th>
+      <td>2</td>
       <td>Hungarian</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>id</th>
-      <td>Indonesian</td>
-      <td>2</td>
     </tr>
     <tr>
       <th>pt</th>
-      <td>Portuguese</td>
       <td>1</td>
+      <td>Portuguese</td>
     </tr>
     <tr>
       <th>fr</th>
-      <td>French</td>
       <td>1</td>
+      <td>French</td>
+    </tr>
+    <tr>
+      <th>tr</th>
+      <td>1</td>
+      <td>Turkish</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+</section>
+<section id="stopwords">
+<h2>Stopwords<a class="headerlink" href="#stopwords" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">STOPWORDS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wordcloud without stopwords</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">longest_review_full_text</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele-analysis_50_0.png" src="../_images/olele-analysis_50_0.png" />
+</div>
+</div>
+<p>Wprdcloud with stopwords:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">longest_review_full_text</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele-analysis_52_0.png" src="../_images/olele-analysis_52_0.png" />
+</div>
+</div>
+<p>BOW with stopwords</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">ENGLISH_STOP_WORDS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the vectorizer, specify max features </span>
+<span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="n">ENGLISH_STOP_WORDS</span><span class="p">)</span>
+
+<span class="c1"># Fit the vectorizer</span>
+<span class="n">vect</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Transform the review column</span>
+<span class="n">X_review</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Create the bow representation</span>
+<span class="n">X_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_review</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="n">X_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>absolutely</th>
+      <th>bag</th>
+      <th>beautiful</th>
+      <th>beautifully</th>
+      <th>best</th>
+      <th>bought</th>
+      <th>buy</th>
+      <th>came</th>
+      <th>carry</th>
+      <th>case</th>
+      <th>...</th>
+      <th>using</th>
+      <th>ve</th>
+      <th>wait</th>
+      <th>wax</th>
+      <th>way</th>
+      <th>wonderful</th>
+      <th>wood</th>
+      <th>wooden</th>
+      <th>work</th>
+      <th>wow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>323</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>325</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>326 rows × 100 columns</p>
+</div></div></div>
+</div>
+<p>Vectorize using Token pattern</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the first vectorizer</span>
+<span class="n">vect1</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">ENGLISH_STOP_WORDS</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+<span class="n">vect1</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Build the second vectorizer</span>
+<span class="n">vect2</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">ENGLISH_STOP_WORDS</span><span class="p">,</span>
+                        <span class="n">token_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\b[^\d\W][^\d\W]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+<span class="n">vect2</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+
+<span class="c1"># Print out the length of each vectorizer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of vectorizer 1: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vect1</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of vectorizer 2: &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vect2</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length of vectorizer 1:  763
+Length of vectorizer 2:  138
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
