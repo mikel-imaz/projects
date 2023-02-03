@@ -4,9 +4,18 @@
 format: jb-book
 root: intro
 parts:
-- caption: Projects
+- caption: Contents
   chapters:
-  - file: notebooks/ignatian
-  - file: notebooks/breads
-  - file: notebooks/urban_trees
-  - file: notebooks/traffic_fines
+  - file: projects
+    sections:
+    - file: notebooks/olele
+    - file: notebooks/traffic_fines
+    - file: notebooks/urban_trees
+    - file: notebooks/breads
+    - file: notebooks/ignatian
+- caption: About
+  chapters:
+  - url: https://www.linkedin.com/in/mikel-imaz/
+    title: LinkedIn profile
+  - url: https://www.datacamp.com/profile/mikel-imaz
+    title: DataCamp profile
