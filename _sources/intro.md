@@ -7,16 +7,16 @@ By **Mikel Imaz**
 ::::{grid} 2 2 3 3
 :gutter: 3
 
-:::{grid-item-card} Ignatian Way
-:link: notebooks/ignatian
+:::{grid-item-card} Handfan Reviews
+:link: notebooks/olele
 :link-type: doc
-:img-bottom: notebooks/img/P1580313_short.jpg
+:img-bottom: notebooks/img/olele-short.jpg
 :::
 
-:::{grid-item-card} Bread Prices
-:link: notebooks/breads
+:::{grid-item-card} Traffic Fines
+:link: notebooks/traffic_fines
 :link-type: doc
-:img-bottom: notebooks/img/udana.jpg
+:img-bottom: notebooks/img/traffic_fines.jpg
 :::
 
 :::{grid-item-card} Urban Trees
@@ -25,10 +25,16 @@ By **Mikel Imaz**
 :img-bottom: notebooks/img/urban_trees.jpg
 :::
 
-:::{grid-item-card} Traffic Fines
-:link: notebooks/traffic_fines
+:::{grid-item-card} Bread Prices
+:link: notebooks/breads
 :link-type: doc
-:img-bottom: notebooks/img/traffic_fines.jpg
+:img-bottom: notebooks/img/udana.jpg
+:::
+
+:::{grid-item-card} Ignatian Pilgrims
+:link: notebooks/ignatian
+:link-type: doc
+:img-bottom: notebooks/img/P1580313_short.jpg
 :::
 ::::
 

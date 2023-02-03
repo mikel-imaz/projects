@@ -1,0 +1,1905 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Handfan Reviews &#8212; Data Projects</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Traffic Fines" href="traffic_fines.html" />
+    <link rel="prev" title="Projects" href="../projects.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Projects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../projects.html">
+   Projects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Handfan Reviews
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="traffic_fines.html">
+     Traffic Fines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="urban_trees.html">
+     Urban Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="breads.html">
+     Bread Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignatian.html">
+     Ignatian Pilgrims
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.linkedin.com/in/mikel-imaz/">
+   LinkedIn profile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.datacamp.com/profile/mikel-imaz">
+   DataCamp profile
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/olele.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/mikel-imaz/projects"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/olele.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-scraping-the-data">
+   Web scraping the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#number-of-reviews-per-year">
+     Number of reviews per year
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-number-of-reviews-per-month">
+     Average number of reviews per month
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stars-distribution">
+     Stars’ distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-reviewers">
+     Top reviewers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#longest-review">
+     Longest review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polarity-and-subjectivity">
+     Polarity and subjectivity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bad-reviews">
+       Bad reviews
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#objective-reviews">
+       Objective reviews
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extreme-reviews">
+       Extreme reviews
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequency-of-words">
+     Frequency of words
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#word-cloud">
+       Word cloud
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#most-frequent-words">
+       Most frequent words
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Handfan Reviews</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#web-scraping-the-data">
+   Web scraping the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data processing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#number-of-reviews-per-year">
+     Number of reviews per year
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-number-of-reviews-per-month">
+     Average number of reviews per month
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stars-distribution">
+     Stars’ distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-reviewers">
+     Top reviewers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#longest-review">
+     Longest review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polarity-and-subjectivity">
+     Polarity and subjectivity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bad-reviews">
+       Bad reviews
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#objective-reviews">
+       Objective reviews
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extreme-reviews">
+       Extreme reviews
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequency-of-words">
+     Frequency of words
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#word-cloud">
+       Word cloud
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#most-frequent-words">
+       Most frequent words
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="handfan-reviews">
+<h1>Handfan Reviews<a class="headerlink" href="#handfan-reviews" title="Permalink to this headline">#</a></h1>
+<p><img alt="Olele" src="../_images/olele.jpg" />
+<span class="math notranslate nohighlight">\(^{1}\)</span>Image credit: <a class="reference external" href="https://olele.es/">https://olele.es/</a></p>
+<p>Feb, 2023</p>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<p>My wife crafts hand fans and sells them online under the brand name <strong>Olelé</strong>. Her catchphrase is: <em>Spanish hand fans with a different touch</em>. She basically sells them on <a class="reference external" href="https://www.etsy.com/shop/Olele">Etsy</a> and ships them out to the whole world.</p>
+<p>She started in 2010 and has received many reviews ever since. I suggested doing a little analysis on them. “I’d like that”, she said. Of course, she knew the majority of the reviews were very positive, so she had no problem showing them off.</p>
+<p>She said: “Let me see if I can remember how to download the reviews in a file from my Etsy account”. “Don’t worry”, I replied, “I’m going to scrape them directly from the website!”</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
+
+<span class="c1"># Web scraping</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># Sentiment</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">STOPWORDS</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="web-scraping-the-data">
+<h2>Web scraping the data<a class="headerlink" href="#web-scraping-the-data" title="Permalink to this headline">#</a></h2>
+<p>On the Etsy website I saw that Olelé’s reviews were placed along 28 different pages. I could access them changing URL query parameters, so I programmed some lines to automate the fetching of HTML pages and extraction of the desired data from them: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">stars</span></code> and review <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<p><img alt="Etsy" src="../_images/olele-etsy.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Params</span>
+<span class="n">pages</span> <span class="o">=</span> <span class="mi">28</span> <span class="c1"># Review pages present for Olele</span>
+<span class="n">wait_time</span> <span class="o">=</span> <span class="mi">180</span> <span class="c1"># seconds</span>
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># max attempts</span>
+
+<span class="c1"># Init</span>
+<span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">names_dates</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stars</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate through pages</span>
+<span class="k">while</span> <span class="n">page</span> <span class="o">&lt;=</span> <span class="n">pages</span><span class="p">:</span>
+
+    <span class="c1"># Update page number in query parameters of the URL</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.etsy.com/shop/Olele/reviews?ref=pagination&amp;page=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="c1"># Request data</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    
+    <span class="c1"># Server answers &#39;Too many requests&#39;</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+        <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Waiting </span><span class="si">{</span><span class="n">wait_time</span><span class="si">}</span><span class="s2">s in attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span> <span class="c1"># Wait!</span>
+        <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;=</span> <span class="n">attempts</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Server still answering &#39;429&#39; after </span><span class="si">{</span><span class="n">attempt</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2"> attempts&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+            
+    <span class="c1"># Something went wrong      </span>
+    <span class="k">elif</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span> <span class="c1"># Not 200</span>
+        <span class="k">raise</span> <span class="ne">Exception</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;requests.get(url) returns </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+        
+    <span class="c1"># Ok, go on!</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scraping review page </span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Get content</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">content</span>
+        
+        <span class="c1"># Parse</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+        
+        <span class="c1"># Search for the data</span>
+        <span class="k">for</span> <span class="n">review</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;review-item&#39;</span><span class="p">}):</span>
+            
+            <span class="c1"># Extract name and date</span>
+            <span class="n">name_date</span> <span class="o">=</span> <span class="n">review</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;shop2-review-attribution&#39;</span><span class="p">})</span>
+            <span class="k">if</span> <span class="n">name_date</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Didn&#39;t find anything</span>
+                <span class="n">dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">name_date</span> <span class="o">=</span> <span class="n">name_date</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">names_dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name_date</span><span class="p">)</span>
+                
+            <span class="c1"># Extract stars</span>
+            <span class="n">star</span> <span class="o">=</span> <span class="n">review</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;screen-reader-only&#39;</span><span class="p">})</span>
+            <span class="k">if</span> <span class="n">star</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Didn&#39;t find anything</span>
+                <span class="n">stars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">star</span> <span class="o">=</span> <span class="n">star</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">stars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">star</span><span class="p">)</span>
+
+            <span class="c1"># Extract review text</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">review</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s2">&quot;prose wt-break-word wt-m-xs-0&quot;</span><span class="p">})</span>
+            <span class="k">if</span> <span class="n">text</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Didn&#39;t find anything</span>
+                <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="n">pages</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scraping finished!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Store listed reviews in a dataframe dropping duplicates</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;name_date&quot;</span><span class="p">:</span> <span class="n">names_dates</span><span class="p">,</span> <span class="s2">&quot;stars&quot;</span><span class="p">:</span> <span class="n">stars</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">texts</span><span class="p">})</span>\
+                    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">olele</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping review page 1...
+Scraping review page 2...
+Scraping review page 3...
+Scraping review page 4...
+Scraping review page 5...
+Scraping review page 6...
+Scraping review page 7...
+Scraping review page 8...
+Scraping review page 9...
+Scraping review page 10...
+Scraping review page 11...
+Scraping review page 12...
+Scraping review page 13...
+Scraping review page 14...
+Scraping review page 15...
+Scraping review page 16...
+Scraping review page 17...
+Scraping review page 18...
+Scraping review page 19...
+Scraping review page 20...
+Scraping review page 21...
+Scraping review page 22...
+Scraping review page 23...
+Scraping review page 24...
+Waiting 180s in attempt 1
+Scraping review page 25...
+Scraping review page 26...
+Scraping review page 27...
+Scraping review page 28...
+Scraping finished!
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name_date</th>
+      <th>stars</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Carolinaon Nov 1, 2022</td>
+      <td>5 out of 5 stars</td>
+      <td>As usual the quality is sturdy yet elegant and...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Amy Annetteon Sep 3, 2022</td>
+      <td>5 out of 5 stars</td>
+      <td>I bought this fan to bring to tango and swing ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Maryon Aug 31, 2022</td>
+      <td>5 out of 5 stars</td>
+      <td>LOVELY!  I think this is my 4th fan? Complimen...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Eni Aon Aug 31, 2022</td>
+      <td>5 out of 5 stars</td>
+      <td>Very beautiful fan, great quality and the colo...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hredmondson Jun 11, 2022</td>
+      <td>5 out of 5 stars</td>
+      <td>This is the second fan I've bought for myself ...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>Anonymous on Jun 21, 2010</td>
+      <td>5 out of 5 stars</td>
+      <td>Thank you!</td>
+    </tr>
+    <tr>
+      <th>273</th>
+      <td>Anonymous on Jun 18, 2010</td>
+      <td>5 out of 5 stars</td>
+      <td>Gorgeous! Love it! Just in time for the summer...</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>Anonymous on Jun 15, 2010</td>
+      <td>5 out of 5 stars</td>
+      <td>Really nice communication with Karmele Luqui. ...</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>Anonymous on Jun 12, 2010</td>
+      <td>5 out of 5 stars</td>
+      <td>A huge WOW when I just got them! The fans are ...</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>Anonymous on Jun 10, 2010</td>
+      <td>5 out of 5 stars</td>
+      <td>Just received this yesterday, and I am in love...</td>
+    </tr>
+  </tbody>
+</table>
+<p>265 rows × 3 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">#</a></h2>
+<p>The acquired data needed some processing before proceeding with the analysis:</p>
+<ul class="simple">
+<li><p>Split <code class="docutils literal notranslate"><span class="pre">name_date</span></code> column into two different columns, <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+<li><p>Convert <code class="docutils literal notranslate"><span class="pre">date</span></code> column from string to <code class="docutils literal notranslate"><span class="pre">datetime</span></code> data type.</p></li>
+<li><p>Extract stars as an integer number from the string type <code class="docutils literal notranslate"><span class="pre">stars</span></code> column.</p></li>
+<li><p>Rearrange the whole pandas dataframe: desired columns, names, order, index.</p></li>
+<li><p>Finally, fill in missing (NaN) values in <code class="docutils literal notranslate"><span class="pre">text</span></code> with empty strings.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split name and date in different columns</span>
+<span class="n">olele</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;name_date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pat</span><span class="o">=</span><span class="s2">&quot;on &quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Convert date column to datetime type</span>
+<span class="n">olele</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+
+<span class="c1"># Convert stars column from string to number</span>
+<span class="n">olele</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">stars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">stars</span> <span class="ow">in</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">]]</span>
+<span class="n">olele</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Rearrange dataframe with columns name, date, stars, text</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;datetime&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;stars_n&quot;</span><span class="p">:</span> <span class="s2">&quot;stars&quot;</span><span class="p">})</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+
+<span class="c1"># Replace missing values</span>
+<span class="n">olele</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show dataframe info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 265 entries, 2022-11-01 to 2010-06-10
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   name    265 non-null    object
+ 1   stars   265 non-null    int32 
+ 2   text    265 non-null    object
+dtypes: int32(1), object(2)
+memory usage: 7.2+ KB
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olele</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>stars</th>
+      <th>text</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-11-01</th>
+      <td>Carolina</td>
+      <td>5</td>
+      <td>As usual the quality is sturdy yet elegant and...</td>
+    </tr>
+    <tr>
+      <th>2022-09-03</th>
+      <td>Amy Annette</td>
+      <td>5</td>
+      <td>I bought this fan to bring to tango and swing ...</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Mary</td>
+      <td>5</td>
+      <td>LOVELY!  I think this is my 4th fan? Complimen...</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Eni A</td>
+      <td>5</td>
+      <td>Very beautiful fan, great quality and the colo...</td>
+    </tr>
+    <tr>
+      <th>2022-06-11</th>
+      <td>hredmonds</td>
+      <td>5</td>
+      <td>This is the second fan I've bought for myself ...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2010-06-21</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Thank you!</td>
+    </tr>
+    <tr>
+      <th>2010-06-18</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Gorgeous! Love it! Just in time for the summer...</td>
+    </tr>
+    <tr>
+      <th>2010-06-15</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Really nice communication with Karmele Luqui. ...</td>
+    </tr>
+    <tr>
+      <th>2010-06-12</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>A huge WOW when I just got them! The fans are ...</td>
+    </tr>
+    <tr>
+      <th>2010-06-10</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Just received this yesterday, and I am in love...</td>
+    </tr>
+  </tbody>
+</table>
+<p>265 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>The dataframe is now ready for analysis.</p>
+</section>
+<section id="data-analysis">
+<h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h2>
+<section id="number-of-reviews-per-year">
+<h3>Number of reviews per year<a class="headerlink" href="#number-of-reviews-per-year" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count reviews per year</span>
+<span class="n">reviews_yearly</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">color_olele</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#b7295a&quot;</span><span class="p">]</span> <span class="c1"># From olele color palette</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">reviews_yearly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Reviews at www.etsy.com/shop/Olele&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;# of reviews&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_14_0.png" src="../_images/olele_14_0.png" />
+</div>
+</div>
+<p>After some successful years, it looks like reviews have decreased lately.</p>
+</section>
+<section id="average-number-of-reviews-per-month">
+<h3>Average number of reviews per month<a class="headerlink" href="#average-number-of-reviews-per-month" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute number of years</span>
+<span class="n">nbr_years</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="c1"># Calculate monthly average</span>
+<span class="n">reviews_monthly_avg</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">/</span> <span class="n">nbr_years</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">reviews_monthly_avg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;July&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;October&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Average reviews per month (2010-2022)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;# of reviews&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_17_0.png" src="../_images/olele_17_0.png" />
+</div>
+</div>
+<p>It shows a seasonality that matches the increased number of hand fans that are sold in the summer.</p>
+</section>
+<section id="stars-distribution">
+<h3>Stars’ distribution<a class="headerlink" href="#stars-distribution" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count stars</span>
+<span class="n">stars_count</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+
+<span class="c1"># Define a dataframe with all possibilities: 1, 2, 3, 4, 5 stars</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Merge them to build a dataframe ready to plot</span>
+<span class="n">stars</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">stars_count</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                    <span class="n">left_on</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="n">stars_count</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">stars</span> <span class="o">=</span> <span class="n">stars</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;key_0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">stars</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Reviews by stars&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Stars&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;# of reviews&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_20_0.png" src="../_images/olele_20_0.png" />
+</div>
+</div>
+<p>Overwhelming majority of 5-star reviews!</p>
+</section>
+<section id="top-reviewers">
+<h3>Top reviewers<a class="headerlink" href="#top-reviewers" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Top reviewers</span>
+<span class="n">reviewers</span> <span class="o">=</span> <span class="n">olele</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+<span class="n">reviewers_top</span> <span class="o">=</span> <span class="n">reviewers</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="c1"># 3 reviews or more</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">reviewers_top</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Top Reviewers&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;# of reviews&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Reviewer&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_23_0.png" src="../_images/olele_23_0.png" />
+</div>
+</div>
+<p>According to my wife, most of these top reviewers are customers from the US.</p>
+</section>
+<section id="longest-review">
+<h3>Longest review<a class="headerlink" href="#longest-review" title="Permalink to this headline">#</a></h3>
+<p>Out of curiosity, let’s have a look into the longest review of all.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort reviews by text length and take the first one</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">olele</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I was looking for the perfect fan for a man like me. Then I found Karmeles shop and this wonderfully beautiful accessory. And I was thrilled with him in a split of a second. Blue is my favorite color and the pattern immediately made me think of a night sky shining with thousands of stars. Bingo! Hit! It had to be! Karmele made the fan very clean and simply perfect. He is delivered in a very nice and fine dark blue leather pocket. So now I can keep him safely at all times. An absolutely perfect combination, in my opinion. I can&#39;t wait to use him on a sunny spring day. We had it yesterday, but with 5 degrees and cool wind... I am absolutely certain, that we will have warmer temperatures very soon. Now I wish Karmele continued success and that she and all her loved ones stay healthy. Kind regards, Friedrich
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sentiment-analysis">
+<h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
+<p>I am using a Python library called <code class="docutils literal notranslate"><span class="pre">TextBlob</span></code> for processing textual data and get:</p>
+<ol class="simple">
+<li><p>Information about the emotion contained in the text.</p></li>
+<li><p>The most common words.</p></li>
+</ol>
+<section id="polarity-and-subjectivity">
+<h3>Polarity and subjectivity<a class="headerlink" href="#polarity-and-subjectivity" title="Permalink to this headline">#</a></h3>
+<p>We need reviews to include text, so we discard the ones without it.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy to a new dataframe only reviews containing text</span>
+<span class="n">olele_texted</span> <span class="o">=</span> <span class="n">olele</span><span class="p">[</span><span class="n">olele</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Print how many were selected</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">olele_texted</span><span class="p">)</span><span class="si">}</span><span class="s2"> &#39;texted&#39; reviews out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">olele</span><span class="p">)</span><span class="si">}</span><span class="s2"> were selected.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>235 &#39;texted&#39; reviews out of 265 were selected.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, I obtain polarity and subjectivity indexes for each review.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init</span>
+<span class="n">polarities</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">subjectivities</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate through texts getting polarity and subjectivity</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">polarities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">polarity</span><span class="p">)</span>
+    <span class="n">subjectivities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">subjectivity</span><span class="p">)</span>
+    
+<span class="c1"># Create new columns with sentiment info</span>
+<span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;polarity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">polarities</span>
+<span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;subjectivity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subjectivities</span>
+
+<span class="c1"># Print head of the dataframe</span>
+<span class="n">olele_texted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>polarity</th>
+      <th>subjectivity</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-11-01</th>
+      <td>Carolina</td>
+      <td>5</td>
+      <td>As usual the quality is sturdy yet elegant and...</td>
+      <td>0.406190</td>
+      <td>0.759405</td>
+    </tr>
+    <tr>
+      <th>2022-09-03</th>
+      <td>Amy Annette</td>
+      <td>5</td>
+      <td>I bought this fan to bring to tango and swing ...</td>
+      <td>0.435714</td>
+      <td>0.534127</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Mary</td>
+      <td>5</td>
+      <td>LOVELY!  I think this is my 4th fan? Complimen...</td>
+      <td>0.625000</td>
+      <td>0.750000</td>
+    </tr>
+    <tr>
+      <th>2022-08-31</th>
+      <td>Eni A</td>
+      <td>5</td>
+      <td>Very beautiful fan, great quality and the colo...</td>
+      <td>0.637500</td>
+      <td>0.637500</td>
+    </tr>
+    <tr>
+      <th>2022-06-11</th>
+      <td>hredmonds</td>
+      <td>5</td>
+      <td>This is the second fan I've bought for myself ...</td>
+      <td>0.458333</td>
+      <td>0.416667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p><em>polarity</em> index: from “-1” meaning negative emotion, to “1” positive emotion, with “0” being neutral.</p></li>
+<li><p><em>subjectivity</em> index: from “0” meaning objective assertion, to “1” being completely subjective.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;polarity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                           <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;subjectivity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                           <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;# of reviews&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Review text polarity distribution&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Polarity index:</span><span class="se">\n</span><span class="s2">-1: Negative | 0: Neutral | 1: Positive&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F603</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Smiling emoji</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F620</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Angry emoji</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Review text subjectivity distribution&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Subjectivity index:</span><span class="se">\n</span><span class="s2">0: Objective | 1: Subjective&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F60D</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># In love emoji</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F611</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Neutral emoji</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_35_0.png" src="../_images/olele_35_0.png" />
+</div>
+</div>
+<p>The model calculates the polarity and subjectivity of the texts based on the words they contain, and this is the distribution of the results. We can see that the general mood matches the overwhelming majority of 5 stars rated by the customers.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;polarity&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;subjectivity&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">olele_texted</span><span class="p">,</span>
+               <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;stars&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F620</span><span class="s2">         Polarity         </span><span class="se">\U0001F603</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F611</span><span class="s2">       Subjectivity       </span><span class="se">\U0001F60D</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+          <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Stars&quot;</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;1-star review</span><span class="se">\n</span><span class="s2">correctly assigned</span><span class="se">\n</span><span class="s2">with negative polarity&quot;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;arrowstyle&quot;</span><span class="p">:</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;black&quot;</span><span class="p">})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_37_0.png" src="../_images/olele_37_0.png" />
+</div>
+</div>
+<p>It seems there is a pattern in the scatter plot shown above, a sort of linear relationship between polarity and subjectivity: the more positive the emotion is, the more subjective seems to be according to the algorithm.</p>
+<section id="bad-reviews">
+<h4>Bad reviews<a class="headerlink" href="#bad-reviews" title="Permalink to this headline">#</a></h4>
+<p>It is interesting to see how the model captures at least one of the bad reviews (“1”-star reviews), assigning it the lowest polarity of the set. Let’s take a look at it.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter reviews with 1 star</span>
+<span class="n">bad_reviews</span> <span class="o">=</span> <span class="n">olele_texted</span><span class="p">[</span><span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">bad_reviews</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>polarity</th>
+      <th>subjectivity</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-11-19</th>
+      <td>Sednah</td>
+      <td>1</td>
+      <td>Kamele came thought for us and I'm very please...</td>
+      <td>0.59000</td>
+      <td>0.510000</td>
+    </tr>
+    <tr>
+      <th>2017-04-04</th>
+      <td>kim</td>
+      <td>1</td>
+      <td>I never received this fan I have been in touch...</td>
+      <td>-0.23375</td>
+      <td>0.621667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In fact, there are 2 reviews with 1 star. Oddly, one of them (the one by Sednah) has a positive polarity and gets overlapped in the last plot. Let’s read the texts to find out what is going on:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">bad_reviews</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kamele came thought for us and I&#39;m very pleased to say that she has excellant customer service. The fans are attention grabbing in the best way.  This is my 3rd fan and I will order more when the time comes. It also makes a great holiday gift.
+
+I never received this fan I have been in touch with the supplier and still waiting for it to be resolved either a refund or replacement, very disappointing as it was my  first buy from Etsy !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clearly, the first one is a positive review (as the algorithm correctly interprets with the positive polarity it assigns), so the 1-star rating was a mistake made by the reviewer.</p>
+<p>The second one is indeed a bad review, as both the algorithm and the reviewer tell (according to my wife, the problem with the courier was finally solved).</p>
+</section>
+<section id="objective-reviews">
+<h4>Objective reviews<a class="headerlink" href="#objective-reviews" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter reviews with subjectivity index == 0</span>
+<span class="n">objective_reviews</span> <span class="o">=</span> <span class="n">olele_texted</span><span class="p">[</span><span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;subjectivity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">objective_reviews</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>polarity</th>
+      <th>subjectivity</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-05-22</th>
+      <td>Céline</td>
+      <td>5</td>
+      <td>It is sublime! Thank you</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2019-02-04</th>
+      <td>福島 圭子</td>
+      <td>5</td>
+      <td>I received it, thank you.</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2017-08-01</th>
+      <td>adeline</td>
+      <td>5</td>
+      <td>A merveillosa réal</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2015-08-11</th>
+      <td>Tanya</td>
+      <td>5</td>
+      <td>This fan is so well made. Thank you!</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2010-07-01</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Thank you!</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2010-06-21</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Thank you!</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The texts are very short here (they all fit in the dataframe preview above). We can conclude that there are not enough words for the algorithm to calculate sentiments, and that is why it assigns zero values to the polarity and subjectivity, making them neutral.</p>
+</section>
+<section id="extreme-reviews">
+<h4>Extreme reviews<a class="headerlink" href="#extreme-reviews" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter reviews with maximum subjectivity and polarity index values</span>
+<span class="n">extreme_reviews</span> <span class="o">=</span> <span class="n">olele_texted</span><span class="p">[(</span><span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;subjectivity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> \
+                               <span class="o">&amp;</span> <span class="p">(</span><span class="n">olele_texted</span><span class="p">[</span><span class="s2">&quot;polarity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">extreme_reviews</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>stars</th>
+      <th>text</th>
+      <th>polarity</th>
+      <th>subjectivity</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-12-13</th>
+      <td>Su</td>
+      <td>5</td>
+      <td>Very beautiful and so well made. Just what I w...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2019-02-17</th>
+      <td>Amy</td>
+      <td>5</td>
+      <td>This is a beautiful fan. Thank you!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2018-12-29</th>
+      <td>adeline</td>
+      <td>5</td>
+      <td>Perfect like always</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2018-06-16</th>
+      <td>Carla</td>
+      <td>5</td>
+      <td>Absolutely a beautiful fan and can’t wait to u...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-14</th>
+      <td>jenniferpbowman1</td>
+      <td>5</td>
+      <td>Absolutely beautiful!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2017-10-14</th>
+      <td>jenniferpbowman1</td>
+      <td>5</td>
+      <td>Beautiful!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2016-08-13</th>
+      <td>Robin</td>
+      <td>5</td>
+      <td>Beautiful, thank you !</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2016-07-06</th>
+      <td>Sommerlinde</td>
+      <td>5</td>
+      <td>The fan is beautiful, thank you!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2016-01-26</th>
+      <td>Catherine</td>
+      <td>5</td>
+      <td>Perfect, thank you. Very beautiful!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2014-01-11</th>
+      <td>Beatriz</td>
+      <td>5</td>
+      <td>Bellisimo! Perfect for spring and summer. Than...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2012-07-22</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>The fan is beautiful and well made!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2011-10-09</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>very beautiful and just as pictured</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-08-05</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>Beautiful!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2010-06-29</th>
+      <td>Anonymous</td>
+      <td>5</td>
+      <td>They're beautiful!  Thank you!</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">extreme_reviews</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Very beautiful and so well made. Just what I wanted.
+This is a beautiful fan. Thank you!
+Perfect like always
+Absolutely a beautiful fan and can’t wait to use it. Thank you!
+Absolutely beautiful!
+Beautiful!
+Beautiful, thank you !
+The fan is beautiful, thank you!
+Perfect, thank you. Very beautiful!
+Bellisimo! Perfect for spring and summer. Thank you!
+The fan is beautiful and well made!
+very beautiful and just as pictured
+Beautiful!
+They&#39;re beautiful!  Thank you!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extreme sentiment values seem to come from short sentences loaded with words with a high sentiment charge, like “beautiful” or “perfect”.</p>
+</section>
+</section>
+<section id="frequency-of-words">
+<h3>Frequency of words<a class="headerlink" href="#frequency-of-words" title="Permalink to this headline">#</a></h3>
+<section id="word-cloud">
+<h4>Word cloud<a class="headerlink" href="#word-cloud" title="Permalink to this headline">#</a></h4>
+<p>Let’s make a word cloud to get an impression of the words that stand out. To do so we have to convert all the reviews into one single text.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get full text and convert it into lowercase to avoid repetitions</span>
+<span class="n">full_text</span> <span class="o">=</span> <span class="n">olele_texted</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1"># Include English stopwords and own ones after several tests</span>
+<span class="n">STOPWORDS</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s2">&quot;karmele&quot;</span><span class="p">,</span> <span class="s2">&quot;fan&quot;</span><span class="p">,</span> <span class="s2">&quot;fans&quot;</span><span class="p">,</span> <span class="s2">&quot;thank&quot;</span><span class="p">,</span> <span class="s2">&quot;thanks&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;&#39;s&quot;</span><span class="p">,</span> <span class="s2">&quot;n&#39;t&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;m&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;ve&quot;</span><span class="p">,</span> <span class="s2">&quot;much&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;many&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;really&quot;</span><span class="p">,</span> <span class="s2">&quot;hand&quot;</span><span class="p">,</span> <span class="s2">&quot;bought&quot;</span><span class="p">])</span>
+
+<span class="c1"># Create word cloud</span>
+<span class="n">cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span>
+                  <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">full_text</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_53_0.png" src="../_images/olele_53_0.png" />
+</div>
+</div>
+</section>
+<section id="most-frequent-words">
+<h4>Most frequent words<a class="headerlink" href="#most-frequent-words" title="Permalink to this headline">#</a></h4>
+<p>Finally, I will look at the most common words and plot their frequency.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize the full text into individual words</span>
+<span class="n">all_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">TextBlob</span><span class="p">(</span><span class="n">full_text</span><span class="p">)</span><span class="o">.</span><span class="n">words</span><span class="p">)</span>
+
+<span class="c1"># Do not consider stopwords built previously for the word cloud</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">all_words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOPWORDS</span><span class="p">]</span>
+
+<span class="c1"># Take the most common 25 words</span>
+<span class="n">common_words</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># Convert to pandas dataframe</span>
+<span class="n">most_common_words</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">common_words</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;word&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+
+<span class="n">most_common_words</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_olele</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Top frequent words&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;# of times&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/olele_55_0.png" src="../_images/olele_55_0.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The prevalent word in reviews for Olelé is &#39;**</span><span class="si">{</span><span class="n">most_common_words</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">**&#39;.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>The prevalent word in reviews for Olelé is '<strong>beautiful</strong>'.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<p>In this project, customer reviews from an online shop were web-scraped and analysed in their numbers and sentiments. It contains a brief foray into NLP (Natural Language Processing) domain via TextBlob, a library that makes textual data processing really simple.</p>
+<p>The reviews for Olelé on Etsy were great, but unfortunately this case was not useful to build a customized interpretative model (a possible the next step in a project like this), because there were not enough bad reviews for a machine learning algorithm to be trained.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../projects.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Projects</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="traffic_fines.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Traffic Fines</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mikel Imaz, 2023<br/>
+  
+    <div class="extra_footer">
+      <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
