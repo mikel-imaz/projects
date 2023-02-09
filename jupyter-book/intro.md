@@ -7,6 +7,12 @@ By **Mikel Imaz**
 ::::{grid} 2 2 3 3
 :gutter: 3
 
+:::{grid-item-card} Bar Reviews
+:link: notebooks/antio
+:link-type: doc
+:img-bottom: notebooks/img/antio-short.jpg
+:::
+
 :::{grid-item-card} Handfan Reviews
 :link: notebooks/olele
 :link-type: doc
