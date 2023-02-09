@@ -2,8 +2,10 @@
 
 Projects include *Data Analysis* in **PYTHON** using `Pandas`, `Numpy`, `Matplotlib`, `Seaborn`, and:
 
+- [**Bar Reviews**](notebooks/antio)  
+*Dynamic-webpage scraping* with `Selenium` and `BeautifulSoup` | *Sentiment analysis*: Machine Learning with `Scikit-learn`.  
 - [**Handfan Reviews**](notebooks/olele)  
-*Web scraping* with `BeautifulSoup` | *Sentiment analysis* with `TextBlob`.  
+*Static-webpage scraping* with `Requests` and `BeautifulSoup` | *Sentiment analysis* with `TextBlob`.  
 - [**Traffic Fines**](notebooks/traffic_fines)  
 *Open data* | *Choropleth maps* with `GeoPandas`.   
 - [**Urban Trees**](notebooks/urban_trees)  
