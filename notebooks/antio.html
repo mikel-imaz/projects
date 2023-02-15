@@ -1024,7 +1024,13 @@ None
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
 <section id="data-labeling">
 <h3>Data labeling<a class="headerlink" href="#data-labeling" title="Permalink to this headline">#</a></h3>
-<p>To build the model for sentiment analysis, first we have to label the entries that contain text: 0 (negative), 1 (positive). I am going to consider as positive, reviews with 4 or 5 stars —so reviews with 1, 2 or 3 stars will be considered negative.</p>
+<p>To build the model, we first we have to label the reviews as:</p>
+<ul class="simple">
+<li><p>0 : if the review is negative.</p></li>
+<li><p>1 : if the review is positive.</p></li>
+</ul>
+<p>Depending on the quantity, reading each text and assigning it the corresponding label can become tedious. Anyway, at this stage this task cannot be automated and needs to be done by a human intelligence (a simple job, also known as <em>Mechanical Turk</em>).</p>
+<p>For my convenience, though, I will trust customers and I am going to automate it, considering as positive the reviews with 4 or 5 stars —so reviews with 1, 2 or 3 stars will be considered negative.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy to a new dataframe only reviews containing text</span>
@@ -1620,8 +1626,9 @@ good reviews -&gt;       0.83      0.76      0.79        38
 </section>
 <section id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
-<p>In this project reviews from a bar-restaurant were web-scraped from Google Maps, and a sentiment analysis model for review texts was built, ready to be deployed if considered suitable for the purpose.</p>
-<p>However, a machine learning model development project like this one needs iterative testing with different algorithms and hyperparameter tuning until expected performance is achieved. There are lots of them in the language processing area. This was not though the aim of this little project, which was just to give an initial approach on the subject.</p>
+<p>In this project, reviews from a bar-restaurant were web-scraped from Google Maps, and a sentiment analysis model for texts was built.</p>
+<p>However, a machine learning model development project like this one needs iterative testing with different algorithms and hyperparameter tuning until the desired performance is achieved. There are lots of them in the language processing area. This was not though the aim of this little project, which was just to give an initial approach on the subject.</p>
+<p>Also —and most importantly—, a next step would involve experimenting with the business problem to decide whether the deployment into production of this machine learning tool pays off.</p>
 </section>
 </section>
 
