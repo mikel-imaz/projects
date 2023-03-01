@@ -8,6 +8,7 @@ parts:
   chapters:
   - file: projects
     sections:
+    - file: notebooks/climate
     - file: notebooks/antio
     - file: notebooks/olele
     - file: notebooks/traffic_fines

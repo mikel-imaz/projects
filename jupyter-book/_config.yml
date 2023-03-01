@@ -3,7 +3,7 @@
 
 title: Data Projects
 author: Mikel Imaz, 2023
-logo: img/logo-new.png
+logo: img/logo.png
 copyright: "2023"
 
 # Force re-execution of notebooks on each build.
@@ -31,7 +31,7 @@ repository:
 
 
 html:
-  favicon: "img/logo-new.png"
+  favicon: "img/logo.png"
   use_repository_button: true
   extra_footer: |
     <p>
