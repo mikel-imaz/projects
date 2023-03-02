@@ -386,6 +386,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimate-of-the-difference">
+     Estimate of the difference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#hypothesis-testing">
      Hypothesis testing
     </a>
@@ -459,6 +464,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimate-of-the-difference">
+     Estimate of the difference
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#hypothesis-testing">
      Hypothesis testing
     </a>
@@ -503,7 +513,7 @@ title="Print to PDF"
 <span class="math notranslate nohighlight">\(^{1}\)</span>Image credit: <a class="reference external" href="https://www.istockphoto.com/es/portfolio/MysteryShot?mediatype=photography">MysteryShot</a> via <a class="reference external" href="https://www.istockphoto.com/es">iStock</a></p>
 <p>Mar, 2023</p>
 <blockquote>
-<div><p>Exploratory Analysis, Statistical Hypothesis testing</p>
+<div><p><em>Exploratory Analysis, Statistical Hypothesis testing</em></p>
 </div></blockquote>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
@@ -661,6 +671,7 @@ I wanted to check it out by myself.</p>
 <p>1140 rows × 2 columns</p>
 </div></div></div>
 </div>
+<p>The data was downloaded as JSON files (one for each year: 95 files-years), and from them monthly average temperatures and monthly accumulated rainfalls were gathered.</p>
 </section>
 <section id="data-validation">
 <h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">#</a></h2>
@@ -828,11 +839,11 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_16_0.png" src="../_images/climate_16_0.png" />
+<img alt="../_images/climate_17_0.png" src="../_images/climate_17_0.png" />
 </div>
 </div>
 <p>Average temperatures do seem to be increasing lately according to the graph.</p>
-<p>To evaluate the differences and proceed with the hypothesis tests, let’s classify the data into three distinct groups:</p>
+<p>To evaluate the differences and proceed with the analysis, let’s classify the data into three groups:</p>
 <ul class="simple">
 <li><p>Group 1: Temperatures from the last 25 years (from 1998 to 2022)</p></li>
 <li><p>Group 2: Temperatures from the previous last 25 years (from 1973 to 1997)</p></li>
@@ -873,30 +884,60 @@ memory usage: 58.7 KB
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Print mean values</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Average value 1948-1972 -&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_48_72</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average value 1973-1997 -&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_73_97</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average value 1998-2022 -&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_18_0.png" src="../_images/climate_18_0.png" />
+<img alt="../_images/climate_19_0.png" src="../_images/climate_19_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average value 1948-1972 -&gt; 13.12 ºC
+Average value 1973-1997 -&gt; 13.16 ºC
+Average value 1998-2022 -&gt; 13.91 ºC
+</pre></div>
 </div>
 </div>
+</div>
+<p>Relative differences seem to be remarkable between ‘1973-1997’ and ‘1998-2022’ groups (as expected from global warming), so I will focus on these two.</p>
+</section>
+<section id="estimate-of-the-difference">
+<h3>Estimate of the difference<a class="headerlink" href="#estimate-of-the-difference" title="Permalink to this headline">#</a></h3>
+<p>Let’s estimate the difference in the mean value with a 95% confidence interval.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print mean values</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average value *1948-1972* -&gt; **</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_48_72</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">** ºC&quot;</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average value *1973-1997* -&gt; **</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_73_97</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">** ºC&quot;</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average value *1998-2022* -&gt; **</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">** ºC&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establish random numbers&#39; seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="c1"># Compute the difference of the sample means</span>
+<span class="n">mean_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp_73_97</span><span class="p">)</span>
+
+<span class="c1"># Get bootstrap replicates of means</span>
+<span class="n">bs_replicates_73_97</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">temp_73_97</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_replicates_98_22</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Compute samples of difference of means: bs_diff_replicates</span>
+<span class="n">bs_diff_replicates</span> <span class="o">=</span> <span class="n">bs_replicates_98_22</span> <span class="o">-</span> <span class="n">bs_replicates_73_97</span>
+
+<span class="c1"># Compute 95% confidence interval: conf_int</span>
+<span class="n">conf_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">bs_diff_replicates</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">])</span>
+
+<span class="c1"># Print the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;difference of means = </span><span class="si">{</span><span class="n">mean_diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;95% confidence interval = </span><span class="si">{</span><span class="n">conf_int</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Average value <em>1948-1972</em> -&gt; <strong>13.12</strong> ºC</p>
-<p>Average value <em>1973-1997</em> -&gt; <strong>13.16</strong> ºC</p>
-<p>Average value <em>1998-2022</em> -&gt; <strong>13.91</strong> ºC</p>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>difference of means = 0.75 ºC
+95% confidence interval = [0.43465833 1.064     ] ºC
+</pre></div>
 </div>
 </div>
-<p>As shown here, average values for the ‘1948-1972’ and ‘1973-1997’ groups are nearly the same (even if the median drawn in the swarm plot is slightly different), whereas the last 25 years have seen a clear temperature rise.</p>
-<p>How significant is this increase?</p>
+</div>
+<p>How significant is this difference?</p>
 </section>
 <section id="hypothesis-testing">
 <h3>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">#</a></h3>
@@ -905,10 +946,7 @@ memory usage: 58.7 KB
 <p>Let’s first explore visually in a ECDF (<em>Empirical Cumulative Distribution Function</em>) how permutation samples relate to the original data sets.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establish random numbers&#39; seed for reproducibility</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-
-<span class="c1"># Plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># Number of permutation samples to draw</span>
@@ -947,11 +985,11 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_22_0.png" src="../_images/climate_22_0.png" />
+<img alt="../_images/climate_25_0.png" src="../_images/climate_25_0.png" />
 </div>
 </div>
 <p>We see that permutated data sets (in hazed purple points) do not overlap with the original temperature sets, suggesting there is a significant difference among them. Let’s prove it!</p>
-<p>To test this hypothesis we will use the difference of means as the <em>test statistic</em>. (I need to define a function for it to pass it later as an argument to a permutation replicates function).</p>
+<p>To test this hypothesis we will use the difference of means as the <em>test statistic</em>..</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diff_of_means</span><span class="p">(</span><span class="n">data_1</span><span class="p">,</span> <span class="n">data_2</span><span class="p">):</span>
@@ -961,15 +999,6 @@ memory usage: 58.7 KB
     <span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_2</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">diff</span>
-
-<span class="c1"># Compute difference of mean</span>
-<span class="n">empirical_diff_means</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">diff_of_means</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">,</span> <span class="n">temp_73_97</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirical difference in the mean: </span><span class="si">{</span><span class="n">empirical_diff_means</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empirical difference in the mean: 0.75 ºC
 </pre></div>
 </div>
 </div>
@@ -978,7 +1007,7 @@ memory usage: 58.7 KB
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw 10,000 permutation replicates</span>
-<span class="n">perm_replicates</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_perm_reps</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">,</span> <span class="n">temp_73_97</span><span class="p">,</span> <span class="n">my</span><span class="o">.</span><span class="n">diff_of_means</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">perm_replicates</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_perm_reps</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">,</span> <span class="n">temp_73_97</span><span class="p">,</span> <span class="n">diff_of_means</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="c1"># Compute p-value</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">perm_replicates</span> <span class="o">&gt;=</span> <span class="n">empirical_diff_means</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span>
@@ -988,7 +1017,7 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>p-value = <strong>0.0001</strong></p>
+<p>p-value = <strong>1.0</strong></p>
 </div>
 </div>
 <p>The obtained p-value says that after randomly scrambling the data from the two groups 10000 times and making two groups each time, only once the difference between their mean values was equal or higher than the difference among the original groups. That is to say, the probability of observing the difference in mean temperatures if there was not such a thing as two different groups would be just of 0.01 %.</p>
@@ -1029,7 +1058,7 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_30_0.png" src="../_images/climate_30_0.png" />
+<img alt="../_images/climate_33_0.png" src="../_images/climate_33_0.png" />
 </div>
 </div>
 <p>It looks like average rainfall has not changed during all these years!</p>
@@ -1072,7 +1101,7 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_32_0.png" src="../_images/climate_32_0.png" />
+<img alt="../_images/climate_35_0.png" src="../_images/climate_35_0.png" />
 </div>
 </div>
 <p>If we make three groups like in the case of the temperatures, we see very similar distributions for the rainfalls. Maybe, there is a slight drop in the ‘1998-2022’ group, at least for the median. Let’s see if that is the case with mean values.</p>
@@ -1120,14 +1149,14 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/climate_35_0.png" src="../_images/climate_35_0.png" />
+<img alt="../_images/climate_38_0.png" src="../_images/climate_38_0.png" />
 </div>
 </div>
 <p>We see that permutated data sets (in hazed points) do overlap with the original rainfall sets (orange and green), suggesting there is not a significant difference.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute difference of mean</span>
-<span class="n">empirical_diff_means</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">diff_of_means</span><span class="p">(</span><span class="n">rain_98_22</span><span class="p">,</span> <span class="n">rain_73_97</span><span class="p">)</span>
+<span class="n">empirical_diff_means</span> <span class="o">=</span> <span class="n">diff_of_means</span><span class="p">(</span><span class="n">rain_98_22</span><span class="p">,</span> <span class="n">rain_73_97</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirical difference in the mean: </span><span class="si">{</span><span class="n">empirical_diff_means</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1142,7 +1171,7 @@ memory usage: 58.7 KB
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw 10,000 permutation replicates</span>
-<span class="n">perm_replicates</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_perm_reps</span><span class="p">(</span><span class="n">rain_98_22</span><span class="p">,</span> <span class="n">rain_73_97</span><span class="p">,</span> <span class="n">my</span><span class="o">.</span><span class="n">diff_of_means</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">perm_replicates</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_perm_reps</span><span class="p">(</span><span class="n">rain_98_22</span><span class="p">,</span> <span class="n">rain_73_97</span><span class="p">,</span> <span class="n">diff_of_means</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="c1"># Compute p-value</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">perm_replicates</span> <span class="o">&lt;=</span> <span class="n">empirical_diff_means</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span>
@@ -1152,7 +1181,7 @@ memory usage: 58.7 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>p-value = <strong>0.4448</strong></p>
+<p>p-value = <strong>0.4435</strong></p>
 </div>
 </div>
 <p>The obtained p-value means that after randomly scrambling the data from the two groups 10000 times and making two groups each time, 4601 times the difference between their mean values was less than or equal to the difference among the original two groups. That is to say, the probability of observing the same difference as in the empirical data in mean rainfalls is 46.01 %. Quite high, so it should be just chance.</p>
