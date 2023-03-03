@@ -845,9 +845,9 @@ memory usage: 58.7 KB
 <p>Average temperatures do seem to be increasing lately according to the graph.</p>
 <p>To evaluate the differences and proceed with the analysis, let’s classify the data into three groups:</p>
 <ul class="simple">
-<li><p>Group 1: Temperatures from the last 25 years (from 1998 to 2022)</p></li>
-<li><p>Group 2: Temperatures from the previous last 25 years (from 1973 to 1997)</p></li>
-<li><p>Group 3: Temperatures from the previous to the previous last 25 years (from 1948 to 1972)</p></li>
+<li><p>Temperatures from the last 25 years (from 1998 to 2022)</p></li>
+<li><p>Temperatures from the previous last 25 years (from 1973 to 1997)</p></li>
+<li><p>Temperatures from the previous to the previous last 25 years (from 1948 to 1972)</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -925,14 +925,15 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="n">conf_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">bs_diff_replicates</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">])</span>
 
 <span class="c1"># Print the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;1998-2022&#39; vs &#39;1973-1997&#39;: difference of the means -&gt; </span><span class="si">{</span><span class="n">mean_diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;95% confidence interval = </span><span class="si">{</span><span class="n">conf_int</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;1998-2022&#39; vs &#39;1973-1997&#39;</span><span class="se">\n</span><span class="s2">Difference of the means -&gt; </span><span class="si">{</span><span class="n">mean_diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;95% ci = </span><span class="si">{</span><span class="n">conf_int</span><span class="si">}</span><span class="s2"> ºC&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1998-2022&#39; vs &#39;1973-1997&#39;: difference of the means -&gt; 0.75 ºC
-95% confidence interval = [0.43465833 1.064     ] ºC
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1998-2022&#39; vs &#39;1973-1997&#39;
+Difference of the means -&gt; 0.75 ºC
+95% ci = [0.43465833 1.064     ] ºC
 </pre></div>
 </div>
 </div>
@@ -969,8 +970,8 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="c1"># Now create and plot ECDFs from original data</span>
 <span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">ecdf</span><span class="p">(</span><span class="n">temp_73_97</span><span class="p">)</span>
 <span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">ecdf</span><span class="p">(</span><span class="n">temp_98_22</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1973-1997&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;1998-2022&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -978,6 +979,7 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Yearly average temperature (ºC)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;ECDF&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1052,9 +1054,9 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rainfall (mm)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;Avg. rolling last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">,</span> <span class="s2">&quot;Yearly rainfall&quot;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;Avg. rolling last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">,</span> <span class="s2">&quot;Yearly rainfall&quot;</span><span class="p">],</span>
+          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
-<span class="c1"># ax.set_ylim(0, 2500)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1136,8 +1138,8 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="c1"># Now create and plot ECDFs from original data</span>
 <span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">ecdf</span><span class="p">(</span><span class="n">rain_73_97</span><span class="p">)</span>
 <span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">ecdf</span><span class="p">(</span><span class="n">rain_98_22</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1973-1997&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_2</span><span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1998-2022&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1145,6 +1147,7 @@ Average value 1998-2022 -&gt; 13.91 ºC
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Yearly rainfall (mm)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;ECDF&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
