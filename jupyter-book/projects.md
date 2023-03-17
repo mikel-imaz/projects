@@ -2,6 +2,8 @@
 
 Projects include *Data Analysis* in **PYTHON** using `Pandas`, `Numpy`, `Matplotlib`, `Seaborn`, and:
 
+- [**Earth Quakes**](notebooks/quakes)   
+*Exploratory Data Analysis*, *Statistics*, *Probability*. 
 - [**Climate Change**](notebooks/climate)   
 *Exploratory Data Analysis*, *Probability*, *Hypothesis testing*.   
 - [**Bar Reviews**](notebooks/antio)  
