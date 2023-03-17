@@ -7,6 +7,12 @@ By **Mikel Imaz**
 ::::{grid} 2 2 3 3
 :gutter: 3
 
+:::{grid-item-card} Earth Quakes
+:link: notebooks/quakes
+:link-type: doc
+:img-bottom: notebooks/img/seismograph.jpg
+:::
+
 :::{grid-item-card} Climate Change
 :link: notebooks/climate
 :link-type: doc
