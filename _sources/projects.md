@@ -2,6 +2,8 @@
 
 Projects include *Data Analysis* in **PYTHON** using `Pandas`, `Numpy`, `Matplotlib`, `Seaborn`, and:
 
+- [**Water Supplies**](notebooks/water)   
+*Time Series Analysis* | *Networks* with `NetworkX`.
 - [**Earth Quakes**](notebooks/quakes)   
 *Exploratory Data Analysis*, *Statistics*, *Probability*. 
 - [**Climate Change**](notebooks/climate)   
