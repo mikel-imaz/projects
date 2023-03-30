@@ -62,8 +62,19 @@ By **Mikel Imaz**
 :::
 ::::
 
----
-
 ```{image} img/modules.png
 :align: center
 ```
+---
+
+::::{grid} 2 2 3 3
+:gutter: 3
+
+:::{grid-item-card} Cultura de datos
+:link: articles/01-cultura-datos
+:link-type: doc
+:img-bottom: articles/img/competencias-datos.png
+La importancia de adquirir competencias en materia de datos
+:::
+
+::::
