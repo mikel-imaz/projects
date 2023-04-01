@@ -66,15 +66,23 @@ By **Mikel Imaz**
 :align: center
 ```
 ---
+## Artículos
 
-::::{grid} 2 2 3 3
-:gutter: 3
+::::{grid} 1 1 1 1
+:gutter: 1
 
 :::{grid-item-card} Cultura de datos
-:link: articles/01-cultura-datos
+:link: articles/cultura-datos
 :link-type: doc
-:img-bottom: articles/img/competencias-datos.png
+:shadow: md
 La importancia de adquirir competencias en materia de datos
+:::
+
+:::{grid-item-card} Convertir datos en valor
+:link: articles/datos-valor
+:link-type: doc
+:shadow: md
+La ciencia de convertir los datos en valor
 :::
 
 ::::
