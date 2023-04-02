@@ -1,4 +1,4 @@
-# Convertir datos en valor
+# Datos en valor
 **La ciencia de convertir los datos en valor**
 ![](img/valor.png)
 A las preguntas *¿qué pasó?*, *¿por qué pasó?* y *¿qué pasará?* podemos intentar responder partiendo de los datos, obteniendo así una información muy valiosa para el negocio.
