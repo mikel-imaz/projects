@@ -4,7 +4,7 @@ By **Mikel Imaz**
 
 
 
-::::{grid} 2 2 3 3
+::::{grid} 2 2 2 3
 :gutter: 3
 
 :::{grid-item-card} Water Supplies
@@ -68,12 +68,13 @@ By **Mikel Imaz**
 ---
 ## Artículos
 
-::::{grid} 1 1 1 1
-:gutter: 1
+::::{grid} 2 2 2 3
+:gutter: 3
 
 :::{grid-item-card} Cultura de datos
 :link: articles/cultura-datos
 :link-type: doc
+:img-bottom: articles/img/competencias.png
 :shadow: md
 La importancia de adquirir competencias en materia de datos
 :::
@@ -81,6 +82,7 @@ La importancia de adquirir competencias en materia de datos
 :::{grid-item-card} Convertir datos en valor
 :link: articles/datos-valor
 :link-type: doc
+:img-bottom: articles/img/piramide.png
 :shadow: md
 La ciencia de convertir los datos en valor
 :::
