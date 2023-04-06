@@ -1,3 +1,4 @@
 .ipynb_checkpoints
 jupyter-book/_build/
 jupyter-book/notebooks/driver/
+jupyter-book/articles/.obsidian/

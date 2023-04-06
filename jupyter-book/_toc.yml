@@ -8,6 +8,7 @@ parts:
   chapters:
   - file: projects
     sections:
+    - file: notebooks/ages
     - file: notebooks/water
     - file: notebooks/quakes
     - file: notebooks/climate
@@ -17,6 +18,10 @@ parts:
     - file: notebooks/urban_trees
     - file: notebooks/breads
     - file: notebooks/ignatian
+  - file: articles
+    sections:
+    - file: articles/cultura-datos
+    - file: articles/datos-valor
 - caption: About
   chapters:
   - url: https://www.linkedin.com/in/mikel-imaz/

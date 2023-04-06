@@ -4,8 +4,14 @@ By **Mikel Imaz**
 
 
 
-::::{grid} 2 2 3 3
+::::{grid} 2 2 2 3
 :gutter: 3
+
+:::{grid-item-card} Median Ages
+:link: notebooks/ages
+:link-type: doc
+:img-bottom: notebooks/img/pyramids.png
+:::
 
 :::{grid-item-card} Water Supplies
 :link: notebooks/water
@@ -62,8 +68,27 @@ By **Mikel Imaz**
 :::
 ::::
 
----
-
 ```{image} img/modules.png
 :align: center
 ```
+---
+## Artículos
+
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Cultura de datos
+:link: articles/cultura-datos
+:link-type: doc
+:shadow: md
+La importancia de adquirir competencias en materia de datos
+:::
+
+:::{grid-item-card} Datos en valor
+:link: articles/datos-valor
+:link-type: doc
+:shadow: md
+La ciencia de convertir los datos en valor
+:::
+
+::::
