@@ -7,6 +7,12 @@ By **Mikel Imaz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Median Ages
+:link: notebooks/ages
+:link-type: doc
+:img-bottom: notebooks/img/pyramids.png
+:::
+
 :::{grid-item-card} Water Supplies
 :link: notebooks/water
 :link-type: doc

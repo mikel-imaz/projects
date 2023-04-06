@@ -1,0 +1,914 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Median Ages &#8212; Data Projects</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Water Supplies" href="water.html" />
+    <link rel="prev" title="Projects" href="../projects.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-232XT3FYCT');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Projects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../projects.html">
+   Projects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Median Ages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="water.html">
+     Water Supplies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quakes.html">
+     Earth Quakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climate.html">
+     Climate Change
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="antio.html">
+     Bar Reviews
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="olele.html">
+     Handfan Reviews
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="traffic_fines.html">
+     Traffic Fines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="urban_trees.html">
+     Urban Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="breads.html">
+     Bread Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignatian.html">
+     Ignatian Pilgrims
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../articles.html">
+   Artículos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../articles/cultura-datos.html">
+     Cultura de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../articles/datos-valor.html">
+     Datos en valor
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.linkedin.com/in/mikel-imaz/">
+   LinkedIn profile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.datacamp.com/profile/mikel-imaz">
+   DataCamp profile
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/ages.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/mikel-imaz/projects"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/ages.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-validation">
+   Data validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#population-pyramid">
+   Population pyramid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#median-age">
+   Median age
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Median Ages</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-validation">
+   Data validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#population-pyramid">
+   Population pyramid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#median-age">
+   Median age
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="median-ages">
+<h1>Median Ages<a class="headerlink" href="#median-ages" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Read data from file</span>
+<span class="n">niger</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Niger-2022.csv&quot;</span><span class="p">)</span>
+<span class="n">japan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Japan-2022.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Prepare to plot</span>
+<span class="n">niger</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">niger</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+<span class="n">japan</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">japan</span><span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">niger</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">niger</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">japan</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">japan</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ages_1_0.png" src="../_images/ages_1_0.png" />
+</div>
+</div>
+<p>Population pyramid of Niger (left) and Japan (right) in 2022.</p>
+<p>Apr, 2023</p>
+<blockquote>
+<div><p><em>Data Analysis</em></p>
+</div></blockquote>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<p>Given a certain group, how many people there are older than you? And how many are younger than you? When you are a newborn, everybody else is older than you. When you are the oldest one, everybody else is younger than you. In between, there will be a percentage of people who are older than you, and a complementary percentage who are younger than you.</p>
+<p>The <em>median age</em> is defined so that 50% of the people are older and 50% are younger. The global average median age was 30 years in 2021 – half of the world population was older than 30 years, and the other half was younger. Japan has the highest median age at almost 49 years. One of the lowest is Niger at some 15 years. The median age in Spain is around 44 years.</p>
+<p>When I turned 49 last year, it was clear to me that I had already left behind half of my life (life expectancy is some 84 years here). But population is aging in my town and I wondered where I was among my fellow citizens. It could be the case that even if I had left behind the <em>middle</em> age, I was still around the <em>median</em> age!</p>
+</section>
+<section id="the-data">
+<h2>The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h2>
+<p>Instead of downloading the CSV, I provided the URL from <a class="reference external" href="https://www.gipuzkoairekia.eus/">https://www.gipuzkoairekia.eus/</a> to directly access the <a class="reference external" href="https://www.gipuzkoairekia.eus/es/datu-irekien-katalogoa/-/openDataSearcher/detail/detailView/ca39b82b-3444-4e47-8d9a-8dcfa9355f80">data</a>: population of <a class="reference external" href="https://en.wikipedia.org/wiki/Urretxu">Urretxu</a> in <strong>2022</strong> according to the age, gender and neighbourhood.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define URL of the data</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.gipuzkoairekia.eus/es/datu-irekien-katalogoa/-/openDataSearcher/download/downloadResource/a4085d92-8e7e-4a2c-9472-16a2b7aa9a4f&#39;</span>
+
+<span class="c1"># Read the data</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
+                  <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">,</span>
+                  <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span>
+                  <span class="n">on_bad_lines</span><span class="o">=</span><span class="s2">&quot;skip&quot;</span><span class="p">,</span>
+                  <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NOMBRE CALLE&quot;</span><span class="p">,</span> <span class="s2">&quot;EDAD&quot;</span><span class="p">,</span> <span class="s2">&quot;CANTIDAD MUJERES&quot;</span><span class="p">,</span> <span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         NOMBRE CALLE EDAD  CANTIDAD MUJERES  CANTIDAD HOMBRES
+0            AREIZAGA    1                 1                 0
+1            AREIZAGA    2                 2                 0
+2            AREIZAGA    3                 0                 2
+3            AREIZAGA    4                 2                 0
+4            AREIZAGA    5                 0                 2
+...               ...  ...               ...               ...
+1799  BASAGASTI KALEA   78                 1                 0
+1800  BASAGASTI KALEA   79                 0                 0
+1801  BASAGASTI KALEA   80                 0                 0
+1802  BASAGASTI KALEA  &gt;80                 2                 1
+1803  BASAGASTI KALEA  000                 0                 2
+
+[1804 rows x 4 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-validation">
+<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">#</a></h2>
+<p>Unfortunately, the number of the people over the age of 80 is aggregated and appears with the label “&gt;80”. I will replace the label to “81”, and make it a number. I will consider that the people over 80 are all of them 81 years old (yes, it will look strange in the graphic representations but further information is missing).</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replacement</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;80&quot;</span><span class="p">,</span> <span class="s2">&quot;81&quot;</span><span class="p">)</span>
+
+<span class="c1"># Convert to integer</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;EDAD&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;EDAD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Show dataframe info</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1804 entries, 0 to 1803
+Data columns (total 4 columns):
+ #   Column            Non-Null Count  Dtype 
+---  ------            --------------  ----- 
+ 0   NOMBRE CALLE      1804 non-null   object
+ 1   EDAD              1804 non-null   int64 
+ 2   CANTIDAD MUJERES  1804 non-null   int64 
+ 3   CANTIDAD HOMBRES  1804 non-null   int64 
+dtypes: int64(3), object(1)
+memory usage: 56.5+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="population-pyramid">
+<h2>Population pyramid<a class="headerlink" href="#population-pyramid" title="Permalink to this headline">#</a></h2>
+<p>Let’s build the population pyramid for my town.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by age and sum women and men quantities</span>
+<span class="n">pop_ages</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;EDAD&quot;</span><span class="p">)[[</span><span class="s2">&quot;CANTIDAD MUJERES&quot;</span><span class="p">,</span> <span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Establish age intervals for population pyramid</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create new column with intervals</span>
+<span class="n">pop_ages</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">pop_ages</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+
+<span class="c1"># Group by intervals</span>
+<span class="n">pop_ages_pyr</span> <span class="o">=</span> <span class="n">pop_ages</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;interval&quot;</span><span class="p">)[[</span><span class="s2">&quot;CANTIDAD MUJERES&quot;</span><span class="p">,</span> <span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_ages_pyr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          CANTIDAD MUJERES  CANTIDAD HOMBRES
+interval                                    
+[0, 4]                  88                95
+[5, 9]                 110               124
+[10, 14]               196               205
+[15, 19]               194               212
+[20, 24]               180               203
+[25, 29]               153               157
+[30, 34]               140               140
+[35, 39]               138               175
+[40, 44]               195               204
+[45, 49]               301               288
+[50, 54]               260               274
+[55, 59]               272               289
+[60, 64]               235               260
+[65, 69]               206               176
+[70, 74]               180               161
+[75, 79]               167               137
+[80, 84]               314               174
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare to plot</span>
+<span class="n">pop_ages_pyr</span> <span class="o">=</span> <span class="n">pop_ages_pyr</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">pop_ages_pyr</span><span class="p">[</span><span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">pop_ages_pyr</span><span class="p">[</span><span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;CANTIDAD MUJERES&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;interval&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pop_ages_pyr</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">pop_ages_pyr</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;interval&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pop_ages_pyr</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">pop_ages_pyr</span><span class="p">[</span><span class="s2">&quot;interval&quot;</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Population pyramid (Urretxu, 2022)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;age group (years)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="n">ylabels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="n">ylabels</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&gt;=80&quot;</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">ylabels</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;female&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">350</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ages_11_0.png" src="../_images/ages_11_0.png" />
+</div>
+</div>
+<p>Certainly, this pyramid is closer to the Japanese than to the pristine one of Niger. In fact, it looks like a house of cards that is going to fall apart, with that sort of beret on top of it. The effect is due to the aggregation of the elderly mentioned earlier, it is strange that the individual ages of those over 80 are not attended to, because they make up a large group. This omission feels inconsiderate nowadays. Among women, those over 80 constitute the largest group in town.</p>
+</section>
+<section id="median-age">
+<h2>Median age<a class="headerlink" href="#median-age" title="Permalink to this headline">#</a></h2>
+<p>I was interested in calculating the median age, so I will compute total numbers adding men and women, then group by age and sum numbers creating a new dataframe.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new column adding women and men numbers</span>
+<span class="n">pop_ages</span><span class="p">[</span><span class="s2">&quot;TOTAL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_ages</span><span class="p">[[</span><span class="s2">&quot;CANTIDAD MUJERES&quot;</span><span class="p">,</span> <span class="s2">&quot;CANTIDAD HOMBRES&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Use just total values</span>
+<span class="n">pop_ages_all</span> <span class="o">=</span> <span class="n">pop_ages</span><span class="p">[[</span><span class="s2">&quot;TOTAL&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Append end of ages: 82 years, 0 people</span>
+<span class="n">pop_ages_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">pop_ages_all</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_ages_all</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      TOTAL
+EDAD       
+0        22
+1        49
+2        31
+3        39
+4        42
+...     ...
+78       53
+79       58
+80       41
+81      447
+82        0
+
+[83 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total population</span>
+<span class="n">pop_total</span> <span class="o">=</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;TOTAL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total population in 2022 -&gt; </span><span class="si">{</span><span class="n">pop_total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total population in 2022 -&gt; 6603
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now I am going to calculate the number (and percentage) of people younger and older for each age.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum number of younger population</span>
+<span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;younger&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;TOTAL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Calculate number of older population</span>
+<span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;older&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_total</span> <span class="o">-</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;younger&quot;</span><span class="p">]</span>
+
+<span class="c1"># Calculate percentages</span>
+<span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;younger_%&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;younger&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">pop_total</span>
+<span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;older_%&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;older&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">pop_total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_ages_all</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      TOTAL  younger   older   younger_%     older_%
+EDAD                                                
+0        22      0.0  6603.0   -0.000000  100.000000
+1        49     22.0  6581.0   -0.333182   99.666818
+2        31     71.0  6532.0   -1.075269   98.924731
+3        39    102.0  6501.0   -1.544752   98.455248
+4        42    141.0  6462.0   -2.135393   97.864607
+...     ...      ...     ...         ...         ...
+78       53   6004.0   599.0  -90.928366    9.071634
+79       58   6057.0   546.0  -91.731031    8.268969
+80       41   6115.0   488.0  -92.609420    7.390580
+81      447   6156.0   447.0  -93.230350    6.769650
+82        0   6603.0     0.0 -100.000000    0.000000
+
+[83 rows x 5 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s find out the median age: the age at which older people than you drops for the first time below 50%.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the medium age</span>
+<span class="n">medium_age</span> <span class="o">=</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;older_%&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median age -&gt; </span><span class="si">{</span><span class="n">medium_age</span><span class="si">}</span><span class="s1"> years&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median age -&gt; 49 years
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Population distribution (Urretxu, 2022)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">pop_ages_all</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;older_%&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;goldenrod&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">pop_ages_all</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pop_ages_all</span><span class="p">[</span><span class="s2">&quot;younger_%&quot;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;forestgreen&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;100 %&#39;</span><span class="p">,</span> <span class="s1">&#39;75 %&#39;</span><span class="p">,</span> <span class="s1">&#39;50 %&#39;</span><span class="p">,</span> <span class="s1">&#39;25 %&#39;</span><span class="p">,</span> <span class="s1">&#39;0 %&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;25 %&#39;</span><span class="p">,</span> <span class="s1">&#39;50 %&#39;</span><span class="p">,</span> <span class="s1">&#39;75 %&#39;</span><span class="p">,</span> <span class="s1">&#39;100 %&#39;</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;older&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;demibold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;younger&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;demibold&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ages_20_0.png" src="../_images/ages_20_0.png" />
+</div>
+</div>
+<p>So here we have it: it turns out that when I turned 49 last year (2022), I was also turning the median age in my town in that same year!</p>
+<p>So I am not that old, considering.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../projects.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Projects</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="water.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Water Supplies</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mikel Imaz, 2023<br/>
+  
+    <div class="extra_footer">
+      <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
