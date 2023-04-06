@@ -72,7 +72,7 @@ By **Mikel Imaz**
 :align: center
 ```
 ---
-## Artículos
+*Artículos*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
