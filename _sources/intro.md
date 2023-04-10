@@ -80,15 +80,22 @@ By **Mikel Imaz**
 :::{grid-item-card} Cultura de datos
 :link: articles/cultura-datos
 :link-type: doc
+:img-bottom: articles/img/cultura-card.png
 :shadow: md
-La importancia de adquirir competencias en materia de datos
 :::
 
 :::{grid-item-card} Datos en valor
 :link: articles/datos-valor
 :link-type: doc
+:img-bottom: articles/img/valor-card.png
 :shadow: md
-La ciencia de convertir los datos en valor
+:::
+
+:::{grid-item-card} Inteligencia Artificial
+:link: articles/ia
+:link-type: doc
+:img-bottom: articles/img/ia-card.png
+:shadow: md
 :::
 
 ::::
