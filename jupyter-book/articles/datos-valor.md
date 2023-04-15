@@ -1,6 +1,8 @@
 # Datos en valor
 **La ciencia de convertir los datos en valor**
+   
 ![](img/valor.png)
+   
 A las preguntas *¿qué pasó?*, *¿por qué pasó?* y *¿qué pasará?* podemos intentar responder partiendo de los datos, obteniendo así una información muy valiosa para el negocio.
 
 Con la finalidad de extraer este valor surgió la Ciencia de datos.  En principio, *Ciencia de datos* haría referencia a todo aquello que contempla un proyecto de datos. Sin embargo, con el desarrollo de esta disciplina se han ido definiendo y especializando los procesos involucrados y los profesionales que trabajan en ellos.
@@ -8,7 +10,9 @@ Con la finalidad de extraer este valor surgió la Ciencia de datos.  En principi
 ## Pirámide de un proyecto de datos
 
 En correspondencia con la pirámide de Maslow (o _jerarquía de las necesidades humanas_), se suele plantear el siguiente diagrama en el que se representan las fases de un proyecto de datos.
-![](img/piramide.png)
+   
+![](img/pyramid.png)
+   
 Para convertir los datos en valor, el proyecto debería alcanzar al menos la cuarta fase, la de Análisis. Es en este estadio donde la amalgama de datos se ordena y se visualiza mediante gráficos, de manera que empieza a revelar la información que contiene. Aquí podemos comenzar a responder a las preguntas _qué pasó_, _por qué pasó_ y _qué pasará_.
 
 Las fases anteriores, las de recolección, almacenamiento y preparación de los datos, son en cualquier caso igual de importantes. Si no se obtienen buenos datos, nada de lo que se haga en los niveles superiores, por muy sofisticados que sean los análisis y las tecnologías empleadas, tendrá valor alguno, tal y como resume el dicho _garbage in, garbage out_ ("basura que entra, basura que sale").

@@ -22,6 +22,7 @@ parts:
     sections:
     - file: articles/cultura-datos
     - file: articles/datos-valor
+    - file: articles/ia
 - caption: About
   chapters:
   - url: https://www.linkedin.com/in/mikel-imaz/
