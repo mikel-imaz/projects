@@ -6,7 +6,7 @@ root: intro
 parts:
 - caption: Contents
   chapters:
-  - file: projects
+  - file: projects-my
     sections:
     - file: notebooks/ages
     - file: notebooks/water
@@ -18,6 +18,9 @@ parts:
     - file: notebooks/urban_trees
     - file: notebooks/breads
     - file: notebooks/ignatian
+  - file: projects-challenge
+    sections:
+    - file: notebooks/hospital
   - file: articles
     sections:
     - file: articles/cultura-datos

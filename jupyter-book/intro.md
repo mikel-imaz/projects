@@ -2,6 +2,9 @@
 
 By **Mikel Imaz**
 
+---
+
+*Personal projects*
 
 
 ::::{grid} 2 2 2 3
@@ -68,30 +71,41 @@ By **Mikel Imaz**
 :::
 ::::
 
-```{image} img/modules.png
-:align: center
-```
+---
+*Challenge projects*
+
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Reducing hospital readmissions
+:link: notebooks/hospital
+:link-type: doc
+:img-bottom: notebooks/img/hospital-patient-readmissions.jpg
+:::
+
+::::
+
 ---
 *Artículos*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
 
-:::{grid-item-card} Cultura de datos
+:::{grid-item-card} La importancia de adquirir competencias en datos
 :link: articles/cultura-datos
 :link-type: doc
 :img-bottom: articles/img/cultura-card.png
 :shadow: md
 :::
 
-:::{grid-item-card} Datos en valor
+:::{grid-item-card} La ciencia de convertir los datos en valor
 :link: articles/datos-valor
 :link-type: doc
 :img-bottom: articles/img/valor-card.png
 :shadow: md
 :::
 
-:::{grid-item-card} Inteligencia Artificial
+:::{grid-item-card} ¿Qué es la Inteligencia Artificial?
 :link: articles/ia
 :link-type: doc
 :img-bottom: articles/img/ia-card.png

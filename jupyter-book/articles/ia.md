@@ -1,5 +1,4 @@
-# Inteligencia Artificial
-**Lo que entendemos por ella y las razones de su auge**
+# ¿Qué es la Inteligencia Artificial?
    
 ![](img/ia.png)
    

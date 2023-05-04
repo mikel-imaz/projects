@@ -1,4 +1,4 @@
-# Projects
+# Personal projects
 
 Projects include *Data Analysis* in **PYTHON** using `Pandas`, `Numpy`, `Matplotlib`, `Seaborn`, and:
 
@@ -22,4 +22,3 @@ Projects include *Data Analysis* in **PYTHON** using `Pandas`, `Numpy`, `Matplot
 *Quantifying* | *Clustering* with `KMeans` from  `Scikit-learn` | *Visual Statistics*.  
 - [**Ignatian Pilgrims**](notebooks/ignatian)  
 *Time series forecasting* with `ARIMA` from `Statsmodels`.  
- 

@@ -1,7 +1,8 @@
-# Cultura de datos
-**La importancia de adquirir competencias en materia de datos** 
+# La importancia de adquirir competencias en materia de datos
+   
    
 ![](img/cultura.png)
+   
    
 Las empresas que utilizan datos para entender mejor su negocio y fundamentar sus decisiones consiguen ventajas competitivas considerables. Los datos están adquiriendo tal importancia que nos están llevando a una nueva era en la que tener conocimientos sobre esta materia resultará esencial.
 
