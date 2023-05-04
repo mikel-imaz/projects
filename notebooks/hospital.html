@@ -1,0 +1,1832 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reducing hospital readmissions &#8212; Data Projects</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Artículos" href="../articles.html" />
+    <link rel="prev" title="Challenge projects" href="../projects-challenge.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-232XT3FYCT');
+                </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Projects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../projects-my.html">
+   Personal projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ages.html">
+     Median Ages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="water.html">
+     Water Supplies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="quakes.html">
+     Earth Quakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climate.html">
+     Climate Change
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="antio.html">
+     Bar Reviews
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="olele.html">
+     Handfan Reviews
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="traffic_fines.html">
+     Traffic Fines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="urban_trees.html">
+     Urban Trees
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="breads.html">
+     Bread Prices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ignatian.html">
+     Ignatian Pilgrims
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../projects-challenge.html">
+   Challenge projects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Reducing hospital readmissions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../articles.html">
+   Artículos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../articles/cultura-datos.html">
+     La importancia de adquirir competencias en materia de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../articles/datos-valor.html">
+     La ciencia de convertir los datos en valor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../articles/ia.html">
+     ¿Qué es la Inteligencia Artificial?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.linkedin.com/in/mikel-imaz/">
+   LinkedIn profile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.datacamp.com/profile/mikel-imaz">
+   DataCamp profile
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/hospital.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/mikel-imaz/projects"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/hospital.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-project">
+   The project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-validation">
+   Data validation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-data">
+     Read the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-data-integrity">
+     Check data integrity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-categorical-variables">
+     Check categorical variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-numerical-variables">
+     Check numerical variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">
+     Q1:
+     <em>
+      What is the most common primary diagnosis by age group?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
+     Q2:
+     <em>
+      What is the effect of a diabetes diagnosis on the rate of readmissions?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">
+     Q3:
+     <em>
+      Identifying patients with a high probability of readmission
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-preprocessing">
+       Data preprocessing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variable-selection">
+       Variable selection
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#predictor-insight-graphs">
+       Predictor Insight Graphs
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reducing hospital readmissions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-project">
+   The project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-validation">
+   Data validation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-data">
+     Read the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-data-integrity">
+     Check data integrity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-categorical-variables">
+     Check categorical variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-numerical-variables">
+     Check numerical variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">
+     Q1:
+     <em>
+      What is the most common primary diagnosis by age group?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
+     Q2:
+     <em>
+      What is the effect of a diabetes diagnosis on the rate of readmissions?
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">
+     Q3:
+     <em>
+      Identifying patients with a high probability of readmission
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-preprocessing">
+       Data preprocessing
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variable-selection">
+       Variable selection
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#predictor-insight-graphs">
+       Predictor Insight Graphs
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reducing-hospital-readmissions">
+<h1>Reducing hospital readmissions<a class="headerlink" href="#reducing-hospital-readmissions" title="Permalink to this headline">#</a></h1>
+<p><em><a class="reference external" href="https://www.datacamp.com">A DataCamp challenge</a></em></p>
+<p><img alt="" src="../_images/hospital-patient-readmissions.jpg" /></p>
+<p>May, 2023</p>
+<blockquote>
+<div><p><em>Predictive Analytics, ML —classification</em></p>
+</div></blockquote>
+<section id="the-project">
+<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">#</a></h2>
+<p>You work for a consulting company helping a hospital group better understand patient readmissions. The hospital gave you access to ten years of information on patients readmitted to the hospital after being discharged. The doctors want you to assess if initial diagnoses, number of procedures, or other variables could help them better understand the probability of readmission.</p>
+<p>They want to focus follow-up calls and attention on those patients with a higher probability of readmission.</p>
+<ul class="simple">
+<li><p>What is the most common primary diagnosis by age group?</p></li>
+<li><p>Some doctors believe diabetes might play a central role in readmission. Explore the effect of a diabetes diagnosis on readmission rates.</p></li>
+<li><p>On what groups of patients should the hospital focus their follow-up efforts to better monitor patients with a high probability of readmission?</p></li>
+</ul>
+<p>You have access to ten years of patient information (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008">source</a>):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">age</span></code></p></td>
+<td><p>age bracket of the patient</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">time_in_hospital</span></code></p></td>
+<td><p>days (from 1 to 14)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_procedures</span></code></p></td>
+<td><p>number of procedures performed during the hospital stay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_lab_procedures</span></code></p></td>
+<td><p>number of laboratory procedures performed during the hospital stay</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_medicationsv</span></code></p></td>
+<td><p>number of medications administered during the hospital stay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_outpatient</span></code></p></td>
+<td><p>number of outpatient visits in the year before a hospital stay</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_inpatient</span></code></p></td>
+<td><p>number of inpatient visits in the year before the hospital stay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_emergency</span></code></p></td>
+<td><p>number of visits to the emergency room in the year before the hospital stay</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">medical_specialty</span></code></p></td>
+<td><p>the specialty of the admitting physician</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">diag_1</span></code></p></td>
+<td><p>primary diagnosis (Circulatory, Respiratory, Digestive, etc.)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">diag_2</span></code></p></td>
+<td><p>secondary diagnosis</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">diag_3</span></code></p></td>
+<td><p>additional secondary diagnosis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">glucose_test</span></code></p></td>
+<td><p>whether the glucose serum came out as high (&gt; 200), normal, or not performed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">A1Ctest</span></code></p></td>
+<td><p>whether the A1C level of the patient came out as high (&gt; 7%), normal, or not performed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change</span></code></p></td>
+<td><p>whether there was a change in the diabetes medication (‘yes’ or ‘no’)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">diabetes_med</span></code></p></td>
+<td><p>whether a diabetes medication was prescribed (‘yes’ or ‘no’)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">readmitted</span></code></p></td>
+<td><p>if the patient was readmitted at the hospital (‘yes’ or ‘no’)</p></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Acknowledgments</strong>: Beata Strack, Jonathan P. DeShazo, Chris Gennings, Juan L. Olmo, Sebastian Ventura, Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.</em></p>
+</section>
+<section id="data-validation">
+<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">#</a></h2>
+<section id="read-the-data">
+<h3>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">precision_score</span>
+<span class="kn">from</span> <span class="nn">scipy.stats.mstats</span> <span class="kn">import</span> <span class="n">winsorize</span>
+<span class="kn">import</span> <span class="nn">my_functions</span> <span class="k">as</span> <span class="nn">my</span>
+
+<span class="c1"># Read the data from file</span>
+<span class="n">hospital</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/hospital_readmissions.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hospital</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           age  time_in_hospital  n_lab_procedures  n_procedures  \
+0      [70-80)                 8                72             1   
+1      [70-80)                 3                34             2   
+2      [50-60)                 5                45             0   
+3      [70-80)                 2                36             0   
+4      [60-70)                 1                42             0   
+...        ...               ...               ...           ...   
+24995  [80-90)                14                77             1   
+24996  [80-90)                 2                66             0   
+24997  [70-80)                 5                12             0   
+24998  [70-80)                 2                61             3   
+24999  [50-60)                10                37             1   
+
+       n_medications  n_outpatient  n_inpatient  n_emergency  \
+0                 18             2            0            0   
+1                 13             0            0            0   
+2                 18             0            0            0   
+3                 12             1            0            0   
+4                  7             0            0            0   
+...              ...           ...          ...          ...   
+24995             30             0            0            0   
+24996             24             0            0            0   
+24997              6             0            1            0   
+24998             15             0            0            0   
+24999             24             0            0            0   
+
+            medical_specialty       diag_1       diag_2       diag_3  \
+0                     Missing  Circulatory  Respiratory        Other   
+1                       Other        Other        Other        Other   
+2                     Missing  Circulatory  Circulatory  Circulatory   
+3                     Missing  Circulatory        Other     Diabetes   
+4            InternalMedicine        Other  Circulatory  Respiratory   
+...                       ...          ...          ...          ...   
+24995                 Missing  Circulatory        Other  Circulatory   
+24996                 Missing    Digestive       Injury        Other   
+24997                 Missing        Other        Other        Other   
+24998  Family/GeneralPractice  Respiratory     Diabetes        Other   
+24999                 Missing        Other     Diabetes  Circulatory   
+
+      glucose_test A1Ctest change diabetes_med readmitted  
+0               no      no     no          yes         no  
+1               no      no     no          yes         no  
+2               no      no    yes          yes        yes  
+3               no      no    yes          yes        yes  
+4               no      no     no          yes         no  
+...            ...     ...    ...          ...        ...  
+24995           no  normal     no           no        yes  
+24996           no    high    yes          yes        yes  
+24997       normal      no     no           no        yes  
+24998           no      no    yes          yes         no  
+24999           no      no     no           no        yes  
+
+[25000 rows x 17 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="check-data-integrity">
+<h3>Check data integrity<a class="headerlink" href="#check-data-integrity" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe info</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 25000 entries, 0 to 24999
+Data columns (total 17 columns):
+ #   Column             Non-Null Count  Dtype 
+---  ------             --------------  ----- 
+ 0   age                25000 non-null  object
+ 1   time_in_hospital   25000 non-null  int64 
+ 2   n_lab_procedures   25000 non-null  int64 
+ 3   n_procedures       25000 non-null  int64 
+ 4   n_medications      25000 non-null  int64 
+ 5   n_outpatient       25000 non-null  int64 
+ 6   n_inpatient        25000 non-null  int64 
+ 7   n_emergency        25000 non-null  int64 
+ 8   medical_specialty  25000 non-null  object
+ 9   diag_1             25000 non-null  object
+ 10  diag_2             25000 non-null  object
+ 11  diag_3             25000 non-null  object
+ 12  glucose_test       25000 non-null  object
+ 13  A1Ctest            25000 non-null  object
+ 14  change             25000 non-null  object
+ 15  diabetes_med       25000 non-null  object
+ 16  readmitted         25000 non-null  object
+dtypes: int64(7), object(10)
+memory usage: 3.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that there are no missing values.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look for duplicated rows</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are also no duplicated rows.</p>
+</section>
+<section id="check-categorical-variables">
+<h3>Check categorical variables<a class="headerlink" href="#check-categorical-variables" title="Permalink to this headline">#</a></h3>
+<p>Let’s see if variables of type ‘object’ (strings) contain categories.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select column names of object type</span>
+<span class="n">object_cols</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Plot their values and counts</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">object_cols</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">object_cols</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">hospital</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_13_0.png" src="../_images/hospital_13_0.png" />
+</div>
+</div>
+<p>All of them are categorical variables.</p>
+<p>The target variable, ‘readmitted’, is quite balanced, with the class of interest, ‘yes’, being well-represented and almost equal to the other class. I am going to replace the values in the target variable from ‘no-yes’ to numerical ‘0-1’ right away (without waiting for the creation of dummies) because it will facilitate some early analysis.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace to numerical values</span>
+<span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;readmitted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;readmitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;no&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of values in the ‘Missing’ category for variables ‘diag_1’, ‘diag_2’, and ‘diag_3’ is low, so I will assign them to the ‘Other’ category to reduce dimensionality.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign values</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Missing&#39;</span><span class="p">,</span> <span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Other&#39;</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Missing&#39;</span><span class="p">,</span> <span class="s1">&#39;diag_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Other&#39;</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Missing&#39;</span><span class="p">,</span> <span class="s1">&#39;diag_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Other&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All the remaining ‘object’ columns can be converted to categorical.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary of column and data type mappings</span>
+<span class="n">conversion_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">}</span>
+
+<span class="c1"># Convert our DataFrame and check the data types</span>
+<span class="n">hospital</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">conversion_dict</span><span class="p">)</span>
+<span class="n">hospital</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 25000 entries, 0 to 24999
+Data columns (total 17 columns):
+ #   Column             Non-Null Count  Dtype   
+---  ------             --------------  -----   
+ 0   age                25000 non-null  category
+ 1   time_in_hospital   25000 non-null  int64   
+ 2   n_lab_procedures   25000 non-null  int64   
+ 3   n_procedures       25000 non-null  int64   
+ 4   n_medications      25000 non-null  int64   
+ 5   n_outpatient       25000 non-null  int64   
+ 6   n_inpatient        25000 non-null  int64   
+ 7   n_emergency        25000 non-null  int64   
+ 8   medical_specialty  25000 non-null  category
+ 9   diag_1             25000 non-null  category
+ 10  diag_2             25000 non-null  category
+ 11  diag_3             25000 non-null  category
+ 12  glucose_test       25000 non-null  category
+ 13  A1Ctest            25000 non-null  category
+ 14  change             25000 non-null  category
+ 15  diabetes_med       25000 non-null  category
+ 16  readmitted         25000 non-null  int32   
+dtypes: category(9), int32(1), int64(7)
+memory usage: 1.6 MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the memory usage has been reduced by half.</p>
+</section>
+<section id="check-numerical-variables">
+<h3>Check numerical variables<a class="headerlink" href="#check-numerical-variables" title="Permalink to this headline">#</a></h3>
+<p>I will plot histograms for them to get a sense of their value ranges.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select numerical columns to plot</span>
+<span class="n">num_cols_check</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot numerical columns&#39; data distributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">num_cols_check</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_23_0.png" src="../_images/hospital_23_0.png" />
+</div>
+</div>
+<p>It appears that there may be some outliers. I will check this by creating a box plot, which will also help me to see more clearly that these numerical values are of the same order of magnitude.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">hospital</span><span class="p">[</span><span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Values&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_25_0.png" src="../_images/hospital_25_0.png" />
+</div>
+</div>
+<p>To reduce the impact of outliers on the model outcome, I will use the winsorization method to filter them out. This will limit the extreme values to lower and upper limits based on percentiles. I will use a 5% limit for both the upper and lower bounds.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter outliers with winsorization</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">hospital</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">winsorize</span><span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">limits</span> <span class="o">=</span> <span class="p">[</span><span class="n">limit</span><span class="p">,</span> <span class="n">limit</span><span class="p">])</span>
+    
+<span class="c1"># Plot resulting box plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">hospital</span><span class="p">[</span><span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Values&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_27_0.png" src="../_images/hospital_27_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="data-analysis">
+<h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h2>
+<p>I will answer each of the three questions that were asked.</p>
+<section id="q1-what-is-the-most-common-primary-diagnosis-by-age-group">
+<h3>Q1: <em>What is the most common primary diagnosis by age group?</em><a class="headerlink" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">hospital</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>\
+        <span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">hospital</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Age group&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Primary diagnosis&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of patients&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f patients&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0%&#39;</span><span class="p">,</span> <span class="s1">&#39;25%&#39;</span><span class="p">,</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="s1">&#39;75%&#39;</span><span class="p">,</span> <span class="s1">&#39;100%&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_31_0.png" src="../_images/hospital_31_0.png" />
+</div>
+</div>
+<p>As shown in the graphs, circulatory disease is the most common primary diagnosis across most of the age groups.</p>
+</section>
+<section id="q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
+<h3>Q2: <em>What is the effect of a diabetes diagnosis on the rate of readmissions?</em><a class="headerlink" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions" title="Permalink to this headline">#</a></h3>
+<p>I will begin by plotting the incidence ratio of the variable on the target variable. As I intend to use this type of graph for other variables in the project, I will define a function to create the so-called Predictor Insight Graph, which provides insight into the effect of the predictor variable on the target variable.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define function</span>
+<span class="k">def</span> <span class="nf">plot_pig</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Create and plot Predictor Insight Graph for corresponding variable&#39;&#39;&#39;</span>
+    
+    <span class="c1"># Create Predictor Insight Graph table</span>
+    <span class="n">pig_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">variable</span><span class="p">)[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
+    
+    <span class="c1"># If sort values</span>
+    <span class="k">if</span> <span class="n">sort</span><span class="p">:</span>
+        <span class="n">pig_table</span> <span class="o">=</span> <span class="n">pig_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># Plot</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    
+    <span class="n">pig_table</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">pig_table</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Size&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Incidence &#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="n">rotation</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">pig_table</span>
+
+<span class="c1"># Call the function of the variable of interest</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_pig</span><span class="p">(</span><span class="n">hospital</span><span class="p">,</span> <span class="s1">&#39;diag_1&#39;</span><span class="p">,</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_35_0.png" src="../_images/hospital_35_0.png" />
+</div>
+</div>
+<p>The graph shows that the incidence in the target variable is highest for diabetes as the primary diagnosis.</p>
+<p>However, is this difference statistically significant? I will conduct a statistical test to answer this question.</p>
+<p>Let’s calculate the distributions of the readmision rate for:</p>
+<ol class="simple">
+<li><p>Patients <em>with</em> diabetes as primary diagnosis.</p></li>
+<li><p>Patients <em>without</em> diabetes as primary diagnosis.</p></li>
+</ol>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create array with readmissions for diabetes as primary diagnosis</span>
+<span class="n">diab1</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">,</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># Create array with readmissions for primary diagnosis not diabetes</span>
+<span class="n">diab1_no</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">,</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># Print mean values</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Readmission rate means:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> &lt;- with diabetes as primary diagnosis&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1_no</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> &lt;- without diabetes as primary diagnosis&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set random number seed</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Draw bootstrap replicates and store their mean values</span>
+<span class="n">bs_reps_diab1</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_reps_diab1_no</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab1_no</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bs_reps_diab1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diabetes&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bs_reps_diab1_no</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No diabetes&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean-values distributions&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Incidence - Readmission rate&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Primary diagnosis&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Readmission rate means:
+0.536 &lt;- with diabetes as primary diagnosis
+0.465 &lt;- without diabetes as primary diagnosis
+</pre></div>
+</div>
+<img alt="../_images/hospital_37_1.png" src="../_images/hospital_37_1.png" />
+</div>
+</div>
+<p>There is no overlap, indicating that the difference is likely statistically significant.</p>
+<p>Nevertheless, let’s perform the hypothesis test. I will assume the null hypothesis that there is no difference between the two groups. To test this, I will shift the distribution values to equalize their means, and then determine how often we could obtain purely by chance the difference in mean values that we are currently observing.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the difference of means</span>
+<span class="n">diff_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1_no</span><span class="p">)</span>
+
+<span class="c1"># Concatenate arrays</span>
+<span class="n">diab_concat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">diab1</span><span class="p">,</span> <span class="n">diab1_no</span><span class="p">))</span>
+
+<span class="c1"># Compute mean of all</span>
+<span class="n">mean_diab_concat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab_concat</span><span class="p">)</span>
+
+<span class="c1"># Generate shifted arrays</span>
+<span class="n">diab1_shifted</span> <span class="o">=</span> <span class="n">diab1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1</span><span class="p">)</span> <span class="o">+</span> <span class="n">mean_diab_concat</span>
+<span class="n">diab1_no_shifted</span> <span class="o">=</span> <span class="n">diab1_no</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1_no</span><span class="p">)</span> <span class="o">+</span> <span class="n">mean_diab_concat</span>
+
+<span class="c1"># Compute 10,000 bootstrap replicates from shifted arrays</span>
+<span class="n">bs_reps_diab1_shifted</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab1_shifted</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_reps_diab1_no_shifted</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab1_no_shifted</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Get replicates of difference of means</span>
+<span class="n">bs_reps_diff</span> <span class="o">=</span> <span class="n">bs_reps_diab1_shifted</span> <span class="o">-</span> <span class="n">bs_reps_diab1_no_shifted</span>
+
+<span class="c1"># Compute p-value</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bs_reps_diff</span> <span class="o">&gt;=</span> <span class="n">diff_means</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">bs_reps_diff</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value =&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value = 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>After calculating the mean of 10,000 random bootstrap replicates, we did not observe a single one with the difference in means that we are currently observing. Therefore, we reject the null hypothesis and conclude that the difference is statistically significant. This means that having diabetes as a primary diagnosis certainly has an effect on the rate of readmissions.</p>
+<p>Would the effect be the same for these two groups?</p>
+<ol class="simple">
+<li><p>Patients <em>with</em> diabetes as the primary, secondary, or tertiary diagnosis.</p></li>
+<li><p>Patients <em>without</em> diabetes in any of their diagnoses.</p></li>
+</ol>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array with readmissions for diabetes as primary, secondary or additional diagnosis</span>
+<span class="n">diab123</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">)</span>\
+                       <span class="o">|</span> <span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_2&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">)</span>\
+                       <span class="o">|</span> <span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_3&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">),</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">]</span>\
+                    <span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;no&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># Create array with readmissions for diagnosis not diabetes</span>
+<span class="n">diab123_no</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">)</span>\
+                       <span class="o">&amp;</span> <span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_2&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">)</span>\
+                       <span class="o">&amp;</span> <span class="p">(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_3&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">),</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">]</span>\
+                    <span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;no&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Readmission rate means:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab123</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> &lt;- with diabetes in any diagnosis&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab123_no</span><span class="p">)</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> &lt;- without diabetes in all diagnosis&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set random numbers&#39; seed</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Draw bootstrap replicates</span>
+<span class="n">bs_reps_diab123</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab123</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_reps_diab123_no</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">diab123_no</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bs_reps_diab123</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diabetes&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">bs_reps_diab123_no</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No diabetes&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean-values distributions&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Incidence - Readmission rate&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;1st, 2nd, 3rd diagnosis&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Readmission rate means:
+0.465 &lt;- with diabetes in any diagnosis
+0.473 &lt;- without diabetes in all diagnosis
+</pre></div>
+</div>
+<img alt="../_images/hospital_41_1.png" src="../_images/hospital_41_1.png" />
+</div>
+</div>
+<p>In this case, when considering secondary and tertiary diagnoses, the overlapping of the distributions suggests that there is no significant difference in readmission rates between patients with and without diabetes.</p>
+</section>
+<section id="q3-identifying-patients-with-a-high-probability-of-readmission">
+<h3>Q3: <em>Identifying patients with a high probability of readmission</em><a class="headerlink" href="#q3-identifying-patients-with-a-high-probability-of-readmission" title="Permalink to this headline">#</a></h3>
+<p>I am going to identify the variables that have the greatest impact on the readmission rate. I will use a simple logistic regression model for the sake of interpretability.</p>
+<section id="data-preprocessing">
+<h4>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h4>
+<p>This process consists of:</p>
+<ol class="simple">
+<li><p>Separating variables (features) and target.</p></li>
+<li><p>Converting categorical variables to numerical (avoiding multicollinearity).</p></li>
+<li><p>Splitting the data into training and testing sets.</p></li>
+<li><p>Scaling the data (necessary for Logistic Regression).</p></li>
+<li><p>Reconstructing complete basetables (features + target) to perform predictive analysis.</p></li>
+</ol>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define features</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;readmitted&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Define target</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;readmitted&#39;</span><span class="p">]</span>
+
+<span class="c1"># Prepare features encoding categorical variables</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features</span><span class="p">,</span>
+                   <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Avoid multicollinearity</span>
+
+<span class="c1"># Assign target</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">target</span>
+
+<span class="c1"># Split dataset into 70% training and 30% test set, and stratify</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                                                    <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Scale X</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Reset index to concatenate later</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create the train and test basetables</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-selection">
+<h4>Variable selection<a class="headerlink" href="#variable-selection" title="Permalink to this headline">#</a></h4>
+<p>Once we have the train and test basetables ready, we can proceed with the process of selecting the variables that have the highest predictive power.</p>
+<p>To do so, I will use a <em>forward stepwise variable selection procedure</em>, in which AUC scores are considered as a metric. Variables will be sorted according to the predictive power achieved if we include them progressively in a Logistic Regression model. The process will be carried out only in the training basetable to avoid data leakage.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define funtion</span>
+<span class="k">def</span> <span class="nf">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns AUC of a Logistic Regression model&#39;&#39;&#39;</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">basetable</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">basetable</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+    <span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+    <span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">auc</span><span class="p">)</span>
+
+<span class="c1"># Define funtion</span>
+<span class="k">def</span> <span class="nf">next_best</span><span class="p">(</span><span class="n">current_variables</span><span class="p">,</span><span class="n">candidate_variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns next best variable to maximize AUC&#39;&#39;&#39;</span>
+    <span class="n">best_auc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">best_variable</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">candidate_variables</span><span class="p">:</span>
+        <span class="n">auc_v</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">current_variables</span> <span class="o">+</span> <span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">auc_v</span> <span class="o">&gt;=</span> <span class="n">best_auc</span><span class="p">:</span>
+            <span class="n">best_auc</span> <span class="o">=</span> <span class="n">auc_v</span>
+            <span class="n">best_variable</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">best_variable</span>
+
+<span class="c1"># Define funtion</span>
+<span class="k">def</span> <span class="nf">auc_train_test</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns AUC of train and test data sets&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">),</span> <span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test</span><span class="p">))</span>
+
+
+<span class="c1"># Define candidate variables</span>
+<span class="n">candidate_variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">candidate_variables</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;readmitted&quot;</span><span class="p">)</span>
+
+<span class="c1"># Initialize current variables</span>
+<span class="n">current_variables</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># The forward stepwise variable selection procedure</span>
+<span class="n">number_iterations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidate_variables</span><span class="p">)</span> <span class="c1"># All variables will be considered</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_iterations</span><span class="p">):</span>
+    <span class="c1"># Get next variable which maximizes AUC in the training data set</span>
+    <span class="n">next_variable</span> <span class="o">=</span> <span class="n">next_best</span><span class="p">(</span><span class="n">current_variables</span><span class="p">,</span> <span class="n">candidate_variables</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;readmitted&quot;</span><span class="p">],</span> <span class="n">train</span><span class="p">)</span>
+    <span class="c1"># Add it to the list</span>
+    <span class="n">current_variables</span> <span class="o">=</span> <span class="n">current_variables</span> <span class="o">+</span> <span class="p">[</span><span class="n">next_variable</span><span class="p">]</span>
+    <span class="c1"># Remove it from the candidate variables&#39; list</span>
+    <span class="n">candidate_variables</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_variable</span><span class="p">)</span>
+    <span class="c1"># Print which variable was added</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">: variable &#39;</span><span class="si">{</span><span class="n">next_variable</span><span class="si">}</span><span class="s2">&#39; added&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1: variable &#39;n_inpatient&#39; added
+Step 2: variable &#39;n_outpatient&#39; added
+Step 3: variable &#39;diabetes_med_yes&#39; added
+Step 4: variable &#39;time_in_hospital&#39; added
+Step 5: variable &#39;n_emergency&#39; added
+Step 6: variable &#39;age_[80-90)&#39; added
+Step 7: variable &#39;age_[70-80)&#39; added
+Step 8: variable &#39;medical_specialty_Surgery&#39; added
+Step 9: variable &#39;medical_specialty_Other&#39; added
+Step 10: variable &#39;medical_specialty_InternalMedicine&#39; added
+Step 11: variable &#39;n_procedures&#39; added
+Step 12: variable &#39;diag_1_Diabetes&#39; added
+Step 13: variable &#39;A1Ctest_normal&#39; added
+Step 14: variable &#39;diag_2_Injury&#39; added
+Step 15: variable &#39;n_medications&#39; added
+Step 16: variable &#39;diag_3_Other&#39; added
+Step 17: variable &#39;n_lab_procedures&#39; added
+Step 18: variable &#39;age_[60-70)&#39; added
+Step 19: variable &#39;diag_1_Other&#39; added
+Step 20: variable &#39;diag_1_Injury&#39; added
+Step 21: variable &#39;diag_1_Musculoskeletal&#39; added
+Step 22: variable &#39;diag_1_Respiratory&#39; added
+Step 23: variable &#39;medical_specialty_Emergency/Trauma&#39; added
+Step 24: variable &#39;A1Ctest_no&#39; added
+Step 25: variable &#39;glucose_test_no&#39; added
+Step 26: variable &#39;diag_2_Respiratory&#39; added
+Step 27: variable &#39;diag_2_Digestive&#39; added
+Step 28: variable &#39;diag_3_Respiratory&#39; added
+Step 29: variable &#39;diag_3_Diabetes&#39; added
+Step 30: variable &#39;diag_3_Injury&#39; added
+Step 31: variable &#39;diag_3_Musculoskeletal&#39; added
+Step 32: variable &#39;diag_2_Musculoskeletal&#39; added
+Step 33: variable &#39;age_[50-60)&#39; added
+Step 34: variable &#39;diag_3_Digestive&#39; added
+Step 35: variable &#39;medical_specialty_Missing&#39; added
+Step 36: variable &#39;medical_specialty_Family/GeneralPractice&#39; added
+Step 37: variable &#39;diag_2_Diabetes&#39; added
+Step 38: variable &#39;change_yes&#39; added
+Step 39: variable &#39;glucose_test_normal&#39; added
+Step 40: variable &#39;diag_1_Digestive&#39; added
+Step 41: variable &#39;age_[90-100)&#39; added
+Step 42: variable &#39;diag_2_Other&#39; added
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now visualize the performance evolution as variables are included in the model in the order defined by the list. We will consider both the train and test basetables to check the validity of the results.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init lists</span>
+<span class="n">auc_values_train</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">auc_values_test</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">variables_evaluate</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate over the variables in variables</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">current_variables</span><span class="p">:</span>
+  
+    <span class="c1"># Add the variable</span>
+    <span class="n">variables_evaluate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate the train and test AUC of this set of variables</span>
+    <span class="n">auc_train</span><span class="p">,</span> <span class="n">auc_test</span> <span class="o">=</span> <span class="n">auc_train_test</span><span class="p">(</span><span class="n">variables_evaluate</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;readmitted&quot;</span><span class="p">],</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+    
+    <span class="c1"># Append the values to the lists</span>
+    <span class="n">auc_values_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_train</span><span class="p">)</span>
+    <span class="n">auc_values_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc_test</span><span class="p">)</span>
+
+<span class="c1"># Create dataframe to plot results</span>
+<span class="n">aucs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">auc_values_train</span><span class="p">),</span>
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Train&#39;</span><span class="p">],</span>
+                               <span class="n">index</span><span class="o">=</span><span class="n">current_variables</span><span class="p">),</span>
+                  <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">auc_values_test</span><span class="p">),</span>
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">],</span>
+                               <span class="n">index</span><span class="o">=</span><span class="n">current_variables</span><span class="p">)],</span>
+                 <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aucs</span><span class="p">[</span><span class="s1">&#39;Train&#39;</span><span class="p">],</span> <span class="n">aucs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aucs</span><span class="p">[</span><span class="s1">&#39;Test&#39;</span><span class="p">],</span> <span class="n">aucs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;AUC performance score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Data set&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.602</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.602</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;arrowstyle&quot;</span><span class="p">:</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">})</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.651</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.602</span><span class="p">,</span> <span class="mi">19</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;arrowstyle&quot;</span><span class="p">:</span><span class="s2">&quot;-|&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s1">&#39;linestyle&#39;</span><span class="p">:</span><span class="s2">&quot;--&quot;</span><span class="p">})</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Stepwise</span><span class="se">\n</span><span class="s2">variable selection list&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.603</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Cut-off:</span><span class="se">\n</span><span class="s2">performance improvement no longer significant&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.605</span><span class="p">,</span> <span class="mf">18.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Selected variables</span>
+<span class="n">n_variables</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">selected_variables</span> <span class="o">=</span> <span class="n">current_variables</span><span class="p">[:</span><span class="n">n_variables</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_49_0.png" src="../_images/hospital_49_0.png" />
+</div>
+</div>
+<p>After conducting the forward stepwise variable selection procedure, a total of 20 variables were selected based on their predictive power. To ensure that we are not missing any important variables, I will compare the accuracy, precision, and recall scores of the Logistic Regression model when fitted with all variables and when fitted only with the 20 selected ones.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Logistic Regression model with all variables</span>
+<span class="n">scores_all</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">logreg_all</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">logreg_all</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_all</span> <span class="o">=</span> <span class="n">logreg_all</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">scores_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_all</span><span class="p">))</span>
+<span class="n">scores_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_all</span><span class="p">))</span>
+<span class="n">scores_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_all</span><span class="p">))</span>
+
+<span class="c1"># Fit Logistic Regression model with selected variables only</span>
+<span class="n">scores_sel</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">logreg_sel</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">logreg_sel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selected_variables</span><span class="p">],</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_sel</span> <span class="o">=</span> <span class="n">logreg_sel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selected_variables</span><span class="p">])</span>
+<span class="n">scores_sel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_sel</span><span class="p">))</span>
+<span class="n">scores_sel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_sel</span><span class="p">))</span>
+<span class="n">scores_sel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_sel</span><span class="p">))</span>
+
+<span class="c1"># Create dataframe for plotting</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores_all</span><span class="p">,</span>
+                       <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">])</span>
+<span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;sel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores_sel</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">metrics</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variable set&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;All variables&#39;</span><span class="p">,</span> <span class="s1">&#39;Selected&#39;</span><span class="p">],</span>
+          <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_51_0.png" src="../_images/hospital_51_0.png" />
+</div>
+</div>
+<p>The model performance results are not impressive, especially regarding recall (sensitivity). Nevertheless, this comparison demonstrates that we are not losing any predictive information if we only consider the selected variables. Additionally, since this project aims to assess the most important predictors, we will not attempt to optimize the model results.</p>
+<p>We will focus instead on the predictive power of the selected variables to try to gain insight about which factors contribute the most to readmissions in the hospital.</p>
+<p>Coefficients of the Logistic Regression model tell us about the importance of each variable.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract coefficients of the model fitted with selected variables</span>
+<span class="n">coefs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">logreg_sel</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">X_train_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selected_variables</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>\
+                    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;logreg_coef&#39;</span><span class="p">})</span>
+
+<span class="c1"># Add new column with their absolute value</span>
+<span class="n">coefs</span><span class="p">[</span><span class="s1">&#39;coef_abs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span><span class="p">[</span><span class="s1">&#39;logreg_coef&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+
+<span class="c1"># Sort data frame according to the absolute values</span>
+<span class="n">coefs</span> <span class="o">=</span> <span class="n">coefs</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;coef_abs&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Add new column with their position in the model coefficients list</span>
+<span class="n">coefs</span><span class="p">[</span><span class="s1">&#39;coef_abs_pos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">coefs</span><span class="p">[</span><span class="s1">&#39;logreg_coef&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sorted by predictive power</span><span class="se">\n</span><span class="s1">(coefficient abs value)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Logistic Regression model coefficient value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_53_0.png" src="../_images/hospital_53_0.png" />
+</div>
+</div>
+<p>In the graph, we can see the values of the coefficients for each variable, sorted according to their absolute values (predictive power).</p>
+<p>However, we selected our own list of variables based on the model performance’s progressive improvement. We can see that both lists have the same variables, but the order of importance is not the same.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create another dataframe with selected variables</span>
+<span class="n">sel_vars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">selected_variables</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;selection&#39;</span><span class="p">])</span>
+
+<span class="c1"># Add column with their position in the selected variable list</span>
+<span class="n">sel_vars</span><span class="p">[</span><span class="s1">&#39;selection_pos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sel_vars</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Set index to prepare for the merging</span>
+<span class="n">sel_vars</span> <span class="o">=</span> <span class="n">sel_vars</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;selection&#39;</span><span class="p">)</span>
+
+<span class="c1"># Merge both dataframes on the indexes</span>
+<span class="n">coefs_sels</span> <span class="o">=</span> <span class="n">coefs</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sel_vars</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">coefs_sels_</span> <span class="o">=</span> <span class="n">coefs_sels</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;selection_pos&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">coefs_sels_</span><span class="p">[</span><span class="s1">&#39;logreg_coef&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sorted by stepwise selection order&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Logistic Regression model coefficient value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_55_0.png" src="../_images/hospital_55_0.png" />
+</div>
+</div>
+<p>We can see that the first and second most important variables are the same in both lists, but the third most important coefficient (‘n_emergency’) does not come in the third position on the selected list. Instead, ‘diab_med_yes’ was selected, which, in principle, is a variable with less predictive power than ‘n_emergency,’ as seen in the graph above.</p>
+<p>The following graph illustrates these differences in the relative positions.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only relative position columns and transpose dataframe for plotting</span>
+<span class="n">coefs_sels</span> <span class="o">=</span> <span class="n">coefs_sels</span><span class="p">[[</span><span class="s1">&#39;coef_abs_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;selection_pos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">coefs_sels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predictive power&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">labelright</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;by</span><span class="se">\n</span><span class="s1">fitted model coeficient&#39;</span><span class="p">,</span> <span class="s1">&#39;by</span><span class="se">\n</span><span class="s1">stepwise selection&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Variable&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+         <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_57_0.png" src="../_images/hospital_57_0.png" />
+</div>
+</div>
+<p>These differences in the order of importance are due to correlations between variables. I will print the correlation matrix to illustrate this.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get pearson correlation matrix</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">X_train_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selected_variables</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Plot it with a heatmap</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="n">h_neg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h_pos</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+            <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="c1"># annot=True, fmt=&quot;.2f&quot;</span>
+           <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_59_0.png" src="../_images/hospital_59_0.png" />
+</div>
+</div>
+<p>We can deduce that ‘n_emergency’ was not included in the third position in the selected list because it has a relatively high correlation with the first two included variables (‘n_inpatient’ and ‘n_outpatient’). Therefore, the stepwise algorithm correctly selects the next most powerful variable, ‘diabetes_med_yes’.</p>
+<p>The changes in the order of the remaining variables can be explained in a similar way, as they are also influenced by correlations with other variables.</p>
+</section>
+<section id="predictor-insight-graphs">
+<h4>Predictor Insight Graphs<a class="headerlink" href="#predictor-insight-graphs" title="Permalink to this headline">#</a></h4>
+<p>Finally, I will plot the Predictor Insight Graphs for the first 12 variables in the selected list, to gain an intuitive sense of their impact on the target.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reconstruct basetable</span>
+<span class="n">hospital_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">hospital</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">n_plots</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">selected_variables</span><span class="p">[:</span><span class="n">n_plots</span><span class="p">]:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plot_pig</span><span class="p">(</span><span class="n">hospital_dummied</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/hospital_62_0.png" src="../_images/hospital_62_0.png" />
+<img alt="../_images/hospital_62_1.png" src="../_images/hospital_62_1.png" />
+<img alt="../_images/hospital_62_2.png" src="../_images/hospital_62_2.png" />
+<img alt="../_images/hospital_62_3.png" src="../_images/hospital_62_3.png" />
+<img alt="../_images/hospital_62_4.png" src="../_images/hospital_62_4.png" />
+<img alt="../_images/hospital_62_5.png" src="../_images/hospital_62_5.png" />
+<img alt="../_images/hospital_62_6.png" src="../_images/hospital_62_6.png" />
+<img alt="../_images/hospital_62_7.png" src="../_images/hospital_62_7.png" />
+<img alt="../_images/hospital_62_8.png" src="../_images/hospital_62_8.png" />
+<img alt="../_images/hospital_62_9.png" src="../_images/hospital_62_9.png" />
+<img alt="../_images/hospital_62_10.png" src="../_images/hospital_62_10.png" />
+<img alt="../_images/hospital_62_11.png" src="../_images/hospital_62_11.png" />
+</div>
+</div>
+<p>We will conclude the analysis with this final Predictor Insight Graph, which corresponds to the incidence of diabetes as the primary diagnosis. This graph is the same as the one constructed while answering the second question addressed in this report, with the difference of aggregating all non-diabetes diagnoses. Looking at this graph, it may seem that the incidence (the admission rate) hike is not so high. However, as we learned earlier, it is indeed significant, considering the sizes and corresponding distributions.</p>
+<p>Diabetes as the primary diagnosis plays a part, but this variable is in the 12th position in the list. Before it, there are other factors that have more influence on the readmission rate.</p>
+</section>
+</section>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<p>The hospital should focus their follow-up efforts monitoring these patients:</p>
+<ul class="simple">
+<li><p>The most important predictor is <strong>n_inpatient</strong>, which represents the number of inpatient visits in the year before the hospital stay. The readmission rate increases significantly when patients have more inpatient visits prior to their hospital stay, so it is important to closely monitor these individuals. Similarly, <strong>n_outpatient</strong> (the number of outpatient visits in the year before a hospital stay) is also a significant predictor, ranking second in importance.</p></li>
+<li><p>In addition to the aforementioned predictors, it is important to look out for patients with a diabetes medication prescribed (<strong>diabetes_med_yes</strong>) as this variable also has significant predictive power for readmission rates.</p></li>
+<li><p>Furthermore, the length of stay in the hospital upon admission (<strong>time_in_hospital</strong>) also plays a crucial role. The longer a patient stays in the hospital (from 1 to 14 days), the higher the probability of readmission.</p></li>
+<li><p>The number of visits to the emergency room in the year before the hospital stay (<strong>n_emergency</strong>) should also be taken into account. Even a single visit to the emergency room indicates a higher probability of readmission.</p></li>
+<li><p>Age, of course, is also an important factor. Patients between the ages of <strong>70-80</strong> and <strong>80-90</strong> are more likely to be readmitted to the hospital.</p></li>
+<li><p>Some medical specialties are negatively correlated with readmission. These include <strong>Surgery</strong>, <strong>Internal Medicine</strong>, and <strong>Other</strong>. Therefore, patients admitted by physicians in these specialties have a lower probability of being readmitted.</p></li>
+<li><p>The <strong>n_procedures</strong> (number of procedures performed during the hospital stay) is also negatively correlated.</p></li>
+<li><p>As doctors’ intuition correctly anticipated, having Diabetes as a primary diagnosis (<strong>diag_1_Diabetes</strong>) also has a significant effect on readmission.</p></li>
+</ul>
+<p>And it may also be worth taking a look at the rest of the selected variables. The number of medications (<strong>n_medications</strong>), number of laboratory procedures (<strong>n_lab_procedures</strong>), and age group <strong>60-70</strong> are positively correlated. On the other hand, <strong>A1Ctest_normal</strong>, <strong>diag_2_Injury</strong>, <strong>diag_3_Other</strong>, and <strong>diag_1_Other</strong> are negatively correlated.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../projects-challenge.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Challenge projects</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../articles.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Artículos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mikel Imaz, 2023<br/>
+  
+    <div class="extra_footer">
+      <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

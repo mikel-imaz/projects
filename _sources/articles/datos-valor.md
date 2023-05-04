@@ -1,5 +1,4 @@
-# Datos en valor
-**La ciencia de convertir los datos en valor**
+# La ciencia de convertir los datos en valor
    
 ![](img/valor.png)
    
