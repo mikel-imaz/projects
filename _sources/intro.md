@@ -83,6 +83,12 @@ By **Mikel Imaz**
 :img-bottom: notebooks/img/hospital-patient-readmissions.jpg
 :::
 
+:::{grid-item-card} Predicting hotel cancellations
+:link: notebooks/hotels
+:link-type: doc
+:img-bottom: notebooks/img/predict-hotel-cancellation.jpg
+:::
+
 ::::
 
 ---
