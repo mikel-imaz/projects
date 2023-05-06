@@ -21,6 +21,7 @@ parts:
   - file: projects-challenge
     sections:
     - file: notebooks/hospital
+    - file: notebooks/hotels
   - file: articles
     sections:
     - file: articles/cultura-datos
