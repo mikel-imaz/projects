@@ -89,6 +89,12 @@ By **Mikel Imaz**
 :img-bottom: notebooks/img/predict-hotel-cancellation.jpg
 :::
 
+:::{grid-item-card} Was a website redesign successful?
+:link: notebooks/webpage
+:link-type: doc
+:img-bottom: notebooks/img/webpage-redesign-test.jpg
+:::
+
 ::::
 
 ---
