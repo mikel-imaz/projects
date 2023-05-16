@@ -98,6 +98,12 @@ By **Mikel Imaz**
 :img-bottom: notebooks/img/webpage-redesign-test.jpg
 :::
 
+:::{grid-item-card} Improving customer segmentation
+:link: notebooks/segmentation
+:link-type: doc
+:img-bottom: notebooks/img/medical-device-customers.jpg
+:::
+
 ::::
 
 ---
