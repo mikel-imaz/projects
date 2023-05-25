@@ -1,4 +1,7 @@
-# Data Projects
+# Data projects
+```{epigraph}
+— in Python
+```
 
 By **Mikel Imaz**
 
@@ -93,6 +96,12 @@ By **Mikel Imaz**
 :link: notebooks/webpage
 :link-type: doc
 :img-bottom: notebooks/img/webpage-redesign-test.jpg
+:::
+
+:::{grid-item-card} Improving customer segmentation
+:link: notebooks/segmentation
+:link-type: doc
+:img-bottom: notebooks/img/medical-device-customers.jpg
 :::
 
 ::::

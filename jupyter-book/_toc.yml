@@ -23,6 +23,7 @@ parts:
     - file: notebooks/hospital
     - file: notebooks/hotels
     - file: notebooks/webpage
+    - file: notebooks/segmentation
   - file: articles
     sections:
     - file: articles/cultura-datos
