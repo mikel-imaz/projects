@@ -1,4 +1,4 @@
-# Data Projects
+# Data projects
 ```{epigraph}
 — in Python
 ```
