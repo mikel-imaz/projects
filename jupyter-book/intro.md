@@ -105,32 +105,3 @@ By **Mikel Imaz**
 :::
 
 ::::
-
----
-*Artículos*
-
-::::{grid} 2 2 2 3
-:gutter: 3
-
-:::{grid-item-card} La importancia de adquirir competencias en datos
-:link: articles/cultura-datos
-:link-type: doc
-:img-bottom: articles/img/cultura-card.png
-:shadow: md
-:::
-
-:::{grid-item-card} La ciencia de convertir los datos en valor
-:link: articles/datos-valor
-:link-type: doc
-:img-bottom: articles/img/valor-card.png
-:shadow: md
-:::
-
-:::{grid-item-card} ¿Qué es la Inteligencia Artificial?
-:link: articles/ia
-:link-type: doc
-:img-bottom: articles/img/ia-card.png
-:shadow: md
-:::
-
-::::

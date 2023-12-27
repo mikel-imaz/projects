@@ -24,14 +24,7 @@ parts:
     - file: notebooks/hotels
     - file: notebooks/webpage
     - file: notebooks/segmentation
-  - file: articles
-    sections:
-    - file: articles/cultura-datos
-    - file: articles/datos-valor
-    - file: articles/ia
 - caption: About
   chapters:
-  - url: https://www.linkedin.com/in/mikel-imaz/
-    title: LinkedIn profile
-  - url: https://www.datacamp.com/profile/mikel-imaz
-    title: DataCamp profile
+  - url: http://datuz.es
+    title: datuz
