@@ -1,120 +1,174 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Reducing hospital readmissions &#8212; datuz</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/hospital';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Predicting hotel cancellations" href="hotels.html" />
     <link rel="prev" title="Challenge projects" href="../projects-challenge.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-232XT3FYCT');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">datuz</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="datuz - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="datuz - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,493 +177,228 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Contents
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../projects-my.html">
-   Personal projects
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ages.html">
-     Median Ages
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="water.html">
-     Water Supplies
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="quakes.html">
-     Earth Quakes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="climate.html">
-     Climate Change
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="antio.html">
-     Bar Reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="olele.html">
-     Handfan Reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="traffic_fines.html">
-     Traffic Fines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="urban_trees.html">
-     Urban Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="breads.html">
-     Bread Prices
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ignatian.html">
-     Ignatian Pilgrims
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../projects-challenge.html">
-   Challenge projects
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Reducing hospital readmissions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="hotels.html">
-     Predicting hotel cancellations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="webpage.html">
-     Was a website redesign successful?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="segmentation.html">
-     Improving customer segmentation
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-my.html">Personal projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-challenge.html">Challenge projects</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="http://datuz.es">
-   datuz
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="http://datuz.es">datuz</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/hospital.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikel-imaz/projects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/hospital.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/hospital.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-project">
-   The project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-validation">
-   Data validation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-the-data">
-     Read the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-data-integrity">
-     Check data integrity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-categorical-variables">
-     Check categorical variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-numerical-variables">
-     Check numerical variables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis">
-   Data analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">
-     Q1:
-     <em>
-      What is the most common primary diagnosis by age group?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
-     Q2:
-     <em>
-      What is the effect of a diabetes diagnosis on the rate of readmissions?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">
-     Q3:
-     <em>
-      Identifying patients with a high probability of readmission
-     </em>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#data-preprocessing">
-       Data preprocessing
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variable-selection">
-       Variable selection
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#predictor-insight-graphs">
-       Predictor Insight Graphs
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusions">
-   Conclusions
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Reducing hospital readmissions</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-project">
-   The project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-validation">
-   Data validation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-the-data">
-     Read the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-data-integrity">
-     Check data integrity
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-categorical-variables">
-     Check categorical variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-numerical-variables">
-     Check numerical variables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis">
-   Data analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">
-     Q1:
-     <em>
-      What is the most common primary diagnosis by age group?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
-     Q2:
-     <em>
-      What is the effect of a diabetes diagnosis on the rate of readmissions?
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">
-     Q3:
-     <em>
-      Identifying patients with a high probability of readmission
-     </em>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#data-preprocessing">
-       Data preprocessing
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variable-selection">
-       Variable selection
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#predictor-insight-graphs">
-       Predictor Insight Graphs
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusions">
-   Conclusions
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reducing hospital readmissions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation">Data validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-integrity">Check data integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-categorical-variables">Check categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-numerical-variables">Check numerical variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">Q1: <em>What is the most common primary diagnosis by age group?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">Q2: <em>What is the effect of a diabetes diagnosis on the rate of readmissions?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">Q3: <em>Identifying patients with a high probability of readmission</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data preprocessing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-selection">Variable selection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor-insight-graphs">Predictor Insight Graphs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="reducing-hospital-readmissions">
-<h1>Reducing hospital readmissions<a class="headerlink" href="#reducing-hospital-readmissions" title="Permalink to this headline">#</a></h1>
+<h1>Reducing hospital readmissions<a class="headerlink" href="#reducing-hospital-readmissions" title="Permalink to this heading">#</a></h1>
 <p><em><a class="reference external" href="https://www.datacamp.com">A DataCamp challenge</a></em></p>
 <p><img alt="" src="../_images/hospital-patient-readmissions.jpg" /></p>
 <p>May, 2023</p>
@@ -617,7 +406,7 @@ title="Print to PDF"
 <div><p><em>Predictive Analytics, ML —classification</em></p>
 </div></blockquote>
 <section id="the-project">
-<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">#</a></h2>
+<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this heading">#</a></h2>
 <p>You work for a consulting company helping a hospital group better understand patient readmissions. The hospital gave you access to ten years of information on patients readmitted to the hospital after being discharged. The doctors want you to assess if initial diagnoses, number of procedures, or other variables could help them better understand the probability of readmission.</p>
 <p>They want to focus follow-up calls and attention on those patients with a higher probability of readmission.</p>
 <ul class="simple">
@@ -626,7 +415,7 @@ title="Print to PDF"
 <li><p>On what groups of patients should the hospital focus their follow-up efforts to better monitor patients with a high probability of readmission?</p></li>
 </ul>
 <p>You have access to ten years of patient information (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008">source</a>):</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Column</p></th>
 <th class="head"><p>Description</p></th>
@@ -689,10 +478,15 @@ title="Print to PDF"
 <p><em><strong>Acknowledgments</strong>: Beata Strack, Jonathan P. DeShazo, Chris Gennings, Juan L. Olmo, Sebastian Ventura, Krzysztof J. Cios, and John N. Clore, “Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records,” BioMed Research International, vol. 2014, Article ID 781670, 11 pages, 2014.</em></p>
 </section>
 <section id="data-validation">
-<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">#</a></h2>
+<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this heading">#</a></h2>
 <section id="read-the-data">
-<h3>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this headline">#</a></h3>
+<h3>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -713,6 +507,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           age  time_in_hospital  n_lab_procedures  n_procedures  \
 0      [70-80)                 8                72             1   
@@ -773,14 +568,20 @@ title="Print to PDF"
 </div>
 </section>
 <section id="check-data-integrity">
-<h3>Check data integrity<a class="headerlink" href="#check-data-integrity" title="Permalink to this headline">#</a></h3>
+<h3>Check data integrity<a class="headerlink" href="#check-data-integrity" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe info</span>
 <span class="n">hospital</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 25000 entries, 0 to 24999
@@ -812,12 +613,18 @@ memory usage: 3.2+ MB
 </div>
 <p>We can see that there are no missing values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look for duplicated rows</span>
 <span class="n">hospital</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
@@ -827,9 +634,14 @@ memory usage: 3.2+ MB
 <p>There are also no duplicated rows.</p>
 </section>
 <section id="check-categorical-variables">
-<h3>Check categorical variables<a class="headerlink" href="#check-categorical-variables" title="Permalink to this headline">#</a></h3>
+<h3>Check categorical variables<a class="headerlink" href="#check-categorical-variables" title="Permalink to this heading">#</a></h3>
 <p>Let’s see if variables of type ‘object’ (strings) contain categories.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select column names of object type</span>
 <span class="n">object_cols</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
@@ -850,22 +662,34 @@ memory usage: 3.2+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_13_0.png" src="../_images/hospital_13_0.png" />
+<img alt="../_images/2a2af652339a7f11e8074a99417060c45e6ce10c883424c49949ee4287a24440.png" src="../_images/2a2af652339a7f11e8074a99417060c45e6ce10c883424c49949ee4287a24440.png" />
 </div>
 </div>
 <p>All of them are categorical variables.</p>
 <p>The target variable, ‘readmitted’, is quite balanced, with the class of interest, ‘yes’, being well-represented and almost equal to the other class. I am going to replace the values in the target variable from ‘no-yes’ to numerical ‘0-1’ right away (without waiting for the creation of dummies) because it will facilitate some early analysis.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace to numerical values</span>
 <span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;readmitted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;readmitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;no&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The number of values in the ‘Missing’ category for variables ‘diag_1’, ‘diag_2’, and ‘diag_3’ is low, so I will assign them to the ‘Other’ category to reduce dimensionality.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign values</span>
 <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Missing&#39;</span><span class="p">,</span> <span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Other&#39;</span>
@@ -874,9 +698,15 @@ memory usage: 3.2+ MB
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>All the remaining ‘object’ columns can be converted to categorical.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary of column and data type mappings</span>
 <span class="n">conversion_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">}</span>
@@ -887,6 +717,7 @@ memory usage: 3.2+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 25000 entries, 0 to 24999
@@ -919,9 +750,14 @@ memory usage: 1.6 MB
 <p>We can see that the memory usage has been reduced by half.</p>
 </section>
 <section id="check-numerical-variables">
-<h3>Check numerical variables<a class="headerlink" href="#check-numerical-variables" title="Permalink to this headline">#</a></h3>
+<h3>Check numerical variables<a class="headerlink" href="#check-numerical-variables" title="Permalink to this heading">#</a></h3>
 <p>I will plot histograms for them to get a sense of their value ranges.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select numerical columns to plot</span>
 <span class="n">num_cols_check</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
@@ -942,12 +778,18 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_23_0.png" src="../_images/hospital_23_0.png" />
+<img alt="../_images/fb6879642cb9dc25bb3514f5daa1cb33118a55f7fbd0281adc4edc7a9ffb292a.png" src="../_images/fb6879642cb9dc25bb3514f5daa1cb33118a55f7fbd0281adc4edc7a9ffb292a.png" />
 </div>
 </div>
 <p>It appears that there may be some outliers. I will check this by creating a box plot, which will also help me to see more clearly that these numerical values are of the same order of magnitude.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -967,12 +809,18 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_25_0.png" src="../_images/hospital_25_0.png" />
+<img alt="../_images/c89d6cfe584aa60ced98ffda99a655057ad1e1a89526f11604c2713878ce267b.png" src="../_images/c89d6cfe584aa60ced98ffda99a655057ad1e1a89526f11604c2713878ce267b.png" />
 </div>
 </div>
 <p>To reduce the impact of outliers on the model outcome, I will use the winsorization method to filter them out. This will limit the extreme values to lower and upper limits based on percentiles. I will use a 5% limit for both the upper and lower bounds.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter outliers with winsorization</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="mf">0.05</span>
@@ -997,18 +845,24 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_27_0.png" src="../_images/hospital_27_0.png" />
+<img alt="../_images/48e3a3aa3fec81afdab5b49daf7cc6a85c693b918fcb071149b3877a69cb4b7a.png" src="../_images/48e3a3aa3fec81afdab5b49daf7cc6a85c693b918fcb071149b3877a69cb4b7a.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="data-analysis">
-<h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this heading">#</a></h2>
 <p>I will answer each of the three questions that were asked.</p>
 <section id="q1-what-is-the-most-common-primary-diagnosis-by-age-group">
-<h3>Q1: <em>What is the most common primary diagnosis by age group?</em><a class="headerlink" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group" title="Permalink to this headline">#</a></h3>
+<h3>Q1: <em>What is the most common primary diagnosis by age group?</em><a class="headerlink" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -1040,20 +894,26 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_31_0.png" src="../_images/hospital_31_0.png" />
+<img alt="../_images/b67795f171f1c9e10862b577ef4037dfebc667949aa2bc2a8f1d3b70bf94367c.png" src="../_images/b67795f171f1c9e10862b577ef4037dfebc667949aa2bc2a8f1d3b70bf94367c.png" />
 </div>
 </div>
 <p>As shown in the graphs, circulatory disease is the most common primary diagnosis across most of the age groups.</p>
 </section>
 <section id="q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">
-<h3>Q2: <em>What is the effect of a diabetes diagnosis on the rate of readmissions?</em><a class="headerlink" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions" title="Permalink to this headline">#</a></h3>
+<h3>Q2: <em>What is the effect of a diabetes diagnosis on the rate of readmissions?</em><a class="headerlink" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions" title="Permalink to this heading">#</a></h3>
 <p>I will begin by plotting the incidence ratio of the variable on the target variable. As I intend to use this type of graph for other variables in the project, I will define a function to create the so-called Predictor Insight Graph, which provides insight into the effect of the predictor variable on the target variable.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define function</span>
 <span class="k">def</span> <span class="nf">plot_pig</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Create and plot Predictor Insight Graph for corresponding variable&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Create and plot Predictor Insight Graph for corresponding variable&#39;&#39;&#39;</span>
     
     <span class="c1"># Create Predictor Insight Graph table</span>
     <span class="n">pig_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">variable</span><span class="p">)[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
@@ -1094,18 +954,24 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_35_0.png" src="../_images/hospital_35_0.png" />
+<img alt="../_images/1efc59eabe84172b9c0c418334e7f0f8eb3cc31aea5b4a734beda7379155a69b.png" src="../_images/1efc59eabe84172b9c0c418334e7f0f8eb3cc31aea5b4a734beda7379155a69b.png" />
 </div>
 </div>
 <p>The graph shows that the incidence in the target variable is highest for diabetes as the primary diagnosis.</p>
 <p>However, is this difference statistically significant? I will conduct a statistical test to answer this question.</p>
 <p>Let’s calculate the distributions of the readmision rate for:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Patients <em>with</em> diabetes as primary diagnosis.</p></li>
 <li><p>Patients <em>without</em> diabetes as primary diagnosis.</p></li>
 </ol>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create array with readmissions for diabetes as primary diagnosis</span>
 <span class="n">diab1</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">,</span> <span class="s1">&#39;readmitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -1144,18 +1010,24 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Readmission rate means:
 0.536 &lt;- with diabetes as primary diagnosis
 0.465 &lt;- without diabetes as primary diagnosis
 </pre></div>
 </div>
-<img alt="../_images/hospital_37_1.png" src="../_images/hospital_37_1.png" />
+<img alt="../_images/a4fb6fc376d8c08e33f4ad474a611a811dfc454b14894b92102a22188c6ee9ab.png" src="../_images/a4fb6fc376d8c08e33f4ad474a611a811dfc454b14894b92102a22188c6ee9ab.png" />
 </div>
 </div>
 <p>There is no overlap, indicating that the difference is likely statistically significant.</p>
 <p>Nevertheless, let’s perform the hypothesis test. I will assume the null hypothesis that there is no difference between the two groups. To test this, I will shift the distribution values to equalize their means, and then determine how often we could obtain purely by chance the difference in mean values that we are currently observing.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the difference of means</span>
 <span class="n">diff_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diab1_no</span><span class="p">)</span>
@@ -1183,6 +1055,7 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value = 0.0
 </pre></div>
@@ -1191,11 +1064,16 @@ memory usage: 1.6 MB
 </div>
 <p>After calculating the mean of 10,000 random bootstrap replicates, we did not observe a single one with the difference in means that we are currently observing. Therefore, we reject the null hypothesis and conclude that the difference is statistically significant. This means that having diabetes as a primary diagnosis certainly has an effect on the rate of readmissions.</p>
 <p>Would the effect be the same for these two groups?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Patients <em>with</em> diabetes as the primary, secondary, or tertiary diagnosis.</p></li>
 <li><p>Patients <em>without</em> diabetes in any of their diagnoses.</p></li>
 </ol>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array with readmissions for diabetes as primary, secondary or additional diagnosis</span>
 <span class="n">diab123</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hospital</span><span class="p">[</span><span class="s1">&#39;diag_1&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Diabetes&#39;</span><span class="p">)</span>\
@@ -1239,24 +1117,25 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Readmission rate means:
 0.465 &lt;- with diabetes in any diagnosis
 0.473 &lt;- without diabetes in all diagnosis
 </pre></div>
 </div>
-<img alt="../_images/hospital_41_1.png" src="../_images/hospital_41_1.png" />
+<img alt="../_images/1939590adacb8e1eb4581bdf558a957a7c1a52b944b43c4159489e3f2fafe29c.png" src="../_images/1939590adacb8e1eb4581bdf558a957a7c1a52b944b43c4159489e3f2fafe29c.png" />
 </div>
 </div>
 <p>In this case, when considering secondary and tertiary diagnoses, the overlapping of the distributions suggests that there is no significant difference in readmission rates between patients with and without diabetes.</p>
 </section>
 <section id="q3-identifying-patients-with-a-high-probability-of-readmission">
-<h3>Q3: <em>Identifying patients with a high probability of readmission</em><a class="headerlink" href="#q3-identifying-patients-with-a-high-probability-of-readmission" title="Permalink to this headline">#</a></h3>
+<h3>Q3: <em>Identifying patients with a high probability of readmission</em><a class="headerlink" href="#q3-identifying-patients-with-a-high-probability-of-readmission" title="Permalink to this heading">#</a></h3>
 <p>I am going to identify the variables that have the greatest impact on the readmission rate. I will use a simple logistic regression model for the sake of interpretability.</p>
 <section id="data-preprocessing">
-<h4>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h4>
+<h4>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h4>
 <p>This process consists of:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Separating variables (features) and target.</p></li>
 <li><p>Converting categorical variables to numerical (avoiding multicollinearity).</p></li>
 <li><p>Splitting the data into training and testing sets.</p></li>
@@ -1264,6 +1143,11 @@ memory usage: 1.6 MB
 <li><p>Reconstructing complete basetables (features + target) to perform predictive analysis.</p></li>
 </ol>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define features</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;readmitted&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1299,17 +1183,23 @@ memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="variable-selection">
-<h4>Variable selection<a class="headerlink" href="#variable-selection" title="Permalink to this headline">#</a></h4>
+<h4>Variable selection<a class="headerlink" href="#variable-selection" title="Permalink to this heading">#</a></h4>
 <p>Once we have the train and test basetables ready, we can proceed with the process of selecting the variables that have the highest predictive power.</p>
 <p>To do so, I will use a <em>forward stepwise variable selection procedure</em>, in which AUC scores are considered as a metric. Variables will be sorted according to the predictive power achieved if we include them progressively in a Logistic Regression model. The process will be carried out only in the training basetable to avoid data leakage.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns AUC of a Logistic Regression model&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns AUC of a Logistic Regression model&#39;&#39;&#39;</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">basetable</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">basetable</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
     <span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
@@ -1320,7 +1210,7 @@ memory usage: 1.6 MB
 
 <span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">next_best</span><span class="p">(</span><span class="n">current_variables</span><span class="p">,</span><span class="n">candidate_variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns next best variable to maximize AUC&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns next best variable to maximize AUC&#39;&#39;&#39;</span>
     <span class="n">best_auc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">best_variable</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">candidate_variables</span><span class="p">:</span>
@@ -1332,7 +1222,7 @@ memory usage: 1.6 MB
 
 <span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">auc_train_test</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns AUC of train and test data sets&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns AUC of train and test data sets&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">),</span> <span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test</span><span class="p">))</span>
 
 
@@ -1354,10 +1244,11 @@ memory usage: 1.6 MB
     <span class="c1"># Remove it from the candidate variables&#39; list</span>
     <span class="n">candidate_variables</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_variable</span><span class="p">)</span>
     <span class="c1"># Print which variable was added</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">: variable &#39;</span><span class="si">{</span><span class="n">next_variable</span><span class="si">}</span><span class="s2">&#39; added&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: variable &#39;</span><span class="si">{</span><span class="n">next_variable</span><span class="si">}</span><span class="s2">&#39; added&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1: variable &#39;n_inpatient&#39; added
 Step 2: variable &#39;n_outpatient&#39; added
@@ -1407,6 +1298,11 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </div>
 <p>We will now visualize the performance evolution as variables are included in the model in the order defined by the list. We will consider both the train and test basetables to check the validity of the results.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init lists</span>
 <span class="n">auc_values_train</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1477,12 +1373,18 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_49_0.png" src="../_images/hospital_49_0.png" />
+<img alt="../_images/5ba338931e8cdbdb25f8961618db4f27c989c9435ad0c077b966fb2ea73674f1.png" src="../_images/5ba338931e8cdbdb25f8961618db4f27c989c9435ad0c077b966fb2ea73674f1.png" />
 </div>
 </div>
 <p>After conducting the forward stepwise variable selection procedure, a total of 20 variables were selected based on their predictive power. To ensure that we are not missing any important variables, I will compare the accuracy, precision, and recall scores of the Logistic Regression model when fitted with all variables and when fitted only with the 20 selected ones.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Logistic Regression model with all variables</span>
 <span class="n">scores_all</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1532,14 +1434,20 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_51_0.png" src="../_images/hospital_51_0.png" />
+<img alt="../_images/3eb9513c5feb05de5bc56b342fc1f3e117a2b3f41b4721b23105a47db2fe0f84.png" src="../_images/3eb9513c5feb05de5bc56b342fc1f3e117a2b3f41b4721b23105a47db2fe0f84.png" />
 </div>
 </div>
 <p>The model performance results are not impressive, especially regarding recall (sensitivity). Nevertheless, this comparison demonstrates that we are not losing any predictive information if we only consider the selected variables. Additionally, since this project aims to assess the most important predictors, we will not attempt to optimize the model results.</p>
 <p>We will focus instead on the predictive power of the selected variables to try to gain insight about which factors contribute the most to readmissions in the hospital.</p>
 <p>Coefficients of the Logistic Regression model tell us about the importance of each variable.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract coefficients of the model fitted with selected variables</span>
 <span class="n">coefs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">logreg_sel</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
@@ -1577,13 +1485,19 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_53_0.png" src="../_images/hospital_53_0.png" />
+<img alt="../_images/9b008270ab9590f0e223304363f65d728e3bc491c993d12ca7651bfed48d01a9.png" src="../_images/9b008270ab9590f0e223304363f65d728e3bc491c993d12ca7651bfed48d01a9.png" />
 </div>
 </div>
 <p>In the graph, we can see the values of the coefficients for each variable, sorted according to their absolute values (predictive power).</p>
 <p>However, we selected our own list of variables based on the model performance’s progressive improvement. We can see that both lists have the same variables, but the order of importance is not the same.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create another dataframe with selected variables</span>
 <span class="n">sel_vars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">selected_variables</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;selection&#39;</span><span class="p">])</span>
@@ -1621,13 +1535,19 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_55_0.png" src="../_images/hospital_55_0.png" />
+<img alt="../_images/d57000bfc7e8f0c9f611d85470cb86fae18825888a7acda3cd0643b1490bbb36.png" src="../_images/d57000bfc7e8f0c9f611d85470cb86fae18825888a7acda3cd0643b1490bbb36.png" />
 </div>
 </div>
 <p>We can see that the first and second most important variables are the same in both lists, but the third most important coefficient (‘n_emergency’) does not come in the third position on the selected list. Instead, ‘diab_med_yes’ was selected, which, in principle, is a variable with less predictive power than ‘n_emergency,’ as seen in the graph above.</p>
 <p>The following graph illustrates these differences in the relative positions.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select only relative position columns and transpose dataframe for plotting</span>
 <span class="n">coefs_sels</span> <span class="o">=</span> <span class="n">coefs_sels</span><span class="p">[[</span><span class="s1">&#39;coef_abs_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;selection_pos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -1656,12 +1576,18 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_57_0.png" src="../_images/hospital_57_0.png" />
+<img alt="../_images/0fa8b9d7d4e17fb4eeceef719a148f086f71a6c2151fba5ad02d07ef26f5ccee.png" src="../_images/0fa8b9d7d4e17fb4eeceef719a148f086f71a6c2151fba5ad02d07ef26f5ccee.png" />
 </div>
 </div>
 <p>These differences in the order of importance are due to correlations between variables. I will print the correlation matrix to illustrate this.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get pearson correlation matrix</span>
 <span class="n">corr</span> <span class="o">=</span> <span class="n">X_train_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selected_variables</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
@@ -1682,17 +1608,23 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_59_0.png" src="../_images/hospital_59_0.png" />
+<img alt="../_images/3a954df87be293fdb4e35b348809585d88e0d5c06f716126cbb9d10126eb38e7.png" src="../_images/3a954df87be293fdb4e35b348809585d88e0d5c06f716126cbb9d10126eb38e7.png" />
 </div>
 </div>
 <p>We can deduce that ‘n_emergency’ was not included in the third position in the selected list because it has a relatively high correlation with the first two included variables (‘n_inpatient’ and ‘n_outpatient’). Therefore, the stepwise algorithm correctly selects the next most powerful variable, ‘diabetes_med_yes’.</p>
 <p>The changes in the order of the remaining variables can be explained in a similar way, as they are also influenced by correlations with other variables.</p>
 </section>
 <section id="predictor-insight-graphs">
-<h4>Predictor Insight Graphs<a class="headerlink" href="#predictor-insight-graphs" title="Permalink to this headline">#</a></h4>
+<h4>Predictor Insight Graphs<a class="headerlink" href="#predictor-insight-graphs" title="Permalink to this heading">#</a></h4>
 <p>Finally, I will plot the Predictor Insight Graphs for the first 12 variables in the selected list, to gain an intuitive sense of their impact on the target.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reconstruct basetable</span>
 <span class="n">hospital_dummied</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">hospital</span><span class="p">,</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1704,19 +1636,20 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hospital_62_0.png" src="../_images/hospital_62_0.png" />
-<img alt="../_images/hospital_62_1.png" src="../_images/hospital_62_1.png" />
-<img alt="../_images/hospital_62_2.png" src="../_images/hospital_62_2.png" />
-<img alt="../_images/hospital_62_3.png" src="../_images/hospital_62_3.png" />
-<img alt="../_images/hospital_62_4.png" src="../_images/hospital_62_4.png" />
-<img alt="../_images/hospital_62_5.png" src="../_images/hospital_62_5.png" />
-<img alt="../_images/hospital_62_6.png" src="../_images/hospital_62_6.png" />
-<img alt="../_images/hospital_62_7.png" src="../_images/hospital_62_7.png" />
-<img alt="../_images/hospital_62_8.png" src="../_images/hospital_62_8.png" />
-<img alt="../_images/hospital_62_9.png" src="../_images/hospital_62_9.png" />
-<img alt="../_images/hospital_62_10.png" src="../_images/hospital_62_10.png" />
-<img alt="../_images/hospital_62_11.png" src="../_images/hospital_62_11.png" />
+<img alt="../_images/f896874a9888ba702521e08f845bcac6a862913d058045d20072977e06c3def2.png" src="../_images/f896874a9888ba702521e08f845bcac6a862913d058045d20072977e06c3def2.png" />
+<img alt="../_images/49e2673ef80b47bb35b5dc5ebe8cba85f07ed4247a7c1c3bd2fdf6963d5bd276.png" src="../_images/49e2673ef80b47bb35b5dc5ebe8cba85f07ed4247a7c1c3bd2fdf6963d5bd276.png" />
+<img alt="../_images/be90245a2287b71d5e8a79e31cb0a638c2a50ae1e8bfcd478edfb9cd5bb60329.png" src="../_images/be90245a2287b71d5e8a79e31cb0a638c2a50ae1e8bfcd478edfb9cd5bb60329.png" />
+<img alt="../_images/aada2cea2da74dbe7dcd75b8119648fa7a550418e7e386c58a6d1148f3e37ec6.png" src="../_images/aada2cea2da74dbe7dcd75b8119648fa7a550418e7e386c58a6d1148f3e37ec6.png" />
+<img alt="../_images/cf206dab307bce7b4c947a4e6899f4bcd8f8a13bea9bb4c6d653095c3297f8d9.png" src="../_images/cf206dab307bce7b4c947a4e6899f4bcd8f8a13bea9bb4c6d653095c3297f8d9.png" />
+<img alt="../_images/c2e665c2fab56fc7d461bf7dbd54decaf3db774d940363e9cd00b33946ccc64b.png" src="../_images/c2e665c2fab56fc7d461bf7dbd54decaf3db774d940363e9cd00b33946ccc64b.png" />
+<img alt="../_images/f9571ad28487d8ab5ce6c1340d783c7ddea14d0c452d39c2275f8ee3185f010d.png" src="../_images/f9571ad28487d8ab5ce6c1340d783c7ddea14d0c452d39c2275f8ee3185f010d.png" />
+<img alt="../_images/a8216093725cf9945f45402f8bc8c982276f37acc1bdd6be519aece57da4c83e.png" src="../_images/a8216093725cf9945f45402f8bc8c982276f37acc1bdd6be519aece57da4c83e.png" />
+<img alt="../_images/1999924284662558d752c9025411c70debf24f55a743520becb980d18d2c135f.png" src="../_images/1999924284662558d752c9025411c70debf24f55a743520becb980d18d2c135f.png" />
+<img alt="../_images/81d64633b13a9d83a9831d950076210f43ff5d1d3415c60487a1fc5116ad404a.png" src="../_images/81d64633b13a9d83a9831d950076210f43ff5d1d3415c60487a1fc5116ad404a.png" />
+<img alt="../_images/f67387e4ab3432d633d464e57f660f60f100c606ebc356deb67d6079e919b5d4.png" src="../_images/f67387e4ab3432d633d464e57f660f60f100c606ebc356deb67d6079e919b5d4.png" />
+<img alt="../_images/9b3a695ed91d064337a45829b4e8d774637602f78df17cc6406db709f6d9e8b8.png" src="../_images/9b3a695ed91d064337a45829b4e8d774637602f78df17cc6406db709f6d9e8b8.png" />
 </div>
 </div>
 <p>We will conclude the analysis with this final Predictor Insight Graph, which corresponds to the incidence of diabetes as the primary diagnosis. This graph is the same as the one constructed while answering the second question addressed in this report, with the difference of aggregating all non-diabetes diagnoses. Looking at this graph, it may seem that the incidence (the admission rate) hike is not so high. However, as we learned earlier, it is indeed significant, considering the sizes and corresponding distributions.</p>
@@ -1725,7 +1658,7 @@ Step 42: variable &#39;diag_2_Other&#39; added
 </section>
 </section>
 <section id="conclusions">
-<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
 <p>The hospital should focus their follow-up efforts monitoring these patients:</p>
 <ul class="simple">
 <li><p>The most important predictor is <strong>n_inpatient</strong>, which represents the number of inpatient visits in the year before the hospital stay. The readmission rate increases significantly when patients have more inpatient visits prior to their hospital stay, so it is important to closely monitor these individuals. Similarly, <strong>n_outpatient</strong> (the number of outpatient visits in the year before a hospital stay) is also a significant predictor, ranking second in importance.</p></li>
@@ -1753,7 +1686,7 @@ Step 42: variable &#39;diag_2_Other&#39; added
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1761,55 +1694,120 @@ Step 42: variable &#39;diag_2_Other&#39; added
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../projects-challenge.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Challenge projects</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects-challenge.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Challenge projects</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="hotels.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="hotels.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Predicting hotel cancellations</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation">Data validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-integrity">Check data integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-categorical-variables">Check categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-numerical-variables">Check numerical variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-what-is-the-most-common-primary-diagnosis-by-age-group">Q1: <em>What is the most common primary diagnosis by age group?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-what-is-the-effect-of-a-diabetes-diagnosis-on-the-rate-of-readmissions">Q2: <em>What is the effect of a diabetes diagnosis on the rate of readmissions?</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-identifying-patients-with-a-high-probability-of-readmission">Q3: <em>Identifying patients with a high probability of readmission</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data preprocessing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-selection">Variable selection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor-insight-graphs">Predictor Insight Graphs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikel Imaz, 2023<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023
+</p>
+
+  </div>
   
-    <div class="extra_footer">
-      <p>
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

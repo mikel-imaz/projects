@@ -1,120 +1,174 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Predicting hotel cancellations &#8212; datuz</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/hotels';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Was a website redesign successful?" href="webpage.html" />
     <link rel="prev" title="Reducing hospital readmissions" href="hospital.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-232XT3FYCT');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">datuz</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="datuz - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="datuz - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,475 +177,228 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Contents
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../projects-my.html">
-   Personal projects
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ages.html">
-     Median Ages
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="water.html">
-     Water Supplies
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="quakes.html">
-     Earth Quakes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="climate.html">
-     Climate Change
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="antio.html">
-     Bar Reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="olele.html">
-     Handfan Reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="traffic_fines.html">
-     Traffic Fines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="urban_trees.html">
-     Urban Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="breads.html">
-     Bread Prices
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ignatian.html">
-     Ignatian Pilgrims
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../projects-challenge.html">
-   Challenge projects
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="hospital.html">
-     Reducing hospital readmissions
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Predicting hotel cancellations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="webpage.html">
-     Was a website redesign successful?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="segmentation.html">
-     Improving customer segmentation
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-my.html">Personal projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-challenge.html">Challenge projects</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="http://datuz.es">
-   datuz
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="http://datuz.es">datuz</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/mikel-imaz/projects/master?urlpath=tree/jupyter-book/notebooks/hotels.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/mikel-imaz/projects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/hotels.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/hotels.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-project">
-   The project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-validation">
-   Data validation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-the-data">
-     Read the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-data-integrity">
-     Check data integrity
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#duplicates">
-       Duplicates
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#missing-values">
-       Missing values
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-consistency">
-     Data consistency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-categorical-variables">
-     Check categorical variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-numerical-variables">
-     Check numerical variables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predictive-analysis">
-   Predictive analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-preprocessing">
-     Data preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-selection">
-     Variable selection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#predictor-insight-graphs">
-     Predictor Insight Graphs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusions">
-   Conclusions
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Predicting hotel cancellations</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-project">
-   The project
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-validation">
-   Data validation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-the-data">
-     Read the data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-data-integrity">
-     Check data integrity
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#duplicates">
-       Duplicates
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#missing-values">
-       Missing values
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-consistency">
-     Data consistency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-categorical-variables">
-     Check categorical variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-numerical-variables">
-     Check numerical variables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predictive-analysis">
-   Predictive analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-preprocessing">
-     Data preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-selection">
-     Variable selection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#predictor-insight-graphs">
-     Predictor Insight Graphs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusions">
-   Conclusions
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Predicting hotel cancellations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation">Data validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-integrity">Check data integrity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicates">Duplicates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">Missing values</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-consistency">Data consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-categorical-variables">Check categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-numerical-variables">Check numerical variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-analysis">Predictive analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-selection">Variable selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor-insight-graphs">Predictor Insight Graphs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="predicting-hotel-cancellations">
-<h1>Predicting hotel cancellations<a class="headerlink" href="#predicting-hotel-cancellations" title="Permalink to this headline">#</a></h1>
+<h1>Predicting hotel cancellations<a class="headerlink" href="#predicting-hotel-cancellations" title="Permalink to this heading">#</a></h1>
 <p><em><a class="reference external" href="https://www.datacamp.com">A DataCamp challenge</a></em></p>
 <p><img alt="" src="../_images/predict-hotel-cancellation.jpg" /></p>
 <p>May, 2023</p>
@@ -599,12 +406,12 @@ title="Print to PDF"
 <div><p><em>Predictive Analytics, ML —classification</em></p>
 </div></blockquote>
 <section id="the-project">
-<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">#</a></h2>
+<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this heading">#</a></h2>
 <p>You are supporting a hotel with a project aimed to increase revenue from their room bookings. They believe that they can use data science to help them reduce the number of cancellations. This is where you come in!</p>
 <p>They have asked you to use any appropriate methodology to identify what contributes to whether a booking will be fulfilled or cancelled. They intend to use the results of your work to reduce the chance someone cancels their booking.</p>
 <p>Produce recommendations for the hotel on what factors affect whether customers cancel their booking.</p>
 <p>They have provided you with their bookings data in a file called <code class="docutils literal notranslate"><span class="pre">hotel_bookings.csv</span></code>, which contains the following:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Column</p></th>
 <th class="head"><p>Description</p></th>
@@ -673,10 +480,15 @@ title="Print to PDF"
 <p>Source (data has been modified): <a class="reference external" href="https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset">https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset</a></p>
 </section>
 <section id="data-validation">
-<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this headline">#</a></h2>
+<h2>Data validation<a class="headerlink" href="#data-validation" title="Permalink to this heading">#</a></h2>
 <section id="read-the-data">
-<h3>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this headline">#</a></h3>
+<h3>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -699,6 +511,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Booking_ID  no_of_adults  no_of_children  no_of_weekend_nights  \
 0       INN00001           NaN             NaN                   NaN   
@@ -785,8 +598,13 @@ title="Print to PDF"
 </div>
 </section>
 <section id="check-data-integrity">
-<h3>Check data integrity<a class="headerlink" href="#check-data-integrity" title="Permalink to this headline">#</a></h3>
+<h3>Check data integrity<a class="headerlink" href="#check-data-integrity" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store initial shape of the dataframe</span>
 <span class="n">hotels_init_shape</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">shape</span>
@@ -796,6 +614,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 36275 entries, 0 to 36274
@@ -828,9 +647,14 @@ memory usage: 5.3+ MB
 </div>
 </div>
 <section id="duplicates">
-<h4>Duplicates<a class="headerlink" href="#duplicates" title="Permalink to this headline">#</a></h4>
+<h4>Duplicates<a class="headerlink" href="#duplicates" title="Permalink to this heading">#</a></h4>
 <p>I will search for duplicate rows while excluding the ‘Booking_ID’ column, which serves as a unique identifier for each record.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete duplicated rows</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;duplicate rows -&gt; </span><span class="si">{</span><span class="n">hotels</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -841,6 +665,7 @@ memory usage: 5.3+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>duplicate rows -&gt; 0
 duplicate rows (excluding ID) -&gt; 7445
@@ -850,12 +675,18 @@ duplicate rows (excluding ID) -&gt; 7445
 </div>
 <p>There is a considerable amount of duplicates in relation with the size of the data set.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print percentage of duplicates</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">n_duplicates</span> <span class="o">/</span> <span class="n">hotels_init_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> % of duplicates&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n_duplicates</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">hotels_init_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> % of duplicates&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21 % of duplicates
 </pre></div>
@@ -865,6 +696,11 @@ duplicate rows (excluding ID) -&gt; 7445
 <p>Since these duplicates have distinct <code class="docutils literal notranslate"><span class="pre">Booking_ID</span></code> identifiers, it is worth considering whether they are actually errors or instead if they represent genuine bookings with identical values. While it’s not very likely, especially given the large number of duplicates, it is not impossible that all the variables have repeated values for different bookings. It is worth further investigation to determine the cause of these duplicates.</p>
 <p>Anyway, after conducting some exploratory analysis, I could not identify any patterns in the duplicate records. Therefore, to prevent any bias or overfitting issues in the training and test data sets, I will remove all duplicate records and move on.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop duplicated rows keeping only the last</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">hotels</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -875,6 +711,7 @@ duplicate rows (excluding ID) -&gt; 7445
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>duplicated rows (excluding ID) -&gt; 0
 actual rows of dataframe -&gt; 28830
@@ -884,14 +721,20 @@ actual rows of dataframe -&gt; 28830
 </div>
 </section>
 <section id="missing-values">
-<h4>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">#</a></h4>
+<h4>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for missing values</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>required_car_parking_space              2465
 market_segment_type                     1486
@@ -919,6 +762,11 @@ dtype: int64
 </div>
 <p>There are quite a number of missing values. Let’s take a look at the missingness matrix.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize missingness matrix</span>
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">hotels</span><span class="p">)</span>
@@ -926,18 +774,25 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_16_0.png" src="../_images/hotels_16_0.png" />
+<img alt="../_images/56595cb313f447fe32c03e93387d6afa19b3bac73316e22e89a3508adb5542cc.png" src="../_images/56595cb313f447fe32c03e93387d6afa19b3bac73316e22e89a3508adb5542cc.png" />
 </div>
 </div>
 <p>Before going with the columns, I will start by checking rows with multiple missing values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rows with multiple missing values</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        17
 22176     9
@@ -956,22 +811,34 @@ dtype: int64
 </div>
 <p>I will drop the first row because all its values are missing.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop the first row</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>I am going to proceed checking missing values by columns and deciding how to deal with them in each case.</p>
 <p>Let’s start with the column with the maximum number of missing values: <code class="docutils literal notranslate"><span class="pre">required_car_parking_space</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;required_car_parking_space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, nan, 1.0]
 </pre></div>
@@ -980,21 +847,33 @@ dtype: int64
 </div>
 <p>In this case it makes sense to assign missing values to ‘0’ (not required car parking space).</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill missing values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s2">&quot;required_car_parking_space&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The next column with multiple missing values is <code class="docutils literal notranslate"><span class="pre">market_segment_type</span></code> (how the booking was made).</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;market_segment_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Online&#39;, &#39;Offline&#39;, nan, &#39;Aviation&#39;, &#39;Complementary&#39;, &#39;Corporate&#39;]
 </pre></div>
@@ -1003,6 +882,11 @@ dtype: int64
 </div>
 <p>I could create a new category for missing values, but first I am going to sort the data frame by this column to see if there are structural paterns related to them.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize missingness matrix</span>
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">hotels</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;market_segment_type&#39;</span><span class="p">))</span>
@@ -1010,27 +894,40 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_28_0.png" src="../_images/hotels_28_0.png" />
+<img alt="../_images/0dd88a903f6b05a75df10d0d2eb0a06cbfeef3f6c11b7caa1d5855b60e21a168.png" src="../_images/0dd88a903f6b05a75df10d0d2eb0a06cbfeef3f6c11b7caa1d5855b60e21a168.png" />
 </div>
 </div>
 <p>In the matrix, we can see that missing values in the <code class="docutils literal notranslate"><span class="pre">market_segment_type</span></code> column come in the same rows in which all of the missing values in <code class="docutils literal notranslate"><span class="pre">arrival_year</span></code> and <code class="docutils literal notranslate"><span class="pre">arrival_month</span></code> are present. Because of that, I have decided to remove all those rows, to get rid of those missing values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;market_segment_type&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a look at missing values in <code class="docutils literal notranslate"><span class="pre">room_type_reserved</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;room_type_reserved&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Room_Type 1&#39;,
  &#39;Room_Type 4&#39;,
@@ -1045,6 +942,11 @@ dtype: int64
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize missingness matrix</span>
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">hotels</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;room_type_reserved&#39;</span><span class="p">))</span>
@@ -1052,27 +954,40 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_33_0.png" src="../_images/hotels_33_0.png" />
+<img alt="../_images/8894139b7f6ae3822a4131d2e71ae9f16114fea17a83ece7e4e276e43098c04b.png" src="../_images/8894139b7f6ae3822a4131d2e71ae9f16114fea17a83ece7e4e276e43098c04b.png" />
 </div>
 </div>
 <p>As in the previous case, I am not going to create a new category for missing values in <code class="docutils literal notranslate"><span class="pre">room_type_reserved</span></code> because they come along with missign values in <code class="docutils literal notranslate"><span class="pre">repeated_guest</span></code>, so I will get rid of all of them.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;room_type_reserved&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a lok at the next most numerous missing values column, <code class="docutils literal notranslate"><span class="pre">arrival_date</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;arrival_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6., 11., 15., 18., 30., 26., 20.,  5., 10., 28., 19.,  7.,  9.,
        27., nan,  1., 21., 29., 16., 13.,  2.,  3., 25., 14.,  4., 17.,
@@ -1082,6 +997,11 @@ dtype: int64
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize missingness matrix</span>
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">hotels</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;arrival_date&#39;</span><span class="p">))</span>
@@ -1089,21 +1009,33 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_38_0.png" src="../_images/hotels_38_0.png" />
+<img alt="../_images/eee45c83099e6c5e086754ccdc5a6cc5e2081f62fc5efec4f8dd3edd3988928b.png" src="../_images/eee45c83099e6c5e086754ccdc5a6cc5e2081f62fc5efec4f8dd3edd3988928b.png" />
 </div>
 </div>
 <p>Missing values in <code class="docutils literal notranslate"><span class="pre">arrival_date</span></code> do not come along with any other significant number of missing values in other columns in the same row. After inspecting the data frame, I cannot see any pattern for these rows in any other column, so I will directly drop those rows.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;arrival_date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a look at the next column with more missing values: <code class="docutils literal notranslate"><span class="pre">no_of_week_nights</span></code>. This values could be related to the column <code class="docutils literal notranslate"><span class="pre">no_of_weekend_nights</span></code>, so let’s consider them together.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Week nights -&gt; </span><span class="si">{</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;no_of_week_nights&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1111,6 +1043,7 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Week nights -&gt; [ 3.  1.  4.  5.  0.  2. nan 10.  6. 11.  7. 15.  9. 13.  8. 14. 12. 17.
  16.]
@@ -1126,6 +1059,11 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 <li><p>If one of them is missing and the value of the other one is not 0, then I will assign 0.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in both column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;no_of_week_nights&#39;</span><span class="p">,</span> <span class="s1">&#39;no_of_weekend_nights&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1147,15 +1085,22 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a look at the next one: <code class="docutils literal notranslate"><span class="pre">no_of_special_requests</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;no_of_special_requests&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.,  0.,  3.,  2., nan,  4.,  5.])
 </pre></div>
@@ -1164,21 +1109,33 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </div>
 <p>It makes sense to assign ‘0’ to missing values in this column.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill missing values in column</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;no_of_special_requests&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a look at <code class="docutils literal notranslate"><span class="pre">type_of_meal_plan</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;type_of_meal_plan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Not Selected&#39;, &#39;Meal Plan 1&#39;, nan, &#39;Meal Plan 2&#39;, &#39;Meal Plan 3&#39;],
       dtype=object)
@@ -1188,15 +1145,26 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </div>
 <p>I will assign missing values to ‘Not Selected’ category.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill missing values in column</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;type_of_meal_plan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Not Selected&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>I will directly drop rows with <code class="docutils literal notranslate"><span class="pre">lead_time</span></code> missing values and also with missing values in <code class="docutils literal notranslate"><span class="pre">avg_price_per_room</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1206,6 +1174,7 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s now take a look at the <code class="docutils literal notranslate"><span class="pre">no_of_adults</span></code> and <code class="docutils literal notranslate"><span class="pre">no_of_children</span></code> columns. I will use the following criteria:</p>
 <ul class="simple">
@@ -1213,6 +1182,11 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 <li><p>I will assign ‘0’ to missing <code class="docutils literal notranslate"><span class="pre">no_of_children</span></code> if <code class="docutils literal notranslate"><span class="pre">no_of_adults</span></code> is not ‘0’.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;no_of_adults&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1226,15 +1200,22 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s take a look at (finally!) the last features with missing values: <code class="docutils literal notranslate"><span class="pre">no_of_previous_cancellations</span></code> and <code class="docutils literal notranslate"><span class="pre">no_of_previous_bookings_not_canceled</span></code>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;no_of_previous_cancellations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0., nan,  3.,  1.,  2., 11.,  4.,  5.,  6., 13.])
 </pre></div>
@@ -1242,12 +1223,18 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the unique values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;no_of_previous_bookings_not_canceled&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0., nan,  5.,  1.,  3.,  4., 12., 19.,  2., 15., 17.,  7., 20.,
        16., 50., 13.,  6., 14., 34., 18., 10., 23., 11.,  8., 49., 47.,
@@ -1260,6 +1247,11 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </div>
 <p>I will direclty drop rows with missing values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values in column</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;no_of_previous_cancellations&#39;</span><span class="p">,</span>
@@ -1267,9 +1259,15 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Finally, let’s confirm that we have removed all missing values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize missingness matrix</span>
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">hotels</span><span class="p">)</span>
@@ -1277,17 +1275,24 @@ Weekend nights -&gt; [ 2.  1.  0. nan  4.  3.  6.  5.]
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_63_0.png" src="../_images/hotels_63_0.png" />
+<img alt="../_images/7591de8c16285520cbbca134758cd228de37a96ff9534113ca7c47587ae32221.png" src="../_images/7591de8c16285520cbbca134758cd228de37a96ff9534113ca7c47587ae32221.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for missing values</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Booking_ID                              0
 no_of_adults                            0
@@ -1316,13 +1321,19 @@ dtype: int64
 <p>All clean now!</p>
 <p>After cleanning the data from duplicates and missing values the data frame has been reduced to:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print actual data frame size</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Actual rows -&gt; </span><span class="si">{</span><span class="n">hotels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">hotels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">hotels_init_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> % of the initial rows&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">hotels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">hotels_init_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> % of the initial rows&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual rows -&gt; 23294
 64 % of the initial rows
@@ -1333,9 +1344,14 @@ dtype: int64
 </section>
 </section>
 <section id="data-consistency">
-<h3>Data consistency<a class="headerlink" href="#data-consistency" title="Permalink to this headline">#</a></h3>
+<h3>Data consistency<a class="headerlink" href="#data-consistency" title="Permalink to this heading">#</a></h3>
 <p>I am going to explore date consistency by creating a new column with datetime format. The function will attempt to convert the year, month, and day into a valid date. If an error occurs, the date will be converted into a missing value.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new column &#39;date&#39;, coerce errors to detect date inconsistencies</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;arrival_year&#39;</span><span class="p">],</span>
@@ -1348,6 +1364,7 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31
 </pre></div>
@@ -1356,12 +1373,18 @@ dtype: int64
 </div>
 <p>Let’s find out what these date inconsistencies are about.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print date errors</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hotels</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;arrival_year&#39;</span><span class="p">,</span> <span class="s1">&#39;arrival_month&#39;</span><span class="p">,</span> <span class="s1">&#39;arrival_date&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       arrival_year  arrival_month  arrival_date
 2626         2018.0            2.0          29.0
@@ -1401,6 +1424,11 @@ dtype: int64
 </div>
 <p>The year ‘2018’ was not a leap year, so these entries with date ‘2018-02-29’ are incorrect. I will drop them.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows of unexisting date 2018-02-29</span>
 <span class="n">hotels</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">hotels</span><span class="p">[(</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;arrival_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">)</span> \
@@ -1412,12 +1440,18 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="check-categorical-variables">
-<h3>Check categorical variables<a class="headerlink" href="#check-categorical-variables" title="Permalink to this headline">#</a></h3>
+<h3>Check categorical variables<a class="headerlink" href="#check-categorical-variables" title="Permalink to this heading">#</a></h3>
 <p>Let’s see if variables of type ‘object’ (strings) contain categories.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select column names of object type, excluding ID column</span>
 <span class="n">object_cols</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -1438,12 +1472,18 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_75_0.png" src="../_images/hotels_75_0.png" />
+<img alt="../_images/3fa30c8ad071fec0665b185ed36b49eff6550ed9fb3c5db1ce0cb4b006db7cea.png" src="../_images/3fa30c8ad071fec0665b185ed36b49eff6550ed9fb3c5db1ce0cb4b006db7cea.png" />
 </div>
 </div>
 <p>The target variable, <code class="docutils literal notranslate"><span class="pre">booking_status</span></code>, is quite imbalanced, with the class of interest, ‘canceled’, being less represented than the other class. I am going to replace the values in the target variable from ‘Not_Canceled-Canceled’ to numerical ‘0-1’ right away (without waiting for the creation of dummies) because it will facilitate some early analysis.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace to numerical values</span>
 <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;booking_status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;booking_status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Not_Canceled&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Canceled&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>\
@@ -1451,9 +1491,15 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>All the remaining ‘object’ columns can be converted to categorical.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary of column and data type mappings</span>
 <span class="n">conversion_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">hotels</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]}</span>
@@ -1464,6 +1510,7 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Int64Index: 23263 entries, 1 to 36274
@@ -1497,9 +1544,14 @@ memory usage: 3.0+ MB
 </div>
 </section>
 <section id="check-numerical-variables">
-<h3>Check numerical variables<a class="headerlink" href="#check-numerical-variables" title="Permalink to this headline">#</a></h3>
+<h3>Check numerical variables<a class="headerlink" href="#check-numerical-variables" title="Permalink to this heading">#</a></h3>
 <p>Numerical variables are all integer type, except fot the <code class="docutils literal notranslate"><span class="pre">avg_price_per_room</span></code>, which I will leave as float type.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary of column and data type mappings</span>
 <span class="n">conversion_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">hotels</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">}</span>
@@ -1513,6 +1565,7 @@ memory usage: 3.0+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Int64Index: 23263 entries, 1 to 36274
@@ -1546,6 +1599,11 @@ memory usage: 1.8+ MB
 </div>
 <p>Let’s plot numerical data ranges.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -1565,12 +1623,18 @@ memory usage: 1.8+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_83_0.png" src="../_images/hotels_83_0.png" />
+<img alt="../_images/ffa24636b0218d8a4f5751c25f50df711438f9062073cc03bb660d1161a02d73.png" src="../_images/ffa24636b0218d8a4f5751c25f50df711438f9062073cc03bb660d1161a02d73.png" />
 </div>
 </div>
 <p>We can see that <code class="docutils literal notranslate"><span class="pre">arrival_year</span></code> has data out of the range. This is simply because we are dealing with year numbers. In reality, this variable should be considered categorical instead of numerical, it only has two year values.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print unique values</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">hotels</span><span class="p">[</span><span class="s1">&#39;arrival_year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
@@ -1580,6 +1644,7 @@ memory usage: 1.8+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2018, 2017]
 </pre></div>
@@ -1587,6 +1652,11 @@ memory usage: 1.8+ MB
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -1606,12 +1676,18 @@ memory usage: 1.8+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_86_0.png" src="../_images/hotels_86_0.png" />
+<img alt="../_images/ae96e85ff4370ca370f97d70dac2ea542c559764651478ba2b63dd7af4c09ad7.png" src="../_images/ae96e85ff4370ca370f97d70dac2ea542c559764651478ba2b63dd7af4c09ad7.png" />
 </div>
 </div>
 <p>To reduce the impact of outliers on the model outcome, I will use the <em>winsorization</em> method to filter them out. This will limit the extreme values to lower and upper limits based on percentiles. I will use a 5% limit for both the upper and lower bounds.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter outliers with winsorization</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="mf">0.05</span>
@@ -1636,19 +1712,20 @@ memory usage: 1.8+ MB
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_88_0.png" src="../_images/hotels_88_0.png" />
+<img alt="../_images/e570d07d781a2af352a3aa3750e8ca1847cf0092edc391e81b801413830e9641.png" src="../_images/e570d07d781a2af352a3aa3750e8ca1847cf0092edc391e81b801413830e9641.png" />
 </div>
 </div>
 <p>We are now ready to proceed with the analysis!</p>
 </section>
 </section>
 <section id="predictive-analysis">
-<h2>Predictive analysis<a class="headerlink" href="#predictive-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Predictive analysis<a class="headerlink" href="#predictive-analysis" title="Permalink to this heading">#</a></h2>
 <section id="data-preprocessing">
-<h3>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h3>
+<h3>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h3>
 <p>This process consists of:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Separating variables (features) and target.</p></li>
 <li><p>Converting categorical variables to numerical (avoiding multicollinearity).</p></li>
 <li><p>Splitting the data into training and testing sets.</p></li>
@@ -1656,6 +1733,11 @@ memory usage: 1.8+ MB
 <li><p>Reconstructing complete basetables (features + target) to perform predictive analysis.</p></li>
 </ol>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define features</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">hotels</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Booking_ID&#39;</span><span class="p">,</span> <span class="s1">&#39;booking_status&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1691,17 +1773,23 @@ memory usage: 1.8+ MB
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="variable-selection">
-<h3>Variable selection<a class="headerlink" href="#variable-selection" title="Permalink to this headline">#</a></h3>
+<h3>Variable selection<a class="headerlink" href="#variable-selection" title="Permalink to this heading">#</a></h3>
 <p>Once we have the train and test basetables ready, we can proceed with the process of selecting the variables that have the highest predictive power.</p>
 <p>To do so, I will use a <em>forward stepwise variable selection procedure</em>, in which AUC scores are considered as a metric. Variables will be sorted according to the predictive power achieved if we include them progressively in a Logistic Regression model. The process will be carried out only in the training basetable to avoid data leakage.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns AUC of a Logistic Regression model&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns AUC of a Logistic Regression model&#39;&#39;&#39;</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">basetable</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">basetable</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
     <span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
@@ -1712,7 +1800,7 @@ memory usage: 1.8+ MB
 
 <span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">next_best</span><span class="p">(</span><span class="n">current_variables</span><span class="p">,</span><span class="n">candidate_variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">basetable</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns next best variable to maximize AUC&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns next best variable to maximize AUC&#39;&#39;&#39;</span>
     <span class="n">best_auc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">best_variable</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">candidate_variables</span><span class="p">:</span>
@@ -1724,7 +1812,7 @@ memory usage: 1.8+ MB
 
 <span class="c1"># Define funtion</span>
 <span class="k">def</span> <span class="nf">auc_train_test</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns AUC of train and test data sets&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns AUC of train and test data sets&#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">train</span><span class="p">),</span> <span class="n">auc</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test</span><span class="p">))</span>
 
 
@@ -1746,10 +1834,11 @@ memory usage: 1.8+ MB
     <span class="c1"># Remove it from the candidate variables&#39; list</span>
     <span class="n">candidate_variables</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">next_variable</span><span class="p">)</span>
     <span class="c1"># Print which variable was added</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">: variable &#39;</span><span class="si">{</span><span class="n">next_variable</span><span class="si">}</span><span class="s2">&#39; added&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">: variable &#39;</span><span class="si">{</span><span class="n">next_variable</span><span class="si">}</span><span class="s2">&#39; added&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1: variable &#39;lead_time&#39; added
 Step 2: variable &#39;no_of_special_requests&#39; added
@@ -1784,6 +1873,11 @@ Step 27: variable &#39;arrival_date&#39; added
 </div>
 <p>We will now visualize the performance evolution as variables are included in the model in the order defined by the list. We will consider both the train and test basetables to check the validity of the results.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init lists</span>
 <span class="n">auc_values_train</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1859,12 +1953,13 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_96_0.png" src="../_images/hotels_96_0.png" />
+<img alt="../_images/6734675f4f0d3fed14270674e4148b036f3d0f6fea47035f5acabd8943b33422.png" src="../_images/6734675f4f0d3fed14270674e4148b036f3d0f6fea47035f5acabd8943b33422.png" />
 </div>
 </div>
 <p>After conducting the forward stepwise variable selection procedure, a total of <strong>4 variables</strong> were selected based on their predictive power.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">lead_time</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">no_of_special_requests</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">market_segment_type_Online</span></code></p></li>
@@ -1872,6 +1967,11 @@ Step 27: variable &#39;arrival_date&#39; added
 </ol>
 <p>To ensure that we are not missing any important variables, I will compare the accuracy, precision, and recall scores of the Logistic Regression model when fitted with all variables vs when fitted only with the 4 selected ones.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit Logistic Regression model with all variables</span>
 <span class="n">scores_all</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1921,13 +2021,19 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_98_0.png" src="../_images/hotels_98_0.png" />
+<img alt="../_images/a7ed14ca65ee17b6ecc9ed0f15699ac33d02e29675fb2f27743234c1d648ea89.png" src="../_images/a7ed14ca65ee17b6ecc9ed0f15699ac33d02e29675fb2f27743234c1d648ea89.png" />
 </div>
 </div>
 <p>This comparison tells that we are not losing significant predictive information if we only consider the selected variables.</p>
 <p>Coefficients of the Logistic Regression model tell us about the importance of each of the variables.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract coefficients of the model fitted with selected variables</span>
 <span class="n">coefs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">logreg_sel</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
@@ -1965,13 +2071,19 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_100_0.png" src="../_images/hotels_100_0.png" />
+<img alt="../_images/c784c9969979a522582da11471a90bbdbb6a0fb3ada6bc2b3c897d998a6e1370.png" src="../_images/c784c9969979a522582da11471a90bbdbb6a0fb3ada6bc2b3c897d998a6e1370.png" />
 </div>
 </div>
 <p>In the graph, we can see the values of the coefficients for each variable, sorted according to their absolute values (predictive power).</p>
 <p>However, we selected our own list of variables based on the model performance’s progressive improvement. We can see that both lists have the same variables, but the order of importance is not exactly the same.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create another dataframe with selected variables</span>
 <span class="n">sel_vars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">selected_variables</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;selection&#39;</span><span class="p">])</span>
@@ -2009,20 +2121,26 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_102_0.png" src="../_images/hotels_102_0.png" />
+<img alt="../_images/4bc5150b8ed64e1f5f84d979ab3a1dce328d83b088938d76d6f02a65683283eb.png" src="../_images/4bc5150b8ed64e1f5f84d979ab3a1dce328d83b088938d76d6f02a65683283eb.png" />
 </div>
 </div>
 <p>In our selection <code class="docutils literal notranslate"><span class="pre">lead_time</span></code> comes first instead of <code class="docutils literal notranslate"><span class="pre">no_of_special_requests</span></code> as the most important predictive variable.</p>
 </section>
 <section id="predictor-insight-graphs">
-<h3>Predictor Insight Graphs<a class="headerlink" href="#predictor-insight-graphs" title="Permalink to this headline">#</a></h3>
+<h3>Predictor Insight Graphs<a class="headerlink" href="#predictor-insight-graphs" title="Permalink to this heading">#</a></h3>
 <p>Let’s finish our analysis plotting the <em>Predictor Insight Graphs</em> for the selected variables, to verify whether the variables in the model are interpretable and the results make sense.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define plotting function</span>
 <span class="k">def</span> <span class="nf">plot_pig</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Create and plot Predictor Insight Graph for corresponding variable&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Create and plot Predictor Insight Graph for corresponding variable&#39;&#39;&#39;</span>
     
     <span class="c1"># Create Predictor Insight Graph table</span>
     <span class="n">pig_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">variable</span><span class="p">)[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span>
@@ -2063,9 +2181,15 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s begin with <code class="docutils literal notranslate"><span class="pre">lead_time</span></code>. This is a continuous variable that has many unique values, so we need to discretize it (define intervals and group values into those intervals) before plotting.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check minimum and maximum values to define range</span>
 <span class="n">hotels_dummied</span><span class="p">[</span><span class="s1">&#39;lead_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">])</span>
@@ -2081,36 +2205,54 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_107_0.png" src="../_images/hotels_107_0.png" />
+<img alt="../_images/64b661e576aade558a5da13b6ef47701d3e1a12ee83282a7c615595d93e1a075.png" src="../_images/64b661e576aade558a5da13b6ef47701d3e1a12ee83282a7c615595d93e1a075.png" />
 </div>
 </div>
 <p>When the <code class="docutils literal notranslate"><span class="pre">lead_time</span></code> (the number of days between the booking date and the arrival date) increases, there is also an increase in the incidence on the target (<code class="docutils literal notranslate"><span class="pre">booking_status</span></code> -&gt; ‘1’: ‘Cancelled’) as shown in the graph. This effect is particularly pronounced when the <code class="docutils literal notranslate"><span class="pre">lead_time</span></code> is more than three months, as the cancellation ratio increases dramatically.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plot_pig</span><span class="p">(</span><span class="n">hotels_dummied</span><span class="p">,</span> <span class="s1">&#39;no_of_special_requests&#39;</span><span class="p">,</span> <span class="s1">&#39;booking_status&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_109_0.png" src="../_images/hotels_109_0.png" />
+<img alt="../_images/3a705a205425bb3b22fdc1523c5739f39288210a17ff2bf50d9677502d2e7d4a.png" src="../_images/3a705a205425bb3b22fdc1523c5739f39288210a17ff2bf50d9677502d2e7d4a.png" />
 </div>
 </div>
 <p>The variable <code class="docutils literal notranslate"><span class="pre">no_of_special_requests</span></code> is negatively correlated with the target (the coefficient in the Logistic Regression model was negative), which means that the more requests a customer makes as part of the booking, the greater the incidence on the cancellation.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">plot_pig</span><span class="p">(</span><span class="n">hotels_dummied</span><span class="p">,</span> <span class="s1">&#39;market_segment_type_Online&#39;</span><span class="p">,</span> <span class="s1">&#39;booking_status&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_111_0.png" src="../_images/hotels_111_0.png" />
+<img alt="../_images/679f2a4bf7ab839fced762c6aac80fd7477874bd740b54e08edf5eca92f94fd6.png" src="../_images/679f2a4bf7ab839fced762c6aac80fd7477874bd740b54e08edf5eca92f94fd6.png" />
 </div>
 </div>
 <p>It seems that if the booking was made online, the chances of it being cancelled are clearly higher.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check minimum and maximum values to define range</span>
 <span class="n">hotels_dummied</span><span class="p">[</span><span class="s1">&#39;avg_price_per_room&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">])</span>
@@ -2126,15 +2268,16 @@ Step 27: variable &#39;arrival_date&#39; added
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/hotels_113_0.png" src="../_images/hotels_113_0.png" />
+<img alt="../_images/c1078feed75371e805a9968df3836a7ca5d864ac8ead32d42ebb3a5c2f3ed63c.png" src="../_images/c1078feed75371e805a9968df3836a7ca5d864ac8ead32d42ebb3a5c2f3ed63c.png" />
 </div>
 </div>
 <p>Finally, the price of the room (a continuous variable that was also discretized) also has an important influence on predicting cancellations, especially in the range between low and medium-priced rooms.</p>
 </section>
 </section>
 <section id="conclusions">
-<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h2>
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
 <p>In summary, the main factors that contribute to the cancellation of bookings are:</p>
 <ul class="simple">
 <li><p>The lead time between the reservation and the arrival date.</p></li>
@@ -2158,7 +2301,7 @@ Step 27: variable &#39;arrival_date&#39; added
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -2166,55 +2309,120 @@ Step 27: variable &#39;arrival_date&#39; added
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="hospital.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Reducing hospital readmissions</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hospital.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reducing hospital readmissions</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="webpage.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="webpage.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Was a website redesign successful?</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation">Data validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-integrity">Check data integrity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicates">Duplicates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values">Missing values</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-consistency">Data consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-categorical-variables">Check categorical variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-numerical-variables">Check numerical variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-analysis">Predictive analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-selection">Variable selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictor-insight-graphs">Predictor Insight Graphs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mikel Imaz, 2023<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023
+</p>
+
+  </div>
   
-    <div class="extra_footer">
-      <p>
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
