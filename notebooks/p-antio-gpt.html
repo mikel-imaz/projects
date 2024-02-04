@@ -1,0 +1,1248 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sentiment analysis with OpenAI embeddings &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/p-antio-gpt';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Personal projects" href="../projects-my.html" />
+    <link rel="prev" title="AI projects" href="../projects-AI.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="datuz - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="datuz - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-AI.html">AI projects</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Sentiment analysis with OpenAI embeddings</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-my.html">Personal projects</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-challenge.html">Challenge projects</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="http://datuz.es">datuz</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/p-antio-gpt.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sentiment analysis with OpenAI embeddings</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-review-texts-embeddings">Create review texts’ embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis-stars-5-categories">Sentiment analysis: stars (5 categories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis-good-bad-2-categories">Sentiment analysis: good/bad (2 categories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">Visualizing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sentiment-analysis-with-openai-embeddings">
+<h1><strong>Sentiment analysis with OpenAI embeddings</strong><a class="headerlink" href="#sentiment-analysis-with-openai-embeddings" title="Permalink to this heading">#</a></h1>
+<p><img alt="IMG_20221205_134844_01.JPG" src="../_images/IMG_20221205_134844_01.JPG" /></p>
+<p><span class="math notranslate nohighlight">\(^{1}\)</span>Photo by Eduard X (Dec 2022) taken from <a class="reference external" href="https://www.google.com/maps/place/Bar-Restaurante+Bidebide+-+Zumarraga/&#64;43.0916521,-2.3038457,15z/data=!4m6!3m5!1s0xd502df21409c619:0xbbdffd835d70d9e4!8m2!3d43.0916521!4d-2.3038457!16s%2Fg%2F11c4xc6ms1?entry=ttu">Bidebide</a> restaurant in Google Maps.</p>
+<p>Feb, 2024</p>
+<blockquote>
+<div><p><em>OpenAI API, Sentiment Analysis</em></p>
+</div></blockquote>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Last year, I worked on a project where I scraped reviews of a restaurant from Google Maps to analyze the sentiments expressed in those reviews. In the project, I employed the basic Natural Language Processing technique of encoding words into numerical values and then used a basic machine learning model (logistic regression) to classify reviews as positive or negative. Now, seizing the opportunity provided by OpenAI to utilize its word vectorization model, I aim to revisit the same project to compare the results obtained with this new approach.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import basic packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Import other packages</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
+
+<span class="c1"># Assign API key</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;my-secret-key&quot;</span>
+
+<span class="c1"># OpenAI model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;text-embedding-ada-002&quot;</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="the-data">
+<h2>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
+<p>I retrieve the data from the reviews that I saved in a CSV file.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read csv into a dataframe dropping rows with missing values</span>
+<span class="n">antio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/antio-reviews.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stars&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">antio</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stars</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4 estrellas</td>
+      <td>Excelente trato y buena relación precio-calida...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5 estrellas</td>
+      <td>Muy buen menú con mucha variedad y buen produc...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4 estrellas</td>
+      <td>Comida buenísima y buena atención, vistas mara...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5 estrellas</td>
+      <td>He comido el menú del día por 13 euros, y tien...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4 estrellas</td>
+      <td>Restaurante grande con unos menús muy ricos y ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-processing">
+<h2>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h2>
+<p>The string type stars column needs to be converted into integer values.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert stars column from string to number</span>
+<span class="n">antio</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">stars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">stars</span> <span class="ow">in</span> <span class="n">antio</span><span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">]]</span>
+<span class="n">antio</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">antio</span><span class="p">[</span><span class="s2">&quot;stars_n&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Rearrange dataframe with columns stars, text</span>
+<span class="n">antio</span> <span class="o">=</span> <span class="n">antio</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">antio</span> <span class="o">=</span> <span class="n">antio</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stars_n&quot;</span><span class="p">:</span> <span class="s2">&quot;stars&quot;</span><span class="p">})</span>
+
+<span class="c1"># Show dataframe info</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">antio</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 193 entries, 0 to 202
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   stars   193 non-null    int32 
+ 1   text    193 non-null    object
+dtypes: int32(1), object(1)
+memory usage: 3.8+ KB
+None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-review-texts-embeddings">
+<h2>Create review texts’ embeddings<a class="headerlink" href="#create-review-texts-embeddings" title="Permalink to this heading">#</a></h2>
+<p>I define a function that creates embeddings from a list of texts and use it for the reviews.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set API key</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+
+<span class="c1"># Define a create_embeddings function</span>
+<span class="k">def</span> <span class="nf">create_embeddings</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">embeddings</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="nb">input</span><span class="o">=</span><span class="n">texts</span>
+    <span class="p">)</span>
+    <span class="n">response_dict</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;embedding&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response_dict</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Create a list of review texts</span>
+<span class="n">review_texts</span> <span class="o">=</span> <span class="n">antio</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Create embeddings for those texts</span>
+<span class="n">review_embeddings</span> <span class="o">=</span> <span class="n">create_embeddings</span><span class="p">(</span><span class="n">review_texts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="sentiment-analysis-stars-5-categories">
+<h2>Sentiment analysis: stars (5 categories)<a class="headerlink" href="#sentiment-analysis-stars-5-categories" title="Permalink to this heading">#</a></h2>
+<p>At first, I classify the reviews into 5 different categories corresponding to the ratings that customers give by assigning stars. This way, I’ll be able to directly compare the results obtained by OpenAI’s semantic model with the ratings given by customers.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define sentiments</span>
+<span class="n">sentiments</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A very negative restaurant review&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A negative restaurant review&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A neutral restaurant review&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A positive restaurant review&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A very positive restaurant review&#39;</span><span class="p">}]</span>
+
+<span class="c1"># Create a list of class descriptions from the sentiment descriptions</span>
+<span class="n">class_descriptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="n">sentiments</span><span class="p">]</span>
+
+<span class="c1"># Create embeddings for class_descriptions</span>
+<span class="n">class_embeddings</span> <span class="o">=</span> <span class="n">create_embeddings</span><span class="p">(</span><span class="n">class_descriptions</span><span class="p">)</span>
+
+<span class="c1"># Define a function to return the minimum distance and its index</span>
+<span class="k">def</span> <span class="nf">find_closest</span><span class="p">(</span><span class="n">query_vector</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">):</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">embedding</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">embeddings</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">cosine</span><span class="p">(</span><span class="n">query_vector</span><span class="p">,</span> <span class="n">embedding</span><span class="p">)</span>
+        <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;distance&quot;</span><span class="p">:</span> <span class="n">dist</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">})</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">])</span>
+
+<span class="c1"># Find closest distance</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">review</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">review_texts</span><span class="p">):</span>
+    <span class="c1"># Find the closest distance and its index using find_closest()</span>
+    <span class="n">closest</span> <span class="o">=</span> <span class="n">find_closest</span><span class="p">(</span><span class="n">review_embeddings</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">class_embeddings</span><span class="p">)</span>
+    <span class="c1"># Subset sentiment label using the index from closest</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">sentiments</span><span class="p">[</span><span class="n">closest</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+    <span class="c1"># Append to list</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="c1"># Make a copy of the dataframe</span>
+<span class="n">antio5</span> <span class="o">=</span> <span class="n">antio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Create column with closest label</span>
+<span class="n">antio5</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+
+<span class="c1"># Create column mismatch between stars and label</span>
+<span class="n">antio5</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;mismatch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">antio5</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">antio5</span><span class="p">[</span><span class="s1">&#39;stars&#39;</span><span class="p">])</span>
+<span class="n">antio5</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stars</th>
+      <th>text</th>
+      <th>label</th>
+      <th>mismatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Excelente trato y buena relación precio-calida...</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Muy buen menú con mucha variedad y buen produc...</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>Comida buenísima y buena atención, vistas mara...</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>He comido el menú del día por 13 euros, y tien...</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Restaurante grande con unos menús muy ricos y ...</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>5</td>
+      <td>(Traducido por Google) Gran lugar\r\n\r\n(Orig...</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>5</td>
+      <td>(Traducido por Google) Increíble vista\r\n\r\n...</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>4</td>
+      <td>(Traducido por Google) Hermoso menú y temperat...</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>5</td>
+      <td>(Traducido por Google) Gran lugar\r\n\r\n(Orig...</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>3</td>
+      <td>(Traducido por Google) El restaurante\r\n\r\n(...</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>193 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute mismatches</span>
+<span class="n">mismatches</span> <span class="o">=</span> <span class="n">antio5</span><span class="p">[</span><span class="s1">&#39;mismatch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mismatches</span><span class="p">)</span>
+
+<span class="c1"># Print accuracy rate</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Accuracy rate -&gt; </span><span class="si">{</span><span class="p">(</span><span class="n">mismatches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">antio5</span><span class="p">))</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mismatch
+0    88
+1    70
+2    23
+3     6
+4     6
+Name: count, dtype: int64
+
+Accuracy rate -&gt; 0.46
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results indicate that the model only matched the stars assigned by customers in 88 out of 193 reviews, providing an accuracy rate of 46%.</p>
+<p>Out of curiosity, let’s take a look at the 6 reviews that deviated the most, to check why this might have happened.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows with maximum mismatch of 4 stars</span>
+<span class="n">antio5_mis4</span> <span class="o">=</span> <span class="n">antio5</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">antio5</span><span class="p">[</span><span class="s1">&#39;mismatch&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">antio5_mis4</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stars</th>
+      <th>text</th>
+      <th>label</th>
+      <th>mismatch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>1</td>
+      <td>El sitio es espectacular. El servicio es inesi...</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>1</td>
+      <td>El precio un poco excesivo para todo su conjun...</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>1</td>
+      <td>El sitio esta de lujo, pero deja mucho que des...</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>1</td>
+      <td>Me gusta mucho</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>1</td>
+      <td>Cerveza caliente y camareros bordes, la combin...</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>1</td>
+      <td>(Traducido por Google) Nos sentamos a la mesa ...</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform dataframe into list of dictionary to show full text when printed</span>
+<span class="n">reviews</span> <span class="o">=</span> <span class="p">[</span><span class="n">antio5_mis4</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">antio5_mis4</span><span class="p">))]</span>
+
+<span class="c1"># Print</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">antio5_mis4</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1"> --&gt; </span><span class="si">{</span><span class="n">reviews</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;El sitio es espectacular. El servicio es inesistente desde qué te toman la comanda, asta qué llega él pri. plato puedes hecharte una siesta y ya no te digo nada para él seg. plato etc.... Lo que no entiendo como sigue teniendo el mismo dueño la explotación en fin un autentico desastre. Y llevo 35 años comiendo fuera de casa, así que algo de esperiencia tendré.&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+
+2 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;El precio un poco excesivo para todo su conjunto, teniendo en cuenta sobre todo el trato del personal. La comida está buena, pero no tanto como para pagar 26€ por un menú que, a primera vista llamaba mucho la atención, pero después dejó mucho que desear.&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+
+3 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;El sitio esta de lujo, pero deja mucho que desear.\r\nCroquetas congeladas, bacalao sin acabar de frerir, la carrillera de la carta es redondo de ternera, ...\r\nSolo lo salvan las camareras, que estan atentas a todo y pidiendo disculpas.\r\nPara tomar una caña y un pintxo despues del monte vale, pero no para mas.&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+
+4 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;Me gusta mucho&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+
+5 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;Cerveza caliente y camareros bordes, la combinación perfecta para no volver&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+
+6 --&gt; {&#39;stars&#39;: 1, &#39;text&#39;: &#39;(Traducido por Google) Nos sentamos a la mesa durante una hora y media hasta que trajeron la comida.\r\nHabíamos hecho una reserva el día anterior.\r\n\r\n(Original)\r\nOrdu ta erdi mahaian eserita zai egon ginen janaria ekarri arte.\r\nBezperan erreserba eginda genuen.&#39;, &#39;label&#39;: 5, &#39;mismatch&#39;: 4}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the review number 4 on this list, the issue arises from the inconsistency of the customer, who assigned only one star when the corresponding text they wrote indicated satisfaction, and therefore the model correctly deduced that it deserved 5 stars.</p>
+<p>In the rest of the reviews, the model misinterpreted the text, probably due to reasons such as: The use of positive words in a context that actually indicated dissatisfaction; Poor writing style that hinders comprehension; Texts in languages other than English.</p>
+</section>
+<section id="sentiment-analysis-good-bad-2-categories">
+<h2>Sentiment analysis: good/bad (2 categories)<a class="headerlink" href="#sentiment-analysis-good-bad-2-categories" title="Permalink to this heading">#</a></h2>
+<p>To better compare the results of this model with those I obtained in the original project, I tried asking it to classify the texts in a binary manner, that is, into good and bad reviews. Just as I did in the original project, to simplify and not have to take the trouble of assigning it myself by reading each text, I considered a review to be good if it had been assigned 5 or 4 stars, while a bad one was one that had received 1, 2, or 3 stars.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define sentiments</span>
+<span class="n">sentiments</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A negative restaurant review&#39;</span><span class="p">},</span>
+              <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;A positive restaurant review&#39;</span><span class="p">}]</span>
+
+<span class="c1"># Create a list of class descriptions from the sentiment descriptions</span>
+<span class="n">class_descriptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentiment</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">sentiment</span> <span class="ow">in</span> <span class="n">sentiments</span><span class="p">]</span>
+
+<span class="c1"># Create embeddings for class_descriptions</span>
+<span class="n">class_embeddings</span> <span class="o">=</span> <span class="n">create_embeddings</span><span class="p">(</span><span class="n">class_descriptions</span><span class="p">)</span>
+
+<span class="c1"># Find closest distance</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">review</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">review_texts</span><span class="p">):</span>
+    <span class="c1"># Find the closest distance and its index using find_closest()</span>
+    <span class="n">closest</span> <span class="o">=</span> <span class="n">find_closest</span><span class="p">(</span><span class="n">review_embeddings</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">class_embeddings</span><span class="p">)</span>
+    <span class="c1"># Subset sentiment label using the index from closest</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">sentiments</span><span class="p">[</span><span class="n">closest</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+    <span class="c1"># Append to list</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="c1"># Make a copy of the dataframe</span>
+<span class="n">antio2</span> <span class="o">=</span> <span class="n">antio</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Include stars prediction results in dataframe</span>
+<span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+
+<span class="c1"># Create column representing stars values 4 or 5</span>
+<span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;stars_4_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;stars&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;stars&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="n">antio2</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stars</th>
+      <th>text</th>
+      <th>label</th>
+      <th>stars_4_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Excelente trato y buena relación precio-calida...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Muy buen menú con mucha variedad y buen produc...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>Comida buenísima y buena atención, vistas mara...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>He comido el menú del día por 13 euros, y tien...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Restaurante grande con unos menús muy ricos y ...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>5</td>
+      <td>(Traducido por Google) Gran lugar\r\n\r\n(Orig...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>5</td>
+      <td>(Traducido por Google) Increíble vista\r\n\r\n...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>4</td>
+      <td>(Traducido por Google) Hermoso menú y temperat...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>5</td>
+      <td>(Traducido por Google) Gran lugar\r\n\r\n(Orig...</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>3</td>
+      <td>(Traducido por Google) El restaurante\r\n\r\n(...</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>193 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print results</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;stars_4_5&#39;</span><span class="p">]</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confusion matrix: </span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Report: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">,</span>
+                                            <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bad reviews -&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;good reviews -&gt;&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion matrix: 
+
+ [[ 29  36]
+ [  2 126]]
+
+Report: 
+                  precision    recall  f1-score   support
+
+ bad reviews -&gt;       0.94      0.45      0.60        65
+good reviews -&gt;       0.78      0.98      0.87       128
+
+       accuracy                           0.80       193
+      macro avg       0.86      0.72      0.74       193
+   weighted avg       0.83      0.80      0.78       193
+</pre></div>
+</div>
+</div>
+</div>
+<p>The accuracy with which it detects whether reviews are good or bad is quite high, especially for the bad ones (29 correct negative reviews and only 2 were misclassified as negative). However, if we consider that this automatic classification would be more useful if it were able to capture the maximum number of negative reviews (to provide a prompt response to all dissatisfied customers), then we see that the <strong>sensitivity (recall) of 0.45</strong> is quite low in this case (it captured 29 negative reviews, but missed 36 that were also negative). For this specific case, the result obtained is worse than in the original basic project I did last year, in which I obtained a recall of 0.7.</p>
+</section>
+<section id="visualizing">
+<h2>Visualizing<a class="headerlink" href="#visualizing" title="Permalink to this heading">#</a></h2>
+<p>Simply to have a visual reference of what the model is doing, I reduce the dimensionality of the vectors to 2 in order to plot their position on a plane and verify that indeed the reviews of each type are spatially clustered.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reduce the number of embeddings dimensions to two using t-SNE</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">embeddings_2d</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">review_embeddings</span><span class="p">))</span>
+
+<span class="c1"># Create an auxiliary dataframe to plot with seaborn</span>
+<span class="n">df_visu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">embeddings_2d</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">df_visu</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">antio2</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">df_visu</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_visu</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;good&#39;</span><span class="p">})</span>
+
+<span class="c1"># Plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;review&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_visu</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/007ee6af901005cc627a35ddf14ace9e6585cf7c994ba5ef86190aec917e7204.png" src="../_images/007ee6af901005cc627a35ddf14ace9e6585cf7c994ba5ef86190aec917e7204.png" />
+</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>Despite the ease of use and the impressive ability of OpenAI’s semantic model to assign sentiment to each review, in this project, when it came to automatically detecting <em>all</em> the negative reviews, it did not give me better results than the ones I obtained last year using more basic Machine Learning techniques.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "my-venv-01"
+        },
+        kernelOptions: {
+            name: "my-venv-01",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'my-venv-01'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects-AI.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">AI projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../projects-my.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Personal projects</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-review-texts-embeddings">Create review texts’ embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis-stars-5-categories">Sentiment analysis: stars (5 categories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis-good-bad-2-categories">Sentiment analysis: good/bad (2 categories)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing">Visualizing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2024
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
