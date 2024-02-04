@@ -6,6 +6,9 @@ root: intro
 parts:
 - caption: Contents
   chapters:
+  - file: projects-AI
+    sections:
+    - file: notebooks/p-antio-gpt
   - file: projects-my
     sections:
     - file: notebooks/ages

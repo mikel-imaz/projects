@@ -7,8 +7,21 @@ By **Mikel Imaz**
 
 ---
 
-*Personal projects*
+*AI projects*
 
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Sentiment analysis with OpenAI embeddings
+:link: notebooks/p-antio-gpt
+:link-type: doc
+:img-bottom: notebooks/img/antio-ai.jpg
+:::
+
+::::
+
+---
+*Personal projects*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
