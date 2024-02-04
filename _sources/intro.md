@@ -15,7 +15,7 @@ By **Mikel Imaz**
 :::{grid-item-card} Sentiment analysis with OpenAI embeddings
 :link: notebooks/p-antio-gpt
 :link-type: doc
-:img-bottom: notebooks/img/IMG_20221205_134844_01.jpg
+:img-bottom: notebooks/img/antio-ai.jpg
 :::
 
 ::::
