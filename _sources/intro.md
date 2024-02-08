@@ -26,6 +26,12 @@ By **Mikel Imaz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Movie Records
+:link: notebooks/p-films
+:link-type: doc
+:img-bottom: notebooks/img/cine-short.jpg
+:::
+
 :::{grid-item-card} Median Ages
 :link: notebooks/ages
 :link-type: doc
