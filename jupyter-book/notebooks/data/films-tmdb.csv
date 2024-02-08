@@ -1,0 +1,928 @@
+,Unnamed: 0.1,Unnamed: 0,title,director,year,stars,tmdb_title,tmdb_id,tmdb_genre,tmdb_lang,tmdb_runtime,tmdb_vote_cnt,tmdb_vote_avg
+0,0,0,Inland Empire,David Lynch,2006,liked,Inland Empire,1730,Film,en,180,1007,7.0
+1,1,1,La vida es un milagro,Emir Kusturica,2004,untagged,Life Is a Miracle,20128,Film,sr,155,163,7.4
+2,2,2,El arca rusa,Aleksandr Sokurov,2002,loved,Russian Ark,16646,Film,ru,99,425,7.3
+3,3,3,Biutiful,Alejandro Glez. Iñárritu,2010,untagged,Biutiful,45958,Film,es,148,1040,7.3
+4,4,4,Carretera perdida,David Lynch,1997,untagged,Lost Highway,638,Film,en,134,2421,7.6
+5,5,5,Poesía,Lee Chang-Dong,2010,loved,Poetry,47909,Film,ko,139,283,7.6
+6,6,6,There will be blood,Paul Thomas Anderson,2007,untagged,There Will Be Blood,7345,Film,en,158,6204,8.1
+7,7,7,Zodiac,David Fincher,2007,untagged,Zodiac,1949,Film,en,163,9888,7.5
+8,8,8,Eternal Sunshine of the Spotless Mind,Michel Gondry,2004,untagged,Eternal Sunshine of the Spotless Mind,38,Film,en,108,14099,8.1
+9,9,9,Ichi the Killer,Takashi Miike,2001,untagged,Ichi the Killer,9696,Film,ja,129,894,7.0
+10,10,10,Balada triste de trompeta,Alex De La Iglesia,2010,untagged,The Last Circus,56812,Film,es,106,394,6.7
+11,11,11,The World,Jia Zhang Ke,2004,untagged,A Home at the End of the World,18923,Film,en,96,149,6.5
+12,12,12,Demonlover,Olivier Assayas,2002,untagged,Demonlover,24488,Film,fr,121,85,5.6
+13,13,13,Redacted,Brian de Palma,2007,untagged,Redacted,11600,Film,en,90,160,6.0
+14,14,14,Still life,Jia Zhang Ke,2006,untagged,Still Life,2346,Film,zh,108,128,7.2
+15,15,15,Exit through the gift shop ,Banksy,2010,loved,Exit Through the Gift Shop,39452,Documentary,en,87,832,7.5
+16,16,16,Collateral,Michael Mann,2004,untagged,Collateral,1538,Film,en,120,5259,7.2
+17,17,17,Funny Games,Michael Haneke,1997,liked,Funny Games,10234,Film,de,109,1683,7.3
+18,18,18,The Wrestler,Darren Aronofsky,2008,untagged,The Wrestler,12163,Film,en,109,3437,7.5
+19,19,19,La pianista,Michael Haneke,2001,untagged,The Legend of 1900,10376,Film,it,170,2140,8.3
+20,20,20,The Secret of Kells,Tomm Moore,2009,untagged,The Secret of Kells,26963,Film,en,75,637,7.4
+21,21,21,El verdugo,Luis G. Berlanga,1963,liked,The Executioner,4498,Film,es,91,152,7.5
+22,22,22,Amarcord,Federico Fellini,1973,untagged,Amarcord,7857,Film,it,123,1044,7.9
+23,23,23,Pa negre,Agustí Villaronga,2010,untagged,Black Bread,57521,Film,ca,108,107,6.7
+24,24,24,El ángel exterminador,Luis Buñuel,1962,liked,The Exterminating Angel,29264,Film,es,94,610,7.9
+25,25,25,Tristana,Luis Buñuel,1970,untagged,Tristana,35838,Film,es,98,230,7.3
+26,26,26,Arrebato,Iván Zulueta,1979,untagged,Rapture,4494,Film,es,110,72,6.8
+27,27,27,"They Shoot Horses, Don't They?",Sydney Pollack,1969,untagged,"They Shoot Horses, Don't They?",28145,Film,en,120,288,7.6
+28,28,28,Testigo de cargo,Billy Wilder,1957,untagged,Witness for the Prosecution,37257,Film,en,116,1276,8.2
+29,29,29,Solas,Benito Zambrano,1999,untagged,Alone,80713,Film,es,101,44,6.9
+30,30,30,El Gatopardo,Luchino Visconti,1963,untagged,The Leopard,1040,Film,it,186,744,7.7
+31,31,31,Qué verde era mi valle,John Ford,1941,untagged,How Green Was My Valley,43266,Film,en,118,361,7.2
+32,32,32,"Alemania, año cero",Roberto Rossellini,1948,liked,"Germany, Year Zero",8016,Film,it,72,330,7.7
+33,33,33,La regla del juego,Jean Renoir,1939,liked,The Rules of the Game,776,Film,fr,106,534,7.6
+34,34,34,"El bueno, el feo y el malo",Sergio Leone,1966,untagged,"The Good, the Bad and the Ugly",429,Film,it,161,8060,8.5
+35,35,35,Canino,Giorgo Lanthimos,2009,liked,Dogtooth,38810,Film,el,98,2055,7.1
+36,36,36,Carta de una desconocida,Max Opuls,1948,untagged,Letter from an Unknown Woman,946,Film,en,87,277,7.8
+37,37,37,Vacaciones en Roma,William Wyler,1953,untagged,Roman Holiday,804,Film,en,119,1895,7.9
+38,38,38,El día de la marmota,Harold Ramis,1993,untagged,Groundhog Day,137,Film,en,101,7515,7.6
+39,39,39,Belle de jour,Luis Buñuel,1967,untagged,Belle de Jour,649,Film,fr,101,813,7.4
+40,40,40,Let´s Get Lost,Bruce Weber,1988,untagged,Let's Get Lost,37640,Documentary,en,120,36,7.0
+41,41,41,The Man Who Shot Liberty Valance,John Ford,1962,untagged,The Man Who Shot Liberty Valance,11697,Film,en,123,1041,7.8
+42,42,42,Cuentos de Tokio,Yasujiro Ozu,1953,liked,Tokyo Story,18148,Film,ja,137,963,8.2
+43,43,43,Buenos días,Yasujiro Ozu,1959,liked,Good Morning,28276,Film,ja,94,238,7.7
+44,44,44,Ordet (La palabra),Carl Theodor Dreyer,1955,loved,Ordet,48035,Film,da,125,328,7.9
+45,45,45,Luz silenciosa,Carlos Reygadas,2007,untagged,Silent Light,2012,Film,de,136,104,7.0
+46,46,46,Gertrud,Carl Theodor Dreyer,1965,untagged,Gertrud,34181,Film,da,119,140,7.2
+47,47,47,Dies Irae,Carl Theodor Dreyer,1943,loved,Day of Wrath,41391,Film,da,97,205,8.0
+48,48,48,Uncle Boonmee que recuerda...,Apitch. Weerasethakul,2010,untagged,Uncle Boonmee Who Can Recall His Past Lives,38368,Film,th,114,334,6.6
+49,49,49,El intendente Sansho,Kenji Mizoguchi,1954,untagged,Sansho the Bailiff,20532,Film,ja,124,341,8.1
+50,50,50,Fresa y chocolate,Tomás Gutiérrez Alea,1993,untagged,Strawberry and Chocolate,12527,Film,es,108,75,7.1
+51,51,51,Simón del desierto,Luis Buñuel,1965,untagged,Simon of the Desert,36265,Film,es,45,204,7.7
+52,52,52,Stromboli,Roberto Rossellini,1950,untagged,Stromboli,4173,Film,it,107,175,7.0
+53,53,53,Whisky,Juan Pablo Rebella,2004,untagged,Whisky,36971,Film,es,99,79,6.9
+54,54,54,Luna nueva (His Girl Friday),Howard Hawks,1940,untagged,His Girl Friday,3085,Film,en,92,759,7.4
+55,55,55,Rashomon,Akira Kurosawa,1950,untagged,Rashomon,548,Film,ja,88,2030,8.1
+56,56,56,Primera plana,Billy Wilder,1974,untagged,The Front Page,987,Film,en,105,314,7.3
+57,57,57,XXY,Lucía Puenzo,2007,untagged,XXY,11148,Film,es,86,270,6.9
+58,58,58,La historia oficial,Luis Puenzo,1985,liked,The Official Story,29263,Film,es,112,176,7.5
+59,59,59,El río,Jean Renoir,1951,loved,The River,45218,Film,en,99,94,7.3
+60,60,60,Vivir su vida,Jean Luc Godard,1962,liked,Vivre Sa Vie,1626,Film,fr,84,589,7.8
+61,61,61,Breve encuentro,David Lean,1945,untagged,Brief Encounter,851,Film,en,86,561,7.7
+62,62,62,El sueño eterno,Howard Hawks,1946,untagged,The Big Sleep,910,Film,en,114,956,7.6
+63,63,63,Cayo Largo,John Huston,1948,untagged,Key Largo,11016,Film,en,100,494,7.5
+64,64,64,Viaggio in Italia,Roberto Rossellini,1954,loved,Journey to Italy,2748,Film,it,85,262,7.3
+65,65,65,"Roma, ciudad abierta",Roberto Rossellini,1945,untagged,"Rome, Open City",307,Film,it,103,816,8.0
+66,67,67,La aventura,Michelangelo Antonioni,1960,untagged,Adventures of Joselito and Tom Thumb,102744,Film,es,87,16,5.3
+67,68,68,Valor de ley,Coen,2010,untagged,True Grit,44264,Film,en,110,5003,7.3
+68,69,69,Cero en conducta,Jean Vigo,1933,liked,Zero for Conduct,44494,Film,fr,49,220,6.9
+69,70,70,Smoke,Wayne Wang,1995,liked,Smoke,10149,Film,en,112,443,7.2
+70,71,71,Europa 51,Roberto Rossellini,1952,liked,Europe '51,41464,Film,it,118,116,7.4
+71,72,72,Incendies,Denis Villeneuve,2010,untagged,Incendies,46738,Film,fr,131,2437,8.1
+72,73,73,Las amigas,Michelangelo Antonioni,1955,untagged,Le Amiche,46979,Film,it,104,70,6.8
+73,74,74,El desierto rojo,Michelangelo Antonioni,1965,untagged,Red Desert,26638,Film,it,117,420,7.4
+74,75,75,El hombre de al lado,Gastón Duprat,2009,liked,The Man Next Door,47383,Film,es,103,47,6.5
+75,76,76,The Woman on the Beach,Jean Renoir,1947,untagged,The Woman on the Beach,37041,Film,en,71,43,6.0
+76,77,77,A bout de souffle,Jean Luc Godard,1960,untagged,Breathless,269,Film,fr,90,1688,7.6
+77,78,78,Los inútiles (I vitelloni),Federico Fellini,1953,liked,I Vitelloni,12548,Film,it,103,637,7.7
+78,79,79,Il bidone,Federico Fellini,1955,untagged,The Swindle,36102,Film,it,113,178,7.3
+79,80,80,La strada,Federico Fellini,1954,liked,La Strada,405,Film,it,115,986,7.9
+80,81,81,Las noches de Cabiria,Federico Fellini,1957,untagged,Nights of Cabiria,19426,Film,it,110,706,8.0
+81,82,82,Roma,Federico Fellini,1972,untagged,Roma,11035,Film,it,128,288,7.2
+82,83,83,El Evangelio según San Mateo,Pier Paolo Pasolini,1964,untagged,The Gospel According to Matthew,24192,Film,it,137,329,7.4
+83,84,84,Accattone,Pier Paolo Pasolini,1961,untagged,Accattone,12491,Film,it,117,450,7.7
+84,85,85,Cirkus Columbia,Danis Tanovic,2010,untagged,Cirkus Columbia,63834,Film,bs,107,21,6.7
+85,86,86,Margarita Gautier,George Cukor,1937,untagged,Camille,43874,Film,en,109,119,7.0
+86,87,87,The Shop Around the Corner,Ernst Lubitsch,1940,liked,The Shop Around the Corner,20334,Film,en,99,663,8.2
+87,88,88,That Uncertain Feeling,Ernst Lubitsch,1941,untagged,That Uncertain Feeling,43799,Film,en,84,44,6.4
+88,89,89,Ninotchka,Ernst Lubitsch,1939,untagged,Ninotchka,1859,Film,en,110,356,7.5
+89,90,90,Duel (Diablo sobre ruedas),Steven Spielberg,1971,untagged,Duel,839,Film,en,89,1724,7.4
+90,91,91,Notorious (Encadenados),Alfred Hitchcock,1946,untagged,Notorious,303,Film,en,103,1475,7.8
+91,92,92,Angel,Ernst Lubitsch,1937,liked,Angel,44208,Film,en,91,61,6.8
+92,93,93,While the City Sleeps,Fritz Lang,1956,untagged,While the City Sleeps,36786,Film,en,100,120,6.9
+93,94,94,Micmacs,Jean-Pierre Jeunet,2009,untagged,Micmacs,27936,Film,fr,100,548,6.6
+94,95,95,The Private Life of Sherlock Holmes,Billy Wilder,1970,untagged,The Private Life of Sherlock Holmes,5185,Film,en,125,257,6.8
+95,96,96,The Life and Death of Colonel Blimp,Michael Powell,1943,untagged,The Life and Death of Colonel Blimp,25037,Film,en,163,224,7.5
+96,97,97,La jungla de asfalto,John Huston,1950,loved,The Asphalt Jungle,16958,Film,en,112,441,7.5
+97,98,98,To Have and Have Not,Howard Hawks,1944,untagged,To Have and Have Not,22584,Film,en,100,471,7.4
+98,99,99,"Party Girl (Chicago, años 30)",Nicholas Ray,1958,untagged,Party Girl,25633,Film,en,99,63,6.7
+99,100,100,"Suddenly, Last Summer",Joseph L. Mankiewicz,1959,liked,"Suddenly, Last Summer",14698,Film,en,114,251,7.3
+100,101,101,Cat on a Hot Tin Roof,Richard Brooks,1958,untagged,Cat on a Hot Tin Roof,261,Film,en,108,700,7.7
+101,102,102,From Here to Eternity,Fred Zinnemann,1953,untagged,From Here to Eternity,11426,Film,en,118,584,7.3
+102,103,103,The Ghost and Mrs. Muir,Joseph L. Mankiewicz,1947,loved,The Ghost and Mrs. Muir,22292,Film,en,105,278,7.6
+103,104,104,Red River,Howard Hawks,1948,liked,Red River,3089,Film,en,133,478,7.4
+104,105,105,An Affair to Remember (Tú y yo),Leo Mccarey,1957,liked,An Affair to Remember,8356,Film,en,111,428,7.4
+105,106,106,In a Lonely Place,Nicholas Ray,1950,liked,In a Lonely Place,17057,Film,en,94,515,7.5
+106,107,107,Cat People (La mujer pantera),Jacques Tourneur,1943,untagged,Cat People,25508,Film,en,73,536,6.9
+107,108,108,Pickpocket,Robert Bresson,1959,untagged,Pickpocket,690,Film,fr,75,471,7.3
+108,109,109,Sólo los ángeles tienen alas,Howard Hawks,1939,liked,Only Angels Have Wings,43832,Film,en,121,213,7.3
+109,110,110,No habrá paz para los malvados,Enrique Urbizu,2011,liked,No Rest for the Wicked,76013,Film,es,114,124,5.9
+110,111,111,Gilda,Charles Vidor,1946,untagged,Gilda,3767,Film,en,110,536,7.5
+111,112,112,Touch of Evil (Sed de mal),Orson Welles,1958,liked,Touch of Evil,1480,Film,en,111,1340,7.8
+112,113,113,Río Bravo,Howard Hawks,1959,untagged,Rio Bravo,301,Film,en,141,1057,7.8
+113,114,114,Stagecoach (La diligencia),John Ford,1939,untagged,Stagecoach,995,Film,en,96,1038,7.6
+114,115,115,Jeremiah Johnson,Sydney Pollack,1972,untagged,Jeremiah Johnson,11943,Film,en,108,559,7.3
+115,116,116,Melancolía,Lars Von Trier,2011,liked,Melancholia,62215,Film,en,135,3296,7.2
+116,117,117,The Tree of Life,Terrence Malick,2011,loved,The Tree of Life,8967,Film,en,139,2925,6.7
+117,118,118,La piel que habito,Pedro Almodóvar,2011,untagged,The Skin I Live In,63311,Film,es,120,3961,7.5
+118,119,119,Inside Job,Charles Ferguson,2010,untagged,Inside Job,44639,Documentary,en,109,880,7.7
+119,120,120,The King´s Speech,Tom Hooper,2010,liked,The King's Speech,45269,Film,en,118,8325,7.7
+120,121,121,French cancan,Jean Renoir,1955,untagged,French Cancan,45213,Film,fr,102,81,7.2
+121,122,122,Another Year,Mike Leigh,2010,untagged,Another Year,44009,Film,en,129,362,7.0
+122,123,123,Secrets & Lies,Mike Leigh,1996,untagged,Secrets & Lies,11159,Film,en,142,585,7.6
+123,124,124,Midnight in Paris,Woody Allen,2011,untagged,Midnight in Paris,59436,Film,en,94,6991,7.5
+124,125,125,Whatever Works,Woody Allen,2009,untagged,Whatever Works,19265,Film,en,92,1652,7.1
+125,126,126,Manhattan,Woody Allen,1979,untagged,Manhattan,696,Film,en,96,2213,7.7
+126,127,127,Crimes and Misdemeanors,Woody Allen,1989,untagged,Crimes and Misdemeanors,11562,Film,en,104,812,7.5
+127,128,128,The Big Lebowski,Coen,1998,liked,The Big Lebowski,115,Film,en,117,10660,7.8
+128,129,129,"Nader y Simin, una separación",Asghar Farhadi,2011,liked,A Separation,60243,Film,fa,123,1613,7.9
+129,130,130,Hannah and Her Sisters,Woody Allen,1986,untagged,Hannah and Her Sisters,5143,Film,en,107,966,7.5
+130,131,131,Ed Wood,Tim Burton,1994,liked,Ed Wood,522,Film,en,127,2172,7.5
+131,132,132,Monty Python and the Holy Grail,Terry Jones,1975,untagged,Monty Python and the Holy Grail,762,Film,en,91,5438,7.8
+132,133,133,Four Lions,Chris Morris,2010,untagged,Four Lions,37495,Film,en,97,1062,7.0
+133,134,134,Mi tío,Jacques Tati,1958,liked,Uncle Hyacynth,117169,Film,es,87,20,6.7
+134,135,135,Sabrina,Billy Wilder,1954,untagged,Sabrina,6620,Film,en,113,1162,7.5
+135,136,136,Le Havre,Aki Kaurismäki,2011,liked,Le Havre,73532,Film,fr,94,388,7.0
+136,137,137,Les vacances de M. Hulot,Jacques Tati,1953,untagged,Monsieur Hulot's Holiday,778,Film,fr,87,416,7.0
+137,138,138,El sabor del sake,Yasujiro Ozu,1962,untagged,An Autumn Afternoon,50759,Film,ja,114,256,7.8
+138,139,139,Los siete samuráis,Akira Kurosawa,1954,untagged,Seven Samurai,346,Film,ja,207,3389,8.5
+139,140,140,Los 400 golpes,François Truffaut,1959,liked,The 400 Blows,147,Film,fr,99,1988,8.1
+140,141,141,"Hiroshima, mon amour",Alain Resnais,1959,untagged,Hiroshima Mon Amour,5544,Film,fr,92,746,7.7
+141,142,142,Plan 9 From Outer Space,Ed. Wood,1959,untagged,Plan 9 from Outer Space,10513,Film,en,79,509,4.2
+142,143,143,Ikiru,Akira Kurosawa,1952,liked,Ikiru,3782,Film,ja,143,1019,8.3
+143,144,144,El General de la Rovere,Roberto Rossellini,1959,liked,General Della Rovere,43100,Film,it,132,118,7.5
+144,145,145,The Dead,John Huston,1987,untagged,The Dead,39507,Film,en,83,143,6.9
+145,146,146,"Francisco, juglar de Dios",Roberto Rossellini,1950,untagged,The Flowers of St. Francis,56518,Film,it,87,79,7.2
+146,147,147,The Artist,Michel Hazanavicius,2011,untagged,The Artist,74643,Film,fr,100,3107,7.5
+147,148,148,Moby Dick,John Huston,1956,untagged,Moby Dick,10339,Film,en,116,371,7.0
+148,149,149,Blue Velvet,David Lynch,1986,untagged,Blue Velvet,793,Film,en,120,3072,7.6
+149,150,150,Pather Panchali (Apu Trilogy 1),Satyajit Ray,1955,loved,Pather Panchali,5801,Film,bn,125,369,8.0
+150,151,151,Le gamin au vélo,Jean-Pierre Dardenne,2011,liked,The Kid with a Bike,63831,Film,fr,87,402,7.1
+151,152,152,El año pasado en Marienbad,Alain Resnais,1961,untagged,Last Year at Marienbad,4024,Film,fr,95,462,7.4
+152,153,153,Los olvidados,Luis Buñuel,1950,untagged,The Young and the Damned,800,Film,es,77,451,8.1
+153,154,154,Aparajito (Apu Trilogy 2),Satyajit Ray,1957,loved,Aparajito,897,Film,bn,110,217,8.0
+154,155,155,El niño,Jean-Pierre Dardenne,2005,untagged,El niño con ojos de clavo,1240767,Film,es,0,0,0.0
+155,156,156,13 asesinos,Takashi Miike,2010,untagged,13 Assassins,58857,Film,ja,141,1045,7.3
+156,157,157,Apur Sansar (Apu Trilogy 3),Satyajit Ray,1959,untagged,Apur Sansar,896,Film,bn,105,209,8.2
+157,158,158,Dersu Uzala,Akira Kurosawa,1975,untagged,Dersu Uzala,9764,Film,ru,141,484,8.0
+158,159,159,I´m not there,Todd Haynes,2007,untagged,I'm Not There,3902,Film,en,135,646,6.6
+159,160,160,The Straight story,David Lynch,1999,untagged,The Straight Story,404,Film,en,112,1413,7.7
+160,161,161,The Picture of Dorian Gray,Albert Lewin,1945,untagged,The Picture of Dorian Gray,16559,Film,en,111,238,7.1
+161,162,162,The Fortune Cookie,Billy Wilder,1966,untagged,The Fortune Cookie,1888,Film,en,125,282,7.2
+162,163,163,The Professionals,Richard Brooks,1966,untagged,The Professionals,22383,Film,en,117,275,7.1
+163,164,164,The Thin Red Line,Terrence Malick,1998,loved,The Thin Red Line,8741,Film,en,171,2784,7.4
+164,165,165,El hundimiento,Oliver Hirschbiegel,2004,untagged,Downfall,613,Film,de,155,3583,7.9
+165,166,166,Badlands,Terrence Malick,1973,liked,Badlands,3133,Film,en,94,1093,7.5
+166,167,167,Caro Diario,Nanni Moretti,1993,liked,Caro diario,25403,Film,it,101,429,7.4
+167,168,168,Milagro en Milán,Vittorio De Sica,1951,untagged,Miracle in Milan,43379,Film,it,97,215,7.3
+168,169,169,Utamaro y sus cinco mujeres,Kenji Mizoguchi,1946,untagged,Utamaro and His Five Women,101382,Film,ja,94,28,7.2
+169,170,170,La gran ilusión,Jean Renoir,1937,untagged,Grand Illusion,777,Film,fr,114,634,7.8
+170,171,171,Limelight (Candilejas),Charlie Chaplin,1952,untagged,Limelight,28971,Film,en,137,486,8.0
+171,172,172,El salario del miedo,Henri-Georges Clouzot,1953,untagged,The Wages of Fear,204,Film,fr,148,843,8.0
+172,173,173,Une partie de campagne (A Day in the Country),Jean Renoir,1946,untagged,A Day in the Country,43878,Film,fr,41,176,7.3
+173,174,174,The Great Dictator,Charlie Chaplin,1940,untagged,The Great Dictator,914,Film,en,125,3146,8.3
+174,175,175,El séptimo sello,Ingmar Bergman,1957,untagged,The Seventh Seal,490,Film,sv,96,2791,8.2
+175,176,176,My Fair Lady,George Cukor,1964,liked,My Fair Lady,11113,Film,en,170,1208,7.5
+176,177,177,The Kid,Charlie Chaplin,1921,untagged,The Kid,10098,Film,en,68,1946,8.2
+177,178,178,Mogambo,John Ford,1953,untagged,Mogambo,25009,Film,en,115,144,6.5
+178,179,179,The Lady from Shanghai,Orson Welles,1947,liked,The Lady from Shanghai,3766,Film,en,87,598,7.4
+179,180,180,Les enfants du paradis,Marcel Carné,1945,untagged,Children of Paradise,2457,Film,fr,191,372,8.1
+180,181,181,Mientras duermes,Jaume Balagueró,2011,untagged,Sleep Tight,77495,Film,es,97,1015,7.1
+181,182,182,8 1/2,Federico Fellini,1963,untagged,8½,422,Film,it,139,2132,8.2
+182,183,183,The Night of the Iguana,John Huston,1964,untagged,The Night of the Iguana,14703,Film,en,118,136,7.1
+183,184,184,"M, El vampiro de Dusseldorf",Fritz Lang,1931,untagged,M,832,Film,de,111,2001,8.1
+184,185,185,El pisito,Marco Ferreri,1959,untagged,The Little Apartment,110924,Film,es,87,25,6.5
+185,186,186,Calle Mayor,Juan Antonio Bardem,1956,untagged,Main Street,104607,Film,es,98,45,7.2
+186,187,187,Muerte de un ciclista,Juan Antonio Bardem,1955,untagged,Death of a Cyclist,72083,Film,es,88,91,7.1
+187,188,188,Historias de la radio,José L. Sáenz De Heredia,1955,untagged,Radio Stories,96242,Film,es,95,10,7.1
+188,189,189,Abril,Nanni Moretti,1998,untagged,Aprile,32117,Film,it,78,197,7.4
+189,190,190,Calabuch,Luis G. Berlanga,1956,untagged,The Rocket from Calabuch,107612,Film,es,93,32,7.3
+190,191,191,Los jueves milagro,Luis G. Berlanga,1957,untagged,Miracles of Thursday,100052,Film,es,84,26,6.7
+191,192,192,Manhattan Murder Mystery,Woody Allen,1993,untagged,Manhattan Murder Mystery,10440,Film,en,104,1000,7.3
+192,193,193,El apartamento,Billy Wilder,1960,loved,The Apartment,284,Film,en,125,2102,8.2
+193,194,194,Ojos negros,Nikita Mijalkov,1987,untagged,Dark Eyes,44658,Film,ru,121,76,6.9
+194,195,195,El cochecito,Marco Ferreri,1960,untagged,The Wheelchair,99883,Film,es,85,41,6.9
+195,196,196,Surcos,José A. Nieves Conde,1951,untagged,Surcos,103937,Film,es,99,19,7.0
+196,197,197,La tía Tula,Miguel Picazo,1964,untagged,Aunt Tula,131344,Film,es,103,17,6.2
+197,198,198,Vida en sombras,Lorenzo Llobet Gràcia,1949,untagged,Living in Shadows,180010,Film,es,74,10,7.3
+198,199,199,Las Hurdes (Tierra sin pan),Luis Buñuel,1933,untagged,Land Without Bread,91,Documentary,es,29,147,7.1
+199,200,200,Las verdes praderas,José Luis Garci,1979,untagged,Las verdes praderas,275294,Film,es,89,9,6.2
+200,201,201,La torre de los siete jorobados,Edgar Neville,1944,untagged,La torre de los siete jorobados,118673,Film,es,80,20,6.3
+201,202,202,El camino a casa,Zhang Yimou,1999,untagged,The Road Home,12276,Film,zh,89,184,7.5
+202,203,203,El viaje a ninguna parte,Fernando Fernan Gómez,1986,untagged,Voyage to Nowhere,156453,Film,es,134,33,7.3
+203,204,204,Moonrise Kingdom,Wes Anderson,2012,untagged,Moonrise Kingdom,83666,Film,en,94,5577,7.7
+204,205,205,Sorgo rojo (Red Sorghum),Zhang Yimou,1988,untagged,Red Sorghum,42006,Film,zh,91,185,7.2
+205,206,206,El extraño viaje,Fernando Fernan Gómez,1964,untagged,Strange Voyage,162510,Film,es,89,40,7.2
+206,207,207,September,Woody Allen,1987,untagged,September,22477,Film,en,82,169,6.2
+207,208,208,El discreto encanto de la burguesía,Luis Buñuel,1972,liked,The Discreet Charm of the Bourgeoisie,4593,Film,fr,101,729,7.5
+208,209,209,Todo lo que quiso saber sobre el sexo,Woody Allen,1972,untagged,Everything You Always Wanted to Know About Sex *But Were Afraid to Ask,11624,Film,en,88,862,6.5
+209,210,210,No tengas miedo,Montxo Armendáriz,2011,untagged,Don't Be Afraid,73738,Film,es,90,51,6.6
+210,211,211,Ese oscuro objeto del deseo,Luis Buñuel,1977,untagged,That Obscure Object of Desire,5781,Film,fr,103,355,7.4
+211,212,212,Nazarín,Luis Buñuel,1959,untagged,Nazarin,35124,Film,es,95,127,7.7
+212,213,213,Las cartas de Alou,Montxo Armendáriz,1990,untagged,Letters from Alou,95613,Film,es,100,8,5.1
+213,214,214,Alice,Woody Allen,1990,untagged,Alice,8217,Film,en,102,270,6.4
+214,215,215,Las acacias,Pablo Giorgelli,2011,liked,Las acacias,85549,Film,es,85,37,6.4
+215,216,216,Rumble Fish,Francis Ford Coppola,1983,loved,Rumble Fish,232,Film,en,94,625,7.0
+216,217,217,Sleeper,Woody Allen,1973,untagged,Sleeper,11561,Film,en,87,724,6.9
+217,218,218,Zelig,Woody Allen,1983,untagged,Zelig,11030,Film,en,79,802,7.4
+218,219,219,El bosque animado,José Luis Cuerda,1987,untagged,The Enchanted Forest,60311,Film,es,107,30,6.8
+219,220,220,The Hustler,Robert Rossen,1961,loved,The Hustler,990,Film,en,134,895,7.7
+220,221,221,Kiseki (Milagro),Hirokazu Kore-Eda,2011,untagged,I Wish,79382,Film,ja,127,146,7.3
+221,222,222,Comedia sexual de una noche de verano (A Midsummer Night's Sex Comedy),Woody Allen,1982,untagged,A Midsummer Night's Sex Comedy,8288,Film,en,88,374,6.5
+222,223,223,Radio Days,Woody Allen,1987,untagged,Radio Days,30890,Film,en,90,519,7.0
+223,224,224,Bananas,Woody Allen,1971,untagged,Bananas,11302,Film,en,82,688,6.7
+224,225,225,La rosa púrpura de El Cairo,Woody Allen,1985,untagged,The Purple Rose of Cairo,10849,Film,en,82,945,7.4
+225,226,226,La maldición del escorpión de Jade,Woody Allen,2001,untagged,The Curse of the Jade Scorpion,2779,Film,en,103,717,6.6
+226,227,227,Memorias del subdesarrollo,Tomás Gutiérrez Alea,1968,untagged,Memories of Underdevelopment,47576,Film,es,99,74,7.5
+227,228,228,Muerte de un burócrata,Tomás Gutiérrez Alea,1966,untagged,Death of a Bureaucrat,43778,Film,es,84,40,7.3
+228,229,229,Still walking,Hirokazu Kore-Eda,2008,untagged,Still Walking,25050,Film,ja,114,331,7.7
+229,230,230,Ciudad de Dios,Fernando Meirelles,2002,untagged,City of God,598,Film,pt,130,6918,8.4
+230,231,231,La teta asustada,Claudia Llosa,2009,untagged,The Milk of Sorrow,28644,Film,es,94,87,6.2
+231,232,232,La buena vida,Andrés Wood,2004,untagged,Una chica buena de la mala vida,941960,Film,es,0,1,6.0
+232,233,233,Machuca,Andrés Wood,2004,untagged,Machuca,12086,Film,es,116,191,7.7
+233,234,234,El aura,Fabián Bielinsky,2005,untagged,The Aura,13653,Film,es,134,182,7.0
+234,235,235,La escalera de caracol (The Spiral Staircase),Robert Siodmak,1946,untagged,The Spiral Staircase,27452,Film,en,83,219,7.0
+235,236,236,Nadie sabe,Hirokazu Kore-Eda,2004,untagged,Nobody Knows,2517,Film,ja,141,462,8.0
+236,237,237,Fat city (Ciudad dorada),John Huston,1972,loved,Fat City,16993,Film,en,97,138,7.1
+237,238,238,Eduardo Manostijeras (Edward Scissorhands),Tim Burton,1990,untagged,Edward Scissorhands,162,Film,en,105,12335,7.7
+238,239,239,Laura,Otto Preminger,1944,untagged,Laura,1939,Film,en,88,731,7.6
+239,240,240,Winchester 73,Anthony Mann,1950,untagged,Winchester '73,14551,Film,en,92,325,7.3
+240,241,241,Anatomía de un asesinato,Otto Preminger,1959,liked,Anatomy of a Murder,93,Film,en,161,890,7.8
+241,242,242,Gritos y susurros,Ingmar Bergman,1972,liked,Cries and Whispers,10238,Film,sv,95,636,7.9
+242,243,243,Vidas rebeldes (The Misfits),John Huston,1961,untagged,The Misfits,11536,Film,en,124,343,7.0
+243,244,244,Swimming Pool,François Ozon,2003,untagged,Swimming Pool,302,Film,en,102,648,6.5
+244,245,245,The Passion of Anna,Ingmar Bergman,1969,untagged,The Passion of Anna,42602,Film,sv,101,162,7.5
+245,246,246,Alps,Giorgo Lanthimos,2011,untagged,Sennentuntschi: Curse of the Alps,61722,Film,de,110,67,6.4
+246,247,247,8 mujeres,François Ozon,2002,untagged,8 Women,1958,Film,fr,111,919,6.9
+247,248,248,"Uno, dos, tres",Billy Wilder,1961,untagged,"One, Two, Three",430,Film,en,109,344,7.5
+248,249,249,La promesa,Jean-Pierre Dardenne,1996,untagged,La Promesse,24183,Film,fr,94,160,7.2
+249,250,250,Take Shelter,Jeff Nichols,2011,untagged,Take Shelter,64720,Film,en,120,1634,7.0
+250,251,251,Deconstructing Harry,Woody Allen,1997,untagged,Deconstructing Harry,2639,Film,en,96,897,7.3
+251,252,252,Infancia clandestina,Benjamín Ávila,2012,untagged,Clandestine Childhood,127880,Film,es,112,54,6.9
+252,253,253,Otra mujer,Woody Allen,1988,untagged,Another Woman,22478,Film,en,84,236,6.8
+253,254,254,El imperio de los sentidos,Nagisa Oshima,1976,untagged,In the Realm of the Senses,5879,Film,ja,105,568,6.6
+254,255,255,What Ever Happened to Baby Jane?,Robert Aldrich,1962,liked,What Ever Happened to Baby Jane?,10242,Film,en,135,964,7.9
+255,256,256,The Guard,John Michael Mcdonagh,2011,untagged,The Guard,67913,Film,en,96,1115,7.0
+256,257,257,Trainspotting,Danny Boyle,1996,untagged,Trainspotting,627,Film,en,94,9213,8.0
+257,258,258,La cueva de los sueños olvidados,Werner Herzog,2010,untagged,Cave of Forgotten Dreams,59490,Documentary,en,90,313,7.1
+258,259,259,Andrei Rubliov,Andrei Tarkovsky,1966,untagged,Andrei Rublev,895,Film,ru,183,736,8.0
+259,260,260,A Brand New Life,Ounie Lecomte,2009,liked,A Brand New Life,48508,Film,ko,92,59,7.3
+260,261,261,El desencanto,Jaime Chavarri,1976,untagged,The Disenchantment,4496,Documentary,es,97,24,7.4
+261,262,262,La luna en ti,Diana Fabianova,2009,untagged,The Moon Inside You,54317,Documentary,en,75,1,10.0
+262,263,263,Después de tantos años,Ricardo Franco,1994,untagged,After All These Years,260141,Documentary,es,84,4,4.9
+263,264,264,Born Into Brothels,Zana Briski,2005,untagged,Born Into Brothels: Calcutta's Red Light Kids,1392,Documentary,en,85,201,6.9
+264,265,265,Shame,Steve Mcqueen,2011,untagged,Shame,76025,Film,en,102,2997,6.9
+265,266,266,Secret Sunshine,Lee Chang-Dong,2007,liked,Secret Sunshine,2015,Film,ko,143,193,7.1
+266,267,267,Grizzly Man,Werner Herzog,2005,untagged,Grizzly Man,501,Documentary,en,103,787,7.5
+267,268,268,Mónica del Raval,Fransesc Betriu,2009,liked,Mónica del Raval,134787,Documentary,es,108,8,6.1
+268,269,269,Tralas Luces,Sandra Sánchez,2011,untagged,Tralas Luces,367864,Documentary,en,112,1,6.0
+269,270,270,Encounters At The End Of The World,Werner Herzog,2007,liked,Encounters at the End of the World,12172,Documentary,en,99,249,7.4
+270,271,271,"Nanuk, el esquimal",Robert J. Flaherty,1922,untagged,Nanook of the North,669,Documentary,en,79,275,7.1
+271,272,272,El viaje del emperador,Luc Jacquet,2005,untagged,March of the Penguins,1667,Documentary,fr,80,1064,7.0
+272,273,273,El gran silencio,Philip Gröning,2005,untagged,Into Great Silence,11225,Documentary,de,162,35,7.0
+273,274,274,La rueda del tiempo,Werner Herzog,2003,untagged,Wheel of Time,51311,Documentary,de,83,42,6.5
+274,275,275,Océanos,Jacques Perrin,2010,untagged,Hidalgo,2023,Film,en,136,1114,6.8
+275,276,276,Microcosmos: le peuple de l´herbe,Claude Nuridsany,1996,liked,Microcosmos,9305,Documentary,fr,80,211,7.5
+276,277,277,Esperando a Superman,Davis Guggenheim,2010,untagged,"Waiting for ""Superman""",39440,Documentary,en,111,125,6.9
+277,278,278,Elisa K,Jordi Cadena,2010,untagged,Elisa K,110207,Film,ca,71,9,5.0
+278,279,279,Cinco condiciones,Lars Von Trier,2003,untagged,The Five Obstructions,12456,Documentary,da,90,143,6.9
+279,280,280,The Master,Paul Thomas Anderson,2012,untagged,The Master,68722,Film,en,137,2794,7.2
+280,281,281,Ai Weiwei: Never Sorry,Alison Klayman,2012,untagged,Ai Weiwei: Never Sorry,84169,Documentary,en,92,75,7.0
+281,282,282,De tu ventana a la mía,Paula Ortiz,2011,untagged,From Your Window to Mine,85452,Film,es,100,17,6.9
+282,283,283,Chico y Rita,Fernando Trueba,2010,untagged,Chico & Rita,63498,Film,es,94,217,7.2
+283,284,284,Buena Vista Social Club,Wim Wenders,1999,untagged,Buena Vista Social Club,11779,Documentary,en,105,292,7.5
+284,285,285,Martha Marcy May Marlene,Sean Durkin,2011,untagged,Martha Marcy May Marlene,50837,Film,en,101,694,6.6
+285,286,286,El cuaderno de barro,Isaki Lacuesta,2011,untagged,El cuaderno de barro,132053,Film,en,60,3,7.0
+286,287,287,Los pasos dobles,Isaki Lacuesta,2011,untagged,The Double Steps,80189,Film,es,86,3,6.5
+287,288,288,Blancanieves,Pablo Berger,2012,untagged,Blancanieves,127864,Film,es,104,220,7.3
+288,289,289,Léolo,Jean-Claude Lauzon,1992,liked,Léolo,11139,Film,fr,107,116,7.1
+289,290,290,La espalda del mundo,Javier Corcuera,2000,untagged,The Back of the World,115610,Documentary,en,89,4,6.5
+290,292,292,El taxista ful,Jo Sol,2006,liked,The Taxi Thief,334706,Film,es,90,6,6.3
+291,293,293,Drive,Nicolas Winding Refn,2011,untagged,Drive,64690,Film,en,100,12013,7.6
+292,294,294,La pesadilla de Darwin,Hubert Sauper,2004,untagged,Darwin's Nightmare,415253,Documentary,en,107,43,7.1
+293,295,295,Una verdad incómoda,Davis Guggenheim,2006,untagged,An Inconvenient Truth,1781,Documentary,en,100,821,7.0
+294,296,296,Familystrip,Luis Miñarro,2009,untagged,Familystrip,98383,Documentary,es,70,0,0.0
+295,297,297,La casa de mi abuela,Adán Aliaga,2005,untagged,My Grandmother's House,181977,Documentary,es,80,4,5.8
+296,298,298,Amour,Michael Haneke,2012,loved,Amour,86837,Film,fr,127,1515,7.8
+297,299,299,Woody Allen: A Documentary,Robert B. Weide,2012,untagged,Woody Allen: A Documentary,81167,Documentary,en,192,156,6.8
+298,300,300,Saló o los 120 días de Sodoma,Pier Paolo Pasolini,1975,untagged,"Salò, or the 120 Days of Sodom",5336,Film,it,117,1881,6.4
+299,301,301,Searching for Sugar Man,Malik Bendjelloul,2012,untagged,Searching for Sugar Man,84334,Documentary,en,85,861,7.9
+300,302,302,El bosque del luto,Naomi Kawase,2007,untagged,The Mourning Forest,2010,Film,ja,98,41,6.8
+301,303,303,Honor de cavalleria,Albert Serra,2006,liked,Honour of the Knights,85461,Film,ca,103,26,7.2
+302,304,304,En la ciudad de Sylvia,José Luis Guerin,2007,liked,In the City of Sylvia,29568,Film,es,82,46,7.0
+303,305,305,Fake Orgasm,Jo Sol,2010,untagged,Fake Orgasm,163822,Documentary,en,81,0,0.0
+304,306,306,La soledad,Jaime Rosales,2007,untagged,Solitary Fragments,39489,Film,es,135,18,5.9
+305,307,307,Gazta zati bat,Jon Maia,2012,untagged,A Piece of Cheese,109791,Documentary,eu,99,2,6.5
+306,308,308,Close Up,Abbas Kiarostami,1990,untagged,Close-Up,30017,Film,fa,98,338,7.9
+307,309,309,"Aguirre, la cólera de Dios",Werner Herzog,1972,untagged,"Aguirre, the Wrath of God",2000,Film,de,95,1006,7.5
+308,310,310,Play Time,Jacques Tati,1967,untagged,PlayTime,10227,Film,fr,115,520,7.7
+309,311,311,Finisterrae,Sergio Caballero,2010,untagged,Finisterrae,60120,Film,ca,80,20,7.6
+310,312,312,Boudu salvado de las aguas,Jean Renoir,1932,liked,Boudu Saved from Drowning,48365,Film,fr,84,117,7.0
+311,313,313,Banda aparte,Jean Luc Godard,1964,untagged,Band of Outsiders,8073,Film,fr,97,522,7.6
+312,314,314,Cómo cocinar tu vida,Doris Dörrie,2007,untagged,How to Cook Your Life,2049,Documentary,en,93,7,5.0
+313,315,315,Las amistades peligrosas,Stephen Frears,1988,untagged,Dangerous Liaisons,859,Film,en,119,1076,7.2
+314,316,316,Man on Wire,James Marsh,2008,untagged,Man on Wire,14048,Documentary,en,94,816,7.4
+315,317,317,Blow-Up,Michelangelo Antonioni,1966,untagged,Blow-Up,1052,Film,en,112,1155,7.4
+316,318,318,The General,Buster Keaton,1926,untagged,The General,961,Film,en,79,1136,8.0
+317,319,319,La noche americana,François Truffaut,1973,untagged,Day for Night,1675,Film,fr,116,562,7.8
+318,320,320,Luna de Avellaneda,Juan José Campanella,2004,untagged,Moon of Avellaneda,57977,Film,es,143,73,7.0
+319,321,321,Dolls,Takeshi Kitano,2002,untagged,Dolls,870,Film,ja,114,293,7.6
+320,322,322,Al este del edén,Elia Kazan,1955,untagged,East of Eden,220,Film,en,115,690,7.6
+321,323,323,Your Sister´s Sister,Lynn Shelton,2011,untagged,Your Sister's Sister,84355,Film,en,90,315,6.4
+322,324,324,Concursante,Rodrigo Cortés,2007,untagged,The Contestant,48453,Film,es,88,39,5.8
+323,325,325,Shadows,John Cassavetes,1959,untagged,Shadows,15484,Film,en,87,220,7.0
+324,326,326,El sabor de la sandía,Tsai Ming-liang,2005,untagged,The Wayward Cloud,36253,Film,zh,114,96,5.9
+325,327,327,Johnny cogió su fusil,Dalton Trumbo,1971,untagged,Johnny Got His Gun,16328,Film,en,112,353,7.5
+326,328,328,Buried,Rodrigo Cortés,2010,untagged,Buried,26388,Film,en,94,2648,6.6
+327,329,329,Extraños en el paraíso,Jim Jarmusch,1984,untagged,Stranger Than Paradise,469,Film,en,86,487,7.1
+328,330,330,Annie Leibovitz,Barbara Leibovitz,2006,untagged,Annie Leibovitz: Life Through a Lens,49255,Documentary,en,83,22,7.6
+329,331,331,The Turin Horse,Bela Tarr,2011,untagged,The Turin Horse,81401,Film,hu,155,330,7.7
+330,332,332,Los mundos sutiles,Eduardo Chapero Jackson,2015,untagged,Los mundos sutiles,622053,Documentary,es,85,4,6.5
+331,333,333,Moon,Duncan Jones,2009,untagged,Moon,17431,Film,en,97,5370,7.6
+332,334,334,La maleta mexicana,Trisha Ziff,2011,liked,The Mexican Suitcase,80118,Documentary,es,86,12,7.8
+333,335,335,Las tortugas también vuelan,Bahman Ghobadi,2004,untagged,Turtles Can Fly,8340,Film,ku,98,205,7.7
+334,336,336,Habemus Papam,Nanni Moretti,2011,untagged,We Have a Pope,61667,Film,it,102,502,6.8
+335,337,337,Jules y Jim,François Truffaut,1962,untagged,Jules and Jim,1628,Film,fr,106,892,7.6
+336,338,338,La sombra del iceberg,Hugo Domenech,2007,untagged,La sombra del iceberg,247635,Film,es,76,5,5.2
+337,339,339,Cinco metros cuadrados,Max Lemcke,2011,untagged,Five Square Meters,79749,Film,es,86,15,5.7
+338,340,340,Coffee and Cigarettes,Jim Jarmusch,2003,untagged,Coffee and Cigarettes,883,Film,en,96,865,7.0
+339,341,341,Esto no es una película,Jafar Panahi,2011,untagged,This Is Not a Film,83552,Documentary,fa,75,84,7.1
+340,342,342,Las nieves del Kilimanjaro,Robert Guediguian,2011,untagged,The Snows of Kilimanjaro,91690,Film,fr,107,118,6.7
+341,343,343,Los intocables,Brian de Palma,1986,untagged,Blind Trust,163533,Film,fr,86,7,6.0
+342,344,344,Proyecto Nim,James Marsh,2011,untagged,Project Nim,63579,Documentary,en,93,125,6.8
+343,345,345,REC,Jaume Balagueró,2007,untagged,Total Recall,861,Film,en,113,5425,7.3
+344,346,346,Down By Law,Jim Jarmusch,1986,untagged,Down by Law,1554,Film,en,106,685,7.4
+345,347,347,La vida de Pi,Ang Lee,2012,untagged,Trouble with the Curve,87825,Film,en,111,1483,7.0
+346,348,348,Night on Earth,Jim Jarmusch,1991,untagged,Night on Earth,339,Film,en,128,828,7.5
+347,349,349,El globo blanco,Jafar Panahi,1995,untagged,The White Balloon,46785,Film,fa,85,81,7.5
+348,350,350,El sabor de las cerezas,Abbas Kiarostami,1997,untagged,Taste of Cherry,30020,Film,fa,99,532,7.6
+349,351,351,Arrugas,Ignacio Ferreras,2011,untagged,Wrinkles,85444,Film,es,89,120,7.6
+350,352,352,Macbeth,Orson Welles,1948,untagged,Macbeth,27883,Film,en,107,153,7.3
+351,353,353,Persona,Ingmar Bergman,1966,liked,Persona,797,Film,sv,83,1988,8.2
+352,354,354,Capturing the Friedmans,Andrew Jarecki,2003,liked,Capturing the Friedmans,2260,Documentary,en,107,312,7.2
+353,355,355,La morte rouge,Víctor Erice,2006,untagged,La Morte Rouge,213598,Documentary,es,34,15,6.7
+354,356,356,Monos como Becky,Joaquim Jordá,1999,untagged,Monkeys Like Becky,32548,Documentary,es,97,4,6.5
+355,357,357,La nana,Sebastián Silva,2009,untagged,The Maid,27567,Film,es,97,74,6.7
+356,358,358,El curioso caso de Benjamin Button,David Fincher,2008,untagged,The Curious Case of Benjamin Button,4922,Film,en,166,12181,7.6
+357,359,359,"Comer, beber, amar",Ang Lee,1994,untagged,Eat Drink Man Woman,10451,Film,zh,123,302,7.5
+358,360,360,La doctrina del shock,Michael Winterbottom,2009,untagged,The Shock Doctrine,41116,Documentary,en,82,53,7.1
+359,361,361,La ceremonia,Claude Chabrol,1995,untagged,La Ceremonie,1802,Film,fr,111,304,7.3
+360,362,362,La colmena,Mario Camus,1982,untagged,The Beehive,104435,Film,es,112,40,6.3
+361,363,363,Hamlet,Laurence Olivier,1948,untagged,Hamlet,23383,Film,en,153,233,7.4
+362,364,364,La casa de Bernarda Alba,Mario Camus,1987,untagged,The House of Bernarda Alba,98997,Film,es,99,25,7.0
+363,365,365,La duda,John Patrick Shanley,2008,untagged,Doubt,14359,Film,en,104,1586,7.2
+364,366,366,De óxido y hueso,Jacques Audiard,2012,untagged,Rust and Bone,97365,Film,fr,123,1305,7.2
+365,367,367,El molino y la cruz,Lech Majewski,2011,untagged,The Mill and the Cross,57829,Film,pl,96,91,6.5
+366,368,368,Tyrannosaur,Paddy Considine,2011,untagged,Tyrannosaur,76543,Film,en,93,426,7.2
+367,369,369,"Primavera, Verano, Otoño, Invierno",Kim Ki-duk,2003,untagged,"Spring, Summer, Fall, Winter... and Spring",113,Film,ko,103,989,7.9
+368,370,370,Una película hablada,Manoel de Oliveira,2003,untagged,A Talking Picture,95536,Film,pt,96,32,7.1
+369,371,371,Azul,Krzysztof Kieslowski,1993,untagged,Three Colors: Blue,108,Film,fr,98,1561,7.7
+370,372,372,Nosferatu,Friedrich W. Murnau,1922,untagged,Nosferatu,653,Film,de,94,1840,7.7
+371,373,373,El símbolo y el cuate,Francesc Relea,2013,untagged,Serrat & Sabina: Two for the Road,219351,Documentary,es,82,2,7.0
+372,374,374,Violeta se fue a los cielos,Andrés Wood,2011,untagged,Violeta Went to Heaven,80717,Film,es,110,42,6.9
+373,375,375,Contraté a un asesino a sueldo,Aki Kaurismäki,1990,untagged,I Hired a Contract Killer,7975,Film,en,80,158,6.9
+374,376,376,La chica de la fábrica de cerillas,Aki Kaurismäki,1990,untagged,The Match Factory Girl,7974,Film,fi,69,221,7.3
+375,377,377,No amarás,Krzysztof Kieslowski,1988,untagged,A Short Film About Love,31056,Film,pl,87,331,7.8
+376,378,378,La vida útil,Federico Veiroj,2010,untagged,A Useful Life,81523,Film,es,63,21,6.2
+377,379,379,Blanco,Krzysztof Kieslowski,1994,untagged,The Man in White,261073,Film,es,90,8,3.8
+378,380,380,La vida de Adèle,Abdellatif Kechiche,2013,loved,Blue Is the Warmest Color,152584,Film,fr,180,4382,7.1
+379,381,381,Rojo,Krzysztof Kieslowski,1994,untagged,Three Colors: Red,110,Film,fr,100,1274,7.9
+380,382,382,Yi Yi,Edward Yang,2000,untagged,Yi Yi,25538,Film,zh,173,483,7.9
+381,383,383,La escurridiza,Abdellatif Kechiche,2003,untagged,Games of Love and Chance,1549,Film,fr,124,134,6.7
+382,384,384,Latcho Drom,Tony Gatlif,1993,untagged,Latcho Drom,47105,Documentary,fr,103,37,7.5
+383,385,385,Gente en sitios,Juan Cavestany,2013,liked,People in Places,212836,Film,es,78,16,5.2
+384,386,386,La espigadora,Agnes Varda,2000,liked,The Gleaners and I,44379,Documentary,fr,82,156,7.6
+385,387,387,Madeinusa,Claudia Llosa,2006,untagged,Madeinusa,46820,Film,es,100,20,6.0
+386,388,388,Los paraguas de Cherburgo,Jacques Demy,1964,untagged,The Umbrellas of Cherbourg,5967,Film,fr,93,705,7.4
+387,389,389,La gran belleza,Paolo Sorrentino,2013,liked,The Great Beauty,179144,Film,it,142,2958,7.5
+388,390,390,Stories We Tell,Sarah Polley,2013,untagged,Stories We Tell,128216,Documentary,en,109,201,7.0
+389,391,391,La jaula de oro,Diego Quemada-Díez,2013,liked,The Golden Dream,186976,Film,es,110,134,6.8
+390,392,392,Crepúsculo en Tokio,Yasujiro Ozu,1957,untagged,Tokyo Twilight,55192,Film,ja,141,107,7.6
+391,393,393,Fuego en el cuerpo,Lawrence Kasdan,1981,untagged,Body Heat,14412,Film,en,113,541,7.0
+392,394,394,La caza,Thomas Vinteberg,2012,liked,The Hunt,103663,Film,da,116,3887,8.1
+393,395,395,Hoy empieza todo,Bertrand Tavernier,1999,untagged,It All Starts Today,32273,Film,fr,117,47,6.9
+394,396,396,Un hombre sin pasado,Aki Kaurismäki,2002,untagged,The Man Without a Past,7294,Film,fi,97,305,7.4
+395,397,397,Bertsolari,Asier Altuna,2011,untagged,Bertsolari,139863,Documentary,eu,90,0,0.0
+396,398,398,Primavera tardía,Yasujiro Ozu,1949,liked,Late Spring,20530,Film,ja,110,361,8.0
+397,399,399,"He nacido, pero",Yasujiro Ozu,1932,untagged,"I Was Born, But...",28268,Film,ja,91,116,7.5
+398,400,400,El último Elvis,Armando Bo,2012,untagged,The Last Elvis,84302,Film,es,92,17,5.5
+399,401,401,Otoño tardío,Yasujiro Ozu,1960,untagged,Late Autumn,21967,Film,ja,128,132,7.8
+400,402,402,La hierba errante,Yasujiro Ozu,1959,untagged,Floating Weeds,46918,Film,ja,115,159,7.5
+401,403,403,"Almanya, bienvenido a Alemania",Yasemin Samdereli,2011,untagged,Almanya: Welcome to Germany,63849,Film,de,101,172,6.6
+402,404,404,Guest,José Luis Guerin,2011,untagged,Guest,85924,Documentary,en,126,8,6.0
+403,405,405,La mujer sin piano,Javier Rebollo,2009,untagged,Woman Without Piano,237771,Film,es,94,9,5.9
+404,406,406,Stockholm,Rodrigo Sorogoyen,2013,untagged,Stockholm,185738,Film,es,90,94,6.3
+405,407,407,Días de pesca,Carlos Sorin,2012,untagged,Gone Fishing,128070,Film,es,78,11,5.7
+406,408,408,Mud,Jeff Nichols,2012,untagged,Mud,103731,Film,en,130,2627,7.1
+407,409,409,La ventana,Carlos Sorin,2008,untagged,Rear Window,567,Film,en,115,6115,8.4
+408,410,410,Page One. The New York Times,Andrew Rossi,2011,untagged,Page One: Inside the New York Times,63144,Documentary,en,88,59,6.9
+409,411,411,Opera Prima,Fernando Trueba,1980,untagged,Opera Prima,4500,Film,es,94,12,6.0
+410,412,412,Stella,Sylvie Verheyde,2008,untagged,Stella,17605,Film,fr,103,52,6.8
+411,413,413,El lado oscuro del corazón,Eliseo Subiela,1992,untagged,The Dark Side of the Heart,74938,Film,es,127,98,7.3
+412,414,414,Ayurveda,Pan Nalin,2001,untagged,Ayurveda: Art of Being,73981,Documentary,en,101,6,5.2
+413,415,415,I am,Tom Shadyac,2010,untagged,I Am Legend,6479,Film,en,101,15027,7.2
+414,416,416,La plaga,Neus Ballús,2012,untagged,The Plague Dogs,30060,Film,en,103,230,7.9
+415,417,417,Arraianos,Eloy Enciso,2012,untagged,Arraianos,153571,Film,es,70,6,6.0
+416,418,418,Gravity,Alfonso Cuarón,2013,untagged,Gravity,49047,Film,en,91,14716,7.2
+417,419,419,En la casa,François Ozon,2012,untagged,La nena se casa... en Navidad,419128,Film,es,0,0,0.0
+418,420,420,La herida,Fernando Franco,2013,untagged,Wounded,209418,Film,es,98,31,4.9
+419,421,421,Las malas hierbas,Alain Resnais,2009,untagged,Wild Grass,37842,Film,fr,104,75,6.0
+420,422,422,El tren de la memoria,Marta Arribas,2005,untagged,Train of Memory,100085,Documentary,es,85,2,6.5
+421,423,423,Rebecca,Alfred Hitchcock,1940,untagged,Rebecca,223,Film,en,130,1642,7.9
+422,424,424,Shortbus,John Cameron Mitchell,2006,untagged,Shortbus,1378,Film,en,101,470,6.3
+423,425,425,Extraños en un tren,Alfred Hitchcock,1951,untagged,Strangers on a Train,845,Film,en,101,1564,7.7
+424,426,426,Alguien voló sobre el nido del cuco,Milos Forman,1975,loved,One Flew Over the Cuckoo's Nest,510,Film,en,133,9920,8.4
+425,427,427,Solo ante el peligro,Fred Zinnemann,1952,loved,High Noon,288,Film,en,85,1324,7.7
+426,428,428,All About Eve,Joseph L. Mankiewicz,1950,untagged,All About Eve,705,Film,en,139,1431,8.1
+427,429,429,Casablanca,Michael Curtiz,1942,untagged,Casablanca,289,Film,en,102,5103,8.2
+428,430,430,Ciudadano Kane,Orson Welles,1941,untagged,Citizen Kane,15,Film,en,119,5188,8.0
+429,431,431,El disputado voto del señor Cayo,Antonio Giménez-Rico,1986,untagged,El disputado voto del señor Cayo,99766,Film,es,94,10,5.3
+430,432,432,La mitad del cielo,Manuel Gutiérrez Aragón,1986,untagged,La mitad del cielo,186149,Film,es,127,6,6.3
+431,433,433,El hombre tranquilo,John Ford,1952,loved,The Quiet Man,3109,Film,en,129,479,7.3
+432,434,434,Una familia de Tokio,Yoji Yamada,2013,untagged,Tokyo Family,187662,Film,ja,146,57,7.4
+433,435,435,Innisfree,José Luis Guerin,1990,untagged,Innisfree,100101,Documentary,en,110,4,6.0
+434,436,436,Tren de sombras,José Luis Guerin,1997,untagged,Train of Shadows,32934,Film,es,88,15,6.8
+435,437,437,Ida,Pawel Pawlikowski,2013,untagged,Ida,209274,Film,pl,82,920,7.2
+436,438,438,Tiempo de revancha,Adolfo Aristarain,1981,untagged,Time for Revenge,43428,Film,es,112,26,7.0
+437,439,439,Her,Spike Jonze,2013,untagged,Her,152601,Film,en,126,13683,7.9
+438,441,441,Omar,Hany Abu-Assad,2013,untagged,Omar Killed Me,68178,Film,fr,85,97,6.6
+439,442,442,Cinema Paradiso,Giuseppe Tornatore,1988,untagged,Cinema Paradiso,11216,Film,it,124,4107,8.5
+440,443,443,El artista y la modelo,Fernando Trueba,2012,untagged,The Artist and the Model,115821,Film,es,104,39,6.1
+441,444,444,Bestias del sur salvaje,Benh Zeitlin,2012,untagged,Beasts of the Southern Wild,84175,Film,en,93,997,6.8
+442,445,445,Kramer contra Kramer,Robert Benton,1979,untagged,Kramer vs. Kramer,12102,Film,en,105,2072,7.6
+443,446,446,Amor bajo el espino blanco,Zhang Yimou,2010,untagged,Under the Hawthorn Tree,50542,Film,zh,113,122,7.7
+444,447,447,Loreak,José Mari Goenaga,2014,untagged,Flowers,260313,Film,eu,99,53,6.8
+445,448,448,Ocho apellidos vascos,Emilio Martínez-Lázaro,2014,untagged,Spanish Affair,236737,Film,es,98,596,6.7
+446,449,449,Las brujas de Zugarramurdi,Alex De La Iglesia,2013,untagged,Witching & Bitching,179538,Film,es,110,612,6.4
+447,450,450,Fish Tank,Andrea Arnold,2009,untagged,Fish Tank,24469,Film,en,123,784,7.0
+448,451,451,Hannah Arendt,Margarethe von Trotta,2012,untagged,Hannah Arendt,121873,Film,de,113,257,6.9
+449,452,452,La bicicleta verde,Haifaa Al-Mansour,2012,untagged,Wadjda,129112,Film,ar,98,459,7.2
+450,453,453,Sólo un beso (Ae Fond Kiss),Ken Loach,2004,loved,Ae Fond Kiss...,1404,Film,en,104,103,6.5
+451,454,454,Esa pareja feliz,Luis G. Berlanga,1953,untagged,That Happy Couple,111471,Film,es,78,24,6.3
+452,455,455,Asier eta biok,Aitor Merino,2014,untagged,Asier ETA biok,234155,Documentary,es,94,11,6.4
+453,456,456,Some Like It Hot,Billy Wilder,1959,untagged,Some Like It Hot,239,Film,en,122,3257,8.1
+454,457,457,El último beso,Gabriele Muccino,2001,untagged,The Last Kiss,12308,Film,it,115,490,6.4
+455,458,458,Dancing Dreams,Rainer Hoffman,2010,untagged,Dancing Dreams,57399,Documentary,de,92,13,6.8
+456,459,459,Flor del desierto,Sherry Hormann,2009,untagged,Desert Flower,33997,Film,en,120,392,7.6
+457,460,460,Caos calmo,Antonello Grimaldi,2008,untagged,Quiet Chaos,22274,Film,it,108,182,6.5
+458,461,461,Iluminados por el fuego,Tristán Bauer,2005,untagged,Blessed by Fire,60435,Film,es,100,19,6.2
+459,462,462,Buscando a Eric,Ken Loach,2009,liked,Looking for Eric,18898,Film,en,119,313,6.5
+460,463,463,Cuadernos de contabilidad de Manolo Millares,Juan Millares,2006,untagged,Cuadernos de contabilidad de Manolo Millares,219301,Documentary,en,0,0,0.0
+461,464,464,La parte de los ángeles,Ken Loach,2012,untagged,The Angels' Share,103747,Film,en,101,526,7.0
+462,465,465,The Act of Killing,Joshua Oppenheimer,2012,untagged,The Act of Killing,123678,Documentary,id,159,634,7.7
+463,466,466,El gran hotel Budapest,Wes Anderson,2014,untagged,The Grand Budapest Hotel,120467,Film,en,100,14138,8.1
+464,467,467,Sud Express,Chema de la Peña,2006,untagged,Sud express,107418,Film,es,102,4,4.5
+465,468,468,Interstellar,Christopher Nolan,2014,untagged,Interstellar,157336,Film,en,169,33560,8.4
+466,469,469,Lourdes,Jessica Hausner,2009,liked,Lourdes,41123,Film,fr,95,68,6.7
+467,470,470,Ciutat morta,Xavier Artigas,2013,untagged,The Mortal Instruments: City of Bones,123553,Film,en,130,4331,6.4
+468,471,471,Le père de mes enfants,Mia Hansen-Love,2009,untagged,Father of My Children,43614,Film,fr,111,60,6.7
+469,472,472,Exils,Tony Gatlif,2004,untagged,Exiles,18497,Film,fr,104,41,5.9
+470,473,473,Garage,Lenny Abrahamson,2007,untagged,Garage,18595,Film,en,85,37,6.9
+471,474,474,La pesca del salmón en Yemen,Lasse Hallstrom,2011,untagged,Salmon Fishing in the Yemen,81025,Film,en,107,833,6.4
+472,475,475,Naufragio,Pedro Aguilera,2011,untagged,Naufragio,112251,Film,es,95,4,5.2
+473,476,476,Magical Girl,Carlos Vermut,2014,untagged,Magical Girl,282983,Film,es,127,182,7.4
+474,477,477,Carmina y amén,Paco León,2014,untagged,Carmina and Amen,241968,Film,es,97,78,6.1
+475,478,478,La sal de la tierra,Wim Wenders,2014,untagged,The Salt of the Earth,265297,Documentary,fr,110,577,8.1
+476,479,479,En un mundo mejor,Susanne Bier,2010,liked,In a Better World,44716,Film,da,118,386,7.1
+477,480,480,Mujeres en el Cairo,Yousry Nasrallah,2009,untagged,"Scheherazade, Tell Me a Story",44096,Film,ar,134,24,6.8
+478,481,481,Tapas,José Corbacho,2005,untagged,Tapas,33227,Film,es,94,31,5.8
+479,482,482,"Urte berri on, amona!",Telmo Esnal,2011,untagged,"Happy New Year, Grandma!",126131,Film,es,107,2,6.5
+480,483,483,Carmina o revienta,Paco León,2012,untagged,Carmina or Blow Up,107916,Film,es,71,81,6.3
+481,484,484,Confidencias muy íntimas,Patrice Leconte,2004,untagged,Intimate Strangers,21200,Film,fr,104,62,6.3
+482,485,485,"Dos días, una noche",Jean-Pierre Dardenne,2014,liked,"Two Days, One Night",221902,Film,fr,95,872,6.9
+483,486,486,Chicago Cab,Mary Cybulski,1998,untagged,Chicago Cab,116008,Film,en,96,14,5.3
+484,487,487,La dama de hierro,Phyllida Lloyd,2011,untagged,The Iron Lady,71688,Film,en,105,1642,6.4
+485,488,488,Pride,Matthew Warchus,2014,untagged,Pride,234200,Film,en,120,1239,7.7
+486,489,489,Whiplash,Damien Chazelle,2014,untagged,Whiplash,244786,Film,en,107,14322,8.4
+487,490,490,Lejos del cielo,Todd Haynes,2002,untagged,Far from Heaven,10712,Film,en,107,566,7.0
+488,491,491,La isla mínima,Alberto Rodriguez,2014,untagged,Marshland,236735,Film,es,105,913,7.0
+489,492,492,Touch of Sin,Jia Zhang Ke,2013,untagged,A Touch of Sin,187022,Film,zh,131,295,7.2
+490,493,493,Juntos,Lukas Moodysson,2000,untagged,Together,742,Film,sv,106,218,7.0
+491,494,494,Butch Cassidy And The Sundance Kid,George Roy Hill,1969,loved,Butch Cassidy and the Sundance Kid,642,Film,en,111,2040,7.6
+492,495,495,Séraphine,Martin Provost,2009,untagged,Séraphine,14415,Film,fr,125,107,6.8
+493,496,496,Birdman,Alejandro G. Iñarritu,2014,untagged,Birdman or (The Unexpected Virtue of Ignorance),194662,Film,en,120,12357,7.5
+494,497,497,La sal de este mar,Annemarie Jacir,2008,untagged,Salt of This Sea,8932,Film,ar,109,19,6.1
+495,498,498,El impostor,Bart Layton,2012,untagged,The Imposter,84287,Documentary,en,99,693,7.3
+496,499,499,Orfeo Negro,Marcel Camus,1959,untagged,Black Orpheus,40423,Film,pt,100,192,7.0
+497,500,500,Jiro Dreams of Sushi,David Gelb,2012,untagged,Jiro Dreams of Sushi,80767,Documentary,ja,82,661,7.8
+498,501,501,Lo que hacemos en las sombras,Jemaine Clement,2014,untagged,What We Do in the Shadows,246741,Film,en,86,3332,7.6
+499,502,502,Boyhood,Richard Linklater,2014,liked,Boyhood,85350,Film,en,166,4921,7.5
+500,503,503,Lugares comunes,Adolfo Aristarain,2002,loved,Common Ground,32546,Film,es,110,26,7.6
+501,504,504,Milk,Noemí Weis,2015,untagged,Milk,463568,Documentary,en,91,1,5.0
+502,505,505,Persepolis,Vincent Paronnaud,2007,untagged,Persepolis,2011,Film,fr,95,1827,7.9
+503,506,506,Una segunda madre,Anna Muylaert,2015,liked,The Second Mother,310569,Film,pt,112,689,8.0
+504,507,507,Mandarinas,Zaza Urushadze,2013,liked,Tangerines,238628,Film,et,87,475,7.7
+505,508,508,Los caballos de dios,Nabil Ayouch,2012,untagged,Horses of God,134908,Film,fr,115,47,7.3
+506,509,509,Adaptation (El ladrón de orquídeas),Spike Jonze,2002,untagged,Adaptation.,2757,Film,en,115,2315,7.4
+507,510,510,Un hombre soltero,Tom Ford,2009,untagged,A Single Man,34653,Film,en,97,1464,7.3
+508,511,511,Winter Sleep,Nuri Bilge Ceylan,2014,untagged,Winter Sleep,265169,Film,tr,196,504,7.6
+509,512,512,Sensitive. The Untold Story,Will Harper,2015,liked,Sensitive: The Untold Story,447044,Documentary,en,63,4,6.3
+510,513,513,El abuelo,José Luis Garci,1998,untagged,The Grandfather,69851,Film,es,151,34,6.6
+511,514,514,Underground,Emir Kusturica,1995,untagged,Underground,11902,Film,sr,170,617,7.8
+512,515,515,El cielo sobre Berlín,Wim Wenders,1987,untagged,Wings of Desire,144,Film,de,128,1203,7.8
+513,516,516,Bienvenidos al norte,Dany Boon,2008,untagged,Welcome to the Sticks,8265,Film,fr,106,2336,6.7
+514,517,517,Un día perfecto,Fernando León De Aranoa,2015,untagged,A Perfect Day,321751,Film,en,106,586,6.7
+515,518,518,Clerks,Kevin Smith,1994,untagged,Clerks,2292,Film,en,92,2343,7.4
+516,519,519,Vivir es fácil con los ojos cerrados,David Trueba,2013,liked,Living Is Easy with Eyes Closed,209415,Film,es,108,154,6.8
+517,520,520,Los falsificadores,Stefan Ruzowitzky,2008,loved,The Counterfeiters,7862,Film,de,98,575,7.4
+518,521,521,La academia de las musas,José Luis Guerin,2015,loved,The Academy of Muses,353793,Film,es,92,11,6.7
+519,522,522,Una pastelería en Tokio,Naomi Kawase,2015,liked,Sweet Bean,319373,Film,ja,113,490,7.5
+520,523,523,Los descendientes,Alexander Payne,2012,untagged,The Descendants,65057,Film,en,115,2632,6.8
+521,524,524,Taxi Teheran,Jafar Panahi,2015,untagged,Taxi,320006,Film,fa,82,395,7.1
+522,525,525,7 días en La Habana,Laurent Cantet,2012,untagged,7 Days in Havana,94904,Film,es,129,97,5.8
+523,526,526,Cookie´s Fortune,Robert Altman,1999,untagged,Cookie's Fortune,9465,Film,en,118,157,6.4
+524,527,527,Gomorra,Mateo Garrone,2008,untagged,Gomorrah,8882,Film,it,136,1149,6.9
+525,528,528,Paulina,Santiago Mitre,2015,loved,Paulina,336664,Film,es,103,47,6.4
+526,529,529,Spotlight,Thomas Mccarthy,2015,liked,Spotlight,314365,Film,en,129,7903,7.8
+527,530,530,Sicario,Denis Villeneuve,2015,untagged,Sicario,273481,Film,en,122,8061,7.4
+528,531,531,La soledad del corredor de fondo,Tony Richardson,1962,untagged,The Loneliness of the Long Distance Runner,16103,Film,en,104,135,7.2
+529,532,532,La novia,Paula Ortiz,2015,untagged,The Bride,350849,Film,es,93,95,6.7
+530,533,533,Mother,Bong Joon-ho,2009,untagged,Mother,698885,Documentary,en,20,2,8.0
+531,534,534,El club,Pablo Larrain,2015,untagged,The Club,319995,Film,es,97,245,6.8
+532,535,535,Siempre Alice,Richard Glatzer,2014,untagged,Still Alice,284293,Film,en,100,2932,7.5
+533,536,536,A cambio de nada,Daniel Guzmán,2015,untagged,Nothing in Return,326198,Film,es,97,139,6.4
+534,537,537,12 años de esclavitud,Steve Mcqueen,2013,untagged,12 Years a Slave,76203,Film,en,134,10829,7.9
+535,538,538,Dheepan,Jacques Audiard,2015,untagged,Dheepan,314402,Film,fr,115,435,6.8
+536,539,539,The Imitation Game,Morten Tyldum,2014,untagged,The Imitation Game,205596,Film,en,113,16308,8.0
+537,540,540,La red social,David Fincher,2010,untagged,The Social Network,37799,Film,en,121,11482,7.4
+538,541,541,Samaritan Girl,Kim Ki-duk,2004,untagged,Samaritan Girl,1279,Film,ko,95,190,6.9
+539,542,542,Carol,Todd Haynes,2015,untagged,Carol,258480,Film,en,118,3526,7.5
+540,543,543,Me and Earl and the Dying Girl,Alfonso Gómez-Rejón,2015,untagged,Me and Earl and the Dying Girl,308369,Film,en,105,2455,7.5
+541,544,544,El olivo,Iciar Bollaín,2016,untagged,The Olive Tree,366505,Film,es,96,125,6.7
+542,545,545,El hijo de Saúl,Laszlo Nemes,2015,untagged,Son of Saul,336050,Film,hu,107,1001,7.1
+543,546,546,Truman,Cesc Gay,2015,liked,Truman,341744,Film,es,105,358,7.0
+544,547,547,B (Bárcenas),David Ilundain,2015,liked,B,346352,Film,es,80,22,6.9
+545,548,548,Nadie quiere la noche,Isabel Coixet,2015,untagged,Endless Night,320004,Film,en,104,46,6.0
+546,549,549,Amama,Asier Altuna,2015,liked,Amama,351095,Film,eu,103,12,6.2
+547,550,550,Born to be Blue,Robert Budreau,2015,liked,Born to Be Blue,327528,Film,en,97,194,6.6
+548,551,551,Return to Homs,Talal Derki,2013,untagged,Return to Homs,238561,Documentary,en,87,67,6.7
+549,552,552,Breakfast at Tiffany´s,Blake Edwards,1961,untagged,Breakfast at Tiffany's,164,Film,en,115,3984,7.7
+550,553,553,Difret,Zeresenay Mehary,2014,untagged,Difret,245855,Film,am,96,54,6.2
+551,554,554,Miles Ahead,Don Cheadle,2016,untagged,Miles Ahead,316000,Film,en,100,211,6.5
+552,555,555,"Amy, la chica detrás del nombre",Asif Kapadia,2015,untagged,Amy,331781,Documentary,en,128,1137,7.6
+553,556,556,Citizenfour,Laura Poitras,2014,untagged,Citizenfour,293310,Documentary,en,114,1222,7.7
+554,557,557,El viento se levanta,Hayao Miyazaki,2013,untagged,The Wind Rises,149870,Film,ja,126,2780,7.8
+555,558,558,Corazón gigante,Dagur Kari,2015,liked,Virgin Mountain,320736,Film,is,90,216,7.2
+556,559,559,El abrazo partido,Daniel Burman,2004,untagged,Lost Embrace,49681,Film,es,99,35,6.3
+557,560,560,Leviatán,Andrey Zvyagintsev,2014,untagged,Leviathan,265180,Film,ru,141,800,7.4
+558,561,561,En tierra hostil,Kathryn Bigelow,2008,untagged,The Hurt Locker,12162,Film,en,131,5310,7.3
+559,562,562,Un lugar donde quedarse,Sam Mendes,2009,untagged,Away We Go,19255,Film,en,98,535,6.6
+560,563,563,María Estuardo,John Ford,1936,untagged,Mary of Scotland,43875,Film,en,123,30,6.5
+561,564,564,Theeb (Lobo),Naji Abu Nowar,2014,untagged,Theeb,287628,Film,ar,100,166,6.7
+562,565,565,Astral,Jordi Évole,2016,untagged,Astral,419412,Documentary,es,102,2,7.2
+563,566,566,45 años,Andrew Haigh,2015,loved,45 Years,311291,Film,en,95,698,6.6
+564,567,567,Les Cowboys,Thomas Bidegain,2015,liked,Les Cowboys,336811,Film,fr,114,114,6.4
+565,568,568,A Quiet Passion,Terence Davies,2016,liked,A Quiet Passion,368942,Film,en,125,169,6.1
+566,569,569,Requisitos para ser una persona normal,Leticia Dolera,2015,untagged,Requirements to Be a Normal Person,331354,Film,es,90,119,6.5
+567,570,570,Mejor imposible,James L. Brooks,1997,untagged,As Good as It Gets,2898,Film,en,139,3566,7.4
+568,571,571,Nuestra hermana pequeña,Hirokazu Kore-Eda,2015,untagged,Our Little Sister,315846,Film,ja,127,430,7.6
+569,572,572,The Remains of the Day,James Ivory,1993,untagged,The Remains of the Day,1245,Film,en,134,1212,7.4
+570,573,573,The Quiet American,Philip Noyce,2002,liked,The Quiet American,8198,Film,en,101,270,6.5
+571,574,574,My Beautiful Laundrette,Stephen Frears,1985,untagged,My Beautiful Laundrette,11240,Film,en,98,241,6.7
+572,575,575,Little Buddha,Bernardo Bertolucci,1993,untagged,Little Buddha,1689,Film,en,140,381,6.2
+573,576,576,Tarde para la ira,Raúl Arévalo,2016,untagged,The Fury of a Patient Man,411638,Film,es,92,410,6.6
+574,577,577,El viaje de Chihiro,Hayao Miyazaki,2001,untagged,Spirited Away,129,Film,ja,125,15486,8.5
+575,578,578,"I, Daniel Blake",Ken Loach,2016,untagged,"I, Daniel Blake",374473,Film,en,100,1305,7.7
+576,579,579,La estación de las mujeres,Leena Yadav,2015,untagged,Parched,352205,Film,hi,116,80,7.4
+577,580,580,La La Land,Damien Chazelle,2016,loved,La La Land,313369,Film,en,129,15977,7.9
+578,581,581,Cuando tienes 17 años,André Téchiné,2016,untagged,Being 17,377154,Film,fr,116,344,6.9
+579,582,582,La vida de Calabacín,Claude Barras,2016,untagged,My Life as a Zucchini,393559,Film,fr,66,1261,7.8
+580,583,583,La chica danesa,Tom Hooper,2015,untagged,The Danish Girl,306819,Film,en,119,5569,7.6
+581,584,584,Regreso a Ítaca,Laurent Cantet,2014,untagged,Return to Ithaca,284290,Film,fr,95,27,6.2
+582,585,585,El loco del pelo rojo,Vincente Minnelli,1956,untagged,Lust for Life,29592,Film,en,122,176,7.1
+583,586,586,La fuerza del cariño,James L. Brooks,1983,untagged,Terms of Endearment,11050,Film,en,132,695,7.1
+584,587,587,Neruda,Pablo Larrain,2016,untagged,Neruda,351454,Film,es,108,245,6.3
+585,588,588,Elle,Paul Verhoeven,2016,untagged,Elle,337674,Film,fr,130,1766,6.7
+586,589,589,Negación,Mick Jackson,2016,untagged,Denial,402298,Film,en,109,607,6.8
+587,590,590,El abrazo de la serpiente,Ciro Guerra,2016,untagged,Embrace of the Serpent,336808,Film,es,125,432,7.7
+588,591,591,La fiesta de despedida,Sharon Maymon,2014,untagged,The Farewell Party,287483,Film,he,90,47,6.6
+589,592,592,Lady Macbeth,William Oldroyd,2016,untagged,Lady Macbeth,410117,Film,en,86,709,6.6
+590,593,593,Mademoiselle,Park Chan-Wook,2016,untagged,"Farewell, My Indian Soldier",481474,Documentary,fr,56,1,6.0
+591,594,594,Mr. Kaplan,Álvaro Brechner,2014,untagged,Mr. Kaplan,284050,Film,es,98,23,6.2
+592,595,595,Las vidas de Grace (Short Term 12),Destin Cretton,2013,untagged,Short Term 12,169813,Film,en,96,1225,7.8
+593,596,596,Big,Penny Marshall,1988,untagged,Big,2280,Film,en,104,3392,7.2
+594,597,597,Marie Curie,Marie-Noëlle Sehr,2016,untagged,Marie Curie,412204,Film,fr,95,90,5.1
+595,598,598,El ciudadano ilustre,Gastón Duprat,2016,liked,The Distinguished Citizen,408537,Film,es,118,236,7.3
+596,599,599,Relatos salvajes,Damián Szifrón,2014,untagged,Wild Tales,265195,Film,es,122,3171,7.9
+597,600,600,Mommy,Xavier Dolan,2014,untagged,Mommy,265177,Film,fr,138,2593,8.2
+598,601,601,La mejor oferta,Giuseppe Tornatore,2013,untagged,The Best Offer,152742,Film,it,131,2710,7.8
+599,602,602,Timbuktu,Abderrahmane Sissako,2014,untagged,Timbuktu,265228,Film,fr,96,442,7.0
+600,603,603,Gigante,Adrian Biniez,2009,untagged,Giant,39488,Film,es,88,21,6.3
+601,604,604,The Trip,Michael Winterbottom,2010,untagged,The Trip,63578,Film,en,107,267,6.7
+602,605,605,Los caballeros blancos,Joachim Lafosse,2015,untagged,The White Knights,334918,Film,fr,112,40,5.6
+603,606,606,Anomalisa,Charlie Kaufman,2015,untagged,Anomalisa,291270,Film,en,90,1619,7.1
+604,607,607,Gandhi,Richard Attenborough,1982,untagged,Gandhi,783,Film,en,191,2170,7.5
+605,608,608,Con la pata quebrada,Diego Galán,2013,untagged,Barefoot in the Kitchen,218681,Documentary,es,84,3,6.0
+606,609,609,Sparrows,Runar Runarsson,2015,liked,Sparrows,334922,Film,is,99,34,6.5
+607,612,612,Mapa,Elías León Siminiani,2012,untagged,Map,160777,Film,es,85,6,5.2
+608,613,613,Lisboa Story,Wim Wenders,1994,untagged,Lisbon Story,390,Film,en,100,104,7.2
+609,614,614,InnSaei,Kristin Olafsdottir,2016,untagged,InnSæi,431242,Documentary,en,74,23,7.0
+610,615,615,Mystery Train,Jim Jarmusch,1989,untagged,Mystery Train,11305,Film,en,106,403,7.3
+611,616,616,Frágil equilibrio,Guillermo García López,2016,untagged,Delicate Balance,428690,Documentary,es,83,2,8.5
+612,617,617,Los amantes del Pont Neuf,Leox Carax,1991,untagged,The Lovers on the Bridge,2767,Film,fr,125,286,7.4
+613,618,618,Inside Out,Pete Docter,2015,untagged,Inside Out,150540,Film,en,95,19980,7.9
+614,619,619,Verano de 1993,Carla Simón,2017,liked,Summer 1993,438634,Film,ca,96,181,7.1
+615,620,620,Paterson,Jim Jarmusch,2016,loved,Paterson,370755,Film,en,118,1777,7.1
+616,621,621,Manchester by the sea,Kenneth Lonergan,2016,untagged,Manchester by the Sea,334541,Film,en,138,5559,7.5
+617,622,622,La chica desconocida,Jean-Pierre Dardenne,2016,untagged,The Unknown Girl,340481,Film,fr,106,375,6.2
+618,623,623,Handia,Jon Garaño,2017,untagged,The Giant,421560,Film,eu,114,136,6.6
+619,624,624,El viajante,Asghar Farhadi,2017,untagged,The Salesman,375315,Film,fa,125,803,7.3
+620,625,625,Rosalie Blum,Julien Rappeneau,2015,untagged,Rosalie Blum,381353,Film,fr,97,108,6.4
+621,626,626,Life Aquatic,Wes Anderson,2005,untagged,The Life Aquatic with Steve Zissou,421,Film,en,119,2708,7.1
+622,627,627,La llegada,Denis Villeneuve,2016,untagged,Arrival,329865,Film,en,116,16925,7.6
+623,628,628,Mustang,Deniz G. Ergüven,2015,untagged,Mustang,336804,Film,tr,97,1314,7.8
+624,629,629,El otro lado de la esperanza,Aki Kaurismäki,2017,untagged,The Other Side of Hope,429199,Film,fi,101,287,7.0
+625,630,630,Rams,Grímur Hakonarson,2015,untagged,Rams,336222,Film,is,93,258,7.0
+626,631,631,The Lobster,Giorgo Lanthimos,2015,untagged,The Lobster,254320,Film,en,119,5754,7.0
+627,632,632,David Lynch: The Art Life,Jon Nguyen,2017,untagged,David Lynch: The Art Life,413765,Documentary,en,89,175,6.9
+628,633,633,Fuego en el mar,Gianfranco Rosi,2016,untagged,Fire at Sea,377151,Documentary,it,114,230,6.7
+629,634,634,Tribunal,Chaitanya Tamhane,2014,liked,Runaway Jury,11329,Film,en,127,1180,6.9
+630,635,635,Loving,Jeff Nichols,2016,untagged,Loving,339419,Film,en,123,879,6.7
+631,636,636,Eden,Mia Hansen-Love,2014,loved,Eden,360339,Film,en,97,57,5.2
+632,637,637,La invitación,Karyn Kusama,2015,loved,La invitación del presidente,329631,Film,es,0,0,0.0
+633,638,638,El hombre de las mil caras,Alberto Rodriguez,2016,untagged,Smoke & Mirrors,361777,Film,es,123,226,6.5
+634,639,639,Jackie,Pablo Larrain,2016,untagged,Jackie,376866,Film,en,100,2224,6.5
+635,640,640,Pelo malo,Mariana Rondón,2013,untagged,Bad Hair,214138,Film,es,93,53,6.6
+636,641,641,Captain Fantastic,Matt Ross,2016,untagged,Captain Fantastic,334533,Film,en,118,6143,7.9
+637,642,642,"Right Now, Wrong Then",Sang-soo Hong,2015,loved,"Right Now, Wrong Then",354275,Film,ko,121,139,6.9
+638,643,643,Yourself and Yours,Sang-soo Hong,2016,loved,Yourself and Yours,410678,Film,ko,87,45,6.2
+639,644,644,Renoir,Gilles Bourdos,2012,untagged,Renoir,134673,Film,fr,111,121,6.3
+640,645,645,La librería,Isabel Coixet,2017,untagged,The Bookshop,444539,Film,en,110,409,6.5
+641,646,646,In Another Country,Sang-soo Hong,2012,untagged,In Another Country,103753,Film,ko,89,104,6.2
+642,647,647,Victoria,Sebastian Schipper,2015,untagged,Victoria,320007,Film,de,138,1137,7.6
+643,648,648,Perfectos desconocidos,Alex De La Iglesia,2017,untagged,Perfect Strangers,435126,Film,es,101,614,6.7
+644,649,649,I Am Not Your Negro,Raoul Peck,2017,untagged,I Am Not Your Negro,411019,Documentary,en,93,444,7.7
+645,650,650,Dunkerque,Christopher Nolan,2017,untagged,Dunkirk,374720,Film,en,107,15790,7.5
+646,651,651,El estudiante,Santiago Mitre,2011,untagged,El estudiante,48502,Film,es,95,56,7.6
+647,652,652,Princesa,Lee Su-jin,2013,untagged,Uta no☆Prince-sama♪ Maji Love 2000%: Shining Star Xmas,582665,Film,ja,22,2,5.5
+648,653,653,Un minuto de gloria,Kristina Gorzeva,2016,untagged,Glory,408293,Film,bg,101,58,7.3
+649,654,654,Irrational Man,Woody Allen,2015,untagged,Irrational Man,282984,Film,en,95,2290,6.5
+650,655,655,No Direction Home,Martin Scorsese,2005,untagged,No Direction Home: Bob Dylan,19082,Documentary,en,208,114,7.7
+651,656,656,La camarera Lynn,Ingo Haeb,2014,untagged,The Chambermaid Lynn,293069,Film,de,89,20,5.2
+652,657,657,Blue Jasmine,Woody Allen,2013,untagged,Blue Jasmine,160588,Film,en,99,3283,7.0
+653,658,658,El autor,Manuel Martín Cuenca,2017,loved,The Motive,437036,Film,es,104,257,6.2
+654,659,659,El porvenir,Mia Hansen-Love,2016,liked,Things to Come,374465,Film,fr,102,296,6.6
+655,660,660,La tortuga roja,Michael Dudok De Wit,2016,untagged,The Red Turtle,337703,Film,fr,80,1188,7.5
+656,661,661,Tres anuncios en las afueras,Martin Mcdonagh,2017,untagged,"Three Billboards Outside Ebbing, Missouri",359940,Film,en,115,9640,8.1
+657,662,662,El sacrificio de un ciervo sagrado,Giorgo Lanthimos,2017,untagged,The Killing of a Sacred Deer,399057,Film,en,121,3614,7.0
+658,663,663,80 egunean,Jon Garaño,2010,untagged,For 80 Days,150664,Film,eu,104,14,5.8
+659,664,664,Personal Shopper,Olivier Assayas,2016,untagged,Personal Shopper,340676,Film,en,106,1156,5.9
+660,665,665,Últimos días en el desierto,Rodrigo García,2016,untagged,Last Days in the Desert,310119,Film,en,98,154,5.7
+661,666,666,Jack Goes Boating,Philip Seymour Hoffman,2010,untagged,Jack Goes Boating,43943,Film,en,91,110,5.9
+662,667,667,Errementari,Paul Urquijo,2017,untagged,Errementari: The Blacksmith and the Devil,477033,Film,eu,98,506,6.4
+663,668,668,El seductor,Sofia Coppola,2017,untagged,The Beguiled,399019,Film,en,93,2047,5.9
+664,669,669,La profesora de parvulario,Nadav Lapid,2014,untagged,The Kindergarten Teacher,270646,Film,en,120,30,6.3
+665,670,670,El cartero de las noches blancas,Andrei Konchalovsky,2014,untagged,The Postman's White Nights,283703,Film,ru,90,37,6.8
+666,671,671,La forma del agua,Guillermo del Toro,2018,untagged,The Shape of Water,399055,Film,en,123,11689,7.2
+667,672,672,The Square,Ruben Östlund,2017,loved,The Square,401246,Film,sv,151,1459,6.8
+668,673,673,Un tipo serio,Coen,2009,untagged,A Serious Man,12573,Film,en,106,1964,6.7
+669,674,674,Air Doll,Hirokazu Kore-Eda,2009,untagged,Air Doll,25053,Film,ja,112,224,7.0
+670,675,675,Fuerza mayor,Ruben Östlund,2014,loved,Force Majeure,265189,Film,sv,120,966,6.9
+671,676,676,Alanis,Anahí Berneri,2017,untagged,Alanis,472035,Film,es,82,39,6.3
+672,677,677,Recuerdos del ayer,Isao Takahata,1991,untagged,Only Yesterday,15080,Film,ja,119,1007,7.4
+673,678,678,El secreto de Esma,Jasmila Zbanic,2006,untagged,Grbavica: The Land of My Dreams,317,Film,bs,90,63,7.0
+674,679,679,El amante doble,François Ozon,2017,untagged,Double Lover,451955,Film,fr,108,500,6.1
+675,680,680,Wakolda,Lucía Puenzo,2013,untagged,The German Doctor,188761,Film,es,90,137,6.5
+676,681,681,La segunda mujer,Umut Dag,2012,untagged,Kuma: The Second Wife,133250,Film,de,93,14,6.9
+677,682,682,The Lady in the Van,Nicholas Hytner,2015,untagged,The Lady in the Van,328589,Film,en,104,682,6.4
+678,683,683,Locke,Steven Knight,2013,untagged,Locke,210479,Film,en,85,2534,6.9
+679,684,684,Campeones,Javier Fesser,2018,untagged,Champions,456929,Film,es,124,702,7.5
+680,685,685,120 latidos por minuto,Robin Campillo,2017,untagged,BPM (Beats per Minute),451945,Film,fr,135,1299,7.7
+681,686,686,Siempre feliz,Anne Sewitsky,2010,liked,"Happy, Happy",46147,Film,no,80,40,5.9
+682,687,687,Hacia la luz,Naomi Kawase,2017,untagged,Radiance,444428,Film,ja,101,81,6.7
+683,688,688,El insulto,Ziad Doueiri,2017,untagged,The Insult,468284,Film,fr,112,440,7.5
+684,689,689,"De tal padre, tal hijo",Hirokazu Kore-Eda,2013,untagged,"Like Father, Like Son",177945,Film,ja,120,636,7.7
+685,690,690,"En realidad, nunca estuviste aquí",Lynne Ramsay,2018,untagged,You Were Never Really Here,398181,Film,en,89,2629,6.6
+686,691,691,El bar,Alex De La Iglesia,2017,untagged,The Bar,420648,Film,es,102,1247,6.3
+687,692,692,"Oslo, 31 de agosto",Joachim Trier,2011,loved,"Oslo, August 31st",75233,Film,no,94,389,7.4
+688,693,693,El amor es más fuerte que las bombas,Joachim Trier,2015,untagged,Louder Than Bombs,157827,Film,en,105,302,6.5
+689,694,694,The Disaster Artist,James Franco,2017,liked,The Disaster Artist,371638,Film,en,104,3376,7.1
+690,695,695,En la playa sola de noche,Sang-soo Hong,2017,untagged,On the Beach at Night Alone,434773,Film,ko,101,125,6.5
+691,696,696,A cielo abierto,Mariana Otero,2014,untagged,À ciel ouvert,224918,Documentary,fr,110,1,7.0
+692,697,697,Después de la tormenta,Hirokazu Kore-Eda,2016,untagged,After the Storm,374671,Film,ja,117,306,7.2
+693,698,698,Calvary,John Michael Mcdonagh,2014,untagged,Calvary,157832,Film,en,102,895,7.1
+694,699,699,Kedi (Gatos de Estambul),Ceyda Torun,2016,untagged,Kedi,392011,Documentary,tr,79,295,7.6
+695,700,700,Into the Wild,Sean Penn,2007,untagged,Into the Wild,5915,Film,en,148,9193,7.8
+696,701,701,El tercer asesinato,Hirokazu Kore-Eda,2017,untagged,The Third Murder,434775,Film,ja,125,231,6.6
+697,702,702,The Way,Emilio Estévez,2010,untagged,The Way,59468,Film,en,128,537,7.1
+698,703,703,Tres en el Camino,Laurence Boulting,2004,untagged,Within the Way Without,140989,Film,es,0,1,2.0
+699,704,704,El hilo invisible,Paul Thomas Anderson,2017,loved,Phantom Thread,400617,Film,en,130,3294,7.3
+700,705,705,Custodia compartida,Xavier Legrand,2017,untagged,Custody,451657,Film,fr,93,602,7.5
+701,706,706,El festín de Babette,Gabriel Axel,1987,liked,Babette's Feast,11832,Film,da,102,361,7.2
+702,707,707,Ficción,Cesc Gay,2006,untagged,Stranger Than Fiction,1262,Film,en,113,2146,7.3
+703,708,708,Five days to dance,Rafa Molés,2014,untagged,Five Days to Dance,303788,Documentary,es,79,4,5.8
+704,709,709,Que dios nos perdone,Rodrigo Sorogoyen,2016,untagged,May God Save Us,394684,Film,es,127,410,6.7
+705,710,710,Lucky,John Carroll Lynch,2017,untagged,Lucky,407449,Film,en,88,532,7.4
+706,711,711,The Florida Project,Sean Baker,2017,untagged,The Florida Project,394117,Film,en,112,2571,7.4
+707,712,712,Call Me By Your Name,Luca Guadagnino,2017,untagged,Call Me by Your Name,398818,Film,en,132,11579,8.2
+708,713,713,Thelma,Joachim Trier,2017,liked,Thelma,401898,Film,no,116,957,6.9
+709,714,714,Tomboy,Céline Sciamma,2011,liked,Tomboy,65229,Film,fr,82,655,7.3
+710,715,715,"Visages, villages",Agnès Varda,2017,loved,Faces Places,451995,Documentary,fr,94,362,7.7
+711,716,716,El taller de escritura,Laurent Cantet,2017,untagged,The Workshop,444397,Film,fr,114,122,5.9
+712,717,717,La chica dormida,Rosemary Myers,2015,untagged,Girl Asleep,364540,Film,en,77,102,6.3
+713,718,718,Declaración de guerra,Valérie Donzelli,2011,untagged,Declaration of War,73562,Film,fr,100,182,7.1
+714,719,719,Tenemos de hablar de Kevin,Lynne Ramsay,2011,untagged,We Need to Talk About Kevin,71859,Film,en,113,2652,7.6
+715,720,720,Amante por un día,Philippe Garrel,2017,untagged,Lover for a Day,434131,Film,fr,76,74,6.2
+716,721,721,Heartstone,Arnar Guomundsson,2016,untagged,Heartstone,350060,Film,is,129,148,7.2
+717,722,722,Mr. Turner,Mike Leigh,2014,untagged,Mr. Turner,245700,Film,en,150,491,6.5
+718,723,723,Alma mater,Philippe van Leeuw,2017,untagged,In Syria,441646,Film,ar,85,73,6.6
+719,724,724,Western,Valesa Grisebach,2017,untagged,Western,452000,Film,de,121,94,6.6
+720,725,725,Un día de furia,Joel Schumacher,1993,untagged,Falling Down,37094,Film,en,113,3429,7.4
+721,726,726,La cámara de Claire,Sang-soo Hong,2018,untagged,Claire's Camera,432507,Film,fr,69,59,6.1
+722,727,727,Una receta familiar,Eric Khoo,2018,untagged,Una receta familiar,741618,Film,es,11,0,0.0
+723,728,728,The Leisure Seeker,Paolo Virzi,2017,untagged,The Leisure Seeker,449749,Film,en,112,448,7.1
+724,729,729,Happy End,Michael Haneke,2017,untagged,Happy End,399031,Film,fr,110,365,6.1
+725,730,730,Francofonia,Alexandr Sokurov,2015,untagged,Francofonia,296449,Film,fr,87,68,6.6
+726,731,731,Hermosa juventud,Jaime Rosales,2014,untagged,Beautiful Youth,266065,Film,es,102,26,6.0
+727,732,732,Petra,Jaime Rosales,2018,untagged,Petra,449020,Film,es,107,37,6.4
+728,733,733,Mapa de los sonidos de Tokio,Isabel Coixet,2009,untagged,Map of the Sounds of Tokyo,46458,Film,en,109,53,5.0
+729,734,734,Comanchería,David Mackenzie,2016,untagged,Hell or High Water,338766,Film,en,102,4235,7.3
+730,735,735,Dolphin Man,Lefteris Charitos,2017,untagged,Dolphin Man,480147,Documentary,en,87,11,7.2
+731,736,736,Isla de perros,Wes Anderson,2018,untagged,Isle of Dogs,399174,Film,en,101,4594,7.9
+732,738,738,El reino,Rodrigo Sorogoyen,2018,liked,The Realm,517331,Film,es,132,409,7.1
+733,739,739,Goodbye Berlin (Tschick),Fatih Akin,2016,untagged,Goodbye Berlin,384664,Film,de,93,269,6.7
+734,740,740,La ley del mercado,Stéphane Brizé,2015,loved,The Measure of a Man,329712,Film,fr,93,325,6.6
+735,741,741,Un día más con vida,Raúl de la Fuente,2018,untagged,Another Day of Life,378107,Documentary,en,86,99,7.5
+736,742,742,The End of the Tour,James Ponsoldt,2015,untagged,The End of the Tour,249688,Film,en,106,521,7.1
+737,743,743,Paradiso,Omar A. Razzak,2014,untagged,Paradiso,263612,Film,es,0,2,6.0
+738,744,744,The Party,Sally Potter,2017,untagged,The Party,415401,Film,en,71,499,6.4
+739,745,745,Lady Bird,Greta Gerwig,2017,untagged,Lady Bird,391713,Film,en,94,8039,7.3
+740,746,746,Deux Cancres,Ludovic Vieuille,2017,untagged,Deux Cancres,462185,Documentary,en,60,1,7.0
+741,747,747,Cold War,Pawel Pawlikowski,2018,untagged,Cold War,440298,Film,pl,88,1406,7.5
+742,748,748,Ganar al viento,Anne-Dauphine Julliand,2016,untagged,Et les mistrals gagnants,433919,Documentary,fr,79,49,8.2
+743,749,749,El camino más largo para volver a casa,Sergi Pérez,2015,untagged,The Long Way Home,299250,Film,ca,80,10,7.0
+744,750,750,Un asunto de familia,Hirokazu Kore-Eda,2018,untagged,Tegui: Un asunto de familia,878740,Documentary,es,0,0,0.0
+745,751,751,Frank,Lenny Abrahamson,2014,untagged,Frank,171372,Film,en,95,1535,6.9
+746,752,752,Jainkoak ez dit barkatzen,Josu Martínez,2018,untagged,God Doesn't Forgive Me,585209,Documentary,eu,60,0,0.0
+747,753,753,Lean On Pete,Andrew Haigh,2017,untagged,Lean on Pete,407890,Film,en,121,310,6.9
+748,754,754,Viaje al cuarto de una madre,Celia Rico,2018,liked,Journey to a Mother's Room,533989,Film,es,90,36,6.4
+749,755,755,Las normas de la casa de la sidra,Lasse Hallström,1999,untagged,The Cider House Rules,1715,Film,en,126,1087,7.0
+750,756,756,Aquí y allá,Antonio Méndez Esparza,2012,untagged,Here and There,121211,Film,es,110,16,6.6
+751,757,757,Pelle el conquistador,Bille August,1987,untagged,Pelle the Conqueror,11174,Film,da,157,137,7.3
+752,758,758,The Rider,Chloé Zhao,2017,untagged,The Rider,453278,Film,en,103,461,7.3
+753,759,759,Bienvenida a Montparnasse,Léonor Serraille,2017,untagged,Jeune Femme,452016,Film,fr,97,95,5.9
+754,760,760,Mudar la piel,Ana Schulz,2018,untagged,The Spy Within,538092,Documentary,es,89,1,7.0
+755,761,761,La isla de los monjes,Anne Christine Girardot,2017,liked,The Island of the Monks,684341,Documentary,nl,70,1,8.0
+756,762,762,María (y los demás),Nely Reguera,2016,untagged,María (and Everybody Else),415396,Film,es,90,27,5.9
+757,763,763,No estoy hecho para ser amado,Stéphane Brizé,2005,untagged,Not Here to Be Loved,537,Film,fr,93,26,6.7
+758,764,764,Lázaro feliz,Alice Rohrwacher,2018,untagged,Happy as Lazzaro,481432,Film,it,128,632,7.4
+759,765,765,Dolor y gloria,Pedro Almodóvar,2019,untagged,Pain and Glory,519010,Film,es,114,1694,7.4
+760,766,766,Girl,Lukas Dhont,2018,loved,Girl,515916,Film,nl,105,686,7.2
+761,767,767,Futuro perfecto,Nele Wohlatz,2016,untagged,The Future Perfect,408376,Film,es,65,17,6.2
+762,768,768,Lyubov: Love in Russian,Julen Staffan,2017,liked,Lyubov: Love in Russian,482454,Documentary,ru,89,0,0.0
+763,769,769,Los hermanos Sisters,Jacques Audiard,2018,untagged,The Sisters Brothers,440161,Film,en,121,1819,6.8
+764,770,770,Carmen y Lola,Arantxa Echevarría,2018,untagged,Carmen & Lola,519091,Film,es,103,147,7.0
+765,771,771,Toy Story 4,Josh Cooley,2019,untagged,Toy Story 4,301528,Film,en,100,9291,7.5
+766,772,772,Oreina,Koldo Almandoz,2018,untagged,The Deer,529213,Film,eu,88,4,6.0
+767,773,773,Entre dos aguas,Isaki Lacuesta,2018,liked,Between Two Waters,536808,Film,es,135,22,6.3
+768,774,774,Tres caras,Jafar Panahi,2018,untagged,3 Faces,517731,Film,fa,100,121,6.8
+769,775,775,Dogman,Matteo Garrone,2018,untagged,Dogman,483184,Film,it,103,2100,7.6
+770,776,776,Of Fathers and Sons,Talal Derki,2017,untagged,Of Fathers and Sons,488740,Documentary,ar,99,53,7.0
+771,777,777,Mi obra maestra,Gastón Duprat,2018,untagged,My Masterpiece,535692,Film,es,100,168,7.3
+772,778,778,Las distancias,Elena Trapé,2018,untagged,The Distances,441583,Film,ca,100,37,5.4
+773,779,779,El león duerme esta noche,Nobuhiro Suwa,2018,untagged,The Lion Sleeps Tonight,475954,Film,fr,103,18,7.0
+774,780,780,La novia del desierto,Cecilia Atán,2017,untagged,The Desert Bride,451985,Film,es,78,22,6.1
+775,781,781,Tully,Jason Reitman,2018,untagged,Tully,400579,Film,en,96,1356,6.8
+776,782,782,Revolutionary Road,Sam Mendes,2008,untagged,Revolutionary Road,4148,Film,en,119,3630,7.0
+777,783,783,Orlando,Sally Potter,1993,liked,Orlando,9300,Film,en,90,291,6.9
+778,784,784,El cuento de las comadrejas,Juan José Campanella,2019,untagged,The Weasel's Tale,574088,Film,es,129,144,7.6
+779,785,785,La lección,Kristina Grozeva,2014,untagged,The Piano,713,Film,en,117,1396,7.4
+780,786,786,Los días que vendrán,Carlos Marques,2019,untagged,The Days to Come,575440,Film,ca,95,17,6.1
+781,787,787,Cafarnaum,Nadine Labaki,2019,untagged,Capernaum,517814,Film,ar,126,1582,8.2
+782,788,788,Mientras dure la guerra,Alejandro Amenábar,2019,untagged,While at War,542921,Film,es,108,264,7.1
+783,789,789,The Breadwinner,Nora Twomey,2017,untagged,The Breadwinner,435129,Film,en,94,779,7.9
+784,790,790,Las herederas,Marcelo Martinessi,2018,untagged,The Heiresses,499152,Film,es,95,74,6.5
+785,791,791,La trinchera infinita,Jon Garaño,2019,untagged,The Endless Trench,542928,Film,es,148,230,6.9
+786,792,792,Joker,Todd Phillips,2019,untagged,Joker,475557,Film,en,122,24052,8.2
+787,793,793,La última lección,Sébastien Marnier,2018,untagged,School's Out,475928,Film,fr,100,272,6.0
+788,794,794,Pájaros de verano,Cristina Gallego,2018,untagged,Birds of Passage,438146,Film,es,125,269,7.3
+789,795,795,La caída del imperio americano,Denys Arcand,2019,untagged,The Fall of the American Empire,515047,Film,fr,127,174,6.6
+790,796,796,"Muchos hijos, un mono y un castillo",Gustavo Salmerón,2017,untagged,"Lots of Kids, a Monkey and a Castle",473176,Documentary,es,91,44,7.1
+791,797,797,Varda por Agnès,Agnès Varda,2019,untagged,Varda by Agnès,554967,Documentary,fr,115,67,7.9
+792,798,798,Rebeca,Alfred Hitchcock,1940,untagged,Rebecca,223,Film,en,130,1642,7.9
+793,799,799,Bar Bahar,Maysaloun Hamoud,2016,untagged,In Between,412203,Film,ar,103,115,7.1
+794,800,800,Locas de alegría,Paolo Virzi,2016,untagged,Like Crazy,380225,Film,it,116,848,7.4
+795,801,801,El irlandés,Martin Scorsese,2019,loved,The Irishman,398978,Film,en,209,6405,7.6
+796,802,802,Border,Ali Abbasi,2018,untagged,Border,897661,Film,fr,1,0,0.0
+797,803,803,En busca del Óscar,Octavio Guerra,2018,liked,Searching for Oscar,501152,Documentary,es,73,4,4.5
+798,804,804,Trinta lumes,Diana Toucedo,2017,untagged,Thirty Souls,482694,Documentary,es,80,4,5.8
+799,805,805,El sirviente,Joseph Losey,1963,untagged,The Servant,42987,Film,en,116,298,7.5
+800,806,806,Ventajas de viajar en tren,Aritz Moreno,2019,untagged,Advantages of Travelling by Train,587986,Film,es,104,146,6.4
+801,807,807,Amazing Grace,Aretha Franklin,2019,untagged,Amazing Grace,356199,Documentary,en,87,91,7.1
+802,808,808,1917,Sam Mendes,2019,liked,1917,530915,Film,en,119,11691,8.0
+803,809,809,O que arde,Oliver Laxe,2019,untagged,Fire Will Come,575561,Film,gl,85,95,6.4
+804,810,810,Cantábrico,Joaquín Gutiérrez Acha,2017,untagged,Cantábrico,449863,Documentary,es,97,17,7.0
+805,811,811,Un doctor en la campiña,Thomas Lilti,2016,untagged,The Country Doctor,375950,Film,fr,102,211,6.2
+806,812,812,Hipócrates,Thomas Lilti,2014,untagged,Hippocrates,271724,Film,fr,101,456,6.5
+807,813,813,Historia de un matrimonio,Noah Baumbach,2019,untagged,Marriage Story,492188,Film,en,137,6619,7.7
+808,814,814,Memento mori,Richard Zubelzu,2019,untagged,Memento Mori,631427,Film,en,9,1,10.0
+809,815,815,Notes on Blindness,Pete Middleton,2019,untagged,Notes on Blindness,378441,Documentary,en,90,65,7.0
+810,816,816,La tumba de las luciérnagas,Isao Takahata,2003,untagged,Grave of the Fireflies,12477,Film,ja,89,5086,8.5
+811,817,817,Hitchcock/Truffaut,Kent Jones,2016,untagged,Hitchcock/Truffaut,339751,Documentary,en,81,224,7.3
+812,818,818,Parásitos,Joon-ho Bong,2019,untagged,Parasite,496243,Film,ko,133,17053,8.5
+813,819,819,Wendy&Lucy,Kelly Reichardt,2008,loved,Wendy and Lucy,8942,Film,en,81,287,6.9
+814,820,820,Old Joy,Kelly Reichardt,2006,loved,Old Joy,26518,Film,en,73,159,6.4
+815,821,821,El amor menos pensado,Juan Vera,2018,untagged,An Unexpected Love,535683,Film,es,136,58,6.4
+816,822,822,Barbara,Christian Petzold,2012,untagged,Barbara,88284,Film,de,105,290,7.2
+817,823,823,Una mujer fantástica,Sebastián Leilo,2017,untagged,A Fantastic Woman,429191,Film,es,104,659,7.1
+818,824,824,Amerikanuak,Nacho Reig,2010,untagged,Amerikanuak,449376,Documentary,eu,92,0,0.0
+819,825,825,When Tomatoes Met Wagner,Marianna Economou,2019,loved,When Tomatoes Met Wagner,581377,Documentary,el,72,3,7.2
+820,826,826,The Rise of Jordan Peterson,Patricia Marcoccia,2019,untagged,The Rise of Jordan Peterson,626595,Documentary,en,90,22,6.5
+821,827,827,Enemy,Denis Villeneuve,2013,untagged,Enemy,181886,Film,en,91,5511,6.9
+822,828,828,Finding Vivian Maier,John Maloof,2014,liked,Finding Vivian Maier,169607,Documentary,en,83,283,7.5
+823,829,829,El somni,Christophe Farnarier,2008,untagged,A Dream,98385,Film,en,77,4,5.2
+824,830,830,Free Solo,Jimmy Chin,2018,untagged,Free Solo,515042,Documentary,en,100,1229,7.9
+825,831,831,Lázaro de Tormes,Fernando Fernán Gómez,2001,untagged,Lázaro de Tormes,187915,Film,es,88,4,5.2
+826,832,832,Diario de una camarera,Luis Buñuel,1964,untagged,Diary of a Chambermaid,36245,Film,fr,97,188,7.1
+827,833,833,El último verano,Leire Apellaniz,2016,untagged,El último verano,411034,Film,es,86,0,0.0
+828,834,834,El inadaptado,Jens Lien,2006,untagged,Adaptation.,2757,Film,en,115,2315,7.4
+829,835,835,Los viajes de Sullivan,Preston Sturges,1941,untagged,Sullivan's Travels,16305,Film,en,91,417,7.4
+830,836,836,Nomad,Werner Herzog,2019,liked,"Jongué, A Nomad’s Journey",726233,Documentary,fr,81,0,0.0
+831,837,837,Los exámenes,Cristian Mungiu,2016,untagged,Graduation,374458,Film,ro,128,264,6.8
+832,838,838,Les Misérables,Ladj Ly,2019,untagged,Les Misérables,4415,Film,en,134,572,7.2
+833,839,839,Akelarre,Pablo Agüero,2020,untagged,Coven,655187,Film,eu,92,273,6.7
+834,840,840,Retrato de una mujer en llamas,Céline Sciamma,2019,liked,Portrait of a Lady on Fire,531428,Film,fr,120,2319,8.2
+835,841,841,Honeyland,Tamara Kotevska,2019,untagged,Honeyland,566213,Documentary,mk,89,257,7.9
+836,842,842,Rifkin’s Festival,Woody Allen,2020,untagged,Rifkin's Festival,606876,Film,en,92,409,6.2
+837,843,843,Sorry We Missed You,Ken Loach,2019,untagged,Sorry We Missed You,522369,Film,en,101,686,7.4
+838,844,844,Las niñas,Pilar Palomero,2020,untagged,Schoolgirls,619443,Film,es,97,107,6.6
+839,845,845,"Papicha, sueños de libertad",Mounia Meddour,2019,untagged,Papicha,592807,Film,fr,108,245,7.6
+840,846,846,"Hi, AI",Isa Willinger,2019,untagged,"Hi, A.I.",577117,Documentary,de,90,6,6.2
+841,847,847,Temblores,Jayro Bustamante,2020,untagged,Tremors,515357,Film,es,107,31,6.6
+842,848,848,Sin señas particulares,Fernanda Valadez,2020,untagged,Identifying Features,653658,Film,es,95,57,7.1
+843,849,849,Meseta,Juan Palacios,2019,untagged,Inland,590454,Documentary,es,91,0,0.0
+844,850,850,Josep,Aurel,2020,untagged,Josep,680952,Film,fr,71,109,7.6
+845,851,851,Deseando amar,Wong Kar-wai,2000,untagged,In the Mood for Love,843,Film,cn,99,2461,8.1
+846,852,852,Para Sama,Waad Al-Kateab,2019,untagged,For Sama,576017,Documentary,en,100,257,8.3
+847,853,853,Volver a empezar (Herself),Phyllida Lloyd,2020,untagged,Herself,653708,Film,en,97,89,6.8
+848,854,854,La Haine (El odio),Mathieu Kassovitz,1995,untagged,La Haine,406,Film,fr,98,3760,8.1
+849,855,855,Kajillionaire,Miranda July,2020,untagged,Kajillionaire,541305,Film,en,105,415,6.3
+850,856,856,Nomadland,Chloé Zhao,2020,loved,Nomadland,581734,Film,en,108,2770,7.2
+851,857,857,Una niña,Sébastien Lifshitz,2020,untagged,The Reality of Confinement with a four-year-old,770308,Documentary,ca,6,0,0.0
+852,858,858,Falling,Vigo Mortensen,2020,untagged,Falling,554761,Film,en,112,181,6.5
+853,859,859,Memories of Murder,Joon-ho Bong,2003,untagged,Memories of Murder,11423,Film,ko,131,3485,8.1
+854,860,860,Otra ronda (Another Round),Thomas Vinterberg,2020,loved,Another Round,580175,Film,da,117,2954,7.6
+855,861,861,Maixabel,Iciar Bollaín,2021,untagged,Maixabel,814312,Film,es,115,90,7.2
+856,862,862,First Cow,Kelly Reichardt,2019,liked,First Cow,558582,Film,en,122,433,7.1
+857,863,863,Zumiriki,Oskar Alegría,2019,liked,Zumiriki,618222,Documentary,eu,122,0,0.0
+858,864,864,La mujer que escapó,Sang-soo Hong,2020,untagged,The Woman Who Ran,662401,Film,ko,77,81,6.5
+859,865,865,Petite Maman,Céline Sciamma,2021,liked,Petite maman,749004,Film,fr,72,330,7.1
+860,866,866,Titane,Julia Ducournau,2021,untagged,Titane,630240,Film,fr,108,1270,6.4
+861,867,867,Libertad,Clara Roquet,2021,untagged,Libertad,655181,Film,es,109,20,5.9
+862,868,868,The French Dispatch,Wes Anderson,2021,untagged,The French Dispatch,542178,Film,en,108,2355,7.1
+863,869,869,Noche de fuego,Tatiana Huezo,2021,untagged,Prayers for the Stolen,670981,Film,es,110,123,7.7
+864,870,870,Seis días corrientes,Neus Ballús,2021,loved,The Odd-Job Men,846790,Documentary,ca,85,10,7.5
+865,871,871,Drive my car,Ryusuke Hamaguchi,2021,liked,Drive My Car,758866,Film,ja,179,1109,7.4
+866,872,872,Licorice Pizza,Paul Thomas Anderson,2021,untagged,Licorice Pizza,718032,Film,en,133,2047,7.0
+867,873,873,Las ilusiones perdidas,Xavier Giannoli,2021,untagged,Lost Illusions,660000,Film,fr,149,447,7.5
+868,874,874,El caso Fischer,Edward Zwick,2015,untagged,Cuarenta balas: El caso Fischer-Bufano,616333,Documentary,es,120,3,5.0
+869,875,875,La vida secreta de los árboles,Jörg Adolf,2020,untagged,The Hidden Life of Trees,662155,Documentary,de,101,18,7.2
+870,876,876,Alcarrás,Carla Simón,2022,untagged,Alcarràs,804251,Film,ca,120,163,6.9
+871,877,877,Roma,Alfonso Cuarón,2018,untagged,Roma,426426,Film,es,135,3764,7.7
+872,878,878,El buen patrón,Fernando León De Aranoa,2021,untagged,The Good Boss,820722,Film,es,120,348,7.0
+873,879,879,Intemperie,Benito Zambrano,2019,untagged,Out in the Open,630018,Film,es,103,82,6.6
+874,880,880,Lucio,José Mari Goenaga,2007,untagged,Lucio,81458,Documentary,es,93,12,7.4
+875,881,881,¡Lumière! Comienza la aventura,Thierry Fremaux,2016,untagged,Lumière!,411003,Documentary,fr,90,59,7.9
+876,882,882,El hijo del acordeonista,Fernando Bernués,2019,untagged,The Accordionist's Son,587270,Film,eu,95,2,5.0
+877,883,883,Hil kanpaiak,Imanol Rayo,2020,untagged,Death Knell,736216,Film,eu,95,4,5.5
+878,884,884,A Hero,Asghar Farhadi,2021,loved,Dragon Ball GT: A Hero's Legacy,18095,Film,ja,45,304,6.8
+879,885,885,La peor persona del mundo,Joachim Trier,2021,untagged,The Worst Person in the World,660120,Film,no,128,1147,7.5
+880,886,886,Benediction,Terence Davies,2021,untagged,Benediction,399178,Film,en,137,43,6.5
+881,887,887,El acontecimiento,Audrey Diwan,2021,untagged,Happening,793998,Film,fr,100,355,7.2
+882,888,888,Vasil,Avelina Prat,2022,untagged,Vasil,1030054,Film,es,93,20,6.4
+883,889,889,Fire of Love,Sara Dosa,2022,untagged,Fire of Love,913823,Documentary,en,93,178,7.5
+884,890,890,As bestas,Rodrigo Sorogoyen,2022,untagged,The Beasts,848685,Film,gl,138,577,7.5
+885,891,891,Sintiéndolo mucho,Fernando León De Aranoa,2022,untagged,Feeling It,1007698,Documentary,es,126,10,7.5
+886,892,892,Vórtex,Gaspar Noé,2021,untagged,Vortex,807070,Film,fr,142,190,7.2
+887,893,893,Suro,Mikel Gurrea,2022,untagged,Suro,835268,Film,ca,116,28,6.6
+888,894,894,Minari,Lee Isaac Chung,2020,untagged,Minari,615643,Film,en,115,1481,7.4
+889,895,895,La emperatriz rebelde,Marie Kreutzer,2022,untagged,Corsage,888321,Film,de,114,168,6.3
+890,896,896,En un muelle de Normandía,Emmanuel Carrère,2021,liked,Between Two Worlds,601188,Film,fr,107,124,6.9
+891,897,897,Red Rocket,Sean Baker,2021,liked,Red Rocket,763329,Film,en,130,367,6.7
+892,898,898,"Una noche, un año",Isaki Lacuesta,2022,liked,"One Year, One Night",769466,Film,es,130,34,6.2
+893,899,899,Mantícora,Carlos Vermut,2022,loved,Manticore,760158,Film,es,115,30,7.1
+894,900,900,The Whale,Darren Aronofsky,2022,untagged,The Whale,785084,Film,en,117,3361,7.9
+895,901,901,Aftersun,Charlotte Wells,2022,untagged,Aftersun,965150,Film,en,102,1061,7.7
+896,902,902,Irati,Paul Urkijo,2022,untagged,Irati,726274,Film,eu,112,73,6.7
+897,903,903,El triángulo de la tristeza,Ruben Östlund,2022,untagged,Triangle of Sadness,497828,Film,en,147,1844,7.1
+898,904,904,Cerdita,Carlota Pereda,2022,untagged,Piggy,848058,Film,es,99,509,6.7
+899,905,905,"Everything, Everywhere, all at Once",Daniels,2022,untagged,Everything Everywhere All at Once,545611,Film,en,140,5728,7.8
+900,906,906,Los Fabelman,Steven Spielberg,2022,liked,The Fabelmans,804095,Film,en,151,2000,7.7
+901,907,907,The Quiet Girl,Colm Bairéad,2022,liked,The Quiet Girl,916405,Film,ga,94,306,7.5
+902,908,908,Almas en pena de Inisherin,Martin McDonagh,2022,liked,The Banshees of Inisherin,674324,Film,en,114,2365,7.5
+903,909,909,El faro,Robert Eggers,2019,untagged,The Lighthouse,503919,Film,en,109,4518,7.5
+904,910,910,Destinos,Stephan Komandarev,2017,untagged,Directions,451988,Film,bg,103,27,6.9
+905,911,911,Loli Tormenta,Agustí Villaronga,2023,untagged,Loli Tormenta,1077399,Film,es,94,7,5.2
+906,912,912,Una bonita mañana,Mia Hansen-Løve,2022,liked,One Fine Morning,747779,Film,fr,113,96,6.7
+907,913,913,Preparativos para estar juntos…,Lili Horvát,2020,untagged,Preparations to Be Together for an Unknown Period of Time,727002,Film,hu,95,27,6.6
+908,914,914,Pig,Michael Sarnoski,2021,untagged,Pig,635731,Film,en,92,1210,6.7
+909,915,915,Modelo 77,Alberto Rodriguez,2022,untagged,Prison 77,913991,Film,es,125,129,7.2
+910,916,916,Barbie,Greta Gerwig,2023,untagged,Barbie,346698,Film,en,114,7244,7.1
+911,917,917,Gracias a Dios,François Ozon,2018,untagged,By the Grace of God,509364,Film,fr,137,519,7.2
+912,918,918,Donbass,Serguéi Loznitsa,2018,untagged,Donbass,562889,Documentary,fr,57,10,5.7
+913,919,919,Intocable,Olivier Nakache,2011,untagged,The Intouchables,77338,Film,fr,113,16497,8.3
+914,920,920,Coda,Sian Heder,2021,untagged,CODA,776503,Film,en,112,2029,7.9
+915,921,921,Close,Lukas Dhont,2022,liked,Close,901563,Film,fr,104,580,7.8
+916,922,922,La juventud,Paolo Sorrentino,2015,untagged,Youth,310593,Film,it,125,1950,6.9
+917,923,923,Vidas pasadas,Celine Song,2023,liked,Past Lives,666277,Film,en,106,646,7.9
+918,924,924,Family Romance,Werner Herzog,2019,liked,"Family Romance, LLC",595900,Film,en,89,53,6.1
+919,925,925,Ander,Roberto Castón,2009,untagged,Ander,82795,Film,fr,128,14,6.0
+920,926,926,El chico y la garza,Hayao Miyazaki,2023,untagged,The Boy and the Heron,508883,Film,ja,124,921,7.5
+921,927,927,La clase de esgrima,Klaus Härö,2015,untagged,The Fencer,322488,Film,et,90,68,7.0
+922,928,928,Anatomía de una caída,Justine Triet,2023,liked,Anatomy of a Fall,915935,Film,fr,152,891,7.7
+923,929,929,Fallen Leaves,Aki Kaurismäki,2023,liked,Fallen Leaves,986280,Film,fi,81,267,7.2
+924,930,930,Chinas,Arantxa Echevarría,2023,untagged,Chinas,1034387,Film,es,119,7,7.6
+925,931,931,Una habitación con vistas,James Ivory,1985,untagged,A Room with a View,11257,Film,en,117,690,7.0
+926,932,932,Els encantats,Elena Trapé,2023,liked,The Enchanted,1022725,Film,ca,108,8,6.8

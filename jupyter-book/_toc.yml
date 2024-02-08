@@ -11,6 +11,7 @@ parts:
     - file: notebooks/p-antio-gpt
   - file: projects-my
     sections:
+    - file: notebooks/p-films
     - file: notebooks/ages
     - file: notebooks/water
     - file: notebooks/quakes
