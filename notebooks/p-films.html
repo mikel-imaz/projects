@@ -430,17 +430,7 @@ document.write(`
 </section>
 <section id="the-data">
 <h2>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
-<p>To simplify the code and facilitate access, I found the following library for the TMDB API: <a class="reference external" href="https://github.com/celiao/tmdbsimple">tmdbsimple</a>. It has a function that utilizes the movie search utility based on its title. In my table, the movie titles are often in Spanish, and this function finds the closest match in the TMBD database. To fine-tune the results, I include the movie’s release year in the search.</p>
-<p>Next, once the movie identifier is found, I access the movie record so I can get the following information:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_id</span></code>: film TMDB identifier.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_title</span></code>: title given in TMDB (normaly the English one).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_genre</span></code>: here I filter the response to differentiate between <em>documentaries</em> and just <em>films</em> (fiction films).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_lang</span></code>: original language.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_runtime</span></code>: duration of the film in minutes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_vote_cnt</span></code>: number of ratings.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_vote_avg</span></code>: average rating.</p></li>
-</ul>
+<p>First I read my records from a CSV file:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -448,11 +438,7 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init TMDB API parameters</span>
-<span class="n">tmdb</span><span class="o">.</span><span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;api-key&quot;</span>
-<span class="n">tmdb</span><span class="o">.</span><span class="n">REQUESTS_TIMEOUT</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># seconds, for both connect and read</span>
-
-<span class="c1"># Read from file my movie records</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read from file my movie records</span>
 <span class="n">films</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/films.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;director&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;stars&#39;</span><span class="p">])</span>
 <span class="n">films</span>
 </pre></div>
@@ -567,6 +553,17 @@ document.write(`
 <p>933 rows × 4 columns</p>
 </div></div></div>
 </div>
+<p>Next, I am going to collect the information to complete the table. To simplify the code and facilitate access, I found the following library for the TMDB API: <a class="reference external" href="https://github.com/celiao/tmdbsimple">tmdbsimple</a>. It has a function that utilizes the movie search utility based on its title. In my table, the movie titles are often in Spanish, and this function finds the closest match in the TMBD database. To fine-tune the results, I include the movie’s release year in the search.</p>
+<p>Next, once the movie identifier is found, I access the movie record so I can get the following information:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_id</span></code>: film TMDB identifier.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_title</span></code>: title given in TMDB (normaly the English one).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_genre</span></code>: here I filter the response to differentiate between <em>documentaries</em> and just <em>films</em> (fiction films).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_lang</span></code>: original language.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_runtime</span></code>: duration of the film in minutes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_vote_cnt</span></code>: number of ratings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmdb_vote_avg</span></code>: average rating.</p></li>
+</ul>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -574,7 +571,12 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ****SEARCH MOVIE****</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Init TMDB API parameters</span>
+<span class="n">tmdb</span><span class="o">.</span><span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;api-key&quot;</span>
+<span class="n">tmdb</span><span class="o">.</span><span class="n">REQUESTS_TIMEOUT</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># seconds, for both connect and read</span>
+
+
+<span class="c1"># ****SEARCH MOVIE****</span>
 
 <span class="c1"># Init Search method</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">tmdb</span><span class="o">.</span><span class="n">Search</span><span class="p">()</span>
@@ -665,7 +667,7 @@ document.write(`
 <span class="n">films</span><span class="p">[</span><span class="s1">&#39;tmdb_vote_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmdb_vote_cnts</span>
 <span class="n">films</span><span class="p">[</span><span class="s1">&#39;tmdb_vote_avg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmdb_vote_avgs</span>
 
-<span class="c1"># Print the dataframe</span>
+<span class="c1"># Print the resulting dataframe</span>
 <span class="n">films</span>
 </pre></div>
 </div>
@@ -771,8 +773,8 @@ document.write(`
       <td>Film</td>
       <td>en</td>
       <td>134</td>
-      <td>2421</td>
-      <td>7.575</td>
+      <td>2422</td>
+      <td>7.6</td>
     </tr>
     <tr>
       <th>...</th>
@@ -799,8 +801,8 @@ document.write(`
       <td>Film</td>
       <td>fr</td>
       <td>152</td>
-      <td>891</td>
-      <td>7.744</td>
+      <td>897</td>
+      <td>7.7</td>
     </tr>
     <tr>
       <th>929</th>
@@ -813,8 +815,8 @@ document.write(`
       <td>Film</td>
       <td>fi</td>
       <td>81</td>
-      <td>267</td>
-      <td>7.249</td>
+      <td>269</td>
+      <td>7.258</td>
     </tr>
     <tr>
       <th>930</th>
@@ -827,8 +829,8 @@ document.write(`
       <td>Film</td>
       <td>es</td>
       <td>119</td>
-      <td>7</td>
-      <td>7.643</td>
+      <td>8</td>
+      <td>7.938</td>
     </tr>
     <tr>
       <th>931</th>
@@ -884,26 +886,24 @@ document.write(`
 </details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 927 entries, 0 to 926
-Data columns (total 14 columns):
+RangeIndex: 933 entries, 0 to 932
+Data columns (total 12 columns):
  #   Column         Non-Null Count  Dtype  
 ---  ------         --------------  -----  
- 0   Unnamed: 0.2   927 non-null    int64  
- 1   Unnamed: 0.1   927 non-null    int64  
- 2   Unnamed: 0     927 non-null    int64  
- 3   title          927 non-null    object 
- 4   director       927 non-null    object 
- 5   year           927 non-null    int64  
- 6   stars          927 non-null    object 
- 7   tmdb_title     927 non-null    object 
- 8   tmdb_id        927 non-null    int64  
- 9   tmdb_genre     927 non-null    object 
- 10  tmdb_lang      927 non-null    object 
- 11  tmdb_runtime   927 non-null    int64  
- 12  tmdb_vote_cnt  927 non-null    int64  
- 13  tmdb_vote_avg  927 non-null    float64
-dtypes: float64(1), int64(7), object(6)
-memory usage: 101.5+ KB
+ 0   Unnamed: 0     933 non-null    int64  
+ 1   title          933 non-null    object 
+ 2   director       933 non-null    object 
+ 3   year           933 non-null    int64  
+ 4   stars          176 non-null    float64
+ 5   tmdb_title     927 non-null    object 
+ 6   tmdb_id        927 non-null    float64
+ 7   tmdb_genre     927 non-null    object 
+ 8   tmdb_lang      927 non-null    object 
+ 9   tmdb_runtime   927 non-null    float64
+ 10  tmdb_vote_cnt  927 non-null    float64
+ 11  tmdb_vote_avg  927 non-null    float64
+dtypes: float64(5), int64(2), object(5)
+memory usage: 87.6+ KB
 </pre></div>
 </div>
 </div>
@@ -998,7 +998,7 @@ memory usage: 76.7+ KB
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3be9e03339f183ed9533f03761600c5c37ff9917ad83047e7bc2e9b6a73d9c0a.png" src="../_images/3be9e03339f183ed9533f03761600c5c37ff9917ad83047e7bc2e9b6a73d9c0a.png" />
+<img alt="../_images/561dcc644ffa77395abd923d5da00d5f8e5e0c69d09215049fe8f80bb58ab661.png" src="../_images/561dcc644ffa77395abd923d5da00d5f8e5e0c69d09215049fe8f80bb58ab661.png" />
 </div>
 </div>
 <p>We see that there are about 8 movies with a duration of 0 minutes. This is because the value of this field was not filled in the TMDB record, so we discard them before calculating the average duration value of the films.</p>
@@ -1172,7 +1172,7 @@ memory usage: 76.7+ KB
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/362bd0963c6e6cb5e9efd6bed50d51aaba3758a8f6fb13b2b31444d9e9e9bd4c.png" src="../_images/362bd0963c6e6cb5e9efd6bed50d51aaba3758a8f6fb13b2b31444d9e9e9bd4c.png" />
+<img alt="../_images/4e22315bb7617d9ebc1517a92a66b6c7d9cfcd0dd3ce4be5f0a067b015026ef5.png" src="../_images/4e22315bb7617d9ebc1517a92a66b6c7d9cfcd0dd3ce4be5f0a067b015026ef5.png" />
 </div>
 </div>
 <p>In the graph, it can be observed that the majority of the movies I have seen are from recent years. Regarding their duration, it does not seem to have increased. However, I am going to focus the graph on the last 20 years, from 2004 to 2024, and I am going to exclude the documentaries to see if there is an upward trend in duration or if such a trend does not exist.</p>
@@ -1291,7 +1291,7 @@ memory usage: 76.7+ KB
       <td>Christopher Nolan</td>
       <td>2014</td>
       <td>Interstellar</td>
-      <td>33560</td>
+      <td>33563</td>
       <td>8.4</td>
     </tr>
     <tr>
@@ -1299,7 +1299,7 @@ memory usage: 76.7+ KB
       <td>Todd Phillips</td>
       <td>2019</td>
       <td>Joker</td>
-      <td>24052</td>
+      <td>24056</td>
       <td>8.2</td>
     </tr>
     <tr>
@@ -1307,7 +1307,7 @@ memory usage: 76.7+ KB
       <td>Pete Docter</td>
       <td>2015</td>
       <td>Inside Out</td>
-      <td>19980</td>
+      <td>19984</td>
       <td>7.9</td>
     </tr>
     <tr>
@@ -1315,7 +1315,7 @@ memory usage: 76.7+ KB
       <td>Joon-ho Bong</td>
       <td>2019</td>
       <td>Parasite</td>
-      <td>17053</td>
+      <td>17057</td>
       <td>8.5</td>
     </tr>
     <tr>
@@ -1323,7 +1323,7 @@ memory usage: 76.7+ KB
       <td>Denis Villeneuve</td>
       <td>2016</td>
       <td>Arrival</td>
-      <td>16925</td>
+      <td>16927</td>
       <td>7.6</td>
     </tr>
     <tr>
@@ -1331,7 +1331,7 @@ memory usage: 76.7+ KB
       <td>Olivier Nakache</td>
       <td>2011</td>
       <td>The Intouchables</td>
-      <td>16497</td>
+      <td>16499</td>
       <td>8.3</td>
     </tr>
     <tr>
@@ -1339,7 +1339,7 @@ memory usage: 76.7+ KB
       <td>Morten Tyldum</td>
       <td>2014</td>
       <td>The Imitation Game</td>
-      <td>16308</td>
+      <td>16309</td>
       <td>8.0</td>
     </tr>
     <tr>
@@ -1355,7 +1355,7 @@ memory usage: 76.7+ KB
       <td>Christopher Nolan</td>
       <td>2017</td>
       <td>Dunkirk</td>
-      <td>15790</td>
+      <td>15792</td>
       <td>7.5</td>
     </tr>
     <tr>
@@ -1363,7 +1363,7 @@ memory usage: 76.7+ KB
       <td>Hayao Miyazaki</td>
       <td>2001</td>
       <td>Spirited Away</td>
-      <td>15486</td>
+      <td>15490</td>
       <td>8.5</td>
     </tr>
   </tbody>
@@ -1413,27 +1413,19 @@ memory usage: 76.7+ KB
   </thead>
   <tbody>
     <tr>
+      <th>34</th>
+      <td>Sergio Leone</td>
+      <td>1966</td>
+      <td>The Good, the Bad and the Ugly</td>
+      <td>8062</td>
+      <td>8.5</td>
+    </tr>
+    <tr>
       <th>818</th>
       <td>Joon-ho Bong</td>
       <td>2019</td>
       <td>Parasite</td>
-      <td>17053</td>
-      <td>8.5</td>
-    </tr>
-    <tr>
-      <th>577</th>
-      <td>Hayao Miyazaki</td>
-      <td>2001</td>
-      <td>Spirited Away</td>
-      <td>15486</td>
-      <td>8.5</td>
-    </tr>
-    <tr>
-      <th>816</th>
-      <td>Isao Takahata</td>
-      <td>2003</td>
-      <td>Grave of the Fireflies</td>
-      <td>5086</td>
+      <td>17057</td>
       <td>8.5</td>
     </tr>
     <tr>
@@ -1441,15 +1433,15 @@ memory usage: 76.7+ KB
       <td>Giuseppe Tornatore</td>
       <td>1988</td>
       <td>Cinema Paradiso</td>
-      <td>4107</td>
+      <td>4108</td>
       <td>8.5</td>
     </tr>
     <tr>
-      <th>34</th>
-      <td>Sergio Leone</td>
-      <td>1966</td>
-      <td>The Good, the Bad and the Ugly</td>
-      <td>8060</td>
+      <th>816</th>
+      <td>Isao Takahata</td>
+      <td>2003</td>
+      <td>Grave of the Fireflies</td>
+      <td>5087</td>
       <td>8.5</td>
     </tr>
     <tr>
@@ -1457,31 +1449,31 @@ memory usage: 76.7+ KB
       <td>Akira Kurosawa</td>
       <td>1954</td>
       <td>Seven Samurai</td>
-      <td>3389</td>
+      <td>3391</td>
       <td>8.5</td>
     </tr>
     <tr>
-      <th>426</th>
-      <td>Milos Forman</td>
-      <td>1975</td>
-      <td>One Flew Over the Cuckoo's Nest</td>
-      <td>9920</td>
-      <td>8.4</td>
-    </tr>
-    <tr>
-      <th>468</th>
-      <td>Christopher Nolan</td>
-      <td>2014</td>
-      <td>Interstellar</td>
-      <td>33560</td>
-      <td>8.4</td>
+      <th>577</th>
+      <td>Hayao Miyazaki</td>
+      <td>2001</td>
+      <td>Spirited Away</td>
+      <td>15490</td>
+      <td>8.5</td>
     </tr>
     <tr>
       <th>489</th>
       <td>Damien Chazelle</td>
       <td>2014</td>
       <td>Whiplash</td>
-      <td>14322</td>
+      <td>14324</td>
+      <td>8.4</td>
+    </tr>
+    <tr>
+      <th>426</th>
+      <td>Milos Forman</td>
+      <td>1975</td>
+      <td>One Flew Over the Cuckoo's Nest</td>
+      <td>9921</td>
       <td>8.4</td>
     </tr>
     <tr>
@@ -1489,7 +1481,15 @@ memory usage: 76.7+ KB
       <td>Carlos Sorin</td>
       <td>2008</td>
       <td>Rear Window</td>
-      <td>6115</td>
+      <td>6118</td>
+      <td>8.4</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>Fernando Meirelles</td>
+      <td>2002</td>
+      <td>City of God</td>
+      <td>6920</td>
       <td>8.4</td>
     </tr>
   </tbody>
@@ -1532,7 +1532,7 @@ memory usage: 76.7+ KB
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8a01d85f7323f6316d021122afc2b427d9abaed6e43449e41a843740cc791227.png" src="../_images/8a01d85f7323f6316d021122afc2b427d9abaed6e43449e41a843740cc791227.png" />
+<img alt="../_images/c15588cad14a5898623bbb6093f58c332b6c5ccc192064568ec9cf408cdd601a.png" src="../_images/c15588cad14a5898623bbb6093f58c332b6c5ccc192064568ec9cf408cdd601a.png" />
 </div>
 </div>
 <p>In the graph, I see that among the ones I loved, there are a couple of movies that also enjoyed much public favor. Which ones are they?</p>
@@ -1586,7 +1586,7 @@ memory usage: 76.7+ KB
       <td>Milos Forman</td>
       <td>1975</td>
       <td>One Flew Over the Cuckoo's Nest</td>
-      <td>9920</td>
+      <td>9921</td>
       <td>8.4</td>
       <td>loved</td>
     </tr>
@@ -1595,7 +1595,7 @@ memory usage: 76.7+ KB
       <td>Billy Wilder</td>
       <td>1960</td>
       <td>The Apartment</td>
-      <td>2102</td>
+      <td>2103</td>
       <td>8.2</td>
       <td>loved</td>
     </tr>
@@ -1708,7 +1708,7 @@ memory usage: 76.7+ KB
       <td>Joon-ho Bong</td>
       <td>2019</td>
       <td>Parasite</td>
-      <td>17053</td>
+      <td>17057</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
@@ -1717,7 +1717,7 @@ memory usage: 76.7+ KB
       <td>Akira Kurosawa</td>
       <td>1954</td>
       <td>Seven Samurai</td>
-      <td>3389</td>
+      <td>3391</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
@@ -1726,7 +1726,7 @@ memory usage: 76.7+ KB
       <td>Isao Takahata</td>
       <td>2003</td>
       <td>Grave of the Fireflies</td>
-      <td>5086</td>
+      <td>5087</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
@@ -1735,7 +1735,7 @@ memory usage: 76.7+ KB
       <td>Hayao Miyazaki</td>
       <td>2001</td>
       <td>Spirited Away</td>
-      <td>15486</td>
+      <td>15490</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
@@ -1744,7 +1744,7 @@ memory usage: 76.7+ KB
       <td>Sergio Leone</td>
       <td>1966</td>
       <td>The Good, the Bad and the Ugly</td>
-      <td>8060</td>
+      <td>8062</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
@@ -1753,7 +1753,7 @@ memory usage: 76.7+ KB
       <td>Giuseppe Tornatore</td>
       <td>1988</td>
       <td>Cinema Paradiso</td>
-      <td>4107</td>
+      <td>4108</td>
       <td>8.5</td>
       <td>untagged</td>
     </tr>
