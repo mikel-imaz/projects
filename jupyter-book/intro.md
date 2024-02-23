@@ -26,6 +26,12 @@ By **Mikel Imaz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Municipal Indicators
+:link: notebooks/p-udalmap
+:link-type: doc
+:img-bottom: notebooks/img/urretxu.jpg
+:::
+
 :::{grid-item-card} Movie Records
 :link: notebooks/p-films
 :link-type: doc
