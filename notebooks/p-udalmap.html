@@ -767,23 +767,15 @@ document.write(`
     <span class="p">)</span>
 
 
-<span class="n">demo</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+<span class="c1"># demo.launch()</span>
 </pre></div>
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running on local URL:  http://127.0.0.1:7860
-
-To create a public link, set `share=True` in `launch()`.
-</pre></div>
 </div>
-<div class="output text_html"><div><iframe src="http://127.0.0.1:7860/" width="100%" height="500" allow="autoplay; camera; microphone; clipboard-read; clipboard-write;" frameborder="0" allowfullscreen></iframe></div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>(If Jupyter Book does not render the demo app, you can access it at <a class="reference external" href="https://huggingface.co/spaces/datuz/udalmap">Hugging Face Spaces</a>.)</p>
+<p><img alt="" src="../_images/udalmap-demo.gif" /></p>
+<p>This is just a GIF animation of the demo app.</p>
+<p>You can access it at <a class="reference external" href="https://huggingface.co/spaces/datuz/udalmap">Hugging Face Spaces</a>.</p>
 </section>
 <section id="the-data">
 <h2>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
@@ -983,7 +975,7 @@ To create a public link, set `share=True` in `launch()`.
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f62442703637420b973ca36c530fdfd3", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a4cd7a54874f43e7bc1050131bcd6800", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>In the analysis, I used an interactive chart from the ipywidgets library, but since Jupyter Book does not render them, I show below two screenshots of the results.</p>
 <p><img alt="" src="../_images/hist-urretxu-2022.jpg" />
@@ -1196,13 +1188,14 @@ To create a public link, set `share=True` in `launch()`.
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1f9303e3a9f64b02a88a12781d04dfaa", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "64cff7e94b8e4d60ba9461adb699de29", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7f40960079df45b687b0dff233235974", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "630a47975552455f8197e7b6196d379a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>But Jupyter Book doesn’t render these interactivities of ipywidgets library, so I’ll place a GIF animation of them instead.</p>
 <p><img alt="" src="../_images/udalmap-indicators.gif" /></p>
-<p>And here’s a screenshot for a calmer analysis.</p>
+<p>And here’s a screenshot of 2022 for a calmer analysis.</p>
 <p><img alt="" src="../_images/udalmap-indicators-scrsht.png" /></p>
-<p>So, the indicators placed towards the right and upwards indicate that Zumarraga and Urretxu, respectively, enjoy a higher ranking in them. Additionally, the diagonal line separates the indicators in which each town obtains the highest positioning, and the farther away the point is from this line, the greater the difference in the ranking these towns occupy in that specific indicator.</p>
+<p>So, the indicators placed towards the right (for Zumarraga) and upwards (for Urretxu) indicate that respectively they enjoy a better ranking position for that specific indicator.</p>
+<p>Additionally, the diagonal line separates the indicators in which each town obtains the highest positioning with respecto to the other, and the farther away the point is from this line, the greater the difference in the ranking these towns occupy in that specific indicator.</p>
 <p>So let’s take a look at some of them:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1321,10 +1314,11 @@ To create a public link, set `share=True` in `launch()`.
 </div>
 </div>
 <p><strong>77</strong>: It seems that there is no remaining urbanizable residential area in Urretxu, while Zumarraga occupies an intermediate position in this regard.</p>
+<p>So we could continue analyzing which indicators are above average and which ones occupy lower positions, besides seeing in which indicators these two towns are distant. This information could be useful for assessing the situation of both municipalities.</p>
 </section>
 <section id="evolution-of-indicators">
 <h2>Evolution of indicators<a class="headerlink" href="#evolution-of-indicators" title="Permalink to this heading">#</a></h2>
-<p>The idea in this section of the analysis would be to examine the comparative evolution of certain indicators that could be interesting.</p>
+<p>The goal in this section would be to comparatively analyze, as in the previous section, the temporal evolution of certain indicators individually.</p>
 <p>First I prepare the dataframe to later complete the plotting.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1546,7 +1540,7 @@ To create a public link, set `share=True` in `launch()`.
 </div>
 </details>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "87003a8dc6cc4e4a87a339f8989fd8d3", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "be746aebecac4696ae0924fa87300e87", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b307622105fa47fa9d74416a87ff287d", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "3de1d74b73744e74ae2e79bd2bf278dc", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>These are some examples of indicators for which I wanted to have comprehensive visual information about the position occupied by the two towns.</p>
 <p><img alt="" src="../_images/udalmap-162.gif" />
@@ -1554,14 +1548,17 @@ To create a public link, set `share=True` in `launch()`.
 <p>The total population and the population density. See that actual values are displayed on both sides of the point (Urretxu on the left, Zumarraga on the right). As indicated by these values, the point lies below the diagonal for the total population, indicating that Zumarraga has more inhabitants than Urretxu. But not for the density, with Urretxu leading Zumarraga. With respect to their position, it is observed that these towns are denser than populous, although they are quite high in the ranking in both parameters.</p>
 <p><img alt="" src="../_images/udalmap-31.gif" />
 <img alt="" src="../_images/udalmap-29.gif" /></p>
-<p>The retail commercial area per inhabitant is decreasing in both towns, leading to a loss in ranking. It is also noticeable that in Urretxu, the number was higher, but in recent years, it tends to equalize with Zumarraga. With regards to bars and restaurants, it is evident that Urretxu has always had more establishments of this kind than Zumarraga. I thought the number of them per inhabitant was high, but I discover that in the ranking, they are positioned in the average.</p>
+<p>The retail commercial area per inhabitant is decreasing in both towns, leading to a loss in ranking. It is also noticeable that in Urretxu, the number was higher, but in recent years, it tends to equalize with Zumarraga. With regards to bars and restaurants, it is evident that Urretxu has always had more establishments of this kind than Zumarraga. I thought the number of them per inhabitant was high, but I discover that in the ranking, they are mostly positioned in the average.</p>
 <p><img alt="" src="../_images/udalmap-102.gif" />
 <img alt="" src="../_images/udalmap-143.gif" /></p>
 <p>Finally, I take a look at two parameters in the Mobility and Environment area. The vehicle fleet per inhabitant appears below average. And the area of parks and gardens per person is extremely low in Urretxu, as I expected, since with the existing urban density, there is no space for them.</p>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>Through this project, I aimed to bring municipal indicator data to the public eye, which, despite being available, are not always easily accessible. First, I prepared some functions to access the API more conveniently. Using them as a foundation, I programmed a demo application ready to be used by any citizen. As for the analysis, I focused on the towns where I live, looking for indicators that made them stand out from the average and finally analyzing the temporal evolution of a handful of those indicators. Personally, without a specific goal or question to answer, this project satisfied my curiosity. However, I believe that these tools can be very useful for use in specific studies where one wants to comparatively analyze the development of municipalities.</p>
+<p>Through this project, I aimed to bring municipal indicator data to the public eye, which, despite being available, are not always easily accessible.</p>
+<p>First, I prepared some functions to access the API more conveniently. Using them as a foundation, I programmed a demo application ready to be used by any citizen.</p>
+<p>As for the analysis, I focused on the towns where I live, looking for indicators that made them stand out from the average and finally analyzing the temporal evolution of a handful of those indicators.</p>
+<p>Personally, without a specific goal or question to answer, this project satisfied my curiosity. However, I believe that these tools can be very useful for use in specific studies where one wants to comparatively analyze the development of municipalities.</p>
 </section>
 </section>
 
