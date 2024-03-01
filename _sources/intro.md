@@ -3,11 +3,50 @@
 — in Python
 ```
 
-By **Mikel Imaz**
+By **datuz**
 
 ---
+---
+*Challenge projects*
 
-*AI projects*
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Employee Network Analysis
+:link: notebooks/employee-network
+:link-type: doc
+:img-bottom: notebooks/img/employee-network-analysis.jpg
+:::
+
+:::{grid-item-card} Reducing hospital readmissions
+:link: notebooks/hospital
+:link-type: doc
+:img-bottom: notebooks/img/hospital-patient-readmissions.jpg
+:::
+
+:::{grid-item-card} Predicting hotel cancellations
+:link: notebooks/hotels
+:link-type: doc
+:img-bottom: notebooks/img/predict-hotel-cancellation.jpg
+:::
+
+:::{grid-item-card} Was a website redesign successful?
+:link: notebooks/webpage
+:link-type: doc
+:img-bottom: notebooks/img/webpage-redesign-test.jpg
+:::
+
+:::{grid-item-card} Improving customer segmentation
+:link: notebooks/segmentation
+:link-type: doc
+:img-bottom: notebooks/img/medical-device-customers.jpg
+:::
+
+::::
+
+---
+---
+*Artificial Intelligence*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
@@ -21,7 +60,47 @@ By **Mikel Imaz**
 ::::
 
 ---
-*Personal projects*
+*Data Science*
+
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Earth Quakes
+:link: notebooks/quakes
+:link-type: doc
+:img-bottom: notebooks/img/seismograph.jpg
+:::
+
+:::{grid-item-card} Climate Change
+:link: notebooks/climate
+:link-type: doc
+:img-bottom: notebooks/img/stevenson.jpg
+:::
+
+::::
+
+---
+*Machine Learning*
+
+::::{grid} 2 2 2 3
+:gutter: 3
+
+:::{grid-item-card} Bar Reviews
+:link: notebooks/antio
+:link-type: doc
+:img-bottom: notebooks/img/antio-short.jpg
+:::
+
+:::{grid-item-card} Ignatian Pilgrims
+:link: notebooks/ignatian
+:link-type: doc
+:img-bottom: notebooks/img/P1580313_short.jpg
+:::
+
+::::
+
+---
+*Data Analysis*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
@@ -50,24 +129,6 @@ By **Mikel Imaz**
 :img-bottom: notebooks/img/barrendiola.jpg
 :::
 
-:::{grid-item-card} Earth Quakes
-:link: notebooks/quakes
-:link-type: doc
-:img-bottom: notebooks/img/seismograph.jpg
-:::
-
-:::{grid-item-card} Climate Change
-:link: notebooks/climate
-:link-type: doc
-:img-bottom: notebooks/img/stevenson.jpg
-:::
-
-:::{grid-item-card} Bar Reviews
-:link: notebooks/antio
-:link-type: doc
-:img-bottom: notebooks/img/antio-short.jpg
-:::
-
 :::{grid-item-card} Handfan Reviews
 :link: notebooks/olele
 :link-type: doc
@@ -90,43 +151,6 @@ By **Mikel Imaz**
 :link: notebooks/breads
 :link-type: doc
 :img-bottom: notebooks/img/udana.jpg
-:::
-
-:::{grid-item-card} Ignatian Pilgrims
-:link: notebooks/ignatian
-:link-type: doc
-:img-bottom: notebooks/img/P1580313_short.jpg
-:::
-::::
-
----
-*Challenge projects*
-
-::::{grid} 2 2 2 3
-:gutter: 3
-
-:::{grid-item-card} Reducing hospital readmissions
-:link: notebooks/hospital
-:link-type: doc
-:img-bottom: notebooks/img/hospital-patient-readmissions.jpg
-:::
-
-:::{grid-item-card} Predicting hotel cancellations
-:link: notebooks/hotels
-:link-type: doc
-:img-bottom: notebooks/img/predict-hotel-cancellation.jpg
-:::
-
-:::{grid-item-card} Was a website redesign successful?
-:link: notebooks/webpage
-:link-type: doc
-:img-bottom: notebooks/img/webpage-redesign-test.jpg
-:::
-
-:::{grid-item-card} Improving customer segmentation
-:link: notebooks/segmentation
-:link-type: doc
-:img-bottom: notebooks/img/medical-device-customers.jpg
 :::
 
 ::::
