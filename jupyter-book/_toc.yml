@@ -6,29 +6,34 @@ root: intro
 parts:
 - caption: Contents
   chapters:
-  - file: projects-AI
-    sections:
-    - file: notebooks/p-antio-gpt
-  - file: projects-my
-    sections:
-    - file: notebooks/p-udalmap
-    - file: notebooks/p-films
-    - file: notebooks/ages
-    - file: notebooks/water
-    - file: notebooks/quakes
-    - file: notebooks/climate
-    - file: notebooks/antio
-    - file: notebooks/olele
-    - file: notebooks/traffic_fines
-    - file: notebooks/urban_trees
-    - file: notebooks/breads
-    - file: notebooks/ignatian
   - file: projects-challenge
     sections:
+    - file: notebooks/employee-network
     - file: notebooks/hospital
     - file: notebooks/hotels
     - file: notebooks/webpage
     - file: notebooks/segmentation
+  - file: projects-AI
+    sections:
+    - file: notebooks/p-antio-gpt
+  - file: projects-DS
+    sections:
+    - file: notebooks/quakes
+    - file: notebooks/climate
+  - file: projects-ML
+    sections:
+    - file: notebooks/antio
+    - file: notebooks/ignatian
+  - file: projects-DA
+    sections:    
+    - file: notebooks/p-udalmap
+    - file: notebooks/p-films
+    - file: notebooks/ages
+    - file: notebooks/water
+    - file: notebooks/olele
+    - file: notebooks/traffic_fines
+    - file: notebooks/urban_trees
+    - file: notebooks/breads
 - caption: About
   chapters:
   - url: https://datuz.es
