@@ -42,6 +42,12 @@ By **datuz**
 :img-bottom: notebooks/img/medical-device-customers.jpg
 :::
 
+:::{grid-item-card} Seafood farm process improvement
+:link: notebooks/abalone
+:link-type: doc
+:img-bottom: notebooks/img/abalone.jpg
+:::
+
 ::::
 
 ---
