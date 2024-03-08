@@ -13,6 +13,7 @@ parts:
     - file: notebooks/hotels
     - file: notebooks/webpage
     - file: notebooks/segmentation
+    - file: notebooks/abalone
   - file: projects-AI
     sections:
     - file: notebooks/p-antio-gpt
