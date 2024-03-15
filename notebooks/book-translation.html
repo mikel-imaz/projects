@@ -415,7 +415,7 @@ document.write(`
 </div></blockquote>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
-<p>A few years ago, I wrote a book in Spanish about my personal experience walking the Camino de Santiago. At the time, I considered translating it into English to reach more readers on Amazon, but I discarded the idea because of the effort and costs involved.</p>
+<p>A few years ago, I wrote a <a class="reference external" href="https://www.amazon.es/Camino-Tu-Santiago-viaje-pie/dp/1082388130">book</a> in Spanish about my personal experience walking the Camino de Santiago. At the time, I considered translating it into English to reach more readers on Amazon, but I discarded the idea because of the effort and costs involved.</p>
 <p>However, with the advancement of Artificial Intelligence during these last few years, I thought it would be interesting to experiment with some model to automatically translate the book for me. Perhaps it would turn out so well that it wouldn’t need further manual adjustments by humans.</p>
 <p>The historical evolution of Machine Translation has been the following one:</p>
 <ul class="simple">
@@ -1043,10 +1043,10 @@ Execution time: 3747 s
             <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">elapsed_time_hel</span><span class="p">)),</span>
             <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">elapsed_time_gpt</span><span class="p">)),</span>
         <span class="p">],</span>
-        <span class="s2">&quot;Cost ($)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cost_gpt</span><span class="p">],</span>
+        <span class="s2">&quot;Cost&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cost_gpt</span><span class="p">],</span>
     <span class="p">},</span>
     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Google Translate&quot;</span><span class="p">,</span> <span class="s2">&quot;Helsinki-NLP&quot;</span><span class="p">,</span> <span class="s2">&quot;OpenAI GPT&quot;</span><span class="p">],</span>
-<span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s2">&quot;Score&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Cost ($)&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s2">&quot;Score&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Cost&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1089,7 @@ Execution time: 3747 s
       <td>00:33:27</td>
     </tr>
     <tr>
-      <th>Cost ($)</th>
+      <th>Cost</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.43</td>
@@ -1100,7 +1100,8 @@ Execution time: 3747 s
 </div>
 <p>Regarding the quality of the translations, I would need to look into it more closely, although a quick glance indicates that both Google and GPT indeed seem to perform slightly better than Helsinki. However, the files containing these translations are available on GitHub for anyone to judge.</p>
 <p>I was surprised that GPT was the fastest in translating the book, in just over half an hour. And that it took Helsinki an hour, running it on my own computer. However, I suspect that these times will vary depending on the time of the day the OpenAI and Google API services are queried, as well as the processing power of each PC for the case of open-source models run locally.</p>
-<p>As for the cost, Google and Helsinki are free, while the translation by OpenAI using <em>GPT 3.5 Turbo</em> cost me 0.43 dollars, 0.39 euros at today’s exchange rate, which can be considered reasonable.</p>
+<p>As for the cost, Google and Helsinki are free, while the translation by OpenAI using <em>GPT 3.5 Turbo</em> cost me 0.43 $, 0.39 € at today’s exchange rate. Inexpensive. Obviously the results are not comparable to those of a human translator, especially when it comes to translating a work of fiction. However, machine translation can help introduce the text to someone who doesn’t know the original language. Perhaps also as a first draft to work on for a more polished version later.</p>
+<p>In any case, the results have not satisfied me for a narrative work, and I believe my book will remain unpublished in English.</p>
 </section>
 </section>
 

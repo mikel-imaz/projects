@@ -63,7 +63,7 @@ By **datuz**
 :img-bottom: notebooks/img/dcts.jpg
 :::
 
-:::{grid-item-card} Sentiment analysis with OpenAI embeddings
+:::{grid-item-card} Sentiment analysis with embeddings
 :link: notebooks/p-antio-gpt
 :link-type: doc
 :img-bottom: notebooks/img/antio-ai.jpg
