@@ -16,6 +16,7 @@ parts:
     - file: notebooks/abalone
   - file: projects-AI
     sections:
+    - file: notebooks/book-translation
     - file: notebooks/p-antio-gpt
   - file: projects-DS
     sections:
