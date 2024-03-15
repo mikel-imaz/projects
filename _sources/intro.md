@@ -57,6 +57,12 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Book translation
+:link: notebooks/book-translation
+:link-type: doc
+:img-bottom: notebooks/img/dcts.jpg
+:::
+
 :::{grid-item-card} Sentiment analysis with OpenAI embeddings
 :link: notebooks/p-antio-gpt
 :link-type: doc

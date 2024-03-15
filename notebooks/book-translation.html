@@ -1,0 +1,1237 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Book translation &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/book-translation';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sentiment analysis with OpenAI embeddings" href="p-antio-gpt.html" />
+    <link rel="prev" title="Artificial Intelligence" href="../projects-AI.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="datuz - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="datuz - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-challenge.html">Challenge projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-AI.html">Artificial Intelligence</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with OpenAI embeddings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-DS.html">Data Science</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-ML.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-DA.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://datuz.es">datuz</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/book-translation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Book translation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-models">Comparing models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translators">Translators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sacrebleu-metric">SacreBLEU metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translating-the-book">Translating the book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-gpt">OpenAI GPT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-translate">Google Translate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helsinki-nlp">Helsinki-NLP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="book-translation">
+<h1>Book translation<a class="headerlink" href="#book-translation" title="Permalink to this heading">#</a></h1>
+<p><img alt="" src="../_images/dcts.jpg" /></p>
+<p>Mar, 2024</p>
+<blockquote>
+<div><p>Machine Translation (MT)</p>
+</div></blockquote>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>A few years ago, I wrote a book in Spanish about my personal experience walking the Camino de Santiago. At the time, I considered translating it into English to reach more readers on Amazon, but I discarded the idea because of the effort and costs involved.</p>
+<p>However, with the advancement of Artificial Intelligence during these last few years, I thought it would be interesting to experiment with some model to automatically translate the book for me. Perhaps it would turn out so well that it wouldn’t need further manual adjustments by humans.</p>
+<p>The historical evolution of Machine Translation has been the following one:</p>
+<ul class="simple">
+<li><p>1950 - 2000: <strong>Rule based</strong> linguistic approach.</p></li>
+<li><p>2000 - 2010: <strong>Statistical approach</strong>. Access to many bilingual texts. Instead of building rules, statistical models were considered.</p></li>
+<li><p>2010 - 202x: <strong>Neural Machine Translation (NMT)</strong>. Advanced Deep Learning models, more data available to train models, more computing power.</p></li>
+</ul>
+<p>And in this latest phase, it is worth noting the emergence of <strong>Generative Artificial Intelligence</strong>, with large language models (such as OpenAI’s GPT: a <strong>LLM</strong> based on complex Deep Learning architectures) trained for text generation, <em>which can also be used for translating</em>.</p>
+<p>So, I decided to make a foray into this world to explore the possibilities before carrying out the full translation of my book.</p>
+</section>
+<section id="comparing-models">
+<h2>Comparing models<a class="headerlink" href="#comparing-models" title="Permalink to this heading">#</a></h2>
+<section id="the-data">
+<h3>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h3>
+<p>To compare translation results across different models, I would use a metric, for which first of all I needed a dataset with sentences in Spanish and their correct translation into English. For this, I relied on <a class="reference external" href="https://tatoeba.org/">Tatoeba</a>, a collaborative website dedicated to collecting sentences and their translations into multiple languages.</p>
+<p>I downloaded a file containing over a quarter of a million translated sentences. I sorted the entries by length and kept the top thousand longest Spanish sentences (and their corresponding translations). I thought that for translating a book like mine, when comparing models, it would be best to make them work on longer sentences rather than shorter ones.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">my_functions</span> <span class="k">as</span> <span class="nn">my</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># Google Translator</span>
+<span class="kn">from</span> <span class="nn">deep_translator</span> <span class="kn">import</span> <span class="n">GoogleTranslator</span>
+
+<span class="c1"># Hugging Face</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="kn">from</span> <span class="nn">evaluate</span> <span class="kn">import</span> <span class="n">load</span>
+
+<span class="c1"># OpenAI</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">import</span> <span class="nn">tiktoken</span>
+
+<span class="c1"># # https://tatoeba.org/es/downloads, es --&gt; en</span>
+<span class="c1"># tatoeba = pd.read_csv(&quot;data/tatoeba-es-en-2024-03-13.tsv&quot;,</span>
+<span class="c1">#                       sep=&quot;\t&quot;,</span>
+<span class="c1">#                       header=None,</span>
+<span class="c1">#                       usecols=[1, 3],</span>
+<span class="c1">#                       names=[&quot;es&quot;, &quot;en&quot;])</span>
+<span class="c1">#</span>
+<span class="c1"># # Sort by length of the sentence</span>
+<span class="c1"># tatoeba = tatoeba.sort_values(by=&quot;es&quot;,</span>
+<span class="c1">#                               key=lambda x: x.str.len(),</span>
+<span class="c1">#                               ascending=False)</span>
+<span class="c1">#</span>
+<span class="c1"># # Subset n longest sentences</span>
+<span class="c1"># n = 1000</span>
+<span class="c1"># tatoeba_n = tatoeba.iloc[:n, :].reset_index(drop=True)</span>
+<span class="c1">#</span>
+<span class="c1"># # Save as csv file</span>
+<span class="c1"># tatoeba_n.to_csv(&quot;data/tatoeba_n.csv&quot;, index=False)</span>
+
+<span class="n">tatoeba_n</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/tatoeba_n.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="translators">
+<h3>Translators<a class="headerlink" href="#translators" title="Permalink to this heading">#</a></h3>
+<p>In my comparison, I was clear that I wanted to include <strong>Google Translate</strong> and <strong>OpenAI’s GPT</strong> text generation tool. Since both are proprietary models, I thought it would be interesting to also have a free open-source model that I could run locally on my computer.</p>
+<p>A quick search on <a class="reference external" href="https://huggingface.co/Helsinki-NLP/opus-mt-es-en">Hugging Face</a> convinced me to use the <strong>Helsinki-NLP/opus-mt-es-en</strong> model, an open-source model ready to translate text from Spanish to English. It is a project led by the University of Helsinki, co-funded by the EU, in which they have fine-tuned for language couples the open pre-trained model Mariam-NMT on a corpus of translated texts from the web called <a class="reference external" href="https://opus.nlpl.eu/">OPUS</a>.</p>
+<p>For this project, I instantiated each of these models as follows:</p>
+<ul class="simple">
+<li><p>For the Helsinki-NLP model I used a Hugging Face pipeline. This has the model downloaded locally in my computer before running it.</p></li>
+<li><p>For Google Translate I used a library called <a class="reference external" href="https://pypi.org/project/deep-translator/">deep_translator</a> as a wrapper to the Google API (no costs involved).</p></li>
+<li><p>For GPT, I utilized the <a class="reference external" href="https://openai.com/pricing">OpenAI API</a>, using my key for access and billing. As model I selected the <em>gpt-3.5-turbo</em>, which is not as advanced as GPT-4 but may be enough for the purpose (and cheaper!).</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instanciate Helsinki model</span>
+<span class="n">helsinkitranslator</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;translation&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Helsinki-NLP/opus-mt-es-en&quot;</span><span class="p">)</span>
+
+<span class="c1"># Instanciate Google Translator</span>
+<span class="n">googletranslator</span> <span class="o">=</span> <span class="n">GoogleTranslator</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+
+<span class="c1"># Instanciate OpenAI-GPT</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;xxx&quot;</span>
+<span class="n">gptranslator</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+
+
+<span class="c1"># Function to translate with Helsinki model</span>
+<span class="k">def</span> <span class="nf">translate_helsinki</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="n">trans_hel</span> <span class="o">=</span> <span class="n">client</span><span class="p">(</span><span class="n">text</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;translation_text&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">trans_hel</span>
+
+
+<span class="c1"># Function to translate with Google model</span>
+<span class="k">def</span> <span class="nf">translate_google</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">retry_gap</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># Initial gap between retries in seconds</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_attempts</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">trans_goo</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="k">break</span>  <span class="c1"># Break inner loop on success</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request failed on attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">retry_gap</span> <span class="o">*=</span> <span class="mf">1.5</span>  <span class="c1"># Increase the retry gap exponentially</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">retry_gap</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">trans_goo</span>
+
+
+<span class="c1"># Function to translate with GPT model</span>
+<span class="k">def</span> <span class="nf">translate_gpt</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="c1"># Parameters</span>
+    <span class="n">gpt_model</span> <span class="o">=</span> <span class="s2">&quot;gpt-3.5-turbo&quot;</span>
+    <span class="n">model_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">gpt_model</span><span class="p">,</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+    <span class="n">system_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a translation tool.</span>
+<span class="s2">    You receive a string written in Spanish, and solely return the same string in English without losing any of the original formatting.</span>
+<span class="s2">    Your translations should be accurate, aiming not to deviate from de original structure, content, writing style and tone.&quot;&quot;&quot;</span>
+
+    <span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">retry_gap</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># Initial gap between retries in seconds</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_attempts</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_prompt</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">},</span>
+            <span class="p">]</span>
+            <span class="n">completion</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="o">**</span><span class="n">model_parameters</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="n">messages</span>
+            <span class="p">)</span>
+            <span class="n">trans_gpt</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+            <span class="n">tokens_in</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">usage</span><span class="o">.</span><span class="n">prompt_tokens</span>
+            <span class="n">tokens_out</span> <span class="o">=</span> <span class="n">completion</span><span class="o">.</span><span class="n">usage</span><span class="o">.</span><span class="n">completion_tokens</span>
+            <span class="k">break</span>  <span class="c1"># Break inner loop on success</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request failed on attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">. Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">retry_gap</span> <span class="o">*=</span> <span class="mf">1.5</span>  <span class="c1"># Increase the retry gap exponentially</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">retry_gap</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">trans_gpt</span><span class="p">,</span> <span class="n">tokens_in</span><span class="p">,</span> <span class="n">tokens_out</span>
+
+
+<span class="c1"># Function to calculate cost for &quot;gpt-3.5-turbo&quot;</span>
+<span class="k">def</span> <span class="nf">cost_gpt</span><span class="p">(</span><span class="n">tokens_in</span><span class="p">,</span> <span class="n">tokens_out</span><span class="p">):</span>
+    <span class="n">price_in</span> <span class="o">=</span> <span class="mf">1.50</span>  <span class="c1"># $ /1M tokens</span>
+    <span class="n">price_out</span> <span class="o">=</span> <span class="mf">2.00</span>  <span class="c1"># $ /1M tokens</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tokens_in</span> <span class="o">*</span> <span class="n">price_in</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">tokens_out</span> <span class="o">*</span> <span class="n">price_out</span> <span class="o">/</span> <span class="mi">1000000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="sacrebleu-metric">
+<h3>SacreBLEU metric<a class="headerlink" href="#sacrebleu-metric" title="Permalink to this heading">#</a></h3>
+<p>As comparison metric I used SacreBLEU from the <a class="reference external" href="https://huggingface.co/spaces/evaluate-metric/sacrebleu">Hugging Face</a> evaluation library.</p>
+<p>I had the three models translate successively the 1000 sentences extracted from the Tatoeba database. I compared each translation with the reference translation in Tatoeba, thus obtaining 1000 SacreBLEU scores for each of the 3 models.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Translate</span>
+<span class="n">goo_lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">hel_lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">gpt_lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tokens_in_consumed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tokens_out_consumed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">n_chunks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tatoeba_n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">tatoeba_n</span><span class="p">[</span><span class="s2">&quot;es&quot;</span><span class="p">]:</span>
+
+    <span class="c1"># Google Translator</span>
+    <span class="n">goo_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">translate_google</span><span class="p">(</span><span class="n">googletranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+    <span class="c1"># Helsinki-NLP</span>
+    <span class="n">hel_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">translate_helsinki</span><span class="p">(</span><span class="n">helsinkitranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+
+    <span class="c1"># OpenAI-GPT</span>
+    <span class="n">translation</span><span class="p">,</span> <span class="n">tokens_in</span><span class="p">,</span> <span class="n">tokens_out</span> <span class="o">=</span> <span class="n">translate_gpt</span><span class="p">(</span><span class="n">gptranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">tokens_in_consumed</span> <span class="o">+=</span> <span class="n">tokens_in</span>
+    <span class="n">tokens_out_consumed</span> <span class="o">+=</span> <span class="n">tokens_out</span>
+    <span class="n">gpt_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">translation</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">clear_output</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;...</span><span class="se">\n</span><span class="s2">Completed: </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_chunks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cost GPT: </span><span class="si">{</span><span class="n">cost_gpt</span><span class="p">(</span><span class="n">tokens_in_consumed</span><span class="p">,</span><span class="w"> </span><span class="n">tokens_out_consumed</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> $&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
+Completed: 1000 / 1000
+
+Cost GPT: 0.30 $
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instanciate evaluation metric</span>
+<span class="n">sacrebleu</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s2">&quot;sacrebleu&quot;</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Evaluate</span>
+<span class="n">goo_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">hel_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">gpt_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">goo</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">gpt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tatoeba_n</span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">],</span> <span class="n">goo_lst</span><span class="p">,</span> <span class="n">hel_lst</span><span class="p">,</span> <span class="n">gpt_lst</span><span class="p">):</span>
+    <span class="n">references</span> <span class="o">=</span> <span class="p">[[</span><span class="n">text</span><span class="p">]]</span>
+
+    <span class="c1"># Google Translator</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">goo</span><span class="p">]</span>
+    <span class="n">goo_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">sacrebleu</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">)[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Helsinki-NLP</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">hel</span><span class="p">]</span>
+    <span class="n">hel_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">sacrebleu</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">)[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># OpenAI-GPT</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">gpt</span><span class="p">]</span>
+    <span class="n">gpt_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">sacrebleu</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span> <span class="n">references</span><span class="o">=</span><span class="n">references</span><span class="p">)[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="c1"># Mean values</span>
+<span class="n">goo_scores_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">goo_scores</span><span class="p">)</span>
+<span class="n">hel_scores_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">hel_scores</span><span class="p">)</span>
+<span class="n">gpt_scores_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gpt_scores</span><span class="p">)</span>
+
+<span class="c1"># Convert to df to plot</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">goo_scores</span><span class="p">,</span> <span class="n">hel_scores</span><span class="p">,</span> <span class="n">gpt_scores</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Google Translate&quot;</span><span class="p">,</span> <span class="s2">&quot;Helsinki-NLP&quot;</span><span class="p">,</span> <span class="s2">&quot;OpenAI GPT&quot;</span><span class="p">],</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="c1"># Get new column with length</span>
+<span class="n">scores</span><span class="p">[</span><span class="s2">&quot;len_es&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tatoeba_n</span><span class="p">[</span><span class="s2">&quot;es&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="c1"># Long format to plot in Seaborn</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;len_es&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;score&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;SacreBLEU&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/742e67097c9ea4987a58831f8907e32e710a0ee03e13a6b455e290c98a7cacea.png" src="../_images/742e67097c9ea4987a58831f8907e32e710a0ee03e13a6b455e290c98a7cacea.png" />
+</div>
+</div>
+<p>It doesn’t seem like there’s much difference between the three models, although Google and GPT seem to achieve slightly better results than Helsinki in terms of SacreBLEU averages and medians. How much better? The confidence intervals are not too distinct in this last bar chart. I decided to calculate the distribution of their means to see it more clearly.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Establish random numbers&#39; seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="c1"># Draw bootstrap replicates</span>
+<span class="n">bs_reps_goo_scores</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">goo_scores</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_reps_hel_scores</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hel_scores</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">bs_reps_gpt_scores</span> <span class="o">=</span> <span class="n">my</span><span class="o">.</span><span class="n">draw_bs_reps</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gpt_scores</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">bs_reps_goo_scores</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+    <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Google Translator&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">bs_reps_hel_scores</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+    <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Helsinki-NLP&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+    <span class="n">bs_reps_gpt_scores</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+    <span class="n">element</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;OpenAI GPT&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean-values distributions&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;SacreBLEU score&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/bfcf37faf68e1b7a84fd2e1e37d99aa3cbc63c90bfb82c2e7f80ee6f0ec3176d.png" src="../_images/bfcf37faf68e1b7a84fd2e1e37d99aa3cbc63c90bfb82c2e7f80ee6f0ec3176d.png" />
+</div>
+</div>
+<p>Here it is clear that the difference between Google Translator and OpenAI GPT compared to Helsinki is significant in the tests conducted on the sample of 1000 long sentences.</p>
+</section>
+</section>
+<section id="translating-the-book">
+<h2>Translating the book<a class="headerlink" href="#translating-the-book" title="Permalink to this heading">#</a></h2>
+<p>I carried out the translation of my book on these three systems. The quality of the translation should be checked later by myself (or by a professional translator or native speaker), but for now, I also wanted to see the differences in the time required and the cost.</p>
+<p>The book is titled <a class="reference external" href="https://www.amazon.es/Camino-Tu-Santiago-viaje-pie/dp/1082388130"><em>De Camino Tu Santiago</em></a> and consists of approximately 65,000 words in Spanish.</p>
+<p>To begin with, I loaded the book from the text file where I stored it and split it into chunks separated by line breaks to proceed with its translation paragraph by paragraph.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open book file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dcts.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file_text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Split file</span>
+<span class="n">split_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">split_text</span> <span class="o">=</span> <span class="n">file_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">split_string</span><span class="p">)</span>
+
+<span class="c1"># Number of chunks</span>
+<span class="n">n_chunks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of paragraphs --&gt; </span><span class="si">{</span><span class="n">n_chunks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of paragraphs --&gt; 1290
+</pre></div>
+</div>
+</div>
+</div>
+<section id="openai-gpt">
+<h3>OpenAI GPT<a class="headerlink" href="#openai-gpt" title="Permalink to this heading">#</a></h3>
+<p>A book of 65,000 words translates to approximately the following number of tokens for GPT.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the encoder for the OpenAI text-embedding-ada-002 model</span>
+<span class="n">enc</span> <span class="o">=</span> <span class="n">tiktoken</span><span class="o">.</span><span class="n">encoding_for_model</span><span class="p">(</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">)</span>
+
+<span class="c1"># Encode each text in documents and calculate the total tokens</span>
+<span class="n">book_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">file_text</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Book input tokens -&gt; </span><span class="si">{</span><span class="n">book_tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Book input tokens -&gt; 105909
+</pre></div>
+</div>
+</div>
+</div>
+<p>So at least twice as many tokens will be consumed since the result of the translation also needs to be taken into account.</p>
+<p>Let’s proceed with the translation using OpenAI’s GPT:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tokens_in_consumed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tokens_out_consumed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">split_text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trans</span><span class="p">,</span> <span class="n">tokens_in</span><span class="p">,</span> <span class="n">tokens_out</span> <span class="o">=</span> <span class="n">translate_gpt</span><span class="p">(</span><span class="n">gptranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">tokens_in_consumed</span> <span class="o">+=</span> <span class="n">tokens_in</span>
+        <span class="n">tokens_out_consumed</span> <span class="o">+=</span> <span class="n">tokens_out</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">clear_output</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;...</span><span class="se">\n</span><span class="s2">Completed: </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_chunks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">+=</span> <span class="n">trans</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="c1"># Get elapsed time</span>
+<span class="n">et</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">elapsed_time_gpt</span> <span class="o">=</span> <span class="n">et</span> <span class="o">-</span> <span class="n">st</span>
+
+<span class="c1"># Get tokens and cost</span>
+<span class="n">total_tokens</span> <span class="o">=</span> <span class="n">tokens_in_consumed</span> <span class="o">+</span> <span class="n">tokens_out_consumed</span>
+<span class="n">cost_gpt</span> <span class="o">=</span> <span class="n">cost_gpt</span><span class="p">(</span><span class="n">tokens_in_consumed</span><span class="p">,</span> <span class="n">tokens_out_consumed</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Execution time: </span><span class="si">{</span><span class="n">elapsed_time_gpt</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total tokens: </span><span class="si">{</span><span class="n">total_tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cost GPT: </span><span class="si">{</span><span class="n">cost_gpt</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> $&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
+Completed: 1290 / 1290
+
+Execution time: 2008 s
+
+Total tokens: 262180
+
+Cost GPT: 0.43 $
+</pre></div>
+</div>
+</div>
+</div>
+<p>I save the translation in a new file named <em>dcts_en_gpt.txt</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dcts_en_gpt.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="google-translate">
+<h3>Google Translate<a class="headerlink" href="#google-translate" title="Permalink to this heading">#</a></h3>
+<p>Let’s proceed with the translation using Google Translate:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">split_text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="n">translate_google</span><span class="p">(</span><span class="n">googletranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">clear_output</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;...</span><span class="se">\n</span><span class="s2">Completed: </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_chunks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">+=</span> <span class="n">trans</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="c1"># Get elapsed time</span>
+<span class="n">et</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">elapsed_time_goo</span> <span class="o">=</span> <span class="n">et</span> <span class="o">-</span> <span class="n">st</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Execution time: </span><span class="si">{</span><span class="n">elapsed_time_goo</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
+Completed: 1290 / 1290
+
+Execution time: 2650 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>I save the translation in a new file named <em>dcts_en_goo.txt</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dcts_en_goo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="helsinki-nlp">
+<h3>Helsinki-NLP<a class="headerlink" href="#helsinki-nlp" title="Permalink to this heading">#</a></h3>
+<p>Let’s proceed with the translation using the open-source model by Helsinki-NLP:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">split_text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="n">translate_helsinki</span><span class="p">(</span><span class="n">helsinkitranslator</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">clear_output</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;...</span><span class="se">\n</span><span class="s2">Completed: </span><span class="si">{</span><span class="n">counter</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_chunks</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">doc</span> <span class="o">+=</span> <span class="n">trans</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="c1"># Get elapsed time</span>
+<span class="n">et</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">elapsed_time_hel</span> <span class="o">=</span> <span class="n">et</span> <span class="o">-</span> <span class="n">st</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Execution time: </span><span class="si">{</span><span class="n">elapsed_time_hel</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...
+Completed: 1290 / 1290
+
+Execution time: 3747 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>I save the translation in a new file named <em>dcts_en_hel.txt</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/dcts_en_hel.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
+<p>I gather the results into a table to compare them.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Score&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">goo_scores_mean</span><span class="p">,</span> <span class="n">hel_scores_mean</span><span class="p">,</span> <span class="n">gpt_scores_mean</span><span class="p">],</span>
+        <span class="s2">&quot;Time&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">elapsed_time_goo</span><span class="p">)),</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">elapsed_time_hel</span><span class="p">)),</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">elapsed_time_gpt</span><span class="p">)),</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;Cost ($)&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cost_gpt</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Google Translate&quot;</span><span class="p">,</span> <span class="s2">&quot;Helsinki-NLP&quot;</span><span class="p">,</span> <span class="s2">&quot;OpenAI GPT&quot;</span><span class="p">],</span>
+<span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s2">&quot;Score&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Cost ($)&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Google Translate</th>
+      <th>Helsinki-NLP</th>
+      <th>OpenAI GPT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Score</th>
+      <td>53.8</td>
+      <td>48.4</td>
+      <td>53.4</td>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <td>00:44:10</td>
+      <td>01:02:27</td>
+      <td>00:33:27</td>
+    </tr>
+    <tr>
+      <th>Cost ($)</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.43</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Regarding the quality of the translations, I would need to look into it more closely, although a quick glance indicates that both Google and GPT indeed seem to perform slightly better than Helsinki. However, the files containing these translations are available on GitHub for anyone to judge.</p>
+<p>I was surprised that GPT was the fastest in translating the book, in just over half an hour. And that it took Helsinki an hour, running it on my own computer. However, I suspect that these times will vary depending on the time of the day the OpenAI and Google API services are queried, as well as the processing power of each PC for the case of open-source models run locally.</p>
+<p>As for the cost, Google and Helsinki are free, while the translation by OpenAI using <em>GPT 3.5 Turbo</em> cost me 0.43 dollars, 0.39 euros at today’s exchange rate, which can be considered reasonable.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "my-venv-01"
+        },
+        kernelOptions: {
+            name: "my-venv-01",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'my-venv-01'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects-AI.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Artificial Intelligence</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="p-antio-gpt.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sentiment analysis with OpenAI embeddings</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-models">Comparing models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translators">Translators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sacrebleu-metric">SacreBLEU metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#translating-the-book">Translating the book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-gpt">OpenAI GPT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-translate">Google Translate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helsinki-nlp">Helsinki-NLP</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2024
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
