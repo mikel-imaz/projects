@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sentiment analysis with OpenAI embeddings &#8212; datuz</title>
+    <title>Sentiment analysis with embeddings &#8212; datuz</title>
   
   
   
@@ -70,8 +70,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/p-antio-gpt';</script>
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -192,7 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-AI.html">Artificial Intelligence</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sentiment analysis with OpenAI embeddings</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sentiment analysis with embeddings</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../projects-DS.html">Data Science</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -373,7 +371,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sentiment analysis with OpenAI embeddings</h1>
+    <h1>Sentiment analysis with embeddings</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,10 +400,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sentiment-analysis-with-openai-embeddings">
-<h1>Sentiment analysis with OpenAI embeddings<a class="headerlink" href="#sentiment-analysis-with-openai-embeddings" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sentiment-analysis-with-embeddings">
+<h1>Sentiment analysis with embeddings<a class="headerlink" href="#sentiment-analysis-with-embeddings" title="Permalink to this heading">#</a></h1>
 <p><img alt="antio-ai.jpg" src="../_images/antio-ai.jpg" /></p>
-<p><span class="math notranslate nohighlight">\(^{1}\)</span>Photo by Eduard X (Dec 2022) taken from <a class="reference external" href="https://www.google.com/maps/place/Bar-Restaurante+Bidebide+-+Zumarraga/&#64;43.0916521,-2.3038457,15z/data=!4m6!3m5!1s0xd502df21409c619:0xbbdffd835d70d9e4!8m2!3d43.0916521!4d-2.3038457!16s%2Fg%2F11c4xc6ms1?entry=ttu">Bidebide</a> restaurant in Google Maps.</p>
 <p>Feb, 2024</p>
 <blockquote>
 <div><p><em>OpenAI API, Sentiment Analysis</em></p>
