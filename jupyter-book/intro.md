@@ -97,6 +97,12 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} English Vocab
+:link: notebooks/english-vocab
+:link-type: doc
+:img-bottom: notebooks/img/english-vocab.jpg
+:::
+
 :::{grid-item-card} Bar Reviews
 :link: notebooks/antio
 :link-type: doc

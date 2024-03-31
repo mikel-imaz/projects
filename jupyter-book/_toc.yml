@@ -24,6 +24,7 @@ parts:
     - file: notebooks/climate
   - file: projects-ML
     sections:
+    - file: notebooks/english-vocab
     - file: notebooks/antio
     - file: notebooks/ignatian
   - file: projects-DA
