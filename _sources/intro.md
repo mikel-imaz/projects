@@ -57,6 +57,12 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Mole mapping
+:link: notebooks/moles
+:link-type: doc
+:img-bottom: notebooks/img/moles.png
+:::
+
 :::{grid-item-card} Book translation
 :link: notebooks/book-translation
 :link-type: doc

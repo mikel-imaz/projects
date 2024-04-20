@@ -189,6 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../projects-AI.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="moles.html">Mole monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
 </ul>
@@ -408,7 +409,7 @@ document.write(`
 </div></blockquote>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
-<p>For a few years now, I regularly jot down on a spreadsheet unknown English words or terms that I want to remember. I do this especially when I read on my tablet articles from the BBC and SkyNews. The idea is to later refer back to this list to refresh my vocabulary, although I rarely do so afterwards.</p>
+<p>For a few years now, I regularly jot down on a spreadsheet unknown English words or terms that I want to remember. I do this especially when I read articles from the BBC and SkyNews. The idea is to later refer back to this list to refresh my vocabulary, although I rarely do so afterwards.</p>
 <p>It occurred to me that instead of just taking a cold glance at the list, it would be more engaging to create a program that shows random words from it before showing me their meanings. Perhaps this would motivate me to revisit them.</p>
 <p>Then I recalled that a word list is essentially a set of data and that I could analyze it. For instance, to investigate the frequency of use of the words in it. I often wonder if the word I’m looking up in the dictionary is worth the effort of learning, because it might be rare, archaic, or very specific to a certain field. I thought it would be good to contrast my list with another one with information about word frequencies in current English.</p>
 <p>Finally, I thought about clustering words as a method to facilitate learning. Instead of keeping a whole unordered list, it could be interesting to group terms based on their meaning. In this sense, I could use semantic word vectorization and then a clustering algorithm to see if I could get results that would be helpful.</p>

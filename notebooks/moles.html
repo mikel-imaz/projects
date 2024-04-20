@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Mole monitoring &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/moles';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Book translation" href="book-translation.html" />
+    <link rel="prev" title="Artificial Intelligence" href="../projects-AI.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="datuz - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="datuz - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-challenge.html">Challenge projects</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects-AI.html">Artificial Intelligence</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-DS.html">Data Science</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-ML.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects-DA.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://datuz.es">datuz</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/moles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mole monitoring</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mole-monitoring">
+<h1>Mole monitoring<a class="headerlink" href="#mole-monitoring" title="Permalink to this heading">#</a></h1>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Read data file with mole information</span>
+<span class="n">moles</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/moles.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">})</span>
+<span class="n">moles</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Location of images</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;images/moles/&quot;</span>
+
+<span class="c1"># Load body image for mole location reference</span>
+<span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;bodymap.webp&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">bodyimage</span><span class="p">:</span>
+    <span class="n">bodyimage</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bodyimage</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">moles</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">add</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># To avoid overlapping</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">moles</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">add</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">add</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Moles&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/d1b7e86afd6b5dab3021269d51f053950de37244eed2adad5ab7fb4169b46a0f.png" src="../_images/d1b7e86afd6b5dab3021269d51f053950de37244eed2adad5ab7fb4169b46a0f.png" />
+</div>
+</div>
+<p>*Body map image downloaded from: <a class="reference external" href="https://www.mskcc.org/es/cancer-care/patient-education/how-do-monthly-skin-exam">https://www.mskcc.org/es/cancer-care/patient-education/how-do-monthly-skin-exam</a></p>
+<p>Apr, 2024</p>
+<blockquote>
+<div><p>Image Classification</p>
+</div></blockquote>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<p>Like many, I also have some moles on my body. The truth is, I don’t pay much attention to them. However, when spring arrives, and especially in summer, my wife reminds me that I should see a doctor. She says there are some moles that should be “monitored”. Just in case. But I don’t take it seriously, and my wife, resigned, settles for me putting on cream and protecting myself with a hat when we go out in the sun.</p>
+<p>However, this year it occurred to me that I could use an image classification model to identify my moles and put my wife’s mind at ease. So I asked her to take photos of the moles with the macro lens of my phone and fed them to a model fine-tuned to detect skin conditions, both benign and cancerous.</p>
+</section>
+<section id="the-model">
+<h2>The model<a class="headerlink" href="#the-model" title="Permalink to this heading">#</a></h2>
+<p>In <a class="reference external" href="https://huggingface.co/">Hugging Face</a>, I filtered by image classification models and searched for those trained to detect skin cancers. Among the results, <a class="reference external" href="https://huggingface.co/gianlab/swin-tiny-patch4-window7-224-finetuned-skin-cancer">gianlab/swin-tiny-patch4-window7-224-finetuned-skin-cancer</a> seemed to have the highest acceptance based on the number of downloads.</p>
+<p>This model is a fine-tuned version of <a class="reference external" href="https://huggingface.co/microsoft/swin-tiny-patch4-window7-224">microsoft/swin-tiny-patch4-window7-224</a> using the <a class="reference external" href="https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000">Skin Cancer MNIST: HAM10000</a> dataset.</p>
+<p>The possible classified diseases are:</p>
+<p>(benign)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Melanocytic_nevus"><strong>Melanocytic nevus</strong></a> (also known commonly as a <strong>mole</strong>) is usually a noncancerous condition of pigment-producing skin cells. It is a type of melanocytic tumor that contains nevus cells. Some sources equate the term mole with “melanocytic nevus”, but there are also sources that equate the term mole with any nevus form.</p></li>
+<li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Seborrheic_keratosis"><strong>seborrheic keratosis</strong></a> is a non-cancerous (benign) skin tumour that originates from cells, namely keratinocytes, in the outer layer of the skin called the epidermis. The tumours (also called lesions) appear in various colours, from light tan to black. They are round or oval, feel flat or slightly elevated, like the scab from a healing wound, and range in size from very small to more than 2.5 centimetres across. Because only the top layers of the epidermis are involved, seborrheic keratoses are often described as having a “pasted on” appearance.</p></li>
+<li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Dermatofibroma"><strong>dermatofibroma</strong></a>, or benign fibrous histiocytomas, is a benign nodule in the skin, typically on the legs, elbows or chest of an adult. It typically results from mild trauma such as an insect bite.</p></li>
+<li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Vascular_anomaly"><strong>vascular anomaly</strong></a> is any of a range of lesions from a simple birthmark to a large tumor that may be disfiguring. They are caused by a disorder of the vascular system. A vascular anomaly is a localized defect in blood or lymph vessels. These defects are characterized by an increased number of vessels, and vessels that are both enlarged and sinuous. Some vascular anomalies are congenital, others appear within weeks to years after birth, and others are acquired by trauma or during pregnancy.</p></li>
+</ul>
+<p>(cancerous)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Melanoma"><strong>Melanoma</strong></a> is the <em>most dangerous type of skin cancer</em>. In women, melanomas most commonly occur on the legs; while in men, on the back. About 25% of melanomas develop from moles. Changes in a mole that can indicate melanoma include increase—especially rapid increase—in size, irregular edges, change in color, itchiness, or skin breakdown.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Basal-cell_carcinoma"><strong>Basal-cell carcinoma</strong></a>, also known as basal-cell cancer, basalioma or rodent ulcer, is <em>the most common type of skin cancer</em>. It often appears as a painless raised area of skin, which may be shiny with small blood vessels running over it. It may also present as a raised area with ulceration. Basal-cell cancer grows slowly and can damage the tissue around it, but it is unlikely to spread to distant areas or result in death.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Actinic_keratosis"><strong>Actinic keratosis</strong></a>, sometimes called solar keratosis or senile keratosis, is a pre-cancerous area of thick, scaly, or crusty skin. Actinic keratosis is a disorder of epidermal keratinocytes that is induced by ultraviolet light exposure. Given their pre-cancerous nature, if left untreated, <em>they may turn into a type of skin cancer</em> called squamous cell carcinoma.</p></li>
+</ul>
+<p>So, based on the Hugging Face framework, I used this model by feeding it the images of the moles saved in JPG format and defined in the CSV file where I also stored the coordinates of each of these moles.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">moles</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>x</th>
+      <th>y</th>
+      <th>file</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>410</td>
+      <td>50</td>
+      <td>01.jpg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>415</td>
+      <td>80</td>
+      <td>02.jpg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>415</td>
+      <td>100</td>
+      <td>03.jpg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>70</td>
+      <td>60</td>
+      <td>04.jpg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>80</td>
+      <td>115</td>
+      <td>05.jpg</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>92</td>
+      <td>32</td>
+      <td>06.jpg</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>75</td>
+      <td>31</td>
+      <td>07.jpg</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>65</td>
+      <td>240</td>
+      <td>08.jpg</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>60</td>
+      <td>110</td>
+      <td>09.jpg</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>422</td>
+      <td>350</td>
+      <td>10.jpg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate mole classifier</span>
+<span class="n">mole_classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span>
+    <span class="s2">&quot;image-classification&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gianlab/swin-tiny-patch4-window7-224-finetuned-skin-cancer&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Define, init lists</span>
+<span class="n">diseases</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Melanocytic-nevi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Benign-keratosis-like-lesions&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Dermatofibroma&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vascular-lesions&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Melanoma&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Basal-cell-carcinoma&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Actinic-keratoses&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;tab20c&quot;</span>
+<span class="n">top_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate through the moles</span>
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">moles</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]:</span>
+    <span class="c1"># Open image file</span>
+    <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span> <span class="k">as</span> <span class="n">mole_image</span><span class="p">:</span>
+        <span class="n">mole_image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+    <span class="c1"># Classify mole</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">mole_classifier</span><span class="p">(</span><span class="n">mole_image</span><span class="p">)</span>
+
+    <span class="c1"># Save top-score labels</span>
+    <span class="n">top_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Plot result</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">order</span><span class="o">=</span><span class="n">diseases</span><span class="p">,</span>
+        <span class="n">hue</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <span class="n">hue_order</span><span class="o">=</span><span class="n">diseases</span><span class="p">,</span>
+        <span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">diseases</span><span class="p">)):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mole_image</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># Plot max prob over body map</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">bodyimage</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">moles</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">top_labels</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">add</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">moles</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">add</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">add</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mole classification (max prob.)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+    <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Could not find image processor class in the image processor config or the model config. Loading based on pattern matching with the model&#39;s feature extractor configuration. Please open a PR/issue to update `preprocessor_config.json` to use `image_processor_type` instead of `feature_extractor_type`. This warning will be removed in v4.40.
+</pre></div>
+</div>
+<img alt="../_images/7d076a9d28ee74d5ded00c72a088485aa5d738ecc985f6408b22705561922550.png" src="../_images/7d076a9d28ee74d5ded00c72a088485aa5d738ecc985f6408b22705561922550.png" />
+<img alt="../_images/4da0bfd51f530ac3f119b1040b75e20c7fe739c6e938b44c5dd56cfd2f58fcca.png" src="../_images/4da0bfd51f530ac3f119b1040b75e20c7fe739c6e938b44c5dd56cfd2f58fcca.png" />
+<img alt="../_images/8205bb13db4794ea95eb9c2d85c8e9776c22419e1d533b2b43dbc2e1a2f5cbd3.png" src="../_images/8205bb13db4794ea95eb9c2d85c8e9776c22419e1d533b2b43dbc2e1a2f5cbd3.png" />
+<img alt="../_images/9ca05f2442ba82d483c537a67099f05cbac0e1db3cfcc38a59f0afcdfd8dfc1b.png" src="../_images/9ca05f2442ba82d483c537a67099f05cbac0e1db3cfcc38a59f0afcdfd8dfc1b.png" />
+<img alt="../_images/74391d579951956876e762a3f696bbc07863d6296ed7833c35e72e8084b283dc.png" src="../_images/74391d579951956876e762a3f696bbc07863d6296ed7833c35e72e8084b283dc.png" />
+<img alt="../_images/5856eae205c421bfed6a104ee3d4c8d90bed7555e1bd65f9e9a0d990b45f69db.png" src="../_images/5856eae205c421bfed6a104ee3d4c8d90bed7555e1bd65f9e9a0d990b45f69db.png" />
+<img alt="../_images/97f023ddec62a0bf8d1e469c311cf81c30055ea70c19fbe8049d99bc8d5b60f0.png" src="../_images/97f023ddec62a0bf8d1e469c311cf81c30055ea70c19fbe8049d99bc8d5b60f0.png" />
+<img alt="../_images/370c89335fe748f14de03c6cff40f96ca8c1050b534813b63827d96610470c76.png" src="../_images/370c89335fe748f14de03c6cff40f96ca8c1050b534813b63827d96610470c76.png" />
+<img alt="../_images/6b1e0e2907703a038ebd872131785792fa9cb81ea727fc77c158a4f641343f59.png" src="../_images/6b1e0e2907703a038ebd872131785792fa9cb81ea727fc77c158a4f641343f59.png" />
+<img alt="../_images/cd2afc09102616a5957411de52b4ce3566e9c748a8a26db8adb65b471cc34f6a.png" src="../_images/cd2afc09102616a5957411de52b4ce3566e9c748a8a26db8adb65b471cc34f6a.png" />
+<img alt="../_images/e02b4cb54533a7d78d0b45c1fb2441ed4fdeb704d45feb773ba1c3fee245d831.png" src="../_images/e02b4cb54533a7d78d0b45c1fb2441ed4fdeb704d45feb773ba1c3fee245d831.png" />
+</div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>It doesn’t seem like I should worry, the results obtained don’t seem to raise suspicions regarding melanomas. Nevertheless, I shouldn’t refrain from consulting a doctor, my wife is right. This project remains nothing more than a simple exercise in which I’ve only used one image classification model. I’ve also noticed that the quality of the photographs matters, as in certain slightly blurry (not well-focused) images, the model yielded higher probabilities of malignant eruption.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "my-venv-01"
+        },
+        kernelOptions: {
+            name: "my-venv-01",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'my-venv-01'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects-AI.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Artificial Intelligence</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="book-translation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Book translation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2024
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
