@@ -57,7 +57,7 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
-:::{grid-item-card} Mole mapping
+:::{grid-item-card} Mole monitoring
 :link: notebooks/moles
 :link-type: doc
 :img-bottom: notebooks/img/moles.png
@@ -82,6 +82,12 @@ By **datuz**
 
 ::::{grid} 2 2 2 3
 :gutter: 3
+
+:::{grid-item-card} Self tracking
+:link: notebooks/self-tracking
+:link-type: doc
+:img-bottom: notebooks/img/Xiaomi-Redmi-Smart-Band-Pro.jpg
+:::
 
 :::{grid-item-card} Earth Quakes
 :link: notebooks/quakes

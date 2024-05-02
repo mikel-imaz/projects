@@ -21,6 +21,7 @@ parts:
     - file: notebooks/p-antio-gpt
   - file: projects-DS
     sections:
+    - file: notebooks/self-tracking
     - file: notebooks/quakes
     - file: notebooks/climate
   - file: projects-ML
