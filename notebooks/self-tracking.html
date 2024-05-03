@@ -406,13 +406,14 @@ document.write(`
 <p>Image: Xiaomi Redmi Smart Band Pro.</p>
 <p>May, 2024</p>
 <blockquote>
-<div><p>Exploratory Analysis, Statistical Hypothesis testing</p>
+<div><p>Data Analysis, Hypothesis testing</p>
 </div></blockquote>
 <section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
-<p>Lately, I had the feeling that I wasn’t resting very well at night. Could it be because of the coffee I drink every day? Normally, it’s just three cups a day (okay, sometimes four), and I’ve been drinking it for many years, both in the morning and in the afternoon. But maybe it could have some influence, so I decided to conduct a little experiment.</p>
-<p>I decided to track the data of my physical activity, my heart rate, and my sleep with my monitoring band in two different periods: during the first one, I would continue drinking my coffees as usual, and in the second one, I would stop drinking them altogether (I would stop consuming caffeine). The idea was to see if I noticed any difference in my sleep patterns between these two periods.</p>
-<p>So, I put on my Xiaomi wrist band and didn’t take it off for 6 weeks. The first four weeks were normal (caffeinated), and the last two were the trial ones (decaffeinated). Yes, I know, I should have extended the coffee-free period to 4 weeks to equalize the number of samples in both cases, but what can I say: I missed horribly my beloved coffee. I think I did enough by abstaining for half a month. I love science, but not as much as coffee.</p>
+<p>Lately, I had the feeling that I wasn’t resting very well at night. Could it be because of the coffee I drink every day? Normally, it’s just three cups a day (okay, sometimes four), and I’ve been drinking it for many years, in the morning and in the afternoon. It may have some effect, so I decided to conduct a little experiment.</p>
+<p>I decided to track the data of my physical activity, my heart rate, and my sleep patterns with my smart wristband in two different periods: during the first one, I would continue drinking coffee as usual, and in the second one, I would stop drinking it altogether (I would stop consuming caffeine). The goal was to see if I noticed any difference in my sleep patterns between these two periods.</p>
+<p>So, I put on my Xiaomi activity tracker and didn’t take it off for 6 weeks. The first four weeks were normal (caffeinated), and the last two were the trial ones (decaffeinated).</p>
+<p>Yes, I know, I should have extended the coffee-free period to 4 weeks to have as much a number of samples in both cases and give the experiment enough time. But it was hard, especially the first week: I noticed headaches and a lack of energy. The second week was better but I missed my beloved coffee, the punch of it in the morming, its taste having it with someone in a cafe. I think I did enough by abstaining for half a month. I love science, but not as much as coffee.</p>
 </section>
 <section id="the-data">
 <h2>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
@@ -722,10 +723,11 @@ document.write(`
 <img alt="../_images/0af1ee17d952c48a0a2df9ae7475d8c16d6e17549fa26b79d42539e610f51396.png" src="../_images/0af1ee17d952c48a0a2df9ae7475d8c16d6e17549fa26b79d42539e610f51396.png" />
 </div>
 </div>
-<p>That being said, let’s see how <em>resting heart rate</em>, one of the aspects that can influence sleep, evolved over those weeks.</p>
+<p>Therefore, I kept my physical activity more or less the same during this period. Let’s see how <em>resting heart rate</em>, one of the aspects that can influence sleep, evolved over those weeks.</p>
 </section>
 <section id="heart-rate">
 <h2>Heart rate<a class="headerlink" href="#heart-rate" title="Permalink to this heading">#</a></h2>
+<p>The device measures several parameters of heart rate such as maximum, minimum, and daily average, but the interesting one is the resting heart rate because supposedly it is independent of the physical activity carried out during the day.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -848,7 +850,7 @@ document.write(`
 <img alt="../_images/2d835791403cec7525789bf3198e80e12a67aafa1989862d9593a85360b6d353.png" src="../_images/2d835791403cec7525789bf3198e80e12a67aafa1989862d9593a85360b6d353.png" />
 </div>
 </div>
-<p>Just in case, I check if there’s any correlation between resting heart rate and the steps taken that day, but I find that there’s no relationship at all.</p>
+<p>Just in case, I check if there’s any correlation between resting heart rate and the steps taken that particular day, and as expected I find that there’s no relationship at all.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -903,7 +905,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>I’m going to separate the data into two samples, those corresponding to the four normal weeks and those from the two caffeine-free ones.</p>
+<p>I’m going to separate the data into two groups, 28 measures corresponding to the four normal weeks and 14 measures from the two caffeine-free weeks.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -933,7 +935,7 @@ document.write(`
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">51</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Heart rate&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Resting heart rate&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -941,7 +943,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/aa7aeef8fd7a14f126609241e37230403d71f118ca4e8780bef8fbac2fa3f78a.png" src="../_images/aa7aeef8fd7a14f126609241e37230403d71f118ca4e8780bef8fbac2fa3f78a.png" />
+<img alt="../_images/33de561fbda186ae67845299317833512d6a91d1c5accecc9b56a1da252412d9.png" src="../_images/33de561fbda186ae67845299317833512d6a91d1c5accecc9b56a1da252412d9.png" />
 </div>
 </div>
 <p>Let’s resample and take the means to graph their distribution.</p>
@@ -978,7 +980,7 @@ document.write(`
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean distributions after resampling&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;avg resting heart rate&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Resting heart rate&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -988,27 +990,28 @@ document.write(`
 <span class="n">sample_b_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_b</span><span class="p">)</span>
 <span class="n">diff_means_observed</span> <span class="o">=</span> <span class="n">sample_b_mean</span> <span class="o">-</span> <span class="n">sample_a_mean</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caffeinated mean: </span><span class="si">{</span><span class="n">sample_a_mean</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Decaffeinated mean: </span><span class="si">{</span><span class="n">sample_b_mean</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Difference in means (observed) -&gt; </span><span class="si">{</span><span class="n">diff_means_observed</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caffeinated mean: </span><span class="si">{</span><span class="n">sample_a_mean</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> beats per minute&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Decaffeinated mean: </span><span class="si">{</span><span class="n">sample_b_mean</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> beats per minute&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Difference in means -&gt; </span><span class="si">{</span><span class="n">diff_means_observed</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4403f318c0a876b83b52ee15532a23479bf12013233c3285b9fea49cf541aef2.png" src="../_images/4403f318c0a876b83b52ee15532a23479bf12013233c3285b9fea49cf541aef2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Caffeinated mean: 55.9
-Decaffeinated mean: 57.6
-Difference in means (observed) -&gt; 1.7
+<img alt="../_images/98a2946c41d56411454b3c9bbe1e3bab0ccc4871ee99f598d67ae5236bfb240c.png" src="../_images/98a2946c41d56411454b3c9bbe1e3bab0ccc4871ee99f598d67ae5236bfb240c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Caffeinated mean: 55.9 beats per minute
+Decaffeinated mean: 57.6 beats per minute
+Difference in means -&gt; 1.7
 </pre></div>
 </div>
 </div>
 </div>
-<p>There is some overlapping. Does that mean that the observed difference is not signifficant? We will do two hypothesis tests.</p>
+<p>There is some overlapping between the distributions. Does that mean that the observed difference is not signifficant? We will proceed to conduct two hypothesis tests:</p>
 <ul class="simple">
-<li><p>Bootstrapping considering equal mean values as null hypothesis H0.</p></li>
-<li><p>Random permutational test as as null hypothesis H0. (&lt;- <em>more restrictive</em>)</p></li>
+<li><p>Bootstrapping considering equal mean values as null hypothesis-H0.</p></li>
+<li><p>Random permutational test as as null hypothesis-H0.</p></li>
 </ul>
+<p>Let’s start with the bootstrapping:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1059,6 +1062,7 @@ Difference in means (observed) -&gt; 1.7
 </div>
 </div>
 <p>So after centering both sample distributions around the same mean and bootstrapping 10000 times, only 28 times the difference between mean values of each group was equal or higher than the observed difference. That is to say, the probability of observing this difference if stopping the caffeine intake had no influence in the resting heart rate would be of just 0.28 %.</p>
+<p>Let’s see what happens with the random permutational test, which is more restrictive that the previous bootstrapping test.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1097,7 +1101,8 @@ Difference in means (observed) -&gt; 1.7
 <p>So after randomly scrambling (permutating) the data from the two groups 10000 times and making two groups each time, 143 times the difference between mean values of each group was equal or higher than the difference among the original groups. That is to say, the probability of observing this difference if stopping the caffeine intake had no influence in the resting heart rate would be of just 1.43 %.</p>
 <p>Therefore, does this mean that quitting caffeine increases resting heart rate?
 Um, in any case I would have said the opposite: wasn’t it the intake of caffeine that increased it and not the other way around?</p>
-<p>But then, this is just a statistical test. If we had to make a decision about it, we would take this result into account. But considering it as proof of a fact of an existing reality… that is more complicated. Firstly, I doubt that the samples are sufficiently representative because they are not many. Then, the observed difference is tiny, at around the resolution of the measure. And then, many factors must have intervened during the days when they were taken. I am inclined to think that chance has had a lot to do with this result. But it’s just my impression.</p>
+<p>This is where I realize that perhaps I should have allowed more time for the new caffeine-free situation to stabilize in my body. Maybe this is nothing more than the result of the transition when changing states.</p>
+<p>But then, this is just a statistical test. If we had to make a decision about it, we would take this result into account, considering time restraints. But contemplating it as proof of a fact of an existing reality… that is more complicated. Firstly, there is this already mentioned transitory effect, I doubt that the samples are sufficiently representative. Then, the observed difference is tiny, at around the resolution of the measure. And then, many factors I was anaware of must have intervened during the days when they were taken. I am inclined to think that chance has had a lot to do with this result. But it’s just my impression.</p>
 </section>
 <section id="sleep">
 <h2>Sleep<a class="headerlink" href="#sleep" title="Permalink to this heading">#</a></h2>
@@ -1250,9 +1255,9 @@ Um, in any case I would have said the opposite: wasn’t it the intake of caffei
 <img alt="../_images/9c26c7abe19019e37beed716ef632f487551e70eb03ada584bbed9c6187b2262.png" src="../_images/9c26c7abe19019e37beed716ef632f487551e70eb03ada584bbed9c6187b2262.png" />
 </div>
 </div>
-<p>I have to warn that I have noticed that the Xiaomi band does not accurately monitor sleep. For example, what happened on April 20th, when it recorded that I slept for 677 minutes, which is 11 hours and 17 minutes? The date corresponds to a Saturday, and the night before, Friday, I went to the cinema. If I look at the mobile app, I see that it considered that I had fallen asleep at 8:43 PM, just when I was watching the movie. It could be, yes, that I had fallen asleep, but no, that was not the case. In the next screenshot from the mobile app, I can clearly see that it erroneously recorded that I had fallen asleep during that time in the movies (two REM stages included!).</p>
+<p>I have to warn that I have noticed that the Xiaomi smartband does not accurately monitor sleep. For example, what happened on April 20th, when it recorded that I slept for 677 minutes, which is 11 hours and 17 minutes? The date corresponds to a Saturday, and the night before, Friday, I went to the cinema. If I look at the mobile app, I see the device considered that I had fallen asleep at 8:43 PM, just when I was watching the movie. It could be, yes, that I had fallen asleep. But no, that was not the case, the film was good and I remember it all. The movie was so good that I watched it without hardly moving throughout its entire duration. This is what must have confused the device, which thought I had fallen asleep (two REM stages included!). In the next screenshot from the mobile app, I can clearly see this misconstruction.</p>
 <p><img alt="" src="../_images/screenshot_xiaomi.jpg" /></p>
-<p>This type of error has also occurred on days when in the evening I lie down on the sofa at home to read before going to bed. Therefore, the hours counted as sleep are more than what actually happened. In any case, the study will focus on the proportions of sleep phases so it will not influence the result as much.</p>
+<p>This type of error has also occurred on several days in the evening, when I lie down on the sofa at home to read before going to bed. Therefore, the hours counted as sleep are more than what actually happened. In any case, the study will focus on the proportions of sleep phases so it will not influence the result that much.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1316,10 +1321,11 @@ Um, in any case I would have said the opposite: wasn’t it the intake of caffei
 </div>
 <p>The total sleep time is divided into the three usual types: light sleep, deep sleep, and REM sleep. It’s interesting to see to what extent they occur in the appropriate proportions each night. The Xiaomi app recommends these:</p>
 <ul class="simple">
-<li><p>Light: between 20% and 60% of the total sleep time.</p></li>
-<li><p>Deep: between 20% and 40% of the total sleep time.</p></li>
-<li><p>REM: between 20% and 40% of the total sleep time.</p></li>
+<li><p><strong>Light</strong>: between 20% and 60% of the total sleep time.</p></li>
+<li><p><strong>Deep</strong>: between 20% and 40% of the total sleep time.</p></li>
+<li><p><strong>REM</strong>: between 20% and 40% of the total sleep time.</p></li>
 </ul>
+<p>Let’s see if they stay inside the margins.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1522,6 +1528,7 @@ Um, in any case I would have said the opposite: wasn’t it the intake of caffei
 </div>
 </div>
 <p>I’m clearly experiencing less REM sleep at the expense of light sleep. Could this be the reason why I feel like I haven’t been sleeping very well lately? And does coffee have anything to do with it? From what I see in these graphs, it doesn’t seem like anything has changed from not having caffeine, but just in case, let’s take a look.</p>
+<p>First at REM sleep:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1621,6 +1628,7 @@ Difference in means observed -&gt; 0.03
 </div>
 </div>
 <p>Decaffeinated days improve the observed REM sleep ratio but the difference is very small and the overlapping means that it is not signifficant. There is no need to do a hypothesis test.</p>
+<p>Let’s do the same with deep sleep:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1723,8 +1731,8 @@ Difference in means observed -&gt; 0.03
 </section>
 <section id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
-<p>I couldn’t conclude that coffee has anything to do with sleep quality. At least not with the current measuring device, the Xiaomi monitoring band is limited. Furthermore, I believe that to draw any conclusion, I should expand the number of days of the experiment (but I am not willing to do so, as it would mean depriving myself of coffee for many weeks and I enjoy having coffee for breakfast).</p>
-<p>Anyway, I’m glad I documented and studied this data. I’ll keep looking for the reason and collecting data to find out the cause.</p>
+<p>I couldn’t conclude that coffee has anything to do with sleep quality. At least not with the current measuring device, the Xiaomi monitoring band is limited. Furthermore, I believe that to draw any conclusion, I should expand the number of days of the experiment, but as I said, I am not willing to do so.</p>
+<p>Anyway, I’m glad I documented and studied this data. I’ll keep looking for the reason behind my sleep patterns to find out the cause.</p>
 </section>
 </section>
 
