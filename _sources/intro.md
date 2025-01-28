@@ -12,6 +12,12 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Hairloss Analysis
+:link: notebooks/hairloss
+:link-type: doc
+:img-bottom: notebooks/img/why-hair-loss.jpg
+:::
+
 :::{grid-item-card} Employee Network Analysis
 :link: notebooks/employee-network
 :link-type: doc
