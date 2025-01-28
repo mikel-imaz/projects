@@ -3,7 +3,7 @@
 
 title:  datuz
 author: Mikel Imaz, 2023-2025
-logo: img/logo.png
+logo: img/logo.svg
 copyright: "2023-2025"
 
 # Force re-execution of notebooks on each build.
@@ -31,7 +31,7 @@ repository:
 
 
 html:
-  favicon: "img/logo.png"
+  favicon: "img/logo.svg"
   use_repository_button: true
   google_analytics_id: G-232XT3FYCT
   extra_footer: |
