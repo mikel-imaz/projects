@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title:  datuz
-author: Mikel Imaz, 2023-2024
+author: Mikel Imaz, 2023-2025
 logo: img/logo.png
-copyright: "2023-2024"
+copyright: "2023-2025"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
