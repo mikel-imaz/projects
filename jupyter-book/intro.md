@@ -12,6 +12,12 @@ By **datuz**
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Sleep Quality Analysis
+:link: notebooks/sleepinc
+:link-type: doc
+:img-bottom: notebooks/img/good-sleep-quality.jpg
+:::
+
 :::{grid-item-card} Hairloss Analysis
 :link: notebooks/hairloss
 :link-type: doc
