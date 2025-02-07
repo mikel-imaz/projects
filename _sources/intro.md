@@ -6,11 +6,17 @@
 By **datuz**
 
 ---
----
+
 *Challenge projects*
 
 ::::{grid} 2 2 2 3
 :gutter: 3
+
+:::{grid-item-card} Analyzing Internet Patterns
+:link: notebooks/internet-patterns
+:link-type: doc
+:img-bottom: notebooks/img/visualize-internet-usage.jpg
+:::
 
 :::{grid-item-card} Sleep Quality Analysis
 :link: notebooks/sleepinc
@@ -63,7 +69,7 @@ By **datuz**
 ::::
 
 ---
----
+
 *Artificial Intelligence*
 
 ::::{grid} 2 2 2 3
