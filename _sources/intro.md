@@ -2,12 +2,11 @@
 ```{epigraph}
 — in Python
 ```
-
-By **datuz**
+_Data Science, Machine Learning, AI_
 
 ---
 
-*Challenge projects*
+> **Competition projects** 
 
 ::::{grid} 2 2 2 3
 :gutter: 3
@@ -69,8 +68,7 @@ By **datuz**
 ::::
 
 ---
-
-*Artificial Intelligence*
+> **Personal projects** 
 
 ::::{grid} 2 2 2 3
 :gutter: 3
@@ -93,14 +91,6 @@ By **datuz**
 :img-bottom: notebooks/img/antio-ai.jpg
 :::
 
-::::
-
----
-*Data Science*
-
-::::{grid} 2 2 2 3
-:gutter: 3
-
 :::{grid-item-card} Self tracking
 :link: notebooks/self-tracking
 :link-type: doc
@@ -119,14 +109,6 @@ By **datuz**
 :img-bottom: notebooks/img/stevenson.jpg
 :::
 
-::::
-
----
-*Machine Learning*
-
-::::{grid} 2 2 2 3
-:gutter: 3
-
 :::{grid-item-card} English Vocab
 :link: notebooks/english-vocab
 :link-type: doc
@@ -144,14 +126,6 @@ By **datuz**
 :link-type: doc
 :img-bottom: notebooks/img/P1580313_short.jpg
 :::
-
-::::
-
----
-*Data Analysis*
-
-::::{grid} 2 2 2 3
-:gutter: 3
 
 :::{grid-item-card} Municipal Indicators
 :link: notebooks/p-udalmap
