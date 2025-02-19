@@ -1,8 +1,8 @@
-# Data projects
+# Data science projects
 ```{epigraph}
-— in Python
+— in Python {fab}`python`
 ```
-_Data Science, Machine Learning, AI_
+{bdg-primary}`Data Analysis` {bdg-secondary}`Machine Learning` {bdg-success}`AI`
 
 ---
 
