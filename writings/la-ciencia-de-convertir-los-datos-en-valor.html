@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>La ciencia de convertir los datos en valor &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'writings/la-ciencia-de-convertir-los-datos-en-valor';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="¿Qué es la Inteligencia Artificial?" href="que-es-la-inteligencia-artificial.html" />
+    <link rel="prev" title="La importancia de adquirir competencias en materia de datos" href="la-importancia-de-adquirir-competencias-en-materia-de-datos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../writings.html">Writings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="que-es-la-inteligencia-artificial.html">¿Qué es la Inteligencia Artificial?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datuz.es">datuz</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/writings/la-ciencia-de-convertir-los-datos-en-valor.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>La ciencia de convertir los datos en valor</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimentacion">Experimentación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-en-produccion">Machine Learning en producción</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="la-ciencia-de-convertir-los-datos-en-valor">
+<h1>La ciencia de convertir los datos en valor<a class="headerlink" href="#la-ciencia-de-convertir-los-datos-en-valor" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/entrepreneur-2411763_640.jpg" /></p>
+<p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> 2023-04-26</p>
+<p>A las preguntas <em>¿qué pasó?</em>, <em>¿por qué pasó?</em> y <em>¿qué pasará?</em> podemos intentar responder partiendo de los datos, obteniendo así una información muy valiosa para el negocio.</p>
+<p> </p>
+<p><img alt="" src="../_images/drw-valor.png" /></p>
+<p> </p>
+<p>Con la finalidad de extraer este valor surgió la Ciencia de datos. En principio, <em>Ciencia de datos</em> haría referencia a todo aquello que contempla un proyecto de datos. Sin embargo, con el desarrollo de esta disciplina se han ido definiendo y especializando los procesos involucrados y los profesionales que trabajan en ellos.</p>
+<p><strong>Pirámide de un proyecto de datos</strong></p>
+<p>En correspondencia con la pirámide de Maslow (o <em>jerarquía de las necesidades humanas</em>), se suele plantear el siguiente diagrama en el que se representan las fases de un proyecto de datos.</p>
+<p> </p>
+<p><img alt="" src="../_images/drw-pyramid.png" /></p>
+<p> </p>
+<p>Para convertir los datos en valor, el proyecto debería alcanzar al menos la cuarta fase, la de Análisis. Es en este estadio donde la amalgama de datos se ordena y se visualiza mediante gráficos, de manera que empieza a revelar la información que contiene. Aquí podemos comenzar a responder a las preguntas <em>qué pasó</em>, <em>por qué pasó</em> y <em>qué pasará</em>.</p>
+<p>Las fases anteriores, las de recolección, almacenamiento y preparación de los datos, son en cualquier caso igual de importantes. Si no se obtienen buenos datos, nada de lo que se haga en los niveles superiores, por muy sofisticados que sean los análisis y las tecnologías empleadas, tendrá valor alguno, tal y como resume el dicho <em>garbage in, garbage out</em> («basura que entra, basura que sale»).</p>
+<p>De todas formas, en el nivel de Análisis las herramientas tienen sus límites. La interpretación de los datos a menudo resulta difícil, y los estudios exploratorios y, en especial, los explicativos y predictivos pueden quedar reducidos a meras hipótesis.</p>
+<p>Al igual que sucede en la teoría de Maslow, a medida que se satisfacen las necesidades más básicas se desarrollan objetivos más elevados. Así, una vez se han desmenuzado, visualizado y analizado los datos, puede llegar el momento de subir un escalón más, hasta el quinto, para echar mano del <em>aprendizaje automático</em>, más conocido como <em>Machine Learning</em> (ML).</p>
+<section id="machine-learning">
+<h2>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
+<p>La fase de Análisis nos sirvió para entender el problema, de forma que ahora nos encontraríamos en disposición de seleccionar las herramientas de ML más adecuadas para avanzar con el proyecto. En Machine Learning, los datos se utilizan para alimentar algoritmos matemáticos cuyos resultados intentan dar respuesta a las cuestiones planteadas. Con ellos se puede:</p>
+<ul class="simple">
+<li><p>Extraer patrones de los datos (estudio exploratorio). Un buen ejemplo es la segmentación de clientes. El algoritmo descubre en los datos grupos de clientes que comparten similitudes, una información que puede ser aprovechada por ejemplo para personalizar campañas de marketing.</p></li>
+<li><p>Inferir factores causales (estudio explicativo). Por ejemplo, para tratar de entender qué es lo que está motivando que se pierdan clientes. El algoritmo cuantifica el peso de cada uno de los factores que intervienen en el modelo de ventas que se ha configurado.</p></li>
+<li><p>Predecir eventos futuros (estudio predictivo). Por ejemplo, ¿cuánto venderemos el mes que viene? El algoritmo pronostica la demanda con la mayor precisión posible para que podamos responder ante ella.</p></li>
+</ul>
+<p>Entre los modelos utilizados para contestar a la pregunta <em>por qué pasó</em> y los utilizados para el <em>qué pasará</em> se puede producir una disyuntiva. En realidad, los dos tipos de modelos, los que infieren causas y los que predicen resultados, ambos intentan predecir la realidad, solo que los modelos causales son interpretables (más sencillos) y los puramente predictivos funcionan como una caja negra dentro de la cual no sabemos lo que sucede (son más complejos).</p>
+<p>Imaginemos que estamos haciendo un estudio explicativo tratando de responder a la siguiente pregunta: ¿por qué estamos perdiendo clientes? En este caso, los modelos causales nos permiten entender cómo han llegado a los resultados en los que predicen la tasa de cancelación. Al ser interpretables, podemos ver los factores que intervienen y el peso relativo de los mismos.</p>
+<p>Supongamos ahora que ya creemos saber por qué estamos perdiendo clientes y que queremos utilizar esta información para tomar medidas y contrarrestar la tendencia negativa. Entre esas medidas se encuentra la de dirigirse a los clientes que presentan mayor riesgo de abandono. Para ello, necesitamos identificarlos de la manera más precisa posible. Pasamos por tanto a hacer un estudio puramente predictivo, en el que intentaremos aprovecharnos de la potencia de los algoritmos más complejos, los cuales no sabemos muy bien cómo llegan a sus conclusiones, pero sabemos (por el entrenamiento y las pruebas a las que los hemos sometido) que son precisos.</p>
+<p>Todo esto resulta muy estimulante. Partiendo de los datos, con una serie de modelos matemáticos y los conocimientos de programación necesarios para ejecutarlos, resulta que parece que podemos tener respuesta a todas nuestras preguntas. La realidad, sin embargo, es más complicada. Hay un dicho que dice que todo modelo es incorrecto, aunque algunos resultan útiles. No dejan de ser aproximaciones y por ello es bueno contrastar las cosas con la realidad.</p>
+</section>
+<section id="experimentacion">
+<h2>Experimentación<a class="headerlink" href="#experimentacion" title="Link to this heading">#</a></h2>
+<p>El trabajo de un Científico de datos se basa en el método científico: observación sistemática, medición, experimentación y formulación de hipótesis. La experimentación por tanto adquiere un papel fundamental y la misma se ayuda de la estadística para sacar conclusiones.</p>
+<p>Los tests A/B son un método estadístico para hacer comprobaciones en un escenario real pero a pequeña escala, extrapolando de ello conclusiones generales. Por ejemplo, hemos visto que una manera de dar respuesta a la pregunta <em>¿por qué pasó?</em> es utilizar modelos interpretables de ML. Pues bien, estos deberían ayudarse de experimentos para lograr resultados de forma más rápida y precisa. Se trataría por ejemplo de poner a prueba a grupos de clientes y medir sus respuestas ante diferentes opciones entre las que elegir. A veces no es posible hacer pruebas de este tipo, por el coste, por motivos éticos o por otras razones, y entonces hay que limitarse a inferir las causas de los modelos interpretables ya mencionados.</p>
+<p>Si los resultados obtenidos con los modelos matemáticos y los experimentos con muestras de la realidad resultan satisfactorios, entonces llega el momento de plantearse subir al último nivel de la pirámide para implementar el modelo de ML en producción.</p>
+</section>
+<section id="machine-learning-en-produccion">
+<h2>Machine Learning en producción<a class="headerlink" href="#machine-learning-en-produccion" title="Link to this heading">#</a></h2>
+<p>Antes de alcanzar el último peldaño, se ha de medir la oportunidad de negocio que representa introducir el modelo en producción. Obviamente, no se querrá invertir en algo que no salga rentable, de manera que hay que realizar un análisis de coste-beneficio. Aquí, los experimentos y la estadística juegan una vez más un papel crucial. Se trata de hacer pruebas con grupos reducidos de clientes y ver si, en efecto, el modelo en producción genera las ventajas esperadas. El modelo puede funcionar muy bien y, sin embargo, no tener un efecto significativo y que al final no salgan las cuentas. En tal caso quizá haya que volver a recopilar más datos, investigar más o reformular las preguntas cambiando la cuestión que se quiere resolver. Un profundo conocimiento del negocio será clave para acertar.</p>
+<p>Si los resultados son buenos y se decide seguir adelante, entonces hay que optimizar el modelo. Probar diferentes tecnologías, entrenarlas, validar los resultados. Es una tarea que el Científico de datos traspasa al Ingeniero de Machine Learning. Si el rendimiento es consistente y estable, entonces se ha de ir preparando el terreno para su implementación en los sistemas de producción.</p>
+<p>Los sistemas de producción son aplicaciones de software que forman parte integral del negocio. Se pueden instalar por ejemplo en los sistemas CRM, la página web o apps para móviles. La integración de los modelos de ML en los sistemas de producción la llevan a cabo ingenieros de software y los encargados de la infraestructura. Es importante tenerlo en cuenta porque la implementación de ML en producción puede resultar costosa y hay que considerarlo a la hora de hacer el balance coste-beneficio antes mencionado.</p>
+<p>El lanzamiento deberá producirse a pequeña escala, midiendo su efecto sobre un determinado grupo de clientes. Y, a partir de aquí, ir extendiéndolo de manera progresiva hasta que el modelo esté plenamente implantado en todo el sistema de producción, asegurándose de que funciona según lo previsto y preparando asimismo los procedimientos de actualización y mantenimiento del software. Es entonces cuando se habrá completado el proyecto de datos.</p>
+<hr class="docutils" />
+<p>(Imagen de portada de geralt en Pixabay.)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./writings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="la-importancia-de-adquirir-competencias-en-materia-de-datos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">La importancia de adquirir competencias en materia de datos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="que-es-la-inteligencia-artificial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">¿Qué es la Inteligencia Artificial?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">Machine Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimentacion">Experimentación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-en-produccion">Machine Learning en producción</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

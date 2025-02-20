@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>¿Qué es la Inteligencia Artificial? &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'writings/que-es-la-inteligencia-artificial';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About me" href="../about-me.html" />
+    <link rel="prev" title="La ciencia de convertir los datos en valor" href="la-ciencia-de-convertir-los-datos-en-valor.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../writings.html">Writings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la-ciencia-de-convertir-los-datos-en-valor.html">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">¿Qué es la Inteligencia Artificial?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datuz.es">datuz</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/writings/que-es-la-inteligencia-artificial.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>¿Qué es la Inteligencia Artificial?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="que-es-la-inteligencia-artificial">
+<h1>¿Qué es la Inteligencia Artificial?<a class="headerlink" href="#que-es-la-inteligencia-artificial" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/andy-kelly-0E_vhMVqL9g-unsplash.jpg" /></p>
+<p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> 2023-05-26</p>
+<p>El término <em>Inteligencia Artificial</em> surgió a finales de los años 1950 y entonces significaba algo diferente de lo que hoy se entiende por ella.</p>
+<p>En aquel entonces era todo aquello que la tecnología prometía en cuanto a inteligencia de las máquinas. Los años finales de la década de los cincuenta e inicios de los sesenta fueron esplendorosos en este sentido: los primitivos ordenadores de aquel tiempo aprendieron a jugar a las damas, resolvían problemas lógicos e incluso eran capaces de aprender idiomas. Era asombroso. Se lanzaron las campanas al vuelo y predijeron que en pocos años la IA superaría al ser humano.</p>
+<p>Se equivocaron. La tecnología aún no estaba lo suficientemente desarrollada y no era posible llevar a cabo las ideas que se planteaban sobre el papel. Las expectativas se desinflaron, lo cual llevó a un periodo de tiempo conocido como <em>Invierno de la IA</em>, en el que se congelaron las inversiones y las investigaciones en este campo.</p>
+<p>Hubo sucesivos altibajos, periodos en los que parecía que llegaba la primavera, pero luego los proyectos no terminaban de dar resultados y se volvían a defraudar las expectativas puestas sobre la IA. Hasta el punto de que <em>Inteligencia Artificial</em> se volvió un término con mala prensa cuyo uso se trató de evitar a la hora de referirse a los avances en este terreno, para no ahuyentar a los inversores.</p>
+<p>Los mayores progresos fueron llegando de la mano del Aprendizaje Automático, más conocido como <em>Machine Learning</em>. Hasta entonces la inteligencia se había introducido en los ordenadores a través de instrucciones definidas de forma explícita, es decir, mediante la forma clásica de programar un ordenador. Sin embargo, con Machine Learning era la propia máquina quien aprendía las características del sistema a partir de datos de ejemplo suministrados. Constituía una gran ventaja a la hora de lograr los parámetros de sistemas complejos.</p>
+<p>Los algoritmos de Machine Learning fueron implementándose de forma creciente en aplicaciones reales con la llegada de Internet y la mayor disponibilidad de datos. Los modelos resolvían tareas concretas de búsqueda de patrones y predicción de resultados futuros. Sectores como el financiero y el del comercio electrónico fueron incorporándolos con éxito. Se automatizaron sistemas de recomendación, detección, segmentación, previsión y demás tareas, aumentando así la inteligencia de las empresas y los negocios.</p>
+<p>Sin embargo, seguían pendientes de ser resueltos multitud de otras aplicaciones más complejas y habitualmente más asociadas con las capacidades de la inteligencia humana. Por ejemplo, la capacidad de mantener una conversación que suene natural, como con una persona. O la de identificar elementos en una imagen. Pensemos en el siguiente cometido, el de recibir la información por medio de una imagen y dar como resultado su identificación.</p>
+<p> </p>
+<p><img alt="" src="../_images/gato-1.png" /></p>
+<p> </p>
+<p>¿Cómo hacer que un ordenador solucione esta tarea? La forma tradicional de hacerlo no parece sencilla. Habría que definir exactamente qué hacer con cada píxel de la imagen y después programar esas instrucciones en el ordenador, una a una. «Así es como debes analizar los píxeles que te doy y así es cómo debes deducir si es un gato o no». Se ha de escribir una receta que además funcione en todas circunstancias: ¿funcionará con una imagen completamente diferente de un gato? Parece realmente complicado escribir estas reglas.</p>
+<p> </p>
+<p><img alt="" src="../_images/gato-2.png" /></p>
+<p> </p>
+<p>Para nosotros sin embargo es sencillo. Nuestro cerebro recibe la información a través de los sentidos (imagen de un gato), y obtenemos la respuesta como por arte de magia («¡gato!»). Lo hacemos sin saber cómo lo hacemos. Sencillamente lo sabemos. Hacemos algo con esos píxeles en nuestra mente, pero no sabemos qué es eso que estamos haciendo. No tenemos ni idea de cómo funciona. No es de extrañar que no sepamos expresarlo y definir las reglas a un ordenador.</p>
+<p>La teoría de las redes neuronales es conocida desde los años cincuenta, aunque apenas se había puesto en práctica. Algoritmos matemáticos basados en una estructura de nodos interconectados (como las neuronas de nuestro cerebro) capaces de aprender a solucionar problemas a base de un entrenamiento con datos en los que se busca optimizar el resultado. Sistemas tremendamente flexibles, capaces de abordar los problemas más complejos, pero con dos necesidades imperiosas: una gran capacidad de computación de los ordenadores y una gran cantidad de datos para entrenarlos. A partir de la década de 2010 se empezó a disponer de ambos recursos en cantidades suficientes.</p>
+<p>Y con el despegue de esta tecnología, los algoritmos basados en redes neuronales evolucionaron hacia la sofisticación y se hicieron conocidos como modelos de Deep Learning (<em>aprendizaje profundo</em>). En ellos, entre las entradas suministradas y la salida producida, lo que hacen las capas intermedias de nodos es desconocido. Estos sistemas funcionan como una caja negra dentro de la cual no se sabe con qué criterios se valoran las señales, solo se sabe que dan un resultado deseado como fruto del aprendizaje al que han sido sometidos.</p>
+<p>Ni más ni menos que lo que sucede con la mente humana. Este hecho, junto con los paralelismos de los nodos-neuronas y el hecho de que con ellos se pueda empezar a dar respuesta a problemas de verdadera inteligencia humana, hizo que se recuperara término Inteligencia Artificial, ahora ya asociado a Deep Learning.</p>
+<p> </p>
+<p><img alt="" src="../_images/drw-ia.png" /></p>
+<p> </p>
+<p>El cambio de paradigma que se había producido con Machine Learning y el aprendizaje automático a partir de los datos, con la Inteligencia Artificial se vuelve norma. Al fin y al cabo, en el llamado Machine Learning <em>clásico</em> los modelos son interpretables y aún se puede seguir la pista analítica de lo que están haciendo. Sin embargo, las tripas de la Inteligencia Artificial son poco menos que inescrutables, y con ellos la única forma de hablar es la de darles de comer ejemplos.</p>
+<p>Esto también sucede entre los seres humanos. Cuando las personas nos comunicamos los unos con los otros, por ejemplo para que alguien haga algo por nosotros, tenemos la posibilidad de dar instrucciones precisas. Pero más habitualmente, y sobre todo cuando definirlo resulta difícil (o imposible), lo que hacemos es dar ejemplos. «Mira aquí estos ejemplos, quiero que hagas uno como estos, y luego tu ya te arreglarás». Así es como lo hacemos a menudo.</p>
+<p>Pues bien, la Inteligencia Artificial es esta herramienta que nos permite comunicarnos con las máquinas a base de darles ejemplos, de esta manera tan natural para nosotros que sin embargo hasta hace poco nos estaba vedada con respecto a los ordenadores. Como los problemas más complejos de la realidad frecuentemente no admiten ser definidos de manera precisa, esta nueva forma de hacer que los ordenadores hagan cosas por nosotros resulta una gran liberación.</p>
+<p>Por decirlo de otra manera, la Inteligencia Artificial permite automatizar aquello que es imposible de expresar, y por ello abre la vía a solucionar toda una nueva clase de tareas que antes era impensable acometer. De ahí el auge que está teniendo.</p>
+<hr class="docutils" />
+<p>(Imagen de portada de Andy Kelly en Unsplash.)</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./writings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="la-ciencia-de-convertir-los-datos-en-valor.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">La ciencia de convertir los datos en valor</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../about-me.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About me</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
