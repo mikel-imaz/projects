@@ -4,8 +4,9 @@
 ```
 {bdg-primary}`Data Analysis` {bdg-secondary}`Machine Learning` {bdg-success}`AI`
 
----
+&nbsp;
 
+---
 > **Competition projects** 
 
 ::::{grid} 2 2 2 3
@@ -66,6 +67,8 @@
 :::
 
 ::::
+
+&nbsp;
 
 ---
 > **Personal projects** 
