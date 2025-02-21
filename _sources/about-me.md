@@ -1,7 +1,7 @@
 # About me
 ![](img/NKN_20240729_124642_01.jpg)
 
-Hi, I’m Mikel Imaz, an aspiring Data Science and AI professional based in Spain.
+Hi, I’m Mikel Imaz, an aspiring Data Science & AI professional based in Spain.
 
 I’m passionate about understanding and representing reality, uncovering the signal amidst the noise, and sharing meaningful insights. The world of data provides me the perfect platform to apply my scientific and technical expertise, along with my enthusiasm for clear and impactful communication.
 
