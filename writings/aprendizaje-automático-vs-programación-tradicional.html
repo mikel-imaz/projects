@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -73,6 +73,8 @@
                 gtag('config', 'G-232XT3FYCT');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'writings/aprendizaje-automático-vs-programación-tradicional';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="icon" href="../_static/logo.svg"/>
@@ -399,7 +401,9 @@
 <p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> 2024-01-19</p>
 <p>La Inteligencia Artificial, en su sentido más amplio (esa capacidad de los ordenadores y las máquinas de realizar tareas y dar respuestas que típicamente asociamos con la inteligencia humana), se ha basado tradicionalmente en reglas. Lo habitual es programar unas instrucciones, que no es otra cosa que proporcionar al ordenador las pautas necesarias para que pueda llevar a cabo su tarea de forma automática.</p>
 <p>Puede que esto sea suficiente si se conocen las reglas que definen el caso. Imaginemos que queremos responder a la pregunta de cuánto tiempo va a tardar en caer una bola desde cierta altura de la torre de Pisa. Las leyes que gobiernan este fenómeno son las de la cinemática, de forma que lo más sencillo sería escribir un programa que utilizara la siguiente fórmula matemática:</p>
-<p>Donde t es el tiempo de caída, h es la altura desde la cual se suelta la bola y g es la aceleración debido a la fuerza de la gravedad. Por ejemplo, introduciendo en la ecuación una altura de h=16 metros la bola tardaría unos 1,8 segundos en caer al suelo (t = (2 x 16 / 9.8)1/2 ≈ 1,8).</p>
+<p><span class="math notranslate nohighlight">\(t=(2h/g)^{1/2}\)</span></p>
+<p>Donde t es el tiempo de caída, h es la altura desde la cual se suelta la bola y g es la aceleración debido a la fuerza de la gravedad. Por ejemplo, introduciendo en la ecuación una altura de h=16 metros la bola tardaría unos 1,8 segundos en caer al suelo:</p>
+<p><span class="math notranslate nohighlight">\(t = (2 x 16 / 9.8)^{1/2} ≈ 1.8 s\)</span></p>
 <p> </p>
 <p><img alt="" src="../_images/que-es-aprendizaje-automatico-de-datos-Pagina-2.png" /></p>
 <p> </p>
@@ -409,13 +413,13 @@
 <p> </p>
 <p>Ahora bien: ¿cuánto tardará la bola en caer de una altura de 16 metros? Nos falta justo esa medición, por lo que necesitaríamos un modelo que describa el sistema para responder a esta pregunta.</p>
 <p>En primera aproximación podríamos utilizar como modelo una sencilla línea recta (y = a x + b). Ajustándola manualmente para que se acerque lo máximo posible a los valores experimentales, obtenemos una línea recta con los siguientes parámetros específicos de pendiente (a) y ordenada (b).</p>
-<p>t = 0,055 h + 0,75</p>
+<p><span class="math notranslate nohighlight">\(t = 0.055 h + 0.75\)</span></p>
 <p> </p>
 <p><img alt="" src="../_images/plotly-11-e1706271994154.png" /></p>
 <p> </p>
 <p>Introduciendo en la ecuación h=16, el resultado es de t=1,63 segundos.</p>
-<p>Si hiciéramos el experimento desde los 16 metros, el resultado real nos indicaría que el modelo lineal que hemos utilizado no es muy preciso. Si quisiéramos afinarlo, en lugar de una sencilla recta podríamos utilizar una ecuación de segundo grado (y2 = a x) buscando unos parámetros que lo hicieran aproximarse más a los puntos de medición.</p>
-<p>t2 = 0,2 h → t = (0,2h)1/2</p>
+<p>Si hiciéramos el experimento desde los 16 metros, el resultado real nos indicaría que el modelo lineal que hemos utilizado no es muy preciso. Si quisiéramos afinarlo, en lugar de una sencilla recta podríamos utilizar una ecuación de segundo grado (<span class="math notranslate nohighlight">\(y^{2} = a x\)</span>) buscando unos parámetros que lo hicieran aproximarse más a los puntos de medición.</p>
+<p><span class="math notranslate nohighlight">\(t^{2} = 0.2 h\)</span> → <span class="math notranslate nohighlight">\(t = (0.2 h)^{1/2}\)</span></p>
 <p> </p>
 <p><img alt="" src="../_images/plotly-12-e1706272008167.png" /></p>
 <p> </p>
