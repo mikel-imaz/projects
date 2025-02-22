@@ -6,8 +6,9 @@ root: intro
 parts:
 - caption: Contents
   chapters:
-  - file: projects-challenge
+  - file: projects_competition
     sections:
+    - file: notebooks/book-popularity
     - file: notebooks/internet-patterns
     - file: notebooks/sleepinc
     - file: notebooks/hairloss
@@ -17,23 +18,17 @@ parts:
     - file: notebooks/webpage
     - file: notebooks/segmentation
     - file: notebooks/abalone
-  - file: projects-AI
+  - file: projects_personal
     sections:
     - file: notebooks/moles
     - file: notebooks/book-translation
     - file: notebooks/p-antio-gpt
-  - file: projects-DS
-    sections:
     - file: notebooks/self-tracking
     - file: notebooks/quakes
     - file: notebooks/climate
-  - file: projects-ML
-    sections:
     - file: notebooks/english-vocab
     - file: notebooks/antio
-    - file: notebooks/ignatian
-  - file: projects-DA
-    sections:    
+    - file: notebooks/ignatian   
     - file: notebooks/p-udalmap
     - file: notebooks/p-films
     - file: notebooks/ages
@@ -42,7 +37,14 @@ parts:
     - file: notebooks/traffic_fines
     - file: notebooks/urban_trees
     - file: notebooks/breads
-- caption: About
+- caption: Other
   chapters:
-  - url: https://datuz.es
-    title: datuz
+  - file: writings
+    sections:
+    - file: writings/la-importancia-de-adquirir-competencias-en-materia-de-datos
+    - file: writings/la-ciencia-de-convertir-los-datos-en-valor
+    - file: writings/que-es-la-inteligencia-artificial
+    - file: writings/aprendizaje-automático-vs-programación-tradicional
+    - file: writings/que-es-la-inteligencia-artificial-generativa
+    - file: writings/la-definicion-de-atributos-en-aprendizaje-automatico
+  - file: about-me
