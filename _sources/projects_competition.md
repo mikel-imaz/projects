@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} What makes a good book?
+:link: notebooks/book-popularity
+:link-type: doc
+:img-bottom: notebooks/img/books_pattern.jpg
+:::
+
 :::{grid-item-card} Analyzing Internet Patterns
 :link: notebooks/internet-patterns
 :link-type: doc

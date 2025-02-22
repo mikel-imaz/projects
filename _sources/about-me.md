@@ -3,7 +3,6 @@
 
 Hi, I’m Mikel Imaz, an aspiring Data Science & AI professional based in Spain.
 
-I’m passionate about understanding and representing reality, uncovering the signal amidst the noise, and sharing meaningful insights. The world of data provides me the perfect platform to apply my scientific and technical expertise, along with my enthusiasm for clear and impactful communication.
 
 ::::{grid} 3 3 3 4
 :gutter: 3
