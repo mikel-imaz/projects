@@ -2,10 +2,8 @@
 ```{epigraph}
 — in Python {fab}`python`
 ```
+{bdg-primary}`Data Analysis` {bdg-secondary}`Machine Learning` {bdg-success}`AI`
 
-{octicon}`graph` &nbsp;Data Analysis  
-{octicon}`gear` &nbsp;Machine Learning  
-{octicon}`dependabot` &nbsp;AI  
 &nbsp;
 
 ::::{grid} 2 2 2 3
@@ -27,6 +25,6 @@
 
 &nbsp;
 
-{octicon}`book` &nbsp;Take a look at my [writings](writings)! (in Spanish)
+{octicon}`book` &nbsp;Take a look at my [writings](writings) (in Spanish)
 
 {octicon}`person` &nbsp;[About me](about-me)
