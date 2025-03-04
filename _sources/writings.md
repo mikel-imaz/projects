@@ -39,4 +39,22 @@
 :img-bottom: writings/img/640px-Web_Summit_2018_-_Binate.io_-_Day_2_November_7_HM1_6789_43948198530.jpg
 :::
 
+:::{grid-item-card} ¿Por qué Python?
+:link: writings/por-que-python
+:link-type: doc
+:img-bottom: writings/img/pexels-christina-morillo-1181672.jpg
+:::
+
+:::{grid-item-card} Estadística computacional: la estadística sin dolor
+:link: writings/estadistica-computacional-la-estadistica-sin-dolor
+:link-type: doc
+:img-bottom: writings/img/school-4251037_1920.jpg
+:::
+
+:::{grid-item-card} ¿Cómo funciona el aprendizaje profundo?
+:link: writings/como-funciona-el-aprendizaje-profundo
+:link-type: doc
+:img-bottom: writings/img/binary-1922741_1920.jpg
+:::
+
 ::::
