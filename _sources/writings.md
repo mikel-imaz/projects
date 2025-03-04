@@ -57,4 +57,40 @@
 :img-bottom: writings/img/binary-1922741_1920.jpg
 :::
 
+:::{grid-item-card} IA predictiva vs IA generativa
+:link: writings/ia-predictiva-vs-ia-generativa
+:link-type: doc
+:img-bottom: writings/img/businesswoman-5309878_1920.png
+:::
+
+:::{grid-item-card} Ética en la IA
+:link: writings/etica-en-la-ia
+:link-type: doc
+:img-bottom: writings/img/woman-2604283_1920.jpg
+:::
+
+:::{grid-item-card} Las 3 capas de un proyecto de datos
+:link: writings/las-3-capas-de-un-proyecto-de-datos
+:link-type: doc
+:img-bottom: writings/img/man-597178_1920.jpg
+:::
+
+:::{grid-item-card} IA aplicada: la empresa empoderada por la IA
+:link: writings/ia-aplicada-la-empresa-empoderada-por-la-ia
+:link-type: doc
+:img-bottom: writings/img/programmer-5863772.jpg
+:::
+
+:::{grid-item-card} LLM: modo de empleo
+:link: writings/llm-modo-de-empleo
+:link-type: doc
+:img-bottom: writings/img/toddler-3995508_640.jpg
+:::
+
+:::{grid-item-card} Ley de IA de la UE
+:link: writings/ley-de-ia-de-la-ue
+:link-type: doc
+:img-bottom: writings/img/istockphoto-1355553211-1024x1024_.jpg
+:::
+
 ::::

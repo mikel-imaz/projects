@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -78,7 +78,7 @@
     <link rel="icon" href="../_static/logo.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="About me" href="../about-me.html" />
+    <link rel="next" title="IA predictiva vs IA generativa" href="ia-predictiva-vs-ia-generativa.html" />
     <link rel="prev" title="Estadística computacional: la estadística sin dolor" href="estadistica-computacional-la-estadistica-sin-dolor.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -231,6 +231,12 @@
 <li class="toctree-l2"><a class="reference internal" href="por-que-python.html">¿Por qué Python?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="estadistica-computacional-la-estadistica-sin-dolor.html">Estadística computacional: la estadística sin dolor</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">¿Cómo funciona el aprendizaje profundo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ia-predictiva-vs-ia-generativa.html">IA predictiva vs IA generativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etica-en-la-ia.html">Ética en la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="las-3-capas-de-un-proyecto-de-datos.html">Las 3 capas de un proyecto de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ia-aplicada-la-empresa-empoderada-por-la-ia.html">IA aplicada: la empresa empoderada por la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm-modo-de-empleo.html">LLM: modo de empleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ley-de-ia-de-la-ue.html">Ley de IA de la UE</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
@@ -371,7 +377,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -387,6 +395,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">Interacciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neuronales">Redes neuronales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning">Deep Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extraccion-automatica-de-atributos">Extracción automática de atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -400,6 +420,96 @@
 <h1>¿Cómo funciona el aprendizaje profundo?<a class="headerlink" href="#como-funciona-el-aprendizaje-profundo" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../_images/binary-1922741_1920.jpg" /></p>
 <p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> 2024-06-24</p>
+<p>Lo cierto es que nadie lo sabe, esta es la sorprendente respuesta. A ciencia cierta, no se sabe lo que sucede en el fondo de un algoritmo de <strong>aprendizaje profundo</strong> o <strong>Deep Learning</strong>.</p>
+<p>Como método de <strong>aprendizaje automático</strong> que es, se plantea para que capture los patrones existentes en los datos de ejemplo con que se alimenta durante el entrenamiento. Y como en el resto de sistemas de <strong>Machine Learning</strong>, el algoritmo busca los parámetros que minimizan el error durante este aprendizaje. Pero a diferencia de los sistemas clásicos de aprendizaje automático, en Deep Learning las reglas que determinan el comportamiento del conjunto no están escritas, se vuelven demasiado complejas para definirlas analíticamente. Por ello, el desarrollo de estos modelos se ha basado en el método de probar y ver qué pasa, seleccionando los métodos y las arquitecturas que experimentalmente mejores resultados han dado. Pero sin saber por qué.</p>
+<p>Y sin embargo, el concepto en el que se fundamentan es muy sencillo.</p>
+<section id="interacciones">
+<h2>Interacciones<a class="headerlink" href="#interacciones" title="Link to this heading">#</a></h2>
+<p>Imaginemos que trabajamos para un banco y necesitamos construir un modelo para predecir las transacciones que cada cliente llevará a cabo el año que viene. Disponemos de una tabla de datos con los resultados de este año, una lista con atributos de los clientes y el número de transacciones al que dieron lugar en cada caso.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-01-1.png" /></p>
+<p> </p>
+<p>Podemos plantear un algoritmo sencillo de aprendizaje automático, por ejemplo el de regresión lineal. En este caso asumiríamos que cada atributo tiene su propia influencia en el resultado final, un efecto que se puede representar de la siguiente manera:</p>
+<p>transacciones_previstas = ordenada + pendiente1 * edad + pendiente2 * saldo + pendiente3 * jubilado + …</p>
+<p>En el caso de la regresión lineal, el algoritmo de aprendizaje se encargaría de lograr los valores de los parámetros de pendientes y ordenada, de manera que pudiéramos predecir el resultado de número de transacciones para nuevos datos de entrada. Otra forma de representar lo mismo sería la siguiente:</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-02-2.png" /></p>
+<p> </p>
+<p>Supongamos, para simplificar, que hemos encontrado que la edad no tiene influencia alguna en el resultado, podemos por tanto eliminar esa columna. Asimismo, comprobamos que solamente el saldo y el hecho de ser o no ser jubilado contribuyen en el número de transacciones realizadas. Llamemos w (por <em>weight</em>, peso) a los valores de pendiente por los que los multiplicamos, y llamemos b (por <em>bias</em>) a la ordenada.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-03-2-1.png" /></p>
+<p> </p>
+<p>La regresión lineal así planteada, siguiendo la fórmula (transacciones_previstas = b + w1 * saldo + w2 * jubilado) y considerando que la variable «jubilado» toma un valor «0» o bien «1», predeciría resultados de este tipo:</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-04.png" /></p>
+<p> </p>
+<p>Donde la pendiente de ambas rectas sería w1, la ordenada de los no jubilados b, y la de los jubilados b + w2.</p>
+<p>Pero esta predicción podría resultar poco precisa. Supongamos que los jubilados tienden a comportarse de forma distinta dependiendo de su saldo en cuenta. Por ejemplo, consideremos que los jubilados con mucho dinero hacen casi tantas transacciones como los que están trabajando, mientras que los jubilados con menos dinero apenas las hacen. Es decir, la realidad se acercaría más a una representación gráfica como esta:</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-05.png" /></p>
+<p> </p>
+<p>Las transacciones no solo dependerían del saldo y de estar o no jubilado, sino del saldo y de una función combinada que tendría en cuenta ese saldo y la condición jubilada del cliente. Para ello, el modelo de regresión lineal anterior es demasiado simple y no puede plasmar esta dependencia adicional. Necesitaríamos algo así:</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-06-1-1.png" /></p>
+<p> </p>
+<p>La <strong>función de activación</strong> puede ser sencillamente una puerta que permita la propagación de la señal cuando la entrada proveniente de jubilado = 1 esté por encima de un umbral, y no la permita cuando la entrada propiciada por jubilado = 0 esté por debajo de ese umbral. Exactamente lo que hace <strong>una neurona en nuestro cerebro</strong>.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-07.png" /></p>
+<p> </p>
+<p>En este caso:</p>
+<p><em>Para no jubilados</em>: transacciones_previstas = b + w1 * saldo<br />
+<em>Para jubilados</em>: transacciones_previstas = (b + w2 * w4) + (w1 + w3 * w4) * saldo</p>
+<p>Es decir, dos rectas con pendientes y ordenadas diferentes, tal y como se presenta en la realidad.</p>
+<p>De manera que lo que hemos conseguido añadiendo esa capa intermedia (consistente en una función de activación a la que se le denomina <strong>neurona</strong>) es que el modelo tenga en cuenta, además del saldo, una <strong>interacción</strong> entre dicho saldo y la condición de jubilado del cliente. Con ello logramos que el modelo sea más flexible y haga predicciones más certeras.</p>
+</section>
+<section id="redes-neuronales">
+<h2>Redes neuronales<a class="headerlink" href="#redes-neuronales" title="Link to this heading">#</a></h2>
+<p>En esencia, una red neuronal básica consistiría en añadir una capa intermedia compuesta por funciones de tipo neurona entre las entradas y las salidas de un modelo, lo cual permitiría contemplar la influencia que tienen en el resultado las interacciones entre los atributos.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-08.png" /></p>
+<p> </p>
+<p>Se compone así de una capa de entrada, que son los atributos del modelo, una capa oculta, la de las neuronas, y una capa de salida, la de las etiquetas. Una vez fijada la arquitectura en cuanto a número de neuronas y sus funciones de activación, el modelo quedaría definido mediante los parámetros de pesos (w) a multiplicar y bias (b) a sumar.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-08-2.png" /></p>
+<p> </p>
+<p>El entrenamiento o aprendizaje de la red neuronal consiste en utilizar un algoritmo que encuentre los valores óptimos para todos estos parámetros w y b, siguiendo el criterio de minimizar el error cometido en los datos de ejemplo. Se parte de unos parámetros con valores aleatorios y se llevan a cabo los cálculos. Se computa el error cometido y se recorre la red en sentido inverso (<strong>backpropagation</strong>) deduciendo para los parámetros unos valores nuevos que permitan disminuir dicho error. Este proceso de recorrer la red hacia adelante y hacia atrás se repite las veces que sean necesarias, hasta lograr unos valores estables que den unos resultados satisfactorios. Una vez lograda la parametrización final, el modelo estaría listo para ser utilizado en predicciones.</p>
+</section>
+<section id="deep-learning">
+<h2>Deep Learning<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h2>
+<p>¿Redes neuronales (Neural Networks) o Deep Learning (aprendizaje profundo)?</p>
+<p>Son términos prácticamente sinónimos. En principio, Deep Learning hace referencia a redes neuronales de más de una capa de neuronas: <strong>Deep Neural Networks</strong>. Y como son sistemas de aprendizaje automático o Machine Learning, Deep (Neural Networks) Learning, que para acortar se quedó en Deep Learning.</p>
+<p>Deep Neural Networks fue un nombre que surgió en tiempos en los que no había mucha capacidad de computación y disponer de una red neuronal con más de una capa intermedia era un sueño. Más de dos capas era una quimera. Hoy en día todas las redes neuronales tienen múltiples capas, decenas, cientos, podrían tener miles, de manera que todas son <em>profundas</em>.</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-09.png" /></p>
+<p> </p>
+<p>Se trata por tanto de capas de transformaciones matemáticas, capas y capas, una detrás de otra. Nada mágico. Y sin embargo, los resultados que dan parecen magia.</p>
+<p>Las transformaciones matemáticas que se producen en conjunto (transformaciones de transformaciones de transformaciones…) enseguida se complican enormemente y no resulta posible decir qué hace cada una de esas neuronas una vez terminado el aprendizaje. Por eso no se entienden las redes neuronales, a pesar de que en esencia, el mecanismo es sencillo. Definirlos resulta imposible y de ahí que no haya reglas en cuanto al número de capas y de neuronas que conviene definir en cada caso.</p>
+</section>
+<section id="extraccion-automatica-de-atributos">
+<h2>Extracción automática de atributos<a class="headerlink" href="#extraccion-automatica-de-atributos" title="Link to this heading">#</a></h2>
+<p>Las redes neuronales profundas son mecanismos tan flexibles que se adaptan a cualquier realidad compleja, como la que viene en forma de los llamados <strong>datos no estructurados</strong> (los que no se pueden trasladar fácilmente a una tabla de datos), como son las imágenes, el lenguaje, los sonidos y los vídeos.</p>
+<p>Veamos un ejemplo de aplicación en reconocimiento de imágenes. Supongamos que queremos construir un modelo que sea capaz de leer imágenes de cifras manuscritas en escala de grises. Para simplificar, las imágenes tendrán muy poca resolución: 8 x 8 pixeles.</p>
+<p> </p>
+<p><img alt="" src="../_images/handwritten-digits.png" /></p>
+<p> </p>
+<p>Una posible arquitectura podría ser la siguiente:</p>
+<p> </p>
+<p><img alt="" src="../_images/dibujo-10.png" /></p>
+<p> </p>
+<p>Los valores de cada pixel de los 64 que hay en total entrarían por su correpondiente nodo. Se plantea una sola capa interna compuesta por 16 neuronas, y la salida está compuesta por nodos que dan un valor, por ejemplo, entre 0 y 1, considerando el nodo que es activado aquel que logra mayor índice entre los 10.</p>
+<p>Lo maravilloso de una red neuronal es que no hay que indicarle qué características de los números tiene que atender para que se aproxime en su pronóstico. Es un sistema tan flexible que se encarga él mismo de buscar los atributos formales que diferencian una cifra de otra. Esta es una de las grandes diferencias que existen entre el Deep Learning y el Machine Learning clásico.</p>
+<p>Sin embargo, esto no sale gratis. Cuanto más complejo sea el sistema, mayor cantidad de datos de ejemplo se requiere para poder ser entrenado. Y de una capacidad de computación igualmente potente para que el aprendizaje no se eternice. Si no disponemos de datos suficientes, sencillamente no tiene sentido emplear estos sistemas.</p>
+<p>Otro aspecto que se resiente en las redes neuronales es la <strong>interpretabilidad</strong>, tal como se ha indicado ya. El sistema es capaz de identificar las formas que hacen que una imagen muestre una cifra y no otra, pero no sabemos cómo lo hace. Suponemos que detecta las esquinas, las transiciones entre píxeles, pero no la manera en la que lo hace. Es una caja oscura. Por ello, dependiendo de la complejidad del caso, el algoritmo podría detectar en las imágenes información insospechada dando un resultado imprevisto y erróneo. Así que es necesario comprobar con cuidado que los datos de ejemplo sean los adecuados para que el sistema aprenda según lo previsto.</p>
+</section>
+<section id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>La mayor ventaja de los modelos de aprendizaje profundo es que son extremadamente flexibles y se pueden adaptar a las tareas más complejas.</p>
+<p>Sin embargo, son tan flexibles que con ellos se corre un mayor riesgo de <strong>sobreajuste</strong> (<strong>overfitting</strong>), que es lo que sucede cuando el modelo empieza a aprender particularidades de los datos de ejemplo que no generalizan bien en datos nuevos. Es decir, aprende de memoria un comportamiento, pero no el patrón que mejor describe un fenómeno, de forma que yerra a la hora de predecir el resultado para casos nuevos.</p>
+<p>Dado el esfuerzo que requieren, las redes neuronales es mejor utilizarlas solo cuando se sabe de antemano que los métodos tradicionales de Machine Learning no funcionarán, como en los mencionados casos en los que los datos consisten en imágenes, lenguaje, sonido o vídeo. Y aunque sean datos estructurados en una tabla, si se sabe que los atributos tienen entre sí relaciones intrincadas, podría ser también una buena idea tirar por el Deep Learning.</p>
+<p>La arquitectura óptima (el número de capas ocultas y la cantidad de neuronas en cada una de ellas) suele ser desconocida al principio y lo mejor es empezar suave, con sistemas pequeños, para minimizar el riesgo de sobreajuste. A partir de aquí se trata de probar e ir viendo los resultados obtenidos con cada diseño.</p>
+<hr class="docutils" />
+<p>(Imagen de portada de Gerd Altmann en Pixabay.)</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -442,11 +552,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="../about-me.html"
+       href="ia-predictiva-vs-ia-generativa.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">About me</p>
+        <p class="prev-next-title">IA predictiva vs IA generativa</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -456,6 +566,26 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interacciones">Interacciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neuronales">Redes neuronales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning">Deep Learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extraccion-automatica-de-atributos">Extracción automática de atributos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

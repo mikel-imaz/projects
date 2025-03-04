@@ -100,7 +100,11 @@ En cualquier caso Python resulta lento para ciertas aplicaciones: al fin y al ca
 
 Porque con su crecimiento de usuarios y amplitud de aplicaciones Python parece destinado a ocupar la posición de lengua franca de la codificación. Algo así como el idioma inglés en el lenguaje humano. Aunque parece improbable que vaya a desplazar a lenguajes como C y C++, que son opciones de programación a más bajo nivel y ofrecen mayor control sobre la ejecución de las instrucciones en el procesador. Y tampoco parece probable que acabe con Java, popular en aplicaciones complejas, o JavaScript, que está detrás de la mayoría de las páginas web.
 
+&nbsp;
+
 ![](img/top-5-languages-1.png)
+
+&nbsp;
 
 De manera que se podría decir que Python se ha convertido en un fenómeno a partir de unos principios en los que se prioriza la amabilidad frente a la optimización, ganando así adeptos y por medio de ellos funcionalidad. Y en consecuencia más popularidad y más funcionalidad. Un enfoque que ha resultado revolucionario para sorpresa de su propio fundador, que a la hora de dar nombre al lenguaje se inspiró, no en la amenazante serpiente pitón (en inglés _python_), sino en los Monty Python, el grupo de humoristas británico del que era gran admirador.
 

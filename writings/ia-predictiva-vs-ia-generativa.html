@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>IA predictiva vs IA generativa &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'writings/ia-predictiva-vs-ia-generativa';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ética en la IA" href="etica-en-la-ia.html" />
+    <link rel="prev" title="¿Cómo funciona el aprendizaje profundo?" href="como-funciona-el-aprendizaje-profundo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/book-popularity.html">What makes a good book?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../writings.html">Writings</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la-ciencia-de-convertir-los-datos-en-valor.html">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="que-es-la-inteligencia-artificial.html">¿Qué es la Inteligencia Artificial?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aprendizaje-autom%C3%A1tico-vs-programaci%C3%B3n-tradicional.html">Aprendizaje automático vs programación tradicional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="que-es-la-inteligencia-artificial-generativa.html">¿Qué es la Inteligencia Artificial Generativa?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="la-definicion-de-atributos-en-aprendizaje-automatico.html">La definición de atributos en aprendizaje automático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="por-que-python.html">¿Por qué Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estadistica-computacional-la-estadistica-sin-dolor.html">Estadística computacional: la estadística sin dolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="como-funciona-el-aprendizaje-profundo.html">¿Cómo funciona el aprendizaje profundo?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">IA predictiva vs IA generativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etica-en-la-ia.html">Ética en la IA</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/writings/ia-predictiva-vs-ia-generativa.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>IA predictiva vs IA generativa</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-en-su-sentido-mas-amplio">La IA en su sentido más amplio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-asociada-a-la-redes-neuronales">La IA asociada a la redes neuronales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-asociada-a-la-ia-generativa">La IA asociada a la IA generativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-necesidad-del-termino-ia-predictiva">La necesidad del término «IA predictiva»</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">IA predictiva vs IA generativa</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ia-predictiva-vs-ia-generativa">
+<h1>IA predictiva vs IA generativa<a class="headerlink" href="#ia-predictiva-vs-ia-generativa" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/businesswoman-5309878_1920.png" /></p>
+<p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> 2024-06-30</p>
+<p>La aparición de los modelos de aprendizaje profundo que son capaces de generar contenido (ya sea en forma de texto, de imágenes o de sonido), ha venido acompañada de aplicaciones que nos han permitido interactuar directamente con ellos (como por ejemplo el bot conversacional ChatGPT). Mediante estas interfaces hemos podido comprobar de primera mano su potencia y nos hemos quedado prendados de sus capacidades.</p>
+<p>Por primera vez, a muchos nos ha dado la impresión de estar comunicándonos con una máquina como si nos encontráramos frente a otro ser humano, obteniendo unas respuestas que hasta ahora han estado reservadas a las personas en lo que respecta al uso del lenguaje, la creatividad o el razonamiento. No es de extrañar por tanto que una de las consecuencias directas de este fenómeno, tan expandido, haya sido la adopción popular del término <strong>IA</strong> (<strong>Inteligencia Artificial</strong>) para referirse a esta nueva entidad.</p>
+<p>Sin embargo, con esta denominación se ha creado cierta confusión, porque históricamente, la IA ha hecho referencia a diferentes campos de la tecnología de computación.</p>
+<p> </p>
+<p><img alt="" src="../_images/ai-pred-gen.png" /></p>
+<p> </p>
+<section id="la-ia-en-su-sentido-mas-amplio">
+<h2>La IA en su sentido más amplio<a class="headerlink" href="#la-ia-en-su-sentido-mas-amplio" title="Link to this heading">#</a></h2>
+<p>La aparición de los primeros ordenadores a finales de los años cincuenta del pasado siglo y las expectativas que despertaron dieron lugar al término «Inteligencia Artificial», tal y como describo <a class="reference external" href="https://datuz.es/2023/05/26/que-es-la-inteligencia-artificial/">aquí</a>, donde recorro la evolución que siguió esta expresión desde su origen en la programación basada en reglas hasta las técnicas de aprendizaje a partir de datos (aprendizaje automático o Machine Learning).</p>
+<p>En ese artículo explico que, mientras la tecnología en torno al aprendizaje de los datos iba desarrollándose, el término «Inteligencia Artificial» fue evitado para referirse a los sistemas inteligentes. De alguna manera, (quizá a causa de los libros y las películas de ciencia ficción) dicha locución se vio en su momento asociada a una forma de inteligencia superior, comparable a la de los humanos, y los avances en ciencias de computación no daban para tanto, ya fuera en cuanto a modelos como sobre todo en lo que respecta a las capacidades de procesamiento de los ordenadores. De hecho, se veía poco serio llamar «IA» a la tecnología disponible.</p>
+</section>
+<section id="la-ia-asociada-a-la-redes-neuronales">
+<h2>La IA asociada a la redes neuronales<a class="headerlink" href="#la-ia-asociada-a-la-redes-neuronales" title="Link to this heading">#</a></h2>
+<p>Esta situación fue cambiando cuando un tipo específico de modelo, el de las <strong>redes neuronales</strong>, empezó a despegar hacia 2010. A diferencia del aprendizaje automático clásico, las redes neuronales se inspiraban en el funcionamiento del cerebro humano y aportaban unos resultados más penetrantes. La teoría en la que se basaban era ya conocida de antes, pero, solamente con la disponibilidad de un montón de datos provenientes de Internet y los avances en potencia de computación, pudieron empezar a sacarles rendimiento.</p>
+<p>Los modelos en redes neuronales se hicieron tan complejos que se volvieron «profundos» (<strong>Deep Learning, aprendizaje profundo</strong>) y ya no se sabía interpretar qué sucedía dentro de ellos, con qué criterios tomaban sus decisiones. Pero eran muy flexibles y tremendamente precisos. Además, la arquitectura de neuronas, que semejaba el funcionamiento al cerebro humano, hizo que el término <strong>Inteligencia Artificial</strong> se volviera a emplear para referirse a ellos. Porque de hecho empezaron a hacer cosas tan complejas como clasificar imágenes, traducir lenguajes o transcribir sonidos.</p>
+</section>
+<section id="la-ia-asociada-a-la-ia-generativa">
+<h2>La IA asociada a la IA generativa<a class="headerlink" href="#la-ia-asociada-a-la-ia-generativa" title="Link to this heading">#</a></h2>
+<p>Los modelos de aprendizaje profundo siguieron evolucionando, tal y como escribo en esta otra <a class="reference external" href="https://datuz.es/2024/01/24/que-es-la-inteligencia-artificial-generativa/">entrada</a>. La combinación de nuevas arquitecturas y la disponibilidad de más datos y mayores capacidades de procesamiento dieron lugar a los primeros modelos grandes de lenguaje (<strong>LLM, Large Language Models</strong>) a finales de la década de 2010. Una vez entrenados en un corpus inmenso de datos provenientes de Internet, su cometido fundamental era predecir la siguiente palabra a incorporar en una frase, de manera que la misma tuviera sentido en el contexto en el que dicho enunciado se produjera. Ello permitió que los humanos pudiéramos por primera vez mantener una conversación con sentido con una máquina.</p>
+<p>En este punto (con la aparición de ChatGPT y otras herramientas a finales de 2022) es donde empezó a surgir la denominación de la IA Generativa. Los modelos grandes de lenguaje no hacían otra cosa que predecir de la forma más certera posible la siguiente palabra que correspondía en cada punto dentro de una conversación, pero <em>lo hacían teniendo en cuenta el sentido del conjunto</em>, de manera que era como si estuvieran creando contenido. De hecho, en términos efectivos, así era. De forma que, de esta manera tal sutil, se pasó de un esquema típico de predicción (predicción de «palabras» en este caso) a otro en el que dichas predicciones daban lugar a un contenido totalmente nuevo.</p>
+<p>La designación como «generativa» para estos potentes modelos de aprendizaje profundo se fijó definitivamente cuando los LLM y la comunicación humano-máquina que posibilitaban, se combinó con modelos avanzados que permitían crear nuevas imágenes o sonidos por medio de arquitecturas igualmente basadas en último término en redes neuronales y en su predicciones.</p>
+</section>
+<section id="la-necesidad-del-termino-ia-predictiva">
+<h2>La necesidad del término «IA predictiva»<a class="headerlink" href="#la-necesidad-del-termino-ia-predictiva" title="Link to this heading">#</a></h2>
+<p>Actualmente por tanto, debido al boom de los modelos generativos, cuando empleamos la expresión «Inteligencia Artificial», a menudo nos estamos refiriendo a este tipo de tecnología, la IA generativa. Sin embargo, los modelos de aprendizaje automático, tanto los clásicos como los de redes neuronales, siguen vigentes. A diferencia de las construcciones gigantes de los modelos generativos, los puramente predictivos son modelos más pequeños y eficientes cuando de lo que se trata es de hacer predicciones concretas en cierta aplicación.</p>
+<p>De manera que se vio la necesidad de incorporar al vocabulario un nuevo término que identificara todo este terreno que se ha venido transitando anteriormente y en el que se fundamenta todo, para diferenciarlo del nuevo boom de la IA Generativa. Y se le dio en llamar <strong>Inteligencia Artificial Predictiva</strong>, que no es otra cosa que el Machine Learning: el aprendizaje automático a partir de datos de ejemplo para crear un modelo con el que predecir etiquetas desde datos nuevos.</p>
+</section>
+<section id="id1">
+<h2>IA predictiva vs IA generativa<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>¿En cuál de estos dos tipos de tecnología deberían centrarse las empresas? ¿En la generativa, que produce textos, programas, vídeos, imágenes y demás contenido? ¿O en la predictiva, que se orienta a optimizar tareas en marketing, producción, cadena de suministro, detección de fraude, gestión del riesgo, tratamiento de salud y demás aplicaciones típicas de predicción?</p>
+<p>Según explica Eric Siegel en su artículo <a class="reference external" href="https://www.forbes.com/sites/ericsiegel/2024/03/04/3-ways-predictive-ai-delivers-more-value-than-generative-ai/">3 Ways Predictive AI Delivers More Value Than Generative AI</a> («3 formas en las que la IA predictiva produce más valor que la IA generativa»), en lugar de seleccionar una tecnología atractiva para después buscar el problema a solucionar, deberíamos centrarnos en identificar primero el problema y después buscar la solución óptima para el mismo. La IA es una herramienta, no es un fin. Pensar de otra manera que no sea la de preguntarse primero dónde se puede mejorar y buscar después la tecnología adecuada, es caer en los peligros del bombo publicitario que acompaña en estos momentos al término «Inteligencia Artificial» y el probable fracaso de las iniciativas que se emprendan en este campo.</p>
+<p>La IA generativa y la IA predictiva conducen hacia propósitos diferentes. La generativa se orienta hacia tareas que normalmente realizan las personas. La predictiva por su parte persigue objetivos que en principio parecen menos ambiciosos pero que tienen un gran impacto: optimiza procesos a gran escala en la empresa. Esto significa que, a día de hoy, mientras que la generativa puede impresionar más, es la predictiva la que seguramente proporciona más beneficios en cuanto a la eficiencia de las empresas.</p>
+<p>La IA predictiva disfrutaría de tres grandes ventajas con respecto a la generativa:</p>
+<ol class="arabic simple">
+<li><p><strong>Mayor retorno de la inversión con la IA predictiva</strong>
+Al mejorar los procesos a gran escala de la empresa, tendría el poder de reportar los mayores retornos por el aumento en la eficiencia.
+Ser una compañía madura significa que se ha hecho un trabajo en la mejora de las actividades principales, las cuales se han convertido en procesos sistemáticos compuestos por pasos en los que se toman decisiones. Dado su carácter uniforme, se prestan a la optimización que proporciona un mecanismo de predicción.
+Por ejemplo, un servicio de distribución de paquetería podría optimizar la organización del reparto planificando su flota y sus rutas mediante una predicción de los pedidos. Un banco puede predecir qué cargo puede ser fraudulento. O una campaña de marketing puede ahorrarse mucho dinero si se dirige hacia clientes con mayor probabilidad de compra.</p></li>
+<li><p><strong>La IA predictiva puede operar de forma autónoma, mientras que la generativa (todavía) no</strong>
+En muchos de los despliegues de estas tecnologías, la IA predictiva puede trabajar sin necesidad de incorporar a una persona que supervise el proceso, mientras que la IA generativa se considera más bien un soporte antes que una automatización de los procesos humanos.
+De momento al menos no se puede confiar ciegamente en lo que redacta por nosotros una máquina. Se necesita a alguien dentro del ciclo en el que el modelo nos proporciona un texto para marketing o el código para un software, sobre todo si son elementos que interaccionan directamente con el cliente.
+Sin embargo, si la IA se aplica en tareas donde el error es más permisible, porque se diluye (como en los procesos a gran escala donde se inserta la IA predictiva), entonces puede estar más preparada para funcionar de manera autónoma. El banco instantáneamente bloquea un cargo sospechoso en la tarjeta. Las páginas web deciden al momento qué publicidad enseñar a quién.</p></li>
+<li><p><strong>La IA predictiva es más barata y deja una menor huella</strong>
+Los modelos de IA predictiva son generalmente más pequeños que los generativos, en varios órdenes de magnitud más ligeros que los gigantescos modelos generativos.
+Ello permite que se puedan desarrollar dentro de la compañía y que formen parte de su sistema, permitiendo su optimización. La generativa sin embargo estará en manos de terceros.
+La diferencia surge de los objetivos fundamentalmente diferentes con las que parten ambas tecnologías: la IA generativa trata de generalizar en el entendimiento humano, mientras que la predictiva se centra sencillamente en averiguar el resultado de un sistema concreto.</p></li>
+</ol>
+<p> </p>
+<p><img alt="" src="../_images/ai-pred-gen-01.png" /></p>
+<p> </p>
+<p>El boom de la IA generativa no puede ser más lógico tal como se decía al inicio de este artículo, pues nunca antes hemos visto a los ordenadores responder de una manera tan cercana a la humana. Pero esta atención no debería despistar a las empresas a la hora de adoptar la tecnología de IA adecuada a sus necesidades.</p>
+<p>Ciertamente, utilizar la IA generativa para crear borradores de texto, imágenes y código de programa puede ser muy valioso y ahorrar un montón de tiempo, pero lo ideal sería no dejarse llevar por la actual moda generativa del momento y contemplar en términos más generales lo que la Inteligencia Artificial puede ofrecer. Sin olvidar que en esencia ambas son lo mismo: aprendizaje automático de datos.</p>
+<hr class="docutils" />
+<p>(Imagen de portada de outsideclick en Pixabay.)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./writings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="como-funciona-el-aprendizaje-profundo.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">¿Cómo funciona el aprendizaje profundo?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="etica-en-la-ia.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ética en la IA</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-en-su-sentido-mas-amplio">La IA en su sentido más amplio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-asociada-a-la-redes-neuronales">La IA asociada a la redes neuronales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-ia-asociada-a-la-ia-generativa">La IA asociada a la IA generativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-necesidad-del-termino-ia-predictiva">La necesidad del término «IA predictiva»</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">IA predictiva vs IA generativa</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

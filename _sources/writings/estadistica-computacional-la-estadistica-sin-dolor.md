@@ -9,7 +9,7 @@ Sin embargo, desde hace un tiempo, la disponibilidad de los ordenadores y su cap
 
 La estadística se ha beneficiado especialmente de este cambio de paradigma, puesto que sus practicantes se pueden liberar de la complejidad de la teoría analítica, en la que realmente no se sabe muy bien qué es lo que se está haciendo, y centrarse en cambio en resolver el problema de una manera más intuitiva. La mayoría de los métodos analíticos no son fáciles de comprender y se limitan a describir cuándo y cómo aplicar las fórmulas, lo cual lleva a la frustración de los que buscan asimilar las ideas fundamentales que las sustentan.
 
-Mediante la computación, sin embargo, la estadística puede convertirse en «elegantes algoritmos en lugar de confusas masas de ecuaciones». Lo explica de forma muy simple un científico de datos llamado John Rauser en su charla titulada [Statistics Without the Agonizing Pain](https://www.youtube.com/watch?v=5Dnw46eC-0o&t=2s) («Estadística sin dolorosa lucha»).
+Mediante la computación, sin embargo, la estadística puede convertirse en «elegantes algoritmos en lugar de confusas masas de ecuaciones». Lo explica de forma muy simple un científico de datos llamado John Rauser en su charla titulada [Statistics Without the Agonizing Pain](https://www.youtube.com/watch?v=5Dnw46eC-0o&t=2s) (traducible quizá como «Estadística sin la dolorosa lucha»).
 
 ## ¿Te pican más los mosquitos si bebes cerveza?
 
@@ -33,7 +33,7 @@ La postura contraria defendería que 4.4 mosquitos es una diferencia considerabl
 
 → HA (hipótesis alternativa): beber cerveza atrae a los mosquitos.
 
-Lo cierto es que no podemos saber si la diferencia observada entre estos dos grupos o muestras ocurrió por azar o no, pero lo que sí puede hacer la estadística por nosotros es calcular la probabilidad (valor-p) de que dicha diferencia contemplada fuera resultado de la fortuna (ruido, H0) o bien respondiera a una realidad de la población (patrón, HA).
+Lo cierto es que no podemos saber si la diferencia observada entre estos dos grupos o muestras ocurrió por azar o no, pero lo que sí puede hacer la estadística por nosotros es calcular la probabilidad (valor-p) de que dicha diferencia contemplada fuera resultado de la fortuna (ruido, es decir: H0) o bien respondiera a una realidad de la población (patrón, es decir: HA).
 
 ## Método analítico
 
@@ -49,7 +49,7 @@ Su método proporciona una serie de ecuaciones, entre las cuales se encuentra la
 
 &nbsp;
 
-![](img/t-test-formula.webp)
+![](img/t-test-formula.jpg)
 
 &nbsp;
 
@@ -84,3 +84,78 @@ La alternativa es utilizar un método computacional, también llamado de simulac
 &nbsp;
 
 Tomemos los datos de las muestras, coloreadas dependiendo de si el sujeto tomó agua o cerveza. Y ahora supongamos que es cierta la hipótesis nula H0: no hay diferencia alguna entre los dos grupos. Entonces, si es cierto esto, podríamos mezclar todos estos datos entre sí como quien baraja unos naipes y después repartir las cartas a los dos jugadores según la proporción inicial. Una permutación aleatoria, en términos matemáticos.
+
+&nbsp;
+
+![](img/stats_01.jpg)
+
+&nbsp;
+
+A continuación calculamos los valores medios de los dos grupos y la diferencia entre ellos. En este caso la diferencia obtenida es de 1.1 mosquitos más o menos.
+
+&nbsp;
+
+![](img/perm-3.png)
+
+&nbsp;
+
+Hacemos lo mismo 10 veces, permutamos y calculamos la diferencia en las medias: obtenemos unos valores que van desde los casi-3 mosquitos (en este caso a favor del agua) hasta casi 4 mosquitos. Nos damos cuenta de que después de 10 ensayos aleatorios ninguno de ellos ha arrojado un valor de diferencia igual o superior al observado en el experimento real, que era 4.4 mosquitos.
+
+&nbsp;
+
+![](img/perm-4.png)
+
+&nbsp;
+
+Repetimos la simulación 10000 veces y dibujamos los resultados en un histograma, el cual hace el recuento de los mismos por intervalos. Como es un ensayo que se ha repetido muchas veces, la gráfica es una distribución de la probabilidad. Observamos que, asumiendo H0, lo más probable es que estas simulaciones den como resultado una la diferencia nula entre las medias.
+
+&nbsp;
+
+![](img/perm-5_.png)
+
+&nbsp;
+
+¿Y qué probabilidad hay de que salga una diferencia de 4.4 o mayor? La parte que queda a la derecha de la línea vertical contiene la cantidad de veces en que se dio esa diferencia después de 10000 ensayos aleatorios. Si los contamos, veremos que han sido 3 las ocasiones en las que esto ha sucedido, lo cual arroja una probabilidad de 3 /10000 → p = 0.0003. Es decir, se observa que esto ocurre muy, muy raramente. Tan raro es que nos atrevemos a decir que las muestras deben de pertenecer a dos poblaciones diferentes y por lo tanto rechazamos la hipótesis H0 (los resultados eran puramente fortuitos, no existe diferencia) para abrazar la HA, la cual propone que sí hay una diferencia que no es debida al azar: es decir, los mosquitos se ven atraídos por los que beben cerveza.
+
+## Solo existe un test estadístico
+
+Tal como describe [este](https://allendowney.blogspot.com/2016/06/there-is-still-only-one-test.html) artículo, atendiendo al planteamiento de la simulación computacional, solo existiría un único esquema para la totalidad de los tests estadísticos, y sería el siguiente:
+
+&nbsp;
+
+![](img/only-one-test-1-1.png)
+
+&nbsp;
+
+Los elementos que lo componen son los siguientes:
+
+1. A partir de un conjunto de datos se calcula un estadístico muestral que mide la magnitud del supuesto efecto. Por ejemplo, si estás describiendo la diferencia entre dos grupos, el estadístico podría ser la diferencia entre sus valores medios.
+2. A continuación se define una hipótesis nula (H0), que es un modelo del mundo que considera que el efecto observado no responde a un patrón real, sino que es producto del azar. Por ejemplo, si se sospecha que podría haber una diferencia entre los dos grupos, la hipótesis nula asumiría que, a pesar de haberlo visto en las muestras, entre las poblaciones no existe tal diferencia.
+3. El modelo de la hipótesis nula debería ser estocástico, en el sentido de que sea capaz de generar conjuntos de datos aleatorios similares a los datos de origen. Existen en este sentido varios modelos H0 que se denominan de «remuestreo» (resampling), entre los que destacan:
+   - Test permutacional aleatorio: es el empleado en el ejemplo de los mosquitos, el que considera que no hay ninguna diferencia en absoluto entre los dos grupos.
+   - Bootstrapping: menos restrictivo que el permutacional, el bootstrapping asume solamente que las medias de los dos grupos son iguales, sin considerar cómo están distribuidos los datos.
+4. El objetivo del test de hipótesis es calcular un valor-p, el cual es la probabilidad de ver un efecto igual o mayor que el observado bajo el planteamiento en el que se toma por cierta la hipótesis nula.
+5. Finalmente, después de repetir la operación miles, decenas de miles o millones de veces, se cuenta las veces en que el estadístico superó el valor experimental y se divide por el número de iteraciones. Este valor fraccional se aproxima al valor-p. Si es muy pequeño, tan pequeño que haga que la asunción de H0 como cierta parezca ridícula, entonces se puede concluir que el efecto constatado en el experimento es muy poco probable que sea debido al azar.
+
+Y eso es todo. Todos los tests de hipótesis caben en este esquema. La razón por la cual en la estadística analítica existen tantos nombres y tantos tests es que cada uno corresponde a:
+
+- Un estadístico muestral
+- Un modelo para la hipótesis nula
+- Y habitualmente un método analítico que calcula o aproxima el valor-p.
+
+Los métodos analíticos, imprescindibles cuando no se disponía el recurso de la computación, resultan ahora menos atractivos porque:
+
+1. Son inflexibles: al elegir uno de ellos te comprometes con un estadístico muestral concreto y un modelo concreto para la hipótesis nula. Y puede que no exista un método analítico para un caso particular. Sin embargo, la estadística computacional es muy flexible porque es fácil probar varios estadísticos y modelos de manera que se pueda elegir el más apropiado. Y si diferentes modelos aportan resultados diferentes, es un buen aviso de que el problema está abierto a la interpretación.
+2. Son opacos: la hipótesis nula es un modelo, lo que quiere decir que es una simplificación del mundo real. En la mayoría de los tests analíticos estándar, estas suposiciones están implícitas y no es fácil saber si un modelo encaja en un escenario en concreto. Una de las ventajas más importantes de los métodos de simulación es que hacen explícito el modelo. Cuando creas una simulación estás obligado a pensar acerca de las decisiones que tomas sobre el modelado, y las propias simulaciones documentan esas decisiones.
+
+## Conclusión
+Para llevar a cabo una prueba estadística computacional, necesitamos de tres elementos esenciales:
+
+1. Habilidad para plantear y conducir un simple argumento lógico. (nacimos con ello ✔)
+2. Generación aleatoria de números. (lo hace el ordenador ✔)
+3. Iteración. (lo hace el ordenador ✔)
+
+De manera que si sabemos programar (en [Python](https://datuz.es/2024/02/09/por-que-python/), por ejemplo), tenemos en nuestra mano la posibilidad de entender lo que estamos haciendo a un nivel profundo y elemental. Se podría decir que los ordenadores nos facilitan un superpoder para comprender la estadística. Porque nos permiten jugar con sus ideas fundamentales y abrazar su práctica desde una posición de gusto y alegría, y no desde el miedo y las dudas.
+
+---
+(Imagen de portada de Gerd Altmann en Pixabay.)
