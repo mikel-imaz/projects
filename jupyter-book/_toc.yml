@@ -47,4 +47,13 @@ parts:
     - file: writings/aprendizaje-automático-vs-programación-tradicional
     - file: writings/que-es-la-inteligencia-artificial-generativa
     - file: writings/la-definicion-de-atributos-en-aprendizaje-automatico
+    - file: writings/por-que-python
+    - file: writings/estadistica-computacional-la-estadistica-sin-dolor
+    - file: writings/como-funciona-el-aprendizaje-profundo
+    - file: writings/ia-predictiva-vs-ia-generativa
+    - file: writings/etica-en-la-ia
+    - file: writings/las-3-capas-de-un-proyecto-de-datos
+    - file: writings/ia-aplicada-la-empresa-empoderada-por-la-ia
+    - file: writings/llm-modo-de-empleo
+    - file: writings/ley-de-ia-de-la-ue
   - file: about-me

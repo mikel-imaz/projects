@@ -7,7 +7,11 @@ La Inteligencia Artificial, en su sentido más amplio (esa capacidad de los orde
 
 Puede que esto sea suficiente si se conocen las reglas que definen el caso. Imaginemos que queremos responder a la pregunta de cuánto tiempo va a tardar en caer una bola desde cierta altura de la torre de Pisa. Las leyes que gobiernan este fenómeno son las de la cinemática, de forma que lo más sencillo sería escribir un programa que utilizara la siguiente fórmula matemática:
 
-Donde t es el tiempo de caída, h es la altura desde la cual se suelta la bola y g es la aceleración debido a la fuerza de la gravedad. Por ejemplo, introduciendo en la ecuación una altura de h=16 metros la bola tardaría unos 1,8 segundos en caer al suelo (t = (2 x 16 / 9.8)1/2 ≈ 1,8).
+$t=(2h/g)^{1/2}$
+
+Donde t es el tiempo de caída, h es la altura desde la cual se suelta la bola y g es la aceleración debido a la fuerza de la gravedad. Por ejemplo, introduciendo en la ecuación una altura de h=16 metros la bola tardaría unos 1,8 segundos en caer al suelo:
+
+$t = (2 x 16 / 9.8)^{1/2} ≈ 1.8 s$
 
 &nbsp;
 
@@ -27,7 +31,7 @@ Ahora bien: ¿cuánto tardará la bola en caer de una altura de 16 metros? Nos f
 
 En primera aproximación podríamos utilizar como modelo una sencilla línea recta (y = a x + b). Ajustándola manualmente para que se acerque lo máximo posible a los valores experimentales, obtenemos una línea recta con los siguientes parámetros específicos de pendiente (a) y ordenada (b).
 
-t = 0,055 h + 0,75
+$t = 0.055 h + 0.75$
 
 &nbsp;
 
@@ -37,9 +41,9 @@ t = 0,055 h + 0,75
 
 Introduciendo en la ecuación h=16, el resultado es de t=1,63 segundos.
 
-Si hiciéramos el experimento desde los 16 metros, el resultado real nos indicaría que el modelo lineal que hemos utilizado no es muy preciso. Si quisiéramos afinarlo, en lugar de una sencilla recta podríamos utilizar una ecuación de segundo grado (y2 = a x) buscando unos parámetros que lo hicieran aproximarse más a los puntos de medición.
+Si hiciéramos el experimento desde los 16 metros, el resultado real nos indicaría que el modelo lineal que hemos utilizado no es muy preciso. Si quisiéramos afinarlo, en lugar de una sencilla recta podríamos utilizar una ecuación de segundo grado ($y^{2} = a x$) buscando unos parámetros que lo hicieran aproximarse más a los puntos de medición.
 
-t2 = 0,2 h → t = (0,2h)1/2
+$t^{2} = 0.2 h$ → $t = (0.2 h)^{1/2}$
 
 &nbsp;
 

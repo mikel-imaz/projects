@@ -22,3 +22,9 @@
 :::
 
 ::::
+
+&nbsp;
+
+{octicon}`book` &nbsp;Take a look at my [writings](writings) (in Spanish)
+
+{octicon}`person` &nbsp;[About me](about-me)
