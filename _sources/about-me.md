@@ -1,9 +1,9 @@
 # About me
 ![](img/NKN_20240729_124642_01.jpg)
 
-Hi, I’m **Mikel Imaz**, an aspiring **Data Science & AI professional** based in **Spain**.  
+Hi, I’m **Mikel Imaz**, a **Data Science & AI professional** based in **Spain**.  
 
-I hold a degree in **Physics** and have a professional background in **industrial automation**.  
+I hold a BSc in **Physics** and have a professional background in **industrial automation**.  
 I’m passionate about interpreting reality, extracting meaningful insights from complex data, and effectively communicating those insights with clarity.
 
 
@@ -30,4 +30,4 @@ I’m passionate about interpreting reality, extracting meaningful insights from
 
 ::::
 
-View list of courses I've taken at [DataCamp](https://www.datacamp.com/portfolio/mikel-imaz) {octicon}`link-external`
+See list of courses I've taken at [DataCamp](https://www.datacamp.com/portfolio/mikel-imaz) {octicon}`link-external`
