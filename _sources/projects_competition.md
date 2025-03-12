@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Predicting Industrial Machine Downtime
+:link: notebooks/machine-downtime
+:link-type: doc
+:img-bottom: notebooks/img/industrial-machine.jpg
+:::
+
 :::{grid-item-card} What makes a good book?
 :link: notebooks/book-popularity
 :link-type: doc
