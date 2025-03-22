@@ -1,4 +1,8 @@
-#Data Projects
----
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://jupyterbook.org/)  
-In this repository you will find some of my data projects as part of a Jupyter Book, which has been built as a website into the *gh-pages* branch and is showcased at https://mikel-imaz.github.io/projects
+# Data Science projects
+My Data Science projects
+
+## Description
+Here you will find my data science projects developed in Jupyter notebooks.  
+I have organized them into a Jupyter Book for easier reference. You can access the book at https://mikel-imaz.github.io/projects.
+
+![](jupyter-book/img/book_scrnshot.png)
