@@ -7,6 +7,8 @@
 ## My Data Science projects
 Here you will find my data science projects developed in Jupyter notebooks.  
 
+They are basically Data Analysis, Machine Learning and AI projects using libraries and frameworks such as Pandas and Scikit-learn.
+
 I have organized them into a Jupyter Book for easier reference. You can access the book at https://mikel-imaz.github.io/projects.
 
 [![](jupyter-book/img/book_scrnshot.png)](https://mikel-imaz.github.io/projects)
