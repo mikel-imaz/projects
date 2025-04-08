@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Canopy Height Map
+:link: notebooks/chm
+:link-type: doc
+:img-bottom: notebooks/img/chm.jpg
+:::
+
 :::{grid-item-card} Mole monitoring
 :link: notebooks/moles
 :link-type: doc
