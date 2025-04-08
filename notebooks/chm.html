@@ -1,0 +1,1300 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Canopy Height Map &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chm';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mole monitoring" href="moles.html" />
+    <link rel="prev" title="Personal projects" href="../projects_personal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine-downtime.html">Predicting Industrial Machine Downtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-popularity.html">What makes a good book?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Canopy Height Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writings.html">Writings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-ciencia-de-convertir-los-datos-en-valor.html">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial.html">¿Qué es la Inteligencia Artificial?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/aprendizaje-autom%C3%A1tico-vs-programaci%C3%B3n-tradicional.html">Aprendizaje automático vs programación tradicional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial-generativa.html">¿Qué es la Inteligencia Artificial Generativa?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-definicion-de-atributos-en-aprendizaje-automatico.html">La definición de atributos en aprendizaje automático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/por-que-python.html">¿Por qué Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/estadistica-computacional-la-estadistica-sin-dolor.html">Estadística computacional: la estadística sin dolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/como-funciona-el-aprendizaje-profundo.html">¿Cómo funciona el aprendizaje profundo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-predictiva-vs-ia-generativa.html">IA predictiva vs IA generativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/etica-en-la-ia.html">Ética en la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/las-3-capas-de-un-proyecto-de-datos.html">Las 3 capas de un proyecto de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-aplicada-la-empresa-empoderada-por-la-ia.html">IA aplicada: la empresa empoderada por la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/llm-modo-de-empleo.html">LLM: modo de empleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ley-de-ia-de-la-ue.html">Ley de IA de la UE</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/chm.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Canopy Height Map</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-world-tiles">Download world tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-area-of-interest">Import area of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-intersecting-tiles">Find intersecting tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cropped-tiles">Download cropped tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compose-the-mosaic">Compose the mosaic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-canopy-height-map">Obtain canopy height map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clip-the-original-area">Clip the original area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-csv-geojson">Export (CSV, GeoJSON)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="canopy-height-map">
+<h1>Canopy Height Map<a class="headerlink" href="#canopy-height-map" title="Link to this heading">#</a></h1>
+<p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> Apr, 2025</p>
+<p><span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">GIS raster dataset processing</span></p>
+<p>This notebook processes canopy height maps of a selected area of interest. Once the area has been defined, corresponding GeoTIFF files are downloaded. These TIF files are tree height datasets, which are then converted into GeoPandas dataframes for analysis and for exporting the results to GeoJSON or CSV files.</p>
+<p>Below is the flowchart illustrating the process in this notebook:</p>
+<p><img alt="" src="../_images/mermaid.png" /></p>
+<p><strong>Reference:</strong></p>
+<blockquote>
+<div><p>High Resolution Canopy Height Maps by WRI and Meta
+Global and regional Canopy Height Maps (CHM). Created using machine learning models on high-resolution worldwide Maxar satellite imagery.</p>
+<p>Documentation: <a class="github reference external" href="https://github.com/facebookresearch/HighResCanopyHeight">facebookresearch/HighResCanopyHeight</a><br />
+Contact: <a class="reference external" href="mailto:dataforgood&#37;&#52;&#48;meta&#46;com">dataforgood<span>&#64;</span>meta<span>&#46;</span>com</a><br />
+ManagedBy: Meta:  <a class="reference external" href="https://dataforgood.fb.com/">https://dataforgood.fb.com/</a><br />
+Meta and World Resources Institude (WRI) - 2024. High Resolution Canopy Height Maps (CHM). Source imagery for CHM © 2016 <a class="reference external" href="https://www.maxar.com/products/imagery-basemaps">Maxar</a>.</p>
+<p><img alt="" src="../_images/chm.jpg" /></p>
+</div></blockquote>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ctx</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.merge</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rasterio.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">show</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>  <span class="c1"># File interface to AWS S3</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="download-world-tiles">
+<h2>Download world tiles<a class="headerlink" href="#download-world-tiles" title="Link to this heading">#</a></h2>
+<p>The data is stored on AWS as open data, so no AWS account is needed to access it.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;anon=True&#39; disables signing for public data</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Define resource and location in S3</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;dataforgood-fb-data&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;forests/v1/alsgedi_global_v6_float&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;tiles.geojson&quot;</span>
+
+<span class="c1"># Define local path to save the file</span>
+<span class="n">local_path</span> <span class="o">=</span> <span class="s2">&quot;tiles.geojson&quot;</span>
+
+<span class="c1"># Download the file</span>
+<span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
+
+<span class="c1"># Read GeoJSON into a GeoDataFrame</span>
+<span class="n">tiles</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
+<span class="n">tiles</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tile</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>023013213</td>
+      <td>POLYGON ((-115.3125 33.13755, -115.3125 33.724...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>021210020</td>
+      <td>POLYGON ((-123.04688 54.57206, -123.04688 54.9...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>130122211</td>
+      <td>POLYGON ((115.3125 56.94497, 115.3125 57.32652...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>121022223</td>
+      <td>POLYGON ((46.40625 55.77657, 46.40625 56.17002...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>310111000</td>
+      <td>POLYGON ((130.07812 -0.70311, 130.07812 0, 129...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>56140</th>
+      <td>122321030</td>
+      <td>POLYGON ((30.23438 9.1021, 30.23438 9.79568, 2...</td>
+    </tr>
+    <tr>
+      <th>56141</th>
+      <td>132032310</td>
+      <td>POLYGON ((106.17188 23.88584, 106.17188 24.527...</td>
+    </tr>
+    <tr>
+      <th>56142</th>
+      <td>300131332</td>
+      <td>POLYGON ((44.29688 -16.63619, 44.29688 -15.961...</td>
+    </tr>
+    <tr>
+      <th>56143</th>
+      <td>030303300</td>
+      <td>POLYGON ((-58.35938 50.28934, -58.35938 50.736...</td>
+    </tr>
+    <tr>
+      <th>56144</th>
+      <td>130101111</td>
+      <td>POLYGON ((123.75 66.23146, 123.75 66.51326, 12...</td>
+    </tr>
+  </tbody>
+</table>
+<p>56145 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tiles</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/96528429c8b384901175e52433ee76adebfa115142efc5c19cd4fb4c65e02845.png" src="../_images/96528429c8b384901175e52433ee76adebfa115142efc5c19cd4fb4c65e02845.png" />
+</div>
+</div>
+<p>The selected area could lie in between more than one tile as it can be observed opening the <code class="docutils literal notranslate"><span class="pre">tiles.geojson</span></code> file in a tool like <a class="reference external" href="https://geojson.io/:">https://geojson.io/:</a></p>
+<p><img alt="" src="../_images/tiles_.jpg" /></p>
+</section>
+<section id="import-area-of-interest">
+<h2>Import area of interest<a class="headerlink" href="#import-area-of-interest" title="Link to this heading">#</a></h2>
+<p>For example, we can import GeoJSON file from a polygon drawn in <a class="reference external" href="https://geojson.io/:">https://geojson.io/:</a></p>
+<p><img alt="" src="../_images/polygon.jpg" /></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;zumaia.geojson&quot;</span><span class="p">)</span>
+<span class="n">area</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>POLYGON ((-2.25979 43.29366, -2.25385 43.2927,...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/6a88ae007317ea137a3a663088b73a515c403aa1531fc380ece0e6a0c9131475.png" src="../_images/6a88ae007317ea137a3a663088b73a515c403aa1531fc380ece0e6a0c9131475.png" />
+</div>
+</div>
+</section>
+<section id="find-intersecting-tiles">
+<h2>Find intersecting tiles<a class="headerlink" href="#find-intersecting-tiles" title="Link to this heading">#</a></h2>
+<p>By intersecting the global tiles with the area of interest, we can identify the relevant tiles and the geometry of the area that lies within the corresponding tile.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change coordinate reference to Web Mercator</span>
+<span class="n">tiles</span> <span class="o">=</span> <span class="n">tiles</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get intersection</span>
+<span class="n">area_tiles</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">tiles</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;intersection&quot;</span><span class="p">)</span>
+<span class="n">area_tiles</span> <span class="o">=</span> <span class="n">area_tiles</span><span class="p">[[</span><span class="s2">&quot;tile&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+<span class="n">area_tiles</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tile</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>031333122</td>
+      <td>POLYGON ((-251160.568 5357192.823, -250938.305...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In this case only one tile intersects with the area of interest.</p>
+</section>
+<section id="download-cropped-tiles">
+<h2>Download cropped tiles<a class="headerlink" href="#download-cropped-tiles" title="Link to this heading">#</a></h2>
+<p>Tiles with canopy height map datasets are provided in GIS raster format (TIF files) for download. However, due to their large size, only a subset will be downloaded, cropped to match the boundaries (X, Y, maximum and minimum) of the polygons.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_tiles</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># For each tile involved</span>
+<span class="k">for</span> <span class="n">tile</span> <span class="ow">in</span> <span class="n">area_tiles</span><span class="p">[</span><span class="s2">&quot;tile&quot;</span><span class="p">]:</span>
+
+    <span class="c1"># Define existing file name in S3</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tile</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+
+    <span class="c1"># Define S3 path</span>
+    <span class="n">s3_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;s3://</span><span class="si">{</span><span class="n">bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/chm/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Get the GeoTIFF file</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">s3_url</span><span class="p">)</span>
+
+    <span class="c1"># Open it as a GIS raster dataset</span>
+    <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">dataset</span><span class="p">:</span>
+
+        <span class="c1"># Get the boundaries of the area inside the tile</span>
+        <span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">max_y</span> <span class="o">=</span> <span class="n">area_tiles</span><span class="p">[</span><span class="n">area_tiles</span><span class="p">[</span><span class="s2">&quot;tile&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tile</span><span class="p">]</span><span class="o">.</span><span class="n">union_all</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span>
+
+        <span class="c1"># Get the window to read</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">windows</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">max_y</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
+
+        <span class="c1"># Read the 2D map, 1 band: canopy heights</span>
+        <span class="n">cropped_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+    
+        <span class="c1"># Store the relevant metadata</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">profile</span>
+        <span class="n">metadata</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Single band</span>
+            <span class="s2">&quot;dtype&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">cropped_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">cropped_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="n">dataset</span><span class="o">.</span><span class="n">window_transform</span><span class="p">(</span><span class="n">window</span><span class="p">),</span>
+        <span class="p">})</span>
+
+        <span class="c1"># Save the dataset as a .tif file</span>
+        <span class="n">cropped_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cropped_</span><span class="si">{</span><span class="n">tile</span><span class="si">}</span><span class="s2">.tif&quot;</span>
+        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cropped_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+            <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cropped_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Store the file name for the composition later</span>
+        <span class="n">cropped_tiles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cropped_filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="compose-the-mosaic">
+<h2>Compose the mosaic<a class="headerlink" href="#compose-the-mosaic" title="Link to this heading">#</a></h2>
+<p>After they are downloaded, the individual tile sections must be merged into a new GIS raster file corresponding to the target area.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open datasets from cropped tiles</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cropped_tile</span> <span class="ow">in</span> <span class="n">cropped_tiles</span><span class="p">:</span>
+    <span class="n">datasets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cropped_tile</span><span class="p">))</span>
+
+<span class="c1"># Show them using rasterio&#39;s show function</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">show</span><span class="p">(</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>  <span class="c1"># Only one in this case</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/40403e57bf48e5f50b853fe556d8b57c4a6aaef5ff84a902a1d725866e531ba5.png" src="../_images/40403e57bf48e5f50b853fe556d8b57c4a6aaef5ff84a902a1d725866e531ba5.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge raster files</span>
+<span class="n">mosaic_image</span><span class="p">,</span> <span class="n">mosaic_transform</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">merge</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+
+<span class="c1"># Set up the metadata for the output file (using the profile of the first tile)</span>
+<span class="n">out_meta</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">profile</span>
+<span class="n">out_meta</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># Single band output</span>
+    <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="n">mosaic_transform</span><span class="p">,</span>
+    <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="n">mosaic_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>  <span class="c1"># Width is the 3rd dimension of the 3D array (bands, height, width)</span>
+    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">mosaic_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># Height is the 2nd dimension</span>
+<span class="p">})</span>
+
+<span class="c1"># Save the mosaic to a file</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s2">&quot;mosaic.tif&quot;</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">out_meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mosaic_image</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Since it&#39;s single-band, we need to write only the first band</span>
+
+<span class="c1"># Close all datasets manually to ensure they&#39;re not locked</span>
+<span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Explicitly close each dataset</span>
+
+<span class="c1"># Optionally, clean up the temporary files</span>
+<span class="k">for</span> <span class="n">cropped_tile</span> <span class="ow">in</span> <span class="n">cropped_tiles</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cropped_tile</span><span class="p">)</span>
+
+<span class="c1"># Show the result</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/40403e57bf48e5f50b853fe556d8b57c4a6aaef5ff84a902a1d725866e531ba5.png" src="../_images/40403e57bf48e5f50b853fe556d8b57c4a6aaef5ff84a902a1d725866e531ba5.png" />
+</div>
+</div>
+</section>
+<section id="obtain-canopy-height-map">
+<h2>Obtain canopy height map<a class="headerlink" href="#obtain-canopy-height-map" title="Link to this heading">#</a></h2>
+<p>The GIS raster file is read into a dataset to extract the canopy height map information, which is then transferred into a GeoPandas dataframe.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">dataset</span><span class="p">:</span>
+    <span class="n">indexes</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">indexes</span> <span class="c1"># Supposedly only 1 band -&gt; heights</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Read 2D array: map of the heights</span>
+    <span class="n">geo_xy</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">xy</span> <span class="c1"># Get handy function for spatial indexing</span>
+
+    <span class="c1"># Replace zeros with NaN in 2D array</span>
+    <span class="n">heights</span><span class="p">[</span><span class="n">heights</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Get 2D array indices of non-NaN values</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">heights</span><span class="p">))</span>
+
+    <span class="c1"># Get non-NaN values: heights (in meters)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">heights</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+    <span class="c1"># Array positions -&gt; Spatial coordinates</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">geo_xy</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Convert to geometry points</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)]</span>
+
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">values</span><span class="p">},</span> <span class="n">geometry</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">)</span>
+
+<span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>POINT (-249426.436 5358106.388)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>POINT (-249425.242 5358106.388)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>POINT (-249424.048 5358106.388)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.0</td>
+      <td>POINT (-249422.853 5358106.388)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>POINT (-249421.659 5358106.388)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>418192</th>
+      <td>2.0</td>
+      <td>POINT (-249474.209 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>418193</th>
+      <td>2.0</td>
+      <td>POINT (-249473.015 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>418194</th>
+      <td>2.0</td>
+      <td>POINT (-249471.821 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>418195</th>
+      <td>1.0</td>
+      <td>POINT (-249470.626 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>418196</th>
+      <td>1.0</td>
+      <td>POINT (-249469.432 5356630.198)</td>
+    </tr>
+  </tbody>
+</table>
+<p>418197 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Canopy Height (meters)&quot;</span><span class="p">}</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/eaa3637d5dc23abd84abb840c0b8723b507c3164321e66266b6c63d7e59e3332.png" src="../_images/eaa3637d5dc23abd84abb840c0b8723b507c3164321e66266b6c63d7e59e3332.png" />
+</div>
+</div>
+</section>
+<section id="clip-the-original-area">
+<h2>Clip the original area<a class="headerlink" href="#clip-the-original-area" title="Link to this heading">#</a></h2>
+<p>Lastly, the GeoDataFrame is clipped to retain only the original area.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_area</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+<span class="n">gdf_area</span> <span class="o">=</span> <span class="n">gdf_area</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;index_right&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gdf_area</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4277</th>
+      <td>1.0</td>
+      <td>POINT (-249997.325 5357990.538)</td>
+    </tr>
+    <tr>
+      <th>4278</th>
+      <td>1.0</td>
+      <td>POINT (-249996.131 5357990.538)</td>
+    </tr>
+    <tr>
+      <th>4279</th>
+      <td>1.0</td>
+      <td>POINT (-249994.937 5357990.538)</td>
+    </tr>
+    <tr>
+      <th>4280</th>
+      <td>1.0</td>
+      <td>POINT (-249993.742 5357990.538)</td>
+    </tr>
+    <tr>
+      <th>4393</th>
+      <td>1.0</td>
+      <td>POINT (-249997.325 5357989.344)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>417920</th>
+      <td>3.0</td>
+      <td>POINT (-250883.517 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>417921</th>
+      <td>2.0</td>
+      <td>POINT (-250882.323 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>417922</th>
+      <td>2.0</td>
+      <td>POINT (-250881.128 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>417923</th>
+      <td>1.0</td>
+      <td>POINT (-250879.934 5356630.198)</td>
+    </tr>
+    <tr>
+      <th>417924</th>
+      <td>1.0</td>
+      <td>POINT (-250878.74 5356630.198)</td>
+    </tr>
+  </tbody>
+</table>
+<p>298185 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Canopy Height (meters)&quot;</span><span class="p">}</span>
+<span class="n">gdf_area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/aea50e715900b058efd564bee5ccefc79385c5ac4cab6f40e8031230bc2acfb6.png" src="../_images/aea50e715900b058efd564bee5ccefc79385c5ac4cab6f40e8031230bc2acfb6.png" />
+</div>
+</div>
+<p>The GeoPandas dataframe allows us to analyze the data — for instance, we can explore the distribution of heights:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">gdf_area</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Heights (meters)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/0feb2cb1d090f1e205b8f40b90f7a08dc067e2cf1bc9b65da58e08afc7294206.png" src="../_images/0feb2cb1d090f1e205b8f40b90f7a08dc067e2cf1bc9b65da58e08afc7294206.png" />
+</div>
+</div>
+</section>
+<section id="export-csv-geojson">
+<h2>Export (CSV, GeoJSON)<a class="headerlink" href="#export-csv-geojson" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;chm&quot;</span>
+<span class="n">gdf_area</span> <span class="o">=</span> <span class="n">gdf_area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+
+<span class="c1"># To GeoJSON</span>
+<span class="n">gdf_area</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
+
+<span class="c1"># To CSV, with latitude, longitude in columns</span>
+<span class="n">gdf_area</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_area</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span>
+<span class="n">gdf_area</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_area</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span>
+<span class="n">gdf_area</span> <span class="o">=</span> <span class="n">gdf_area</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;geometry&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gdf_area</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "canopy"
+        },
+        kernelOptions: {
+            name: "canopy",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'canopy'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects_personal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Personal projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="moles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mole monitoring</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-world-tiles">Download world tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-area-of-interest">Import area of interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-intersecting-tiles">Find intersecting tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cropped-tiles">Download cropped tiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compose-the-mosaic">Compose the mosaic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-canopy-height-map">Obtain canopy height map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clip-the-original-area">Clip the original area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-csv-geojson">Export (CSV, GeoJSON)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
