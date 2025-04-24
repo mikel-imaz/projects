@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Land Cover classification
+:link: notebooks/land_cover
+:link-type: doc
+:img-bottom: notebooks/img/corine.png
+:::
+
 :::{grid-item-card} Canopy Height Map
 :link: notebooks/chm
 :link-type: doc

@@ -21,6 +21,7 @@ parts:
     - file: notebooks/abalone
   - file: projects_personal
     sections:
+    - file: notebooks/land_cover
     - file: notebooks/chm
     - file: notebooks/moles
     - file: notebooks/book-translation
