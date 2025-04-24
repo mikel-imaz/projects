@@ -1,0 +1,3435 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Land Cover Classification &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/land_cover';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Canopy Height Map" href="chm.html" />
+    <link rel="prev" title="Personal projects" href="../projects_personal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine-downtime.html">Predicting Industrial Machine Downtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-popularity.html">What makes a good book?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Land Cover Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chm.html">Canopy Height Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writings.html">Writings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-ciencia-de-convertir-los-datos-en-valor.html">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial.html">¿Qué es la Inteligencia Artificial?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/aprendizaje-autom%C3%A1tico-vs-programaci%C3%B3n-tradicional.html">Aprendizaje automático vs programación tradicional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial-generativa.html">¿Qué es la Inteligencia Artificial Generativa?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-definicion-de-atributos-en-aprendizaje-automatico.html">La definición de atributos en aprendizaje automático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/por-que-python.html">¿Por qué Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/estadistica-computacional-la-estadistica-sin-dolor.html">Estadística computacional: la estadística sin dolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/como-funciona-el-aprendizaje-profundo.html">¿Cómo funciona el aprendizaje profundo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-predictiva-vs-ia-generativa.html">IA predictiva vs IA generativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/etica-en-la-ia.html">Ética en la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/las-3-capas-de-un-proyecto-de-datos.html">Las 3 capas de un proyecto de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-aplicada-la-empresa-empoderada-por-la-ia.html">IA aplicada: la empresa empoderada por la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/llm-modo-de-empleo.html">LLM: modo de empleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ley-de-ia-de-la-ue.html">Ley de IA de la UE</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../about-me.html">About me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/land_cover.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Land Cover Classification</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-initialization">Setup and Initialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-study-area">Defining the Study Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corine-land-cover-of-the-study-area">CORINE Land Cover of the Study Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery-cloud-and-shadow-masking">Satellite Imagery: Cloud and Shadow Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composited-images-for-different-years">Creating Composited Images for Different Years</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-land-cover-samples-and-training-the-model">Preparing Land Cover Samples and Training the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-classified-map-geojson">Export classified map (GeoJSON)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-results">Analyzing Results</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="land-cover-classification">
+<h1>Land Cover Classification<a class="headerlink" href="#land-cover-classification" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/corine.png" /></p>
+<blockquote>
+<div><p><a class="reference external" href="https://land.copernicus.eu/en/products/corine-land-cover">CORINE</a> (Coordination of Information on the Environment) Land Cover is a European program for developping a standardized methodology for producing continent-scale land cover maps. CORINE Land Cover (CLC) product offers a pan-European land cover and land use inventory with 44 thematic classes, ranging from broad forested areas to individual vineyards. The product is updated with new status and change layers every six years—with the most recent update made in 2018.</p>
+</div></blockquote>
+<p>In this project <a class="reference external" href="https://earthengine.google.com/">Google Earth Engine (GEE)</a> will be used to:</p>
+<ul class="simple">
+<li><p>Download Sentinel-2 satellite imagery of the last few years, clipped around an area of interest.</p></li>
+<li><p>Imagery of a time period (normally a year) will be combined to obtain a clean enough composite image.</p></li>
+<li><p>The image corresponding to 2018 will be used to train a classification model using the partitions of the land provided by the CORINE Land Cover 2018.</p></li>
+<li><p>This model will later be used to classify land cover of a more recent image (from 2024), defining over the raster file a band with the class of each pixel on the image, corresponding to the type of land.</p></li>
+<li><p>Finally, this file will be vectorized (i.e. turn contiguous pixels of the same class into polygons or points), and then exported as GeoJSON for storage and further analysis.</p></li>
+</ul>
+<section id="setup-and-initialization">
+<h2>Setup and Initialization<a class="headerlink" href="#setup-and-initialization" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ctx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>  <span class="c1"># Interface to Google Earth Engine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>  <span class="c1"># Provides tools for interactive map visualization using GEE</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">box</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Authenticate and initialize the Earth Engine session</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="n">project_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+</section>
+<section id="defining-the-study-area">
+<h2>Defining the Study Area<a class="headerlink" href="#defining-the-study-area" title="Link to this heading">#</a></h2>
+<p>First, I download municipal boundaries of the province of Gipuzkoa (Spain) from <a class="reference external" href="https://b5m.gipuzkoa.eus/web5000/en/datasets/municipal-boundaries">https://b5m.gipuzkoa.eus/web5000/en/datasets/municipal-boundaries</a></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">municipalities</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;data/gipuzkoa_municipios.geojson&quot;</span><span class="p">)</span>
+<span class="n">municipalities</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IDNOMBRE</th>
+      <th>CODMUNI</th>
+      <th>HERCODI</th>
+      <th>MUNICIPIO</th>
+      <th>COMARCA</th>
+      <th>CODMUNIINE</th>
+      <th>CODIZFE</th>
+      <th>F_CARGA</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>001</td>
+      <td>30601</td>
+      <td>Abaltzisketa</td>
+      <td>Tolosaldea</td>
+      <td>20001</td>
+      <td>001</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.09997 43.01327, -2.11028 43.00989...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.0</td>
+      <td>002</td>
+      <td>30602</td>
+      <td>Aduna</td>
+      <td>Tolosaldea</td>
+      <td>20002</td>
+      <td>002</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.03897 43.20246, -2.03903 43.20236...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.0</td>
+      <td>003</td>
+      <td>30703</td>
+      <td>Aizarnazabal</td>
+      <td>Urola Kosta</td>
+      <td>20003</td>
+      <td>003</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.23269 43.25528, -2.23292 43.25502...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.0</td>
+      <td>004</td>
+      <td>30604</td>
+      <td>Albiztur</td>
+      <td>Tolosaldea</td>
+      <td>20004</td>
+      <td>004</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.17236 43.0978, -2.17219 43.0986, ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>005</td>
+      <td>30605</td>
+      <td>Alegia</td>
+      <td>Tolosaldea</td>
+      <td>20005</td>
+      <td>005</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.06783 43.0784, -2.06961 43.07849,...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>88.0</td>
+      <td>088</td>
+      <td>30688</td>
+      <td>Gaztelu</td>
+      <td>Tolosaldea</td>
+      <td>20907</td>
+      <td>088</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-1.99715 43.10179, -1.99668 43.1007,...</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>89.0</td>
+      <td>996</td>
+      <td>30996</td>
+      <td>Konpantzia / Isla de los Faisanes</td>
+      <td>None</td>
+      <td>20045</td>
+      <td>096</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-1.76547 43.34261, -1.76549 43.34261...</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>90.0</td>
+      <td>997</td>
+      <td>30997</td>
+      <td>Gipuzkoako Partzuergo Txikia / Parzonería de G...</td>
+      <td>None</td>
+      <td>20701</td>
+      <td>097</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.23299 42.93214, -2.23293 42.93309...</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>91.0</td>
+      <td>998</td>
+      <td>30998</td>
+      <td>Enirio-Aralar</td>
+      <td>None</td>
+      <td>20702</td>
+      <td>098</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.10935 42.97064, -2.10939 42.97065...</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>92.0</td>
+      <td>999</td>
+      <td>30999</td>
+      <td>Gipuzkoa eta Arabako Partzuergo Nagusia / Parz...</td>
+      <td>None</td>
+      <td>20701</td>
+      <td>099</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.23788 42.91304, -2.23851 42.89558...</td>
+    </tr>
+  </tbody>
+</table>
+<p>126 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p>Then I select one municipality (the one I live in: because I know it well and I will be able to check validity of results!).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">municipalities</span><span class="p">[</span><span class="n">municipalities</span><span class="p">[</span><span class="s2">&quot;MUNICIPIO&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Urretxu&quot;</span><span class="p">]</span>
+<span class="n">area</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IDNOMBRE</th>
+      <th>CODMUNI</th>
+      <th>HERCODI</th>
+      <th>MUNICIPIO</th>
+      <th>COMARCA</th>
+      <th>CODMUNIINE</th>
+      <th>CODIZFE</th>
+      <th>F_CARGA</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>77.0</td>
+      <td>077</td>
+      <td>30577</td>
+      <td>Urretxu</td>
+      <td>Goierri</td>
+      <td>20077</td>
+      <td>077</td>
+      <td>2025-03-30</td>
+      <td>POLYGON ((-2.33732 43.11191, -2.33727 43.11191...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">municipalities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/4dd1fa3e6a705f698017a5216825854a32a817d77f483389a25d29cb98e1e64e.png" src="../_images/4dd1fa3e6a705f698017a5216825854a32a817d77f483389a25d29cb98e1e64e.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/5b82f7b753305bd468aa6c2acbacd9c7d9a959518de9da78cfabe2a00134baa1.png" src="../_images/5b82f7b753305bd468aa6c2acbacd9c7d9a959518de9da78cfabe2a00134baa1.png" />
+</div>
+</div>
+<p>I will calculate the total bounds of the catchment and create an Earth Engine rectangular geometry that will be used to filter satellite imagery later.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_bounds</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">union_all</span><span class="p">()</span><span class="o">.</span><span class="n">bounds</span>
+<span class="n">area_bounds</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.349746183316688,
+ 43.078202771749226,
+ -2.312124248039057,
+ 43.114457232209624)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a rectangular polygon (box) from the total bounds</span>
+<span class="n">bounds_box</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="n">area_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Create corresponding rectangular geodataframe</span>
+<span class="n">area_box</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">bounds_box</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">area</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">area_box</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/8a33e3dceff4758b5d5185caf5efc9198cb849d3c0575f8d71f84820d7780781.png" src="../_images/8a33e3dceff4758b5d5185caf5efc9198cb849d3c0575f8d71f84820d7780781.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an Earth Engine rectangular ROI: Region Of Interest</span>
+<span class="n">roi</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">area_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>To later overlay the boundary on the map, the GeoDataFrame is converted into a GeoJSON dictionary.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From GeoDataFrame to GeoJSON</span>
+<span class="n">area_geojson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">area</span><span class="p">[[</span><span class="s2">&quot;MUNICIPIO&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+</section>
+<section id="corine-land-cover-of-the-study-area">
+<h2>CORINE Land Cover of the Study Area<a class="headerlink" href="#corine-land-cover-of-the-study-area" title="Link to this heading">#</a></h2>
+<p>In <a class="reference external" href="https://land.copernicus.eu/en/products/corine-land-cover/clc2018">CORINE Land Cover 2018</a>, in “Download <strong>by area</strong>”, a map opens up with tools to select an area of interest. Here, <a class="reference external" href="https://land.copernicus.eu/en/faq/map-viewer/what-are-nuts">NUTS</a> can be selected: <code class="docutils literal notranslate"><span class="pre">ES212</span></code> is the code of the small region I am interested in: the province in Spain called Gipuzkoa. I download the dataset for this area, selecting VECTOR type, GeoJSON file, and EPSG:4326 projection.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC2018_gipuzkoa</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;data/U2018_CLC2018_V2020_20u1.json&quot;</span><span class="p">)</span>
+<span class="n">CLC2018_gipuzkoa</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>Code_18</th>
+      <th>Remark</th>
+      <th>Area_Ha</th>
+      <th>ID</th>
+      <th>Shape_Length</th>
+      <th>Shape_Area</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>263931</td>
+      <td>231</td>
+      <td>None</td>
+      <td>36.420118</td>
+      <td>EU_263931</td>
+      <td>4.692983e+03</td>
+      <td>3.642012e+05</td>
+      <td>POLYGON ((-2.22458 42.94839, -2.22646 42.94782...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>263936</td>
+      <td>231</td>
+      <td>None</td>
+      <td>28.578371</td>
+      <td>EU_263936</td>
+      <td>4.283677e+03</td>
+      <td>2.857837e+05</td>
+      <td>POLYGON ((-2.29304 42.95019, -2.29319 42.9501,...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>263937</td>
+      <td>231</td>
+      <td>None</td>
+      <td>33.558522</td>
+      <td>EU_263937</td>
+      <td>4.286455e+03</td>
+      <td>3.355852e+05</td>
+      <td>POLYGON ((-2.27937 42.94525, -2.27909 42.94516...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>265234</td>
+      <td>243</td>
+      <td>None</td>
+      <td>32.299053</td>
+      <td>EU_265234</td>
+      <td>5.481768e+03</td>
+      <td>3.229905e+05</td>
+      <td>POLYGON ((-2.15456 42.96098, -2.15468 42.96095...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>265549</td>
+      <td>311</td>
+      <td>None</td>
+      <td>70.884837</td>
+      <td>EU_265549</td>
+      <td>6.552078e+03</td>
+      <td>7.088484e+05</td>
+      <td>POLYGON ((-2.23704 42.91777, -2.23745 42.9196,...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1535</th>
+      <td>2362369</td>
+      <td>324</td>
+      <td>None</td>
+      <td>46.427953</td>
+      <td>EU_2362369</td>
+      <td>7.939728e+03</td>
+      <td>4.642795e+05</td>
+      <td>POLYGON ((-2.08388 42.99206, -2.08402 42.99209...</td>
+    </tr>
+    <tr>
+      <th>1536</th>
+      <td>2362386</td>
+      <td>333</td>
+      <td>None</td>
+      <td>25.028593</td>
+      <td>EU_2362386</td>
+      <td>5.212849e+03</td>
+      <td>2.502859e+05</td>
+      <td>POLYGON ((-2.34509 42.95487, -2.34557 42.95519...</td>
+    </tr>
+    <tr>
+      <th>1537</th>
+      <td>2362387</td>
+      <td>333</td>
+      <td>None</td>
+      <td>66.010413</td>
+      <td>EU_2362387</td>
+      <td>7.389770e+03</td>
+      <td>6.601041e+05</td>
+      <td>POLYGON ((-2.15638 42.97688, -2.15639 42.97689...</td>
+    </tr>
+    <tr>
+      <th>1538</th>
+      <td>2362389</td>
+      <td>333</td>
+      <td>None</td>
+      <td>81.633259</td>
+      <td>EU_2362389</td>
+      <td>1.035282e+04</td>
+      <td>8.163326e+05</td>
+      <td>POLYGON ((-2.32427 42.95627, -2.32428 42.95634...</td>
+    </tr>
+    <tr>
+      <th>1539</th>
+      <td>2362392</td>
+      <td>311</td>
+      <td>None</td>
+      <td>153307.264721</td>
+      <td>EU_2362392</td>
+      <td>6.053437e+06</td>
+      <td>1.533073e+09</td>
+      <td>MULTIPOLYGON (((-1.93556 43.10984, -1.93494 43...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1540 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>In the downloded package, a file with information about the labels is included.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s2">&quot;data/clc_legend.xls&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL1&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL2&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL3&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CLC_CODE</th>
+      <th>LABEL1</th>
+      <th>LABEL2</th>
+      <th>LABEL3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>111</td>
+      <td>Artificial surfaces</td>
+      <td>Urban fabric</td>
+      <td>Continuous urban fabric</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>112</td>
+      <td>Artificial surfaces</td>
+      <td>Urban fabric</td>
+      <td>Discontinuous urban fabric</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>121</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Industrial or commercial units</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Road and rail networks and associated land</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>123</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Port areas</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>124</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Airports</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>131</td>
+      <td>Artificial surfaces</td>
+      <td>Mine, dump and construction sites</td>
+      <td>Mineral extraction sites</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>132</td>
+      <td>Artificial surfaces</td>
+      <td>Mine, dump and construction sites</td>
+      <td>Dump sites</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>133</td>
+      <td>Artificial surfaces</td>
+      <td>Mine, dump and construction sites</td>
+      <td>Construction sites</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>141</td>
+      <td>Artificial surfaces</td>
+      <td>Artificial, non-agricultural vegetated areas</td>
+      <td>Green urban areas</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>142</td>
+      <td>Artificial surfaces</td>
+      <td>Artificial, non-agricultural vegetated areas</td>
+      <td>Sport and leisure facilities</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>211</td>
+      <td>Agricultural areas</td>
+      <td>Arable land</td>
+      <td>Non-irrigated arable land</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>212</td>
+      <td>Agricultural areas</td>
+      <td>Arable land</td>
+      <td>Permanently irrigated land</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>213</td>
+      <td>Agricultural areas</td>
+      <td>Arable land</td>
+      <td>Rice fields</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>221</td>
+      <td>Agricultural areas</td>
+      <td>Permanent crops</td>
+      <td>Vineyards</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>222</td>
+      <td>Agricultural areas</td>
+      <td>Permanent crops</td>
+      <td>Fruit trees and berry plantations</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>223</td>
+      <td>Agricultural areas</td>
+      <td>Permanent crops</td>
+      <td>Olive groves</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>241</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Annual crops associated with permanent crops</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>242</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Complex cultivation patterns</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>243</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Land principally occupied by agriculture, with...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>244</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Agro-forestry areas</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>311</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Broad-leaved forest</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>312</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Coniferous forest</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>313</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Mixed forest</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>321</td>
+      <td>Forest and semi natural areas</td>
+      <td>Scrub and/or herbaceous vegetation associations</td>
+      <td>Natural grasslands</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>322</td>
+      <td>Forest and semi natural areas</td>
+      <td>Scrub and/or herbaceous vegetation associations</td>
+      <td>Moors and heathland</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>323</td>
+      <td>Forest and semi natural areas</td>
+      <td>Scrub and/or herbaceous vegetation associations</td>
+      <td>Sclerophyllous vegetation</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>324</td>
+      <td>Forest and semi natural areas</td>
+      <td>Scrub and/or herbaceous vegetation associations</td>
+      <td>Transitional woodland-shrub</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>331</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Beaches, dunes, sands</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>332</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Bare rocks</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>333</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Sparsely vegetated areas</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>334</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Burnt areas</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>335</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Glaciers and perpetual snow</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>411</td>
+      <td>Wetlands</td>
+      <td>Inland wetlands</td>
+      <td>Inland marshes</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>412</td>
+      <td>Wetlands</td>
+      <td>Inland wetlands</td>
+      <td>Peat bogs</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>421</td>
+      <td>Wetlands</td>
+      <td>Maritime wetlands</td>
+      <td>Salt marshes</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>422</td>
+      <td>Wetlands</td>
+      <td>Maritime wetlands</td>
+      <td>Salines</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>423</td>
+      <td>Wetlands</td>
+      <td>Maritime wetlands</td>
+      <td>Intertidal flats</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>511</td>
+      <td>Water bodies</td>
+      <td>Inland waters</td>
+      <td>Water courses</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>512</td>
+      <td>Water bodies</td>
+      <td>Inland waters</td>
+      <td>Water bodies</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>521</td>
+      <td>Water bodies</td>
+      <td>Marine waters</td>
+      <td>Coastal lagoons</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>522</td>
+      <td>Water bodies</td>
+      <td>Marine waters</td>
+      <td>Estuaries</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>523</td>
+      <td>Water bodies</td>
+      <td>Marine waters</td>
+      <td>Sea and ocean</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>999</td>
+      <td>NODATA</td>
+      <td>NODATA</td>
+      <td>NODATA</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>990</td>
+      <td>UNCLASSIFIED</td>
+      <td>UNCLASSIFIED LAND SURFACE</td>
+      <td>UNCLASSIFIED LAND SURFACE</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>995</td>
+      <td>UNCLASSIFIED</td>
+      <td>UNCLASSIFIED WATER BODIES</td>
+      <td>UNCLASSIFIED WATER BODIES</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>990</td>
+      <td>UNCLASSIFIED</td>
+      <td>UNCLASSIFIED</td>
+      <td>UNCLASSIFIED</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I will prepare lookup dictionaries to easily translate later between code numbers and label strings.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LABEL1</span>
+<span class="n">code_label1</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">code_label1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">100</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;LABEL1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="n">label1_code</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">code_label1</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># LABEL2</span>
+<span class="n">code_label2</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">code_label2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">10</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;LABEL2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="n">label2_code</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">code_label2</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># LABEL3</span>
+<span class="n">code_label3</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">code_label3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;LABEL3&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="n">label3_code</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">code_label3</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>We can merge both dataframes on the label code.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the code column from object to numeric type before merge</span>
+<span class="n">CLC2018_gipuzkoa</span><span class="p">[</span><span class="s2">&quot;Code_18&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">CLC2018_gipuzkoa</span><span class="p">[</span><span class="s2">&quot;Code_18&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
+
+<span class="c1"># Merge both dataframes</span>
+<span class="n">CLC2018_gipuzkoa_labelled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">CLC2018_gipuzkoa</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;Code_18&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;CLC_CODE&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Select and rearrange columns of interest</span>
+<span class="n">CLC2018_gipuzkoa_labelled</span> <span class="o">=</span> <span class="n">CLC2018_gipuzkoa_labelled</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL1&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL2&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL3&quot;</span><span class="p">,</span> <span class="s2">&quot;Area_Ha&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">CLC2018_gipuzkoa_labelled</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CLC_CODE</th>
+      <th>LABEL1</th>
+      <th>LABEL2</th>
+      <th>LABEL3</th>
+      <th>Area_Ha</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>36.420118</td>
+      <td>POLYGON ((-2.22458 42.94839, -2.22646 42.94782...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>28.578371</td>
+      <td>POLYGON ((-2.29304 42.95019, -2.29319 42.9501,...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>33.558522</td>
+      <td>POLYGON ((-2.27937 42.94525, -2.27909 42.94516...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>243</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Land principally occupied by agriculture, with...</td>
+      <td>32.299053</td>
+      <td>POLYGON ((-2.15456 42.96098, -2.15468 42.96095...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>311</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Broad-leaved forest</td>
+      <td>70.884837</td>
+      <td>POLYGON ((-2.23704 42.91777, -2.23745 42.9196,...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1535</th>
+      <td>324</td>
+      <td>Forest and semi natural areas</td>
+      <td>Scrub and/or herbaceous vegetation associations</td>
+      <td>Transitional woodland-shrub</td>
+      <td>46.427953</td>
+      <td>POLYGON ((-2.08388 42.99206, -2.08402 42.99209...</td>
+    </tr>
+    <tr>
+      <th>1536</th>
+      <td>333</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Sparsely vegetated areas</td>
+      <td>25.028593</td>
+      <td>POLYGON ((-2.34509 42.95487, -2.34557 42.95519...</td>
+    </tr>
+    <tr>
+      <th>1537</th>
+      <td>333</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Sparsely vegetated areas</td>
+      <td>66.010413</td>
+      <td>POLYGON ((-2.15638 42.97688, -2.15639 42.97689...</td>
+    </tr>
+    <tr>
+      <th>1538</th>
+      <td>333</td>
+      <td>Forest and semi natural areas</td>
+      <td>Open spaces with little or no vegetation</td>
+      <td>Sparsely vegetated areas</td>
+      <td>81.633259</td>
+      <td>POLYGON ((-2.32427 42.95627, -2.32428 42.95634...</td>
+    </tr>
+    <tr>
+      <th>1539</th>
+      <td>311</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Broad-leaved forest</td>
+      <td>153307.264721</td>
+      <td>MULTIPOLYGON (((-1.93556 43.10984, -1.93494 43...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1540 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>Now we can clip our area of interest.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CLC_area</span> <span class="o">=</span> <span class="n">CLC2018_gipuzkoa_labelled</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area_box</span><span class="p">)</span>
+
+<span class="c1"># Select relevant columns</span>
+<span class="n">CLC_area</span> <span class="o">=</span> <span class="n">CLC_area</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;CLC_CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL1&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL2&quot;</span><span class="p">,</span> <span class="s2">&quot;LABEL3&quot;</span><span class="p">,</span> <span class="s2">&quot;Area_Ha&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">CLC_area</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CLC_CODE</th>
+      <th>LABEL1</th>
+      <th>LABEL2</th>
+      <th>LABEL3</th>
+      <th>Area_Ha</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>112</th>
+      <td>121</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Industrial or commercial units</td>
+      <td>208.723071</td>
+      <td>POLYGON ((-2.32735 43.07823, -2.32736 43.07826...</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>122</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Road and rail networks and associated land</td>
+      <td>121.691580</td>
+      <td>POLYGON ((-2.31239 43.08254, -2.31247 43.08281...</td>
+    </tr>
+    <tr>
+      <th>286</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>52.213839</td>
+      <td>POLYGON ((-2.34973 43.07897, -2.34969 43.07897...</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>122</td>
+      <td>Artificial surfaces</td>
+      <td>Industrial, commercial and transport units</td>
+      <td>Road and rail networks and associated land</td>
+      <td>43.676461</td>
+      <td>POLYGON ((-2.33191 43.07883, -2.33324 43.07996...</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>112</td>
+      <td>Artificial surfaces</td>
+      <td>Urban fabric</td>
+      <td>Discontinuous urban fabric</td>
+      <td>39.004217</td>
+      <td>POLYGON ((-2.31214 43.08313, -2.31216 43.08312...</td>
+    </tr>
+    <tr>
+      <th>593</th>
+      <td>311</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Broad-leaved forest</td>
+      <td>25.225342</td>
+      <td>POLYGON ((-2.34973 43.08633, -2.34966 43.08626...</td>
+    </tr>
+    <tr>
+      <th>839</th>
+      <td>312</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Coniferous forest</td>
+      <td>65.437249</td>
+      <td>POLYGON ((-2.32255 43.08993, -2.32262 43.08995...</td>
+    </tr>
+    <tr>
+      <th>1075</th>
+      <td>313</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Mixed forest</td>
+      <td>176.826025</td>
+      <td>POLYGON ((-2.34974 43.09774, -2.34963 43.09771...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>131.032916</td>
+      <td>POLYGON ((-2.32279 43.09363, -2.32273 43.09358...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>111</td>
+      <td>Artificial surfaces</td>
+      <td>Urban fabric</td>
+      <td>Continuous urban fabric</td>
+      <td>95.744313</td>
+      <td>POLYGON ((-2.31213 43.08702, -2.31219 43.0869,...</td>
+    </tr>
+    <tr>
+      <th>525</th>
+      <td>243</td>
+      <td>Agricultural areas</td>
+      <td>Heterogeneous agricultural areas</td>
+      <td>Land principally occupied by agriculture, with...</td>
+      <td>35.402475</td>
+      <td>POLYGON ((-2.31748 43.1021, -2.31749 43.1021, ...</td>
+    </tr>
+    <tr>
+      <th>1080</th>
+      <td>313</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Mixed forest</td>
+      <td>60.293866</td>
+      <td>POLYGON ((-2.31213 43.10105, -2.31217 43.10103...</td>
+    </tr>
+    <tr>
+      <th>307</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>25.059965</td>
+      <td>POLYGON ((-2.32619 43.10452, -2.32624 43.10453...</td>
+    </tr>
+    <tr>
+      <th>607</th>
+      <td>311</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Broad-leaved forest</td>
+      <td>129.601270</td>
+      <td>MULTIPOLYGON (((-2.34221 43.11444, -2.3422 43....</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>70.840824</td>
+      <td>POLYGON ((-2.31213 43.11036, -2.31214 43.11035...</td>
+    </tr>
+    <tr>
+      <th>1083</th>
+      <td>313</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Mixed forest</td>
+      <td>29.616272</td>
+      <td>POLYGON ((-2.32722 43.11444, -2.32727 43.11442...</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>312</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Coniferous forest</td>
+      <td>16533.275367</td>
+      <td>MULTIPOLYGON (((-2.31913 43.07821, -2.31909 43...</td>
+    </tr>
+    <tr>
+      <th>923</th>
+      <td>312</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Coniferous forest</td>
+      <td>112.858931</td>
+      <td>MULTIPOLYGON (((-2.31212 43.09485, -2.31215 43...</td>
+    </tr>
+    <tr>
+      <th>304</th>
+      <td>231</td>
+      <td>Agricultural areas</td>
+      <td>Pastures</td>
+      <td>Pastures</td>
+      <td>103.156250</td>
+      <td>MULTIPOLYGON (((-2.31225 43.10377, -2.3123 43....</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>312</td>
+      <td>Forest and semi natural areas</td>
+      <td>Forests</td>
+      <td>Coniferous forest</td>
+      <td>43681.473480</td>
+      <td>MULTIPOLYGON (((-2.34232 43.11444, -2.34232 43...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And plot the results for the different label levels.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)}</span>
+<span class="n">CLC_area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;LABEL1&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/fb97cd43a21cb3d885d7e6fa0564a406cbb649531f4c5a9e4ea2b1f17d4a6b73.png" src="../_images/fb97cd43a21cb3d885d7e6fa0564a406cbb649531f4c5a9e4ea2b1f17d4a6b73.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)}</span>
+<span class="n">CLC_area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;LABEL2&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/928df9f2d725bf8010b6f01b792c6c46685af664f646809161a1690293b9ec21.png" src="../_images/928df9f2d725bf8010b6f01b792c6c46685af664f646809161a1690293b9ec21.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)}</span>
+<span class="n">CLC_area</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;LABEL3&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/98717cbd6f68b70a3f0cb01d4cb572266e10ec519de1fbefd648915a9901ccae.png" src="../_images/98717cbd6f68b70a3f0cb01d4cb572266e10ec519de1fbefd648915a9901ccae.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">CLC_area</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ctx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">CLC_area</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap.Mapnik&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/d9b6fffb1eaf5e9784c414c09f7031182babea9cd99a6c3d79e3e1e739d29b5e.png" src="../_images/d9b6fffb1eaf5e9784c414c09f7031182babea9cd99a6c3d79e3e1e739d29b5e.png" />
+</div>
+</div>
+<p>According to the context map and my personal knowledge of the area, these classification of land provided by CORINE Land Cover 2018 seems to be correct.</p>
+</section>
+<section id="satellite-imagery-cloud-and-shadow-masking">
+<h2>Satellite Imagery: Cloud and Shadow Masking<a class="headerlink" href="#satellite-imagery-cloud-and-shadow-masking" title="Link to this heading">#</a></h2>
+<p>We will proceed now with the workflow for processing satellite imagery.</p>
+<p>The following function masks clouds and their shadows from Sentinel-2 images by using:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">QA60</span></code> band to mask clouds and cirrus clouds through bitwise operations.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">SCL</span></code> band (Scene Classification Layer) to mask out shadow pixels and additional cloud artifacts.</p></li>
+<li><p>After creating individual masks, they are combined.</p></li>
+<li><p>Then, a smoothing process using dilation (<code class="docutils literal notranslate"><span class="pre">focal_max</span></code>) followed by erosion (<code class="docutils literal notranslate"><span class="pre">focal_min</span></code>) is applied to soften the mask’s edges.</p></li>
+<li><p>Finally, the image is masked and normalized (dividing the reflectance values by 10,000).</p></li>
+</ol>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mask_s2_clouds_and_shadows</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mask clouds and shadows from a Sentinel-2 image and soften edges.&quot;&quot;&quot;</span>
+    <span class="n">qa</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;QA60&quot;</span><span class="p">)</span>  <span class="c1"># Select cloud mask</span>
+    <span class="n">cloud_bit_mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span>  <span class="c1"># Bit 10: clouds</span>
+    <span class="n">cirrus_bit_mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">11</span>  <span class="c1"># Bit 11: cirrus</span>
+    <span class="n">cloud_mask</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cloud_bit_mask</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cirrus_bit_mask</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="n">scl</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;SCL&quot;</span><span class="p">)</span>  <span class="c1"># Select shadows mask</span>
+    <span class="n">shadow_mask</span> <span class="o">=</span> <span class="n">scl</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Pixels that are not cloud shadows</span>
+    <span class="n">cloud_class_mask</span> <span class="o">=</span> <span class="n">scl</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>  <span class="c1"># Pixels that are not clouds</span>
+
+    <span class="c1"># Combine both masks</span>
+    <span class="n">final_mask</span> <span class="o">=</span> <span class="n">cloud_mask</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">shadow_mask</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">cloud_class_mask</span><span class="p">)</span>
+
+    <span class="c1"># Softening of mask edges using dilation and erosion</span>
+    <span class="n">dilated_mask</span> <span class="o">=</span> <span class="n">final_mask</span><span class="o">.</span><span class="n">focal_max</span><span class="p">(</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span>
+    <span class="p">)</span>  <span class="c1"># Dilation (expands the mask)</span>
+    <span class="n">smoothed_mask</span> <span class="o">=</span> <span class="n">dilated_mask</span><span class="o">.</span><span class="n">focal_min</span><span class="p">(</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span>
+    <span class="p">)</span>  <span class="c1"># Erosion (reduces the mask)</span>
+
+    <span class="c1"># Mask the image and normalize</span>
+    <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">smoothed_mask</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>The following helper function calls the previous cloud/shadow masking function and then selects only the relevant bands for visualization (B4, B3, B2 corresponding to red, green, and blue).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Call cloud and shadows masking function and select relevant bands for visualization.&quot;&quot;&quot;</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B4&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">]</span>  <span class="c1"># RGB bands</span>
+    <span class="k">return</span> <span class="n">mask_s2_clouds_and_shadows</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">bands</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+</section>
+<section id="creating-composited-images-for-different-years">
+<h2>Creating Composited Images for Different Years<a class="headerlink" href="#creating-composited-images-for-different-years" title="Link to this heading">#</a></h2>
+<p>For each time period the following steps are taken:</p>
+<ol class="arabic simple">
+<li><p>Filtering the Sentinel-2 Collection: images from the “COPERNICUS/S2_SR_HARMONIZED” collection are filtered by date range, cloud coverage (only images with less than 20% cloud cover) and intersection with the ROI.</p></li>
+<li><p>Applying Preprocessing: The <code class="docutils literal notranslate"><span class="pre">prepare_image</span></code> function is mapped over the image collection to remove clouds/shadows and select the RGB bands.</p></li>
+<li><p>Creating a Mosaic: the collection is reduced with a minimum reducer (<code class="docutils literal notranslate"><span class="pre">ee.Reducer.min()</span></code>) to create a single clean mosaic for that period. This effectively creates a composite image that picks the lowest reflectance value for each pixel (which is common for reducing cloud effects).</p></li>
+</ol>
+<p>A visualization dictionary is defined for rendering the RGB composites with set minimum and maximum values. These mosaics are then added as separate layers on an interactive geemap instance, which allows the user to visually compare the images from different years over the catchment area.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_collection</span> <span class="o">=</span> <span class="s2">&quot;COPERNICUS/S2_SR_HARMONIZED&quot;</span>
+<span class="n">cloudy_pixel_percentage</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Less than 20% cloudy pixels</span>
+
+<span class="n">periods</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2018-12-31&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;2024-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-12-31&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">clean_images</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">periods</span><span class="p">:</span>
+    <span class="c1"># Get dataset</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="n">image_collection</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">period</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s2">&quot;CLOUDY_PIXEL_PERCENTAGE&quot;</span><span class="p">,</span> <span class="n">cloudy_pixel_percentage</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">roi</span><span class="p">)</span>  <span class="c1"># Region Of Interest</span>
+        <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">prepare_image</span><span class="p">)</span>  <span class="c1"># Apply masks, select bands</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Composite image: create a single clean mosaic</span>
+    <span class="n">clean_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+
+<span class="c1"># Center the map in the area</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">area_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># lon</span>
+    <span class="p">(</span><span class="n">area_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">area_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># lat</span>
+    <span class="mi">14</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># The zoom level, from 0 to 24</span>
+
+<span class="c1"># Visualization configuration</span>
+<span class="n">visualization</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="s2">&quot;bands&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B4_min&quot;</span><span class="p">,</span> <span class="s2">&quot;B3_min&quot;</span><span class="p">,</span> <span class="s2">&quot;B2_min&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Add to the map clean image mosaics</span>
+<span class="k">for</span> <span class="n">clean_image</span><span class="p">,</span> <span class="n">period</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">clean_images</span><span class="p">,</span> <span class="n">periods</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">clean_image</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">roi</span><span class="p">),</span> <span class="n">visualization</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">period</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">period</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Add boundary of the area</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span>
+    <span class="n">area_geojson</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Area&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF00&quot;</span><span class="p">,</span> <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="c1"># Show map</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><script type="application/vnd.jupyter.widget-view+json">{"model_id": "2eb7a768ff6044648c1349f7f608e60f", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="preparing-land-cover-samples-and-training-the-model">
+<h2>Preparing Land Cover Samples and Training the model<a class="headerlink" href="#preparing-land-cover-samples-and-training-the-model" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">LABEL1</span></code> type Land Cover Samples for the area of interest will be converted into GEE feature collections.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate GeoJSON for each land type (each class)</span>
+<span class="n">gjsons</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">code_label1</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">CLC_area</span><span class="p">[</span><span class="s2">&quot;LABEL1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">CLC_area</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="n">CLC_area</span><span class="p">[</span><span class="s2">&quot;LABEL1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+        <span class="p">]</span>  <span class="c1"># Include geometry</span>
+        <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label1_code</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>  <span class="c1"># Add class property</span>
+        <span class="n">geojson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+        <span class="n">gjsons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">geojson</span><span class="p">)</span>
+        <span class="n">classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label1_code</span><span class="p">[</span><span class="n">label</span><span class="p">])</span>
+
+<span class="c1"># Generate GEE feature collections</span>
+<span class="n">featurecollections</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">gjson</span> <span class="ow">in</span> <span class="n">gjsons</span><span class="p">:</span>  <span class="c1"># For each label class</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">gjson</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]:</span>  <span class="c1"># For each geometry in that particular class</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span>
+                <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">feature</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;class&quot;</span><span class="p">]},</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">featurecollections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
+
+<span class="c1"># Combined feature collections</span>
+<span class="n">featurecollections_samples</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">featurecollections</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>These features collections will be served as sample regions to a model to be trained on the image from 2018.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_image_2018</span> <span class="o">=</span> <span class="n">clean_images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Image of 2018</span>
+
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">clean_image_2018</span><span class="o">.</span><span class="n">sampleRegions</span><span class="p">(</span>
+    <span class="n">collection</span><span class="o">=</span><span class="n">featurecollections_samples</span><span class="p">,</span>  <span class="c1"># Training dataset</span>
+    <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">],</span>  <span class="c1"># Class property</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>  <span class="c1"># Spatial resolution in meters</span>
+<span class="p">)</span>
+
+<span class="n">n_trees</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileRandomForest</span><span class="p">(</span><span class="n">n_trees</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">features</span><span class="o">=</span><span class="n">training_data</span><span class="p">,</span>
+    <span class="n">classProperty</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span>  <span class="c1"># The class of interest to predict</span>
+    <span class="n">inputProperties</span><span class="o">=</span><span class="n">clean_image</span><span class="o">.</span><span class="n">bandNames</span><span class="p">(),</span>  <span class="c1"># Bands used as input</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>We can now call the model to add land type classification band on the images.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_image_2024</span> <span class="o">=</span> <span class="n">clean_images</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Image of 2024</span>
+<span class="n">classified_image_2024</span> <span class="o">=</span> <span class="n">clean_image_2024</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
+
+<span class="c1"># We can also apply the classifier to the image used in training</span>
+<span class="n">classified_image_2018</span> <span class="o">=</span> <span class="n">clean_image_2018</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+<p>And show results in a map.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create map</span>
+<span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">roi</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="n">visparams</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">classes</span><span class="p">),</span>
+    <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">classes</span><span class="p">),</span>
+    <span class="s2">&quot;palette&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcolors</span><span class="o">.</span><span class="n">TABLEAU_COLORS</span><span class="o">.</span><span class="n">values</span><span class="p">())[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">)],</span>
+<span class="p">}</span>
+
+<span class="n">Map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">clean_image_2018</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">roi</span><span class="p">),</span> <span class="n">visualization</span><span class="p">,</span> <span class="s2">&quot;Image 2018&quot;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">classified_image_2018</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">roi</span><span class="p">),</span> <span class="n">visparams</span><span class="p">,</span> <span class="s2">&quot;Land Cover 2018&quot;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_layer</span><span class="p">(</span><span class="n">classified_image_2024</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">roi</span><span class="p">),</span> <span class="n">visparams</span><span class="p">,</span> <span class="s2">&quot;Land Cover 2024&quot;</span><span class="p">)</span>
+
+<span class="n">Map</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span>
+    <span class="n">area_geojson</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Area&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF00&quot;</span><span class="p">,</span> <span class="s2">&quot;fillOpacity&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="c1"># Show map</span>
+<span class="n">Map</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac83905e93974e79806c90290fd3b9ac", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="export-classified-map-geojson">
+<h2>Export classified map (GeoJSON)<a class="headerlink" href="#export-classified-map-geojson" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>First, the classification image needs to be vectorized according to the band called <code class="docutils literal notranslate"><span class="pre">classification</span></code>, which holds the class numbers.</p></li>
+<li><p>Then the file is exported to Google Drive in GeoJSON format.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classified_images</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">classified_image_2018</span><span class="p">,</span> <span class="s2">&quot;classified_image_2018&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">classified_image_2024</span><span class="p">,</span> <span class="s2">&quot;classified_image_2024&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">export_geojson</span><span class="p">(</span><span class="n">classified_image</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="c1"># Vectorize classification image</span>
+    <span class="n">vectors</span> <span class="o">=</span> <span class="n">classified_image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;classification&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reduceToVectors</span><span class="p">(</span>
+        <span class="n">geometry</span><span class="o">=</span><span class="n">roi</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># Sentinel-2 image resolution: 10 m/px</span>
+        <span class="n">geometryType</span><span class="o">=</span><span class="s2">&quot;polygon&quot;</span><span class="p">,</span>  <span class="c1"># &quot;centroid&quot; if you want points instead</span>
+        <span class="n">eightConnected</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">labelProperty</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span>  <span class="c1"># the attribute name on each feature</span>
+        <span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">countEvery</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="c1"># Export to Google Drive</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">Export</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">toDrive</span><span class="p">(</span>
+        <span class="o">**</span><span class="p">{</span>
+            <span class="s2">&quot;collection&quot;</span><span class="p">:</span> <span class="n">vectors</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;classified_image_export&quot;</span><span class="p">,</span>
+            <span class="c1"># &quot;folder&quot;: &quot;geojson&quot;,</span>
+            <span class="s2">&quot;fileNamePrefix&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
+            <span class="s2">&quot;fileFormat&quot;</span><span class="p">:</span> <span class="s2">&quot;GeoJSON&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">task</span>
+
+
+<span class="k">for</span> <span class="n">classified_image</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">classified_images</span><span class="p">:</span>
+    <span class="n">export_geojson</span><span class="p">(</span><span class="n">classified_image</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
+</div>
+</section>
+<section id="analyzing-results">
+<h2>Analyzing Results<a class="headerlink" href="#analyzing-results" title="Link to this heading">#</a></h2>
+<p>Exported GeoJSON files will be converted into GeoDataframes to perform analysis.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classified_2024</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;classified_image_2024.geojson&quot;</span><span class="p">)[[</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+<span class="n">classified_2024</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">classified_2024</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_label1</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">classified_2024</span> <span class="o">=</span> <span class="n">classified_2024</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+<span class="n">classified_2024</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>class</th>
+      <th>geometry</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3695</th>
+      <td>3</td>
+      <td>MULTIPOLYGON (((-2.33014 43.07943, -2.33014 43...</td>
+      <td>Forest and semi natural areas</td>
+    </tr>
+    <tr>
+      <th>3728</th>
+      <td>3</td>
+      <td>POLYGON ((-2.33059 43.07997, -2.33041 43.07997...</td>
+      <td>Forest and semi natural areas</td>
+    </tr>
+    <tr>
+      <th>3761</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33059 43.07997, -2.33059 43.07993...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>3923</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33194 43.08042, -2.33185 43.08042...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>3843</th>
+      <td>3</td>
+      <td>POLYGON ((-2.33122 43.08033, -2.33131 43.08033...</td>
+      <td>Forest and semi natural areas</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3400</th>
+      <td>1</td>
+      <td>POLYGON ((-2.32861 43.1132, -2.32852 43.1132, ...</td>
+      <td>Artificial surfaces</td>
+    </tr>
+    <tr>
+      <th>3205</th>
+      <td>2</td>
+      <td>POLYGON ((-2.32762 43.11347, -2.32753 43.11347...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>3144</th>
+      <td>1</td>
+      <td>POLYGON ((-2.32727 43.11365, -2.32727 43.11356...</td>
+      <td>Artificial surfaces</td>
+    </tr>
+    <tr>
+      <th>3145</th>
+      <td>2</td>
+      <td>POLYGON ((-2.32745 43.11374, -2.32745 43.11378...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>3220</th>
+      <td>2</td>
+      <td>POLYGON ((-2.3278 43.11383, -2.3278 43.11384, ...</td>
+      <td>Agricultural areas</td>
+    </tr>
+  </tbody>
+</table>
+<p>4059 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classified_2018</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;classified_image_2018.geojson&quot;</span><span class="p">)[[</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+<span class="n">classified_2018</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">classified_2018</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_label1</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">classified_2018</span> <span class="o">=</span> <span class="n">classified_2018</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+<span class="n">classified_2018</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>class</th>
+      <th>geometry</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4626</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33589 43.08419, -2.33571 43.08419...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>4663</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33598 43.08428, -2.33589 43.08428...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>4675</th>
+      <td>1</td>
+      <td>POLYGON ((-2.33625 43.08428, -2.33634 43.08428...</td>
+      <td>Artificial surfaces</td>
+    </tr>
+    <tr>
+      <th>4627</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33589 43.08446, -2.33571 43.08446...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>4699</th>
+      <td>2</td>
+      <td>POLYGON ((-2.33625 43.08473, -2.33607 43.08473...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>2</td>
+      <td>MULTIPOLYGON (((-2.32268 43.11114, -2.32268 43...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>2317</th>
+      <td>2</td>
+      <td>POLYGON ((-2.32322 43.11177, -2.32313 43.11177...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>2252</th>
+      <td>3</td>
+      <td>POLYGON ((-2.32304 43.11186, -2.32304 43.11195...</td>
+      <td>Forest and semi natural areas</td>
+    </tr>
+    <tr>
+      <th>2318</th>
+      <td>2</td>
+      <td>POLYGON ((-2.32313 43.1124, -2.32322 43.1124, ...</td>
+      <td>Agricultural areas</td>
+    </tr>
+    <tr>
+      <th>2319</th>
+      <td>2</td>
+      <td>POLYGON ((-2.32322 43.11258, -2.32322 43.11266...</td>
+      <td>Agricultural areas</td>
+    </tr>
+  </tbody>
+</table>
+<p>4258 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)}</span>
+<span class="n">CLC_area</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">area</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;LABEL1&quot;</span><span class="p">)</span>
+<span class="n">classified_2018</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">)</span>
+<span class="n">classified_2024</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend_kwds</span><span class="o">=</span><span class="n">legend_kwds</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CORINE Land Cover 2018&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Classified from Imagery 2018&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Classified from Imagery 2024&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><img alt="../_images/3213caec7972787967823916638ff944a654fa1413b87e7d84e00e9d4116885a.png" src="../_images/3213caec7972787967823916638ff944a654fa1413b87e7d84e00e9d4116885a.png" />
+</div>
+</div>
+<p>For example, we could calculate how forests have changed in this period. My impression was that tree covered land had receded.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forests_2018_ha</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">classified_2018</span><span class="p">[</span><span class="n">classified_2018</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Forest and semi natural areas&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">3857</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">union_all</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">area</span>
+    <span class="o">/</span> <span class="mi">10000</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forests in 2018 -&gt; </span><span class="si">{</span><span class="n">forests_2018_ha</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> hectares&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forests in 2018 -&gt; 972 hectares
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forests_2024_ha</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">classified_2024</span><span class="p">[</span><span class="n">classified_2024</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Forest and semi natural areas&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">3857</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">union_all</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">area</span>
+    <span class="o">/</span> <span class="mi">10000</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forests in 2024 -&gt; </span><span class="si">{</span><span class="n">forests_2024_ha</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> hectares&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forests in 2024 -&gt; 899 hectares
+</pre></div>
+</div>
+</div>
+</div>
+<p>So indeed, forests seem to be declining.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forest area change -&gt; </span><span class="si">{</span><span class="p">(</span><span class="n">forests_2024_ha</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">forests_2018_ha</span><span class="p">)</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> hectares&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Forest area change -&gt; -74 hectares
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "corine"
+        },
+        kernelOptions: {
+            name: "corine",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'corine'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects_personal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Personal projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Canopy Height Map</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-and-initialization">Setup and Initialization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-study-area">Defining the Study Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corine-land-cover-of-the-study-area">CORINE Land Cover of the Study Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery-cloud-and-shadow-masking">Satellite Imagery: Cloud and Shadow Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-composited-images-for-different-years">Creating Composited Images for Different Years</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-land-cover-samples-and-training-the-model">Preparing Land Cover Samples and Training the model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-classified-map-geojson">Export classified map (GeoJSON)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-results">Analyzing Results</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
