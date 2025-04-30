@@ -59,4 +59,3 @@ parts:
     - file: writings/ia-aplicada-la-empresa-empoderada-por-la-ia
     - file: writings/llm-modo-de-empleo
     - file: writings/ley-de-ia-de-la-ue
-  - file: about-me
