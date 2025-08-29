@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Temperature forecast
+:link: notebooks/forecast
+:link-type: doc
+:img-bottom: notebooks/img/cadreita.jpg
+:::
+
 :::{grid-item-card} Land Cover classification
 :link: notebooks/land_cover
 :link-type: doc
