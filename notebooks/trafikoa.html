@@ -1,0 +1,1679 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Traffic Volume &#8212; datuz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-232XT3FYCT"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-232XT3FYCT');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/trafikoa';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Temperature forecast" href="forecast.html" />
+    <link rel="prev" title="Personal projects" href="../projects_personal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="datuz - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="datuz - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Science projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../projects_competition.html">Competition projects</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="machine-downtime.html">Predicting Industrial Machine Downtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-popularity.html">What makes a good book?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internet-patterns.html">Analyzing global internet patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sleepinc.html">Helping find a better sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hairloss.html">Hairloss Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="employee-network.html">Employee Network Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hospital.html">Reducing hospital readmissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hotels.html">Predicting hotel cancellations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webpage.html">Was a website redesign successful?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentation.html">Improving customer segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abalone.html">Seafood farm process improvement</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../projects_personal.html">Personal projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Traffic Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forecast.html">Temperature forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="land_cover.html">Land Cover Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chm.html">Canopy Height Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moles.html">Mole monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="book-translation.html">Book translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-antio-gpt.html">Sentiment analysis with embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="self-tracking.html">Self tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quakes.html">Earth Quakes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate.html">Climate Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="english-vocab.html">English Vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antio.html">Bar Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ignatian.html">Ignatian Pilgrims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-udalmap.html">Municipal Indicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p-films.html">Movie records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ages.html">Median Ages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="water.html">Water Supplies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="olele.html">Handfan Reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_fines.html">Traffic Fines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urban_trees.html">Urban Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="breads.html">Bread Prices</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../writings.html">Writings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-importancia-de-adquirir-competencias-en-materia-de-datos.html">La importancia de adquirir competencias en materia de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-ciencia-de-convertir-los-datos-en-valor.html">La ciencia de convertir los datos en valor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial.html">¿Qué es la Inteligencia Artificial?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/aprendizaje-autom%C3%A1tico-vs-programaci%C3%B3n-tradicional.html">Aprendizaje automático vs programación tradicional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/que-es-la-inteligencia-artificial-generativa.html">¿Qué es la Inteligencia Artificial Generativa?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/la-definicion-de-atributos-en-aprendizaje-automatico.html">La definición de atributos en aprendizaje automático</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/por-que-python.html">¿Por qué Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/estadistica-computacional-la-estadistica-sin-dolor.html">Estadística computacional: la estadística sin dolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/como-funciona-el-aprendizaje-profundo.html">¿Cómo funciona el aprendizaje profundo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-predictiva-vs-ia-generativa.html">IA predictiva vs IA generativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/etica-en-la-ia.html">Ética en la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/las-3-capas-de-un-proyecto-de-datos.html">Las 3 capas de un proyecto de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ia-aplicada-la-empresa-empoderada-por-la-ia.html">IA aplicada: la empresa empoderada por la IA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/llm-modo-de-empleo.html">LLM: modo de empleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writings/ley-de-ia-de-la-ue.html">Ley de IA de la UE</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/mikel-imaz/projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/trafikoa.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Traffic Volume</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trend">Trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-month">By month</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-day-of-the-week">By day of the week</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-2024">Test 2024</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-2025">Prediction 2025</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="traffic-volume">
+<h1>Traffic Volume<a class="headerlink" href="#traffic-volume" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../_images/9259.jpg" /></p>
+<p><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> Aug, 2025</p>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<p>Many local businesses in my town close in mid-August to coincide with their customers’ holidays. This inspired the idea of creating a predictive model to determine the optimal time for such closures based on seasonal population changes. My search for relevant open data on public attendance only yielded traffic information. Though not ideal, I decided this data would be a sufficient proxy for the modeling exercise.</p>
+</section>
+<section id="the-data">
+<h2>The data<a class="headerlink" href="#the-data" title="Link to this heading">#</a></h2>
+<p>I sourced weekly traffic volume data for 2021-2025 from <a class="reference external" href="https://www.gipuzkoairekia.eus/es/datu-irekien-katalogoa">Gipuzkoa Irekia</a> and the corresponding holiday calendars from <a class="reference external" href="https://opendata.euskadi.eus/catalogo">Opendata Euskadi</a>.</p>
+<p>Using a Python <a class="reference download internal" download="" href="../_downloads/99779f5cc4348c93aa4fd21365d03acc/read_volumentrafico.py"><span class="xref download myst">script</span></a>, I processed traffic CSV files to extract <strong>daily</strong> data for a single measurement point (number 9259) at coordinates (43.072638, -2.330442). For this location, I simply aggregated the vehicle volume, without breaking it down by more granular details like hourly data, direction-lane, or vehicle type (light-heavy).</p>
+<p><img alt="" src="../_images/9259_map.jpg" /></p>
+<p>Regarding the <a class="reference download internal" download="" href="../_downloads/d0ecc30af9d1e44ea4c5f3e35b3c6106/read_calendarios.py"><span class="xref download myst">calendars</span></a>, I took bank holidays for Euskadi and Gipuzkoa, not considering local festivities as an initial approach.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">calendar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">root_mean_squared_error</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">adfuller</span>
+
+<span class="c1"># Read data</span>
+<span class="n">trafikoa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/trafikoa.csv&quot;</span><span class="p">,</span>
+                       <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">trafikoa</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>volume</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-04</th>
+      <td>6929</td>
+    </tr>
+    <tr>
+      <th>2021-01-05</th>
+      <td>7398</td>
+    </tr>
+    <tr>
+      <th>2021-01-06</th>
+      <td>3466</td>
+    </tr>
+    <tr>
+      <th>2021-01-07</th>
+      <td>9676</td>
+    </tr>
+    <tr>
+      <th>2021-01-08</th>
+      <td>9781</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2025-07-23</th>
+      <td>10831</td>
+    </tr>
+    <tr>
+      <th>2025-07-24</th>
+      <td>10627</td>
+    </tr>
+    <tr>
+      <th>2025-07-25</th>
+      <td>4769</td>
+    </tr>
+    <tr>
+      <th>2025-07-26</th>
+      <td>4943</td>
+    </tr>
+    <tr>
+      <th>2025-07-27</th>
+      <td>4490</td>
+    </tr>
+  </tbody>
+</table>
+<p>1639 rows × 1 columns</p>
+</div></div></div>
+</div>
+<p>Let’s check missing data (days without measurement).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create full date range from min to max date</span>
+<span class="n">data_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                           <span class="n">end</span><span class="o">=</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+<span class="c1"># Find missing dates</span>
+<span class="n">missing_dates</span> <span class="o">=</span> <span class="n">data_range</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">missing_dates</span><span class="p">)</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_range</span><span class="p">)</span><span class="si">}</span><span class="s2"> days</span><span class="se">\</span>
+<span class="s2">(</span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">missing_dates</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">data_range</span><span class="p">)</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Missing days -&gt; </span><span class="si">{</span><span class="n">missing_dates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Missing 27 out of 1666 days(2%)
+
+Missing days -&gt; DatetimeIndex([&#39;2022-02-04&#39;, &#39;2022-02-05&#39;, &#39;2022-02-06&#39;, &#39;2024-03-13&#39;,
+               &#39;2024-03-14&#39;, &#39;2024-03-15&#39;, &#39;2024-03-16&#39;, &#39;2024-03-17&#39;,
+               &#39;2024-04-29&#39;, &#39;2024-04-30&#39;, &#39;2024-05-01&#39;, &#39;2024-05-02&#39;,
+               &#39;2024-05-03&#39;, &#39;2024-05-04&#39;, &#39;2024-05-05&#39;, &#39;2024-05-06&#39;,
+               &#39;2024-05-07&#39;, &#39;2024-11-18&#39;, &#39;2024-11-19&#39;, &#39;2024-11-20&#39;,
+               &#39;2024-11-21&#39;, &#39;2024-11-22&#39;, &#39;2024-11-23&#39;, &#39;2024-11-24&#39;,
+               &#39;2024-12-16&#39;, &#39;2024-12-17&#39;, &#39;2025-04-09&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>I will reindex the dataframe to cover the full daily calendar from 2021 to 2025, leaving missing values in place for exploratory analysis, since they do not affect the average calculations.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trafikoa</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2021-01-01&quot;</span><span class="p">,</span>
+                                          <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2025-12-31&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">))</span>
+<span class="n">trafikoa</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-01</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-01-02</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-01-03</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2021-01-04</th>
+      <td>6929.0</td>
+    </tr>
+    <tr>
+      <th>2021-01-05</th>
+      <td>7398.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2025-12-27</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2025-12-28</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2025-12-29</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2025-12-30</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2025-12-31</th>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1826 rows × 1 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="exploratory-analysis">
+<h2>Exploratory analysis<a class="headerlink" href="#exploratory-analysis" title="Link to this heading">#</a></h2>
+<section id="trend">
+<h3>Trend<a class="headerlink" href="#trend" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resample monthly</span>
+<span class="n">monthly</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;MS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Resample yearly</span>
+<span class="n">yearly</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;YS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">yearly_step</span> <span class="o">=</span> <span class="n">yearly</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;MS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span> <span class="c1"># Stepwise, for plotting</span>
+<span class="n">yearly_step</span> <span class="o">=</span> <span class="n">yearly_step</span><span class="p">[</span><span class="n">yearly_step</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2025</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">monthly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">yearly_step</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s2">&quot;steps-post&quot;</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">monthly</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;daily traffic volume (monthly average)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">monthly</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">11000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">2026</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Monthly avg.&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;Yearly avg.&quot;</span><span class="p">,</span>
+                             <span class="sa">f</span><span class="s2">&quot;Last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> months avg.&quot;</span><span class="p">],</span>
+          <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/8d43af65b38e6a989c7d3bab8a88c79190c5d4f75a876efb0bc2819f8f059f51.png" src="../_images/8d43af65b38e6a989c7d3bab8a88c79190c5d4f75a876efb0bc2819f8f059f51.png" />
+</div>
+</div>
+<p>As expected, the data shows a clear 12-month seasonality. While yearly averages appear fairly stationary, the monthly moving average indicates a slight upward trend in recent months.</p>
+<p>The augmented Dickey-Fuller test confirms that the monthly series is not stationary.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">monthly</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="n">stationary</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="s2">&quot;5%&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monthly trend stationary? </span><span class="si">{</span><span class="n">stationary</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monthly trend stationary? False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="by-month">
+<h3>By month<a class="headerlink" href="#by-month" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only complete years for by-month and by-dayofweek plots</span>
+<span class="n">trafikoa24</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="p">[</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2025</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">bymonth</span> <span class="o">=</span> <span class="n">trafikoa24</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">trafikoa24</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">bymonth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;daily traffic volume (by month average)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>
+              <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">10500</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">monthly24</span> <span class="o">=</span> <span class="n">trafikoa24</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;MS&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2025</span><span class="p">):</span>
+    <span class="n">monthly24_year</span> <span class="o">=</span> <span class="n">monthly24</span><span class="p">[</span><span class="n">monthly24</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+    <span class="c1"># groupby month for the index to have range(1, 13)</span>
+    <span class="n">monthly24_year</span> <span class="o">=</span> <span class="n">monthly24_year</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">monthly24_year</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">monthly24_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">year</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;daily traffic volume (by month average)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>
+              <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">10500</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/46de85f8ce66fe92f79260a7bdd99b60a3e1b070b8412ab0392839cf5e53b7f8.png" src="../_images/46de85f8ce66fe92f79260a7bdd99b60a3e1b070b8412ab0392839cf5e53b7f8.png" />
+<img alt="../_images/be8ebb6c07d6791402cd0e28fc117ae003d79ee4a15e872934799fbc8a0858e4.png" src="../_images/be8ebb6c07d6791402cd0e28fc117ae003d79ee4a15e872934799fbc8a0858e4.png" />
+</div>
+</div>
+<p>As expected, traffic volume drops in August. Across the years, there appears to be a post-pandemic effect in early 2021, with slightly lower traffic levels.</p>
+</section>
+<section id="by-day-of-the-week">
+<h3>By day of the week<a class="headerlink" href="#by-day-of-the-week" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">byday</span> <span class="o">=</span> <span class="n">trafikoa24</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">trafikoa24</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">byday</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;daily traffic volume (by day-of-the-week average)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2025</span><span class="p">):</span>
+    <span class="n">trafikoa24_year</span> <span class="o">=</span> <span class="n">trafikoa24</span><span class="p">[</span><span class="n">trafikoa24</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+    <span class="n">byday_year</span> <span class="o">=</span> <span class="n">trafikoa24_year</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">trafikoa24_year</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">byday_year</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">year</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;daily traffic volume (by day-of-the-week average)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/5f9486d5367598452338144c5b66a2223658f79c67de11b6ced9fdff56ddc9c3.png" src="../_images/5f9486d5367598452338144c5b66a2223658f79c67de11b6ced9fdff56ddc9c3.png" />
+<img alt="../_images/20ed40fdc51f5c6d5927c2120a434f8364a08ef856dc7914a0daf6d68b9fc3ce.png" src="../_images/20ed40fdc51f5c6d5927c2120a434f8364a08ef856dc7914a0daf6d68b9fc3ce.png" />
+</div>
+</div>
+<p>A noticeable difference also appears in 2021, likely due to the pandemic.</p>
+</section>
+</section>
+<section id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h2>
+<p>Two approaches are possible:</p>
+<ol class="arabic simple">
+<li><p><strong>Simple Classical Model</strong> (e.g., Linear Regression with Features)</p></li>
+<li><p><strong>Time Series-Focused Model</strong> (e.g., Seasonal ARIMA with External Factors)</p></li>
+</ol>
+<p>(1) treats the problem as a standard regression task. As I know that the traffic volume depends heavily on the day of the week, month of the year, holidays and other forseeable half-holiday or special days, I can prepare this information as features. Traffic patterns are often explainable by these calendar-based factors, and linear regression can capture linear relationships efficiently.</p>
+<p>(2) emphasizes the sequential, autocorrelated nature of the data (e.g., today’s traffic influences tomorrow’s). It has these components: AR (AutoRegressive): Captures dependence on past values; I (Integrated): Differences the data to make it stationary (e.g., remove trends); MA (Moving Average): Models error terms from past forecasts; Seasonal terms: Handle repeating patterns like weekly (period=7 for daily data) or yearly (period=365) cycles. Traffic data is inherently a time series with strong autocorrelation (e.g., high traffic on Fridays persists week to week) and seasonality, which SARIMA(X) is designed to model directly without manual lag engineering.</p>
+<p>ARIMA-based models often outperform simple linear regression for time series like traffic volume, especially when seasonality is prominent, because linear regression assumes independence between observations—which is violated in time series data.</p>
+<p>However, as the data lacks strong trends and has minimal autocorrelation, linear regression is much simpler and could be just enough. It also more interpretable.</p>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h3>
+<p>I will just build these features, which clearly affect the traffic volume:</p>
+<ul class="simple">
+<li><p>Month of the year, January to December: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)</p></li>
+<li><p>Day of the week, Monday to Sunday: (0, 1, 2, 3, 4, 5, 6)</p></li>
+<li><p>Holidays</p></li>
+<li><p>Half-holidays</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trafikoa</span><span class="p">[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofweek</span>
+<span class="n">trafikoa</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span>
+<span class="n">trafikoa</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>volume</th>
+      <th>dayofweek</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-04</th>
+      <td>6929.0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-05</th>
+      <td>7398.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-06</th>
+      <td>3466.0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-07</th>
+      <td>9676.0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-08</th>
+      <td>9781.0</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-09</th>
+      <td>3445.0</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-10</th>
+      <td>2334.0</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>I will get holidays from the official calendar data.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read holiday data</span>
+<span class="n">festak</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/festak.csv&quot;</span><span class="p">,</span>
+                     <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="n">festak</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>holiday</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-01</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-06</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-03-19</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-04-01</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-04-02</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2025-11-01</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2025-12-06</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2025-12-08</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2025-12-25</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2025-07-31</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>65 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trafikoa</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">festak</span><span class="p">)</span>
+<span class="n">trafikoa</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;holiday&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;holiday&quot;</span><span class="p">:</span> <span class="s2">&quot;int32&quot;</span><span class="p">})</span>
+<span class="n">trafikoa</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>volume</th>
+      <th>dayofweek</th>
+      <th>month</th>
+      <th>holiday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-01</th>
+      <td>NaN</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2021-01-02</th>
+      <td>NaN</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-03</th>
+      <td>NaN</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-04</th>
+      <td>6929.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-05</th>
+      <td>7398.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Half-holidays considered are days that are not weekend days nor holidays, and:</p>
+<ul class="simple">
+<li><p>previous day is holiday and next day is weekend</p></li>
+<li><p>previous day is weekend and next day is holiday</p></li>
+<li><p>previous day is holiday and next day is holiday</p></li>
+<li><p>is 24th December</p></li>
+<li><p>is 31th December</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean masks</span>
+<span class="n">is_holiday</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="p">[</span><span class="s2">&quot;holiday&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">is_weekend</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="p">[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># Check if previous day is holiday and next day is weekend</span>
+<span class="n">cond1</span> <span class="o">=</span> <span class="n">is_holiday</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">is_weekend</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_holiday</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_weekend</span><span class="p">)</span>
+
+<span class="c1"># Check if previous day is weekend and next day is holiday</span>
+<span class="n">cond2</span> <span class="o">=</span> <span class="n">is_weekend</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">is_holiday</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_holiday</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_weekend</span><span class="p">)</span>
+
+<span class="c1"># Check if previous day is holiday and next day is holiday</span>
+<span class="n">cond3</span> <span class="o">=</span> <span class="n">is_holiday</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">is_holiday</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_holiday</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_weekend</span><span class="p">)</span>
+
+<span class="c1"># Check if 24 dec and not weekend</span>
+<span class="n">cond4</span> <span class="o">=</span> <span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_weekend</span><span class="p">)</span>
+
+<span class="c1"># Check if 31 dec and not weekend</span>
+<span class="n">cond5</span> <span class="o">=</span> <span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span> <span class="o">==</span> <span class="mi">31</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">is_weekend</span><span class="p">)</span>
+
+<span class="n">trafikoa</span><span class="p">[</span><span class="s2">&quot;half_holiday&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cond1</span> <span class="o">|</span> <span class="n">cond2</span> <span class="o">|</span> <span class="n">cond3</span> <span class="o">|</span> <span class="n">cond4</span> <span class="o">|</span> <span class="n">cond5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">trafikoa</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 1826 entries, 2021-01-01 to 2025-12-31
+Freq: D
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   volume        1639 non-null   float64
+ 1   dayofweek     1826 non-null   int32  
+ 2   month         1826 non-null   int32  
+ 3   holiday       1826 non-null   int32  
+ 4   half_holiday  1826 non-null   int32  
+dtypes: float64(1), int32(4)
+memory usage: 57.1 KB
+None
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>volume</th>
+      <th>dayofweek</th>
+      <th>month</th>
+      <th>holiday</th>
+      <th>half_holiday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-01-01</th>
+      <td>NaN</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-02</th>
+      <td>NaN</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-03</th>
+      <td>NaN</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-04</th>
+      <td>6929.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-01-05</th>
+      <td>7398.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2025-12-27</th>
+      <td>NaN</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2025-12-28</th>
+      <td>NaN</td>
+      <td>6</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2025-12-29</th>
+      <td>NaN</td>
+      <td>0</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2025-12-30</th>
+      <td>NaN</td>
+      <td>1</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2025-12-31</th>
+      <td>NaN</td>
+      <td>2</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1826 rows × 5 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="linear-regression">
+<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h3>
+<p>Data from 2021, 2022, and 2023 will be used to train the model. The year 2024 will be reserved for testing its performance. Finally, the (incomplete) 2025 data will be used for validation.</p>
+<section id="test-2024">
+<h4>Test 2024<a class="headerlink" href="#test-2024" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define features and target dropping missing-value rows</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">dropna</span><span class="p">()[[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;holiday&quot;</span><span class="p">,</span> <span class="s2">&quot;half_holiday&quot;</span><span class="p">]]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">dropna</span><span class="p">()[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span>
+
+<span class="c1"># Hot-encoding: they&#39;re categorical even if numbered!</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
+
+<span class="c1"># Split data</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2024</span><span class="p">]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2024</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2024</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2024</span><span class="p">]</span>
+
+<span class="c1"># Linear Regression model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Calculate evaluation metrics</span>
+<span class="n">r_squared</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model score:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">R^2 -&gt; </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">RMSE -&gt; </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model score:
+	R^2 -&gt; 0.91
+	RMSE -&gt; 846
+</pre></div>
+</div>
+</div>
+</div>
+<p>The model’s performance appears reasonably good, with an average error of fewer than 1,000 vehicles—roughly under 10% of the daily traffic volume (about 10,000 vehicles).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Linear Regression model coefficients&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/13d2fd19f127fa149ed8f99738d2dcc1cfe2fb9811858537a45cadd1234805c8.png" src="../_images/13d2fd19f127fa149ed8f99738d2dcc1cfe2fb9811858537a45cadd1234805c8.png" />
+</div>
+</div>
+<p>As expected, holidays, partial holidays, weekends, and the month of August have a greater impact than the other variables.</p>
+<p>Once we have the model, we can make the prediction through the whole 2024 calendar.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict the whole calendar year</span>
+<span class="n">X_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">trafikoa</span><span class="p">[[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;holiday&quot;</span><span class="p">,</span> <span class="s2">&quot;half_holiday&quot;</span><span class="p">]],</span>
+                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dayofweek&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
+<span class="n">X_24</span> <span class="o">=</span> <span class="n">X_all</span><span class="p">[</span><span class="n">X_all</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2024</span><span class="p">]</span>
+<span class="n">y_pred24</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_24</span><span class="p">)</span>
+
+<span class="c1"># Create dataframe from array</span>
+<span class="n">y_pred24_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_pred24</span><span class="p">,</span>
+                           <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;predicted&quot;</span><span class="p">],</span>
+                           <span class="n">index</span><span class="o">=</span><span class="n">X_24</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="c1"># Join</span>
+<span class="n">pred24</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2024</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">y_pred24_df</span><span class="p">)</span>
+
+<span class="c1"># Claculate prediction error</span>
+<span class="n">pred24</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pred24</span><span class="p">[</span><span class="s2">&quot;predicted&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred24</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span>
+<span class="n">pred24</span><span class="p">[</span><span class="s2">&quot;error_abs&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="nb">abs</span><span class="p">(</span><span class="n">pred24</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span>
+
+<span class="c1"># Plot</span>
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">pred24_month</span> <span class="o">=</span> <span class="n">pred24</span><span class="p">[</span><span class="n">pred24</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">]</span>
+    <span class="n">pred24_month</span> <span class="o">=</span> <span class="n">pred24_month</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pred24_month</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+    <span class="n">pred24_month</span><span class="p">[[</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="s2">&quot;predicted&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">pred24_month</span><span class="p">[[</span><span class="s2">&quot;error_abs&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; 2024&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/d5a410f4e9442c4ad6c81ed2a9765e290894b8575211dffd122bfffcfac0a091.png" src="../_images/d5a410f4e9442c4ad6c81ed2a9765e290894b8575211dffd122bfffcfac0a091.png" />
+<img alt="../_images/27e367ed2dbec1e449aa46931cfc0dc8a5ca9580cb7d3a499d13f69fcaee2b27.png" src="../_images/27e367ed2dbec1e449aa46931cfc0dc8a5ca9580cb7d3a499d13f69fcaee2b27.png" />
+<img alt="../_images/32e3923776e09c208c6e0b4fed11d13ed6bed427237c574d71beece4e09b2a64.png" src="../_images/32e3923776e09c208c6e0b4fed11d13ed6bed427237c574d71beece4e09b2a64.png" />
+<img alt="../_images/36031d936a6367e4dd5f08237862a5c026112a359d17e7ebe12ae63beea06c29.png" src="../_images/36031d936a6367e4dd5f08237862a5c026112a359d17e7ebe12ae63beea06c29.png" />
+<img alt="../_images/bb1397290ead5cbc9e11c754d525098fdccc039d1576a0372f17eda1a4eaa3ec.png" src="../_images/bb1397290ead5cbc9e11c754d525098fdccc039d1576a0372f17eda1a4eaa3ec.png" />
+<img alt="../_images/c8aa7da75b2cec08da345fee0a85b40ed29f01d7e72e16f86ee60f09772ef9bf.png" src="../_images/c8aa7da75b2cec08da345fee0a85b40ed29f01d7e72e16f86ee60f09772ef9bf.png" />
+<img alt="../_images/1479bf41235ba1be7b46c116380b8b7b77839c99abbb43e30f330125e6a471bb.png" src="../_images/1479bf41235ba1be7b46c116380b8b7b77839c99abbb43e30f330125e6a471bb.png" />
+<img alt="../_images/7bd152a70623bf0424117d2171256c4ad8736d9a3676319276f6c26db64a5f23.png" src="../_images/7bd152a70623bf0424117d2171256c4ad8736d9a3676319276f6c26db64a5f23.png" />
+<img alt="../_images/886b45bd6e664572cc20d93ec8b974baae555410a18e0e32d3fc5ed697c3fc12.png" src="../_images/886b45bd6e664572cc20d93ec8b974baae555410a18e0e32d3fc5ed697c3fc12.png" />
+<img alt="../_images/0d7e77c9148ee7d925f449cfb0600822c48c18999db8787fbe847a7d1d707f79.png" src="../_images/0d7e77c9148ee7d925f449cfb0600822c48c18999db8787fbe847a7d1d707f79.png" />
+<img alt="../_images/56aafae9a9dbecb8a8c786833b5bba8241e98b850d053ea27407ec1e1f2d8f1f.png" src="../_images/56aafae9a9dbecb8a8c786833b5bba8241e98b850d053ea27407ec1e1f2d8f1f.png" />
+<img alt="../_images/02e9c62b51b5349719d90698ef1561ccd849e29005cdf2fba4fdcbea7f8b8ce7.png" src="../_images/02e9c62b51b5349719d90698ef1561ccd849e29005cdf2fba4fdcbea7f8b8ce7.png" />
+</div>
+</div>
+<p>The model predicts fairly well considering its simplicity.</p>
+<p>The prediction model struggles in August, likely due to the limitations of a linear model in capturing such pronounced seasonal pattern changes.</p>
+<p>In general, for most days the predictions fall below the actual values, which may indicate two things:</p>
+<ol class="arabic simple">
+<li><p>The 2021 training data was still affected by the pandemic, leading to lower traffic levels.</p></li>
+<li><p>There is a slight upward trend that the features fail to capture.</p></li>
+</ol>
+<p>To account for the recent upward trend, a time-related feature should be added—an indicator that informs the model of this effect, which a time-based model would inherently capture.</p>
+</section>
+<section id="prediction-2025">
+<h4>Prediction 2025<a class="headerlink" href="#prediction-2025" title="Link to this heading">#</a></h4>
+<p>I will retrain the Logistic Regression model, excluding 2021 and including 2024, to forecast the entire 2025 calendar year. At this stage of the project, only data through August is available for performance evaluation.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data, dismiss 2021</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[(</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2021</span><span class="p">)]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[(</span><span class="n">y</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2021</span><span class="p">)]</span>
+
+<span class="c1"># Fit model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Predict the whole calendar year</span>
+<span class="n">X_25</span> <span class="o">=</span> <span class="n">X_all</span><span class="p">[</span><span class="n">X_all</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">]</span>
+<span class="n">y_pred25</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_25</span><span class="p">)</span>
+
+<span class="c1"># Create dataframe from array</span>
+<span class="n">y_pred25_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_pred25</span><span class="p">,</span>
+                           <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;predicted&quot;</span><span class="p">],</span>
+                           <span class="n">index</span><span class="o">=</span><span class="n">X_25</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="c1"># Join</span>
+<span class="n">pred25</span> <span class="o">=</span> <span class="n">trafikoa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trafikoa</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">y_pred25_df</span><span class="p">)</span>
+
+<span class="c1"># Claculate prediction error</span>
+<span class="n">pred25</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">pred25</span><span class="p">[</span><span class="s2">&quot;predicted&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred25</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span>
+<span class="n">pred25</span><span class="p">[</span><span class="s2">&quot;error_abs&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="nb">abs</span><span class="p">(</span><span class="n">pred25</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">])</span>
+
+<span class="c1"># Plot</span>
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">pred25_month</span> <span class="o">=</span> <span class="n">pred25</span><span class="p">[</span><span class="n">pred25</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">]</span>
+    <span class="n">pred25_month</span> <span class="o">=</span> <span class="n">pred25_month</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pred25_month</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+    <span class="n">pred25_month</span><span class="p">[[</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="s2">&quot;predicted&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">pred25_month</span><span class="p">[[</span><span class="s2">&quot;error_abs&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; 2025&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;number of vehicles&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/36e3a4596864161387d9c5eb0b150a1f15e5c0d0914f15be7b9d28f8bd6ff5bc.png" src="../_images/36e3a4596864161387d9c5eb0b150a1f15e5c0d0914f15be7b9d28f8bd6ff5bc.png" />
+<img alt="../_images/327a0fa69f112916b871e6e502114eecae4c2ef26cce661e5c74e36142121af5.png" src="../_images/327a0fa69f112916b871e6e502114eecae4c2ef26cce661e5c74e36142121af5.png" />
+<img alt="../_images/15a40f72d8e3f8ee956f0f59740da7e7523e7223ffde3b0796986a5dd2f4ab64.png" src="../_images/15a40f72d8e3f8ee956f0f59740da7e7523e7223ffde3b0796986a5dd2f4ab64.png" />
+<img alt="../_images/d7c05b7ed427a1d40c6659583e262e981f8c375523ed79af700492c21470f3db.png" src="../_images/d7c05b7ed427a1d40c6659583e262e981f8c375523ed79af700492c21470f3db.png" />
+<img alt="../_images/a6ff597eed018dbc421cd88575821ce2eea8e68525646f0b1e17c237c8a5697f.png" src="../_images/a6ff597eed018dbc421cd88575821ce2eea8e68525646f0b1e17c237c8a5697f.png" />
+<img alt="../_images/0597afe0212db9216246e6a4d6df84fb1bfdc3e42a8699853e13e55a18a85f4f.png" src="../_images/0597afe0212db9216246e6a4d6df84fb1bfdc3e42a8699853e13e55a18a85f4f.png" />
+<img alt="../_images/7b005a47581f45d1c8fc856d72875ee5dd3157a2ef304f1bc236eae025620937.png" src="../_images/7b005a47581f45d1c8fc856d72875ee5dd3157a2ef304f1bc236eae025620937.png" />
+<img alt="../_images/e4b84800efb81eaa67668cc0245f7baa6eec026ca6de7db4a9e36206fb26f9df.png" src="../_images/e4b84800efb81eaa67668cc0245f7baa6eec026ca6de7db4a9e36206fb26f9df.png" />
+<img alt="../_images/d88ea36e5fcb562a1a5b6eeee39384f983b9483af2de2da7a41e964387ec777b.png" src="../_images/d88ea36e5fcb562a1a5b6eeee39384f983b9483af2de2da7a41e964387ec777b.png" />
+<img alt="../_images/0f1081e7a152576bc40de55faa6e745a8e9b1027688add7cb4ad9c5b3a0bb47e.png" src="../_images/0f1081e7a152576bc40de55faa6e745a8e9b1027688add7cb4ad9c5b3a0bb47e.png" />
+<img alt="../_images/ab972af6161ab5c30ad341d29156d713463ec955d07b158dd49559154a15221d.png" src="../_images/ab972af6161ab5c30ad341d29156d713463ec955d07b158dd49559154a15221d.png" />
+<img alt="../_images/451cde011b251bbae12e2c0748254fc7436e2ed7845077dec6697267f50309a5.png" src="../_images/451cde011b251bbae12e2c0748254fc7436e2ed7845077dec6697267f50309a5.png" />
+</div>
+</div>
+<p>The predictions still tend to fall below the actual values, suggesting that a time-related feature is necessary.</p>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this project, a simple model was developed to predict the outcome of a seasonal attendance problem—specifically, traffic volume at a given location. Although the possibility of using a time series–focused model was considered, a straightforward linear regression was chosen for its simplicity and interpretability, focusing on the features most strongly affecting the target. Because the time series is not stationary, it appears necessary to include a time-related feature in the model. Overall, the results were reasonable, but the model struggles to predict traffic in August, when patterns deviate sharply from the rest of the year.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../projects_personal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Personal projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="forecast.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Temperature forecast</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trend">Trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-month">By month</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-day-of-the-week">By day of the week</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-2024">Test 2024</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-2025">Prediction 2025</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mikel Imaz, 2023-2025
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
