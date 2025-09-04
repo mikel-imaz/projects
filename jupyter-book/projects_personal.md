@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Traffic volume
+:link: notebooks/trafikoa
+:link-type: doc
+:img-bottom: notebooks/img/9259.jpg
+:::
+
 :::{grid-item-card} Temperature forecast
 :link: notebooks/forecast
 :link-type: doc

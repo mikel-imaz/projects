@@ -21,6 +21,7 @@ parts:
     - file: notebooks/abalone
   - file: projects_personal
     sections:
+    - file: notebooks/trafikoa
     - file: notebooks/forecast
     - file: notebooks/land_cover
     - file: notebooks/chm
