@@ -5,6 +5,12 @@
 ::::{grid} 2 2 2 3
 :gutter: 3
 
+:::{grid-item-card} Water quality
+:link: notebooks/waterquality
+:link-type: doc
+:img-bottom: notebooks/img/NKN_20250912_184806.JPG
+:::
+
 :::{grid-item-card} Traffic volume
 :link: notebooks/trafikoa
 :link-type: doc
