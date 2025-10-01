@@ -6,19 +6,6 @@ root: intro
 parts:
 - caption: Contents
   chapters:
-  - file: projects_competition
-    sections:
-    - file: notebooks/machine-downtime
-    - file: notebooks/book-popularity
-    - file: notebooks/internet-patterns
-    - file: notebooks/sleepinc
-    - file: notebooks/hairloss
-    - file: notebooks/employee-network
-    - file: notebooks/hospital
-    - file: notebooks/hotels
-    - file: notebooks/webpage
-    - file: notebooks/segmentation
-    - file: notebooks/abalone
   - file: projects_personal
     sections:
     - file: notebooks/waterquality
@@ -43,6 +30,19 @@ parts:
     - file: notebooks/traffic_fines
     - file: notebooks/urban_trees
     - file: notebooks/breads
+  - file: projects_competition
+    sections:
+    - file: notebooks/machine-downtime
+    - file: notebooks/book-popularity
+    - file: notebooks/internet-patterns
+    - file: notebooks/sleepinc
+    - file: notebooks/hairloss
+    - file: notebooks/employee-network
+    - file: notebooks/hospital
+    - file: notebooks/hotels
+    - file: notebooks/webpage
+    - file: notebooks/segmentation
+    - file: notebooks/abalone
 - caption: Other
   chapters:
   - file: writings
@@ -62,3 +62,5 @@ parts:
     - file: writings/ia-aplicada-la-empresa-empoderada-por-la-ia
     - file: writings/llm-modo-de-empleo
     - file: writings/ley-de-ia-de-la-ue
+  - url: https://mikel-imaz.github.io/mikel-imaz/
+    title: Works by Mikel Imaz
