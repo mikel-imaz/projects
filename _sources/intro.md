@@ -220,3 +220,9 @@
 ## Writings
 
 {octicon}`book` &nbsp;[Writings](writings) (in Spanish)
+
+## More works
+
+On Data Science, AI, software, lectures...
+
+[Works by Mikel Imaz {octicon}`link-external`](https://mikel-imaz.github.io/mikel-imaz/)
